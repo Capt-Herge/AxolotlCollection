@@ -61,7 +61,13 @@
     <Compile Include="TicTacToe\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vanguards\Vanguards.cs" />
+    <Compile Include="Vanguards\PlayerShip.cs" />
+    <Compile Include="Vanguards\Vanguards.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vanguards\Vanguards.Designer.cs">
+      <DependentUpon>Vanguards.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="form_Menue.resx">
       <DependentUpon>form_Menue.cs</DependentUpon>
     </EmbeddedResource>
@@ -73,6 +79,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="TicTacToe\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -90,7 +97,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Vanguards\Resources\spaceship.pod_.1.green_.png" />
+    <Content Include="Vanguards\Resources\Puzzle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
