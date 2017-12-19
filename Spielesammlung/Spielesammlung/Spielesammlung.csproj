@@ -61,7 +61,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vanguards\Vanguards.cs" />
+    <Compile Include="TicTacToe\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TicTacToe\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vanguards\PlayerShip.cs" />
+    <Compile Include="Vanguards\Resources\Projektile.cs" />
+    <Compile Include="Vanguards\Vanguards.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vanguards\Vanguards.Designer.cs">
+      <DependentUpon>Vanguards.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="form_Menue.resx">
       <DependentUpon>form_Menue.cs</DependentUpon>
     </EmbeddedResource>
@@ -76,7 +89,14 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TicTacToe\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vanguards\Vanguards.resx">
+      <DependentUpon>Vanguards.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -91,7 +111,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="TicTacToe\" />
+    <Content Include="Vanguards\Resources\greenProjectile.png" />
+    <Content Include="Vanguards\Resources\spaceship.pod_.1.green_.png" />
+    <Content Include="Vanguards\Resources\Puzzle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
