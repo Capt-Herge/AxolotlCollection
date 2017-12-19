@@ -63,6 +63,16 @@ namespace Spielesammlung.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap greenProjectile {
+            get {
+                object obj = ResourceManager.GetObject("greenProjectile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap GreenSpaceShip {
             get {
                 object obj = ResourceManager.GetObject("GreenSpaceShip", resourceCulture);

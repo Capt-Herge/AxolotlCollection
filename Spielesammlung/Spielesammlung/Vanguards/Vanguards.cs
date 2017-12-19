@@ -35,10 +35,17 @@ namespace Spielesammlung.Vanguards
         private bool m_debugMode;
         private PlayerShip _Player;
         private Thread _PlayerControll;
-        private bool _KeyPressed = false ;
+        private bool _KeyUp = false ;
+        private bool _KeyDown = false;
+        private bool _KeyLeft = false;
+        private bool _KeyRight = false;
         private String _Taste;
         private System.Windows.Forms.Timer _movementTimer = new System.Windows.Forms.Timer { Interval = 15 };
-
+        private System.Windows.Forms.Timer _projektileTimer = new System.Windows.Forms.Timer { Interval = 100 };
+        private Resources.Projektile[] _projektile;
+        private List<Resources.Projektile> _projektilListe= new List<Resources.Projektile>();
+        private D2D.Bitmap projektileBitmap;
+        private Bitmap projektileBitmapGdi;
         private static bool[] keys_down;
         private static Keys[] key_props;
         public Vanguards()
@@ -57,50 +64,165 @@ namespace Spielesammlung.Vanguards
             InitializeGraphics();
             _movementTimer.Tick += tick;
             _movementTimer.Start();
+            _projektileTimer.Tick += ProjektilTicK;
+            _projektileTimer.Start();
+
+            
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(Vanguards_KeyDown);
             this.KeyUp += new KeyEventHandler(Vanguards_KeyUp);
 
         }
 
+        static bool IntersectPixels(Rectangle rectangleA, Bitmap bmpA,
+                            Rectangle rectangleB, Bitmap bmpB)
+        {
+            bool collision = false;
+
+            Size s1 = bmpA.Size;
+            Size s2 = bmpB.Size;
+
+            PixelFormat fmt1 = bmpA.PixelFormat;
+            PixelFormat fmt2 = bmpB.PixelFormat;
+
+            Rectangle rect = new Rectangle(0, 0, s1.Width, s1.Height);
+            Rectangle rectB = new Rectangle(0, 0, s2.Width, s2.Height);
+
+            BitmapData bmp1Data = bmpA.LockBits(rect, ImageLockMode.ReadOnly, fmt1);
+            BitmapData bmp2Data = bmpB.LockBits(rectB, ImageLockMode.ReadOnly, fmt2);
+
+            int size1 = bmp1Data.Stride * bmp1Data.Height;
+            int size2 = bmp2Data.Stride * bmp2Data.Height;
+            byte[] data1 = new byte[size1];
+            byte[] data2 = new byte[size2];
+            Color[] cData1 = new Color[size1];
+            Color[] cData2 = new Color[size2];
+
+            System.Runtime.InteropServices.Marshal.Copy(bmp1Data.Scan0, data1, 0, size1);
+            System.Runtime.InteropServices.Marshal.Copy(bmp2Data.Scan0, data2, 0, size2);
+
+            // Find the bounds of the rectangle intersection
+            int top = Math.Max(rectangleA.Top, rectangleB.Top);
+            int bottom = Math.Min(rectangleA.Bottom, rectangleB.Bottom);
+            int left = Math.Max(rectangleA.Left, rectangleB.Left);
+            int right = Math.Min(rectangleA.Right, rectangleB.Right);
+
+
+            // Check every point within the intersection bounds
+            for (int y = top; y < bottom; y++)
+            {
+                for (int x = left; x < right; x++)
+                {
+                    // Color data are BGRA!
+                    // Get the alpha (+3!) value of both pixels at this point
+                    byte colorA = data1[(x - rectangleA.Left) +
+                                        (y - rectangleA.Top) * rectangleA.Width + 3];
+                    byte colorB = data2[(x - rectangleB.Left) +
+                                        (y - rectangleB.Top) * rectangleB.Width + 3];
+
+                    // If both pixels are not completely transparent,
+                    if (colorA != 0 && colorB != 0)
+                    {
+                        // then an intersection has been found
+                        { collision = true; goto done; }
+                    }
+                }
+            }
+
+        done:
+            bmpA.UnlockBits(bmp1Data);
+            bmpB.UnlockBits(bmp2Data);
+            return collision;
+        }
+
         private void tick(Object source, EventArgs e)
         {
             // Do this every timing interval.
             _DoMovement();
-            byte n = 0;
-            foreach (var v in keys_down)
-            {
-                if (n == 3 && v)
-                // If the "s" key is being held down, no key delay issues. :)
-            n++;
-            }
+
         
-    }
+        }
+        private void ProjektilTicK(Object source,EventArgs e)
+        {
+            foreach(Resources.Projektile singleProjectile in _projektilListe)
+{
+                singleProjectile.PosX += 1;
+                singleProjectile.FlightTime += 1;
+              //  if(singleProjectile.FlightTime==20)
+              //  { _projektilListe.Remove(singleProjectile); }
+            }
+            this.Invalidate();
+            
+        }
 
         private void movementTimer_Tick(object sender, EventArgs e)
         {
             _DoMovement();
+            this.Invalidate();
         }
 
         private void _DoMovement()
         {
-            if (_KeyPressed)
-            {
-                _Player.PosY = _Player.PosY+1;
-                this.Invalidate();
+            if (_KeyDown) { _Player.PosY = _Player.PosY + 3; }
+            if (_KeyUp) { _Player.PosY = _Player.PosY - 3; }
+            if (_KeyLeft) { _Player.PosX = _Player.PosX - 3; }
+            if (_KeyRight) { _Player.PosX = _Player.PosX + 3; }
 
-            }
-
-            
-
+            this.Invalidate();
         }
 
         private void Vanguards_KeyUp(object sender, KeyEventArgs e)
         {
 
-            _KeyPressed = false;
-            _movementTimer.Stop();
-            
+            switch (e.KeyCode)
+            {
+                case Keys.S:
+
+
+                    _KeyDown = false;
+
+
+                    break;
+
+                case Keys.Down:
+
+                    _KeyDown = false;
+
+                    break;
+                case Keys.W:
+
+                    _KeyUp = false;
+
+                    break;
+
+                case Keys.Up:
+
+                    _KeyUp = false;
+
+                    break;
+                case Keys.D:
+
+                    _KeyRight = false;
+                    break;
+
+                case Keys.A:
+
+                    _KeyLeft = false;
+                    break;
+
+                case Keys.Left:
+                    _KeyLeft = false;
+                    break;
+
+            }
+            _DoMovement();
+
+            this.Invalidate();
+            if (!_KeyDown && !_KeyLeft && !_KeyRight && !_KeyUp)
+            {
+                _movementTimer.Stop();
+            }
+
         }
 
         /// <summary>
@@ -209,7 +331,8 @@ namespace Spielesammlung.Vanguards
             spaceshipBitmapGDI = Properties.Resources.GreenSpaceShip;
             spaceShipBitmap = LoadBitmap(spaceshipBitmapGDI);
             _Player = new PlayerShip(spaceShipBitmap);
-            
+            projektileBitmapGdi = Properties.Resources.greenProjectile;
+            projektileBitmap = LoadBitmap(projektileBitmapGdi);
 
             //Update initialization flag
             m_initialized = true;
@@ -288,46 +411,49 @@ namespace Spielesammlung.Vanguards
             {
               case Keys.S:
 
-                    //    _Player.PosY=_Player.PosY+1;
-                    //     this.Invalidate();
-                    _KeyPressed = true;
-                    //_PlayerControll = new Thread(ShipDown);
-                    //_PlayerControll.Start();
+
+                    _KeyDown = true;
+
                     
               break;
 
                 case Keys.Down:
-                    _Player.PosY = _Player.PosY + 1;
-                    this.Invalidate();
-              break;
+                    
+                        _KeyDown = true;
+
+                    break;
                 case Keys.W:
 
-                    _Player.PosY = _Player.PosY - 1;
-                    this.Invalidate();
+                    _KeyUp = true;    
+
                     break;
 
                 case Keys.Up:
-                    _Player.PosY = _Player.PosY - 1;
-                    this.Invalidate();
+
+                    _KeyUp = true;
+
                     break;
                 case Keys.D:
-                    _KeyPressed = true;
-                    _Player.PosX = _Player.PosX + 1;
-                    this.Invalidate();
+
+                    _KeyRight = true;
                     break;
 
                 case Keys.A:
 
-                    _Player.PosY = _Player.PosX - 1;
-                    this.Invalidate();
+                    _KeyLeft = true;
                     break;
 
                 case Keys.Left:
-                    _Player.PosY = _Player.PosX - 1;
-                    this.Invalidate();
+                    _KeyLeft = true;
                     break;
 
-            }
+                case Keys.Space:
+                    _projektilListe.Add(new Resources.Projektile(false, _Player.PosX,_Player.PosY,5));
+
+                    break;
+
+                }
+            _movementTimer.Start();
             _DoMovement();
             _movementTimer.Start();
         }
@@ -362,8 +488,20 @@ namespace Spielesammlung.Vanguards
  
                     Stopwatch stopwatch = new Stopwatch();
                     stopwatch.Start();
-                    m_renderTarget.DrawBitmap(m_puzzleBitmap);
-                    m_renderTarget.DrawBitmap(_Player.getShipBitmap(), new RectangleF(_Player.PosX, _Player.PosY, _Player.ShipHitboxX, _Player.ShipHitboxY), 1f, interpolationMode);
+                    m_renderTarget.DrawBitmap(m_puzzleBitmap, new Rectangle(0, 0, _Player.ShipHitboxX, _Player.ShipHitboxY), 1f, interpolationMode);
+                    m_renderTarget.DrawBitmap(_Player.getShipBitmap(), new Rectangle(_Player.PosX, _Player.PosY, _Player.ShipHitboxX, _Player.ShipHitboxY), 1f, interpolationMode);
+
+                   
+
+                    if (IntersectPixels(new Rectangle(_Player.PosX, _Player.PosY, _Player.ShipHitboxX, _Player.ShipHitboxY), spaceshipBitmapGDI, new Rectangle(0, 0, _Player.ShipHitboxX, _Player.ShipHitboxY), m_puzzleBitmapGdi))
+                    {
+                        m_renderTarget.DrawBitmap(_Player.getShipBitmap(), new Rectangle(300, 300, _Player.ShipHitboxX, _Player.ShipHitboxY), 1f, interpolationMode);
+                    }
+
+                    foreach (Resources.Projektile projektile in _projektilListe)
+                    {
+                        m_renderTarget.DrawBitmap(projektileBitmap, new Rectangle(projektile.PosX, projektile.PosY,30,5), 1f, interpolationMode);
+                    }
                     stopwatch.Stop();
 
                 }
@@ -373,6 +511,7 @@ namespace Spielesammlung.Vanguards
                 }
 
             }
+           
         }
 
         /// <summary>

@@ -16,7 +16,8 @@ namespace Spielesammlung
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new form_Menue());
+            //Application.Run(new form_Menue());
+            Application.Run(new Vanguards.Vanguards());
         }
     }
 }
