@@ -41,7 +41,7 @@ namespace Spielesammlung.Vanguards
         private bool _KeyRight = false;
         private String _Taste;
         private System.Windows.Forms.Timer _movementTimer = new System.Windows.Forms.Timer { Interval = 15 };
-        private System.Windows.Forms.Timer _projektileTimer = new System.Windows.Forms.Timer { Interval = 100 };
+        private System.Windows.Forms.Timer _projektileTimer = new System.Windows.Forms.Timer { Interval = 15 };
         private Resources.Projektile[] _projektile;
         private List<Resources.Projektile> _projektilListe= new List<Resources.Projektile>();
         private D2D.Bitmap projektileBitmap;
@@ -146,7 +146,7 @@ namespace Spielesammlung.Vanguards
         {
             foreach(Resources.Projektile singleProjectile in _projektilListe)
 {
-                singleProjectile.PosX += 1;
+                singleProjectile.PosX += 5;
                 singleProjectile.FlightTime += 1;
               //  if(singleProjectile.FlightTime==20)
               //  { _projektilListe.Remove(singleProjectile); }
@@ -326,12 +326,12 @@ namespace Spielesammlung.Vanguards
                 Color.LightSteelBlue);
 
             //Load the bitmap
-            m_puzzleBitmapGdi = Properties.Resources.Puzzle;
+            m_puzzleBitmapGdi = Resources.Resources.Puzzle;
             m_puzzleBitmap = LoadBitmap(m_puzzleBitmapGdi);
-            spaceshipBitmapGDI = Properties.Resources.GreenSpaceShip;
+            spaceshipBitmapGDI = Resources.Resources.GreenSpaceShip;
             spaceShipBitmap = LoadBitmap(spaceshipBitmapGDI);
             _Player = new PlayerShip(spaceShipBitmap);
-            projektileBitmapGdi = Properties.Resources.greenProjectile;
+            projektileBitmapGdi = Resources.Resources.greenProjectile;
             projektileBitmap = LoadBitmap(projektileBitmapGdi);
 
             //Update initialization flag
@@ -448,7 +448,7 @@ namespace Spielesammlung.Vanguards
                     break;
 
                 case Keys.Space:
-                    _projektilListe.Add(new Resources.Projektile(false, _Player.PosX,_Player.PosY,5));
+                    _projektilListe.Add(new Resources.Projektile(false, _Player.PosX+100,_Player.PosY+50,5));
 
                     break;
 

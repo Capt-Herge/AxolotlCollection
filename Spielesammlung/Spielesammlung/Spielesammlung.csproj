@@ -69,6 +69,11 @@
     </Compile>
     <Compile Include="Vanguards\PlayerShip.cs" />
     <Compile Include="Vanguards\Resources\Projektile.cs" />
+    <Compile Include="Vanguards\Resources\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Vanguards\Vanguards.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +98,11 @@
     </Compile>
     <EmbeddedResource Include="TicTacToe\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vanguards\Resources\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Vanguards\Vanguards.resx">
       <DependentUpon>Vanguards.cs</DependentUpon>
