@@ -25,19 +25,94 @@ namespace Spielesammlung.Vanguards
         private int shipHitboxX = 100;
         private int shipHitboxY = 100;
 
-        public PlayerShip(D2D.Bitmap spaceshipBitmap)
+        public int PosX
         {
-            this.spaceshipBitmap = spaceshipBitmap;
+            get
+            {
+                return _posX;
+            }
+
+            set
+            {
+                _posX = value;
+            }
         }
 
-        public int PosX { get => _posX; set => _posX = value; }
-        public int PosY { get => _posY; set => _posY = value; }
-        public int ShipHitboxX { get => shipHitboxX;}
-        public int ShipHitboxY { get => shipHitboxY; }
+        public int PosY
+        {
+            get
+            {
+                return _posY;
+            }
+
+            set
+            {
+                _posY = value;
+            }
+        }
+
+        public D2D.Bitmap SpaceshipBitmap
+        {
+            get
+            {
+                return spaceshipBitmap;
+            }
+
+            set
+            {
+                spaceshipBitmap = value;
+            }
+        }
+
+        public Bitmap SpaceshipBitmapGDI
+        {
+            get
+            {
+                return spaceshipBitmapGDI;
+            }
+
+            set
+            {
+                spaceshipBitmapGDI = value;
+            }
+        }
+
+        public int ShipHitboxX
+        {
+            get
+            {
+                return shipHitboxX;
+            }
+
+            set
+            {
+                shipHitboxX = value;
+            }
+        }
+
+        public int ShipHitboxY
+        {
+            get
+            {
+                return shipHitboxY;
+            }
+
+            set
+            {
+                shipHitboxY = value;
+            }
+        }
+
+        public PlayerShip(D2D.Bitmap spaceshipBitmap)
+        {
+            this.SpaceshipBitmap = spaceshipBitmap;
+        }
+
+
 
         public D2D.Bitmap getShipBitmap()
         {
-            return spaceshipBitmap;
+            return SpaceshipBitmap;
         }
 
 

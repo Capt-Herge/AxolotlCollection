@@ -55,7 +55,7 @@
             // 
             this.Ball.BackColor = System.Drawing.SystemColors.Control;
             this.Ball.Image = ((System.Drawing.Image)(resources.GetObject("Ball.Image")));
-            this.Ball.Location = new System.Drawing.Point(257, 197);
+            this.Ball.Location = new System.Drawing.Point(291, 224);
             this.Ball.Name = "Ball";
             this.Ball.Size = new System.Drawing.Size(20, 20);
             this.Ball.TabIndex = 1;
@@ -73,7 +73,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 1;
+            this.timer1.Interval = 15;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Player1Score
@@ -98,7 +98,7 @@
             // 
             // WinButton
             // 
-            this.WinButton.Location = new System.Drawing.Point(234, 164);
+            this.WinButton.Location = new System.Drawing.Point(232, 164);
             this.WinButton.Name = "WinButton";
             this.WinButton.Size = new System.Drawing.Size(121, 100);
             this.WinButton.TabIndex = 5;
@@ -125,8 +125,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pong";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.Player1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player2)).EndInit();

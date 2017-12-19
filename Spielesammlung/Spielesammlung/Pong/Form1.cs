@@ -15,8 +15,8 @@ namespace Pong
         int playerSpeed = 5;
         int ballSpeed;
 
-        int ballVelocityX = 5;
-        int ballVelocityY = 5;
+        int ballVelocityX = 2;
+        int ballVelocityY = 2;
 
         int p1Velocity;
         int P2Velocity;
@@ -24,11 +24,16 @@ namespace Pong
         int p1Score;
         int p2Score;
 
+
         bool pause = false;
 
         public Form1()
         {
             InitializeComponent();
+
+            this.KeyDown += new KeyEventHandler(Form1_KeyDown);
+            this.KeyUp += new KeyEventHandler(Form1_KeyUp);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -57,11 +62,11 @@ namespace Pong
                 Ball.Location = new Point(this.Height / 2, this.Width / 2);
             }
 
-            if (Ball.Location.X > Player1.Location.X && Ball.Location.X  < Player1.Location.X + Player1.Width && Ball.Location.Y + Ball.Height > Player1.Location.Y)
+            if (abprallenPaddle1())
             {
                 ballVelocityX *= -1;
             }
-            if (Ball.Location.X + Ball.Width > Player2.Location.X && Ball.Location.X  < Player2.Location.X && Ball.Location.Y + Ball.Height > Player2.Location.Y)
+            if (abprallenPaddle2())
             {
                 ballVelocityX *= -1;
             }
@@ -90,6 +95,20 @@ namespace Pong
                 WinButton.Visible = true;
                 WinButton.Text = "Spieler 2 hat gewonnen!\n Nochmal spielen?";
             }
+        }
+
+        private bool abprallenPaddle1()
+        {
+            if((Ball.Location.X<= Player1.Location.X+Player1.Width)&&(Ball.Location.Y + Ball.Height/2>= Player1.Location.Y)&& (Ball.Location.Y + Ball.Height / 2 <= Player1.Location.Y+Player1.Height))
+                { return true; }
+            return false;
+        }
+
+        private bool abprallenPaddle2()
+        {
+            if ((Ball.Location.X <= Player2.Location.X) && (Ball.Location.Y+20 + Ball.Height / 2 >= Player2.Location.Y) && (Ball.Location.Y+20 + Ball.Height / 2 <= Player2.Location.Y + Player2.Height))
+            { return true; }
+            return false;
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)

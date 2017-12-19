@@ -17,7 +17,8 @@ namespace Spielesammlung
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new form_Menue());
-            Application.Run(new Vanguards.Vanguards());
+            //Application.Run(new Vanguards.Vanguards());
+            Application.Run(new Pong.Form1());
         }
     }
 }
