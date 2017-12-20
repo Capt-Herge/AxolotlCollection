@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tic_Tac_Toe\CTicTacToe.cs" />
     <Compile Include="Tic_Tac_Toe\form_TicTacToe.cs">
       <SubType>Form</SubType>
     </Compile>

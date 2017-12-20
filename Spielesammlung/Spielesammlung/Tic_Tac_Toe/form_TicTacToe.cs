@@ -16,5 +16,55 @@ namespace Spielesammlung.TicTacToe
         {
             InitializeComponent();
         }
+
+        private void btn_A1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_A2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_A3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_B1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_B2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_B3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_C1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_C2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_C3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_reset_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
