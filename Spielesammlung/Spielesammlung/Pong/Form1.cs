@@ -12,6 +12,8 @@ namespace Pong
 {
     public partial class Form1 : Form
     {
+        Game game;
+
         int playerSpeed = 5;
         int ballSpeed;
 
@@ -26,7 +28,7 @@ namespace Pong
 
 
         bool pause = false;
-
+        
         public Form1()
         {
             InitializeComponent();
@@ -34,16 +36,27 @@ namespace Pong
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
             this.KeyUp += new KeyEventHandler(Form1_KeyUp);
 
+            game = new Game(Width, Height);
+            game.GameStateChanged += Game_GameStateChanged;
+
+        }
+
+        private void Game_GameStateChanged(object sender, EventArgs e)
+        {
+            Player1.Location = new Point(Player1.Location.X, game.getPlayer(1).getY());
+            Player2.Location = new Point(Player2.Location.X, game.getPlayer(2).getY());
+            Ball.Location = game.getBall().getBall().Location;
+            //TODO punkte aktualisieren, auf pause prüfen, Punktelogik einfügen :)
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-
+        /*
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (! pause)
+            if (!pause)
             {
                 Ball.Location = new Point(Ball.Location.X + ballVelocityX, Ball.Location.Y + ballVelocityY);
                 Player1.Location = new Point(Player1.Location.X, Player1.Location.Y + p1Velocity);
@@ -70,7 +83,7 @@ namespace Pong
             {
                 ballVelocityX *= -1;
             }
-            if (Ball.Location.Y +Ball.Height*3 < this.Height)
+            if (Ball.Location.Y + Ball.Height * 3 < this.Height)
             {
                 ballVelocityY *= -1;
             }
@@ -99,91 +112,67 @@ namespace Pong
 
         private bool abprallenPaddle1()
         {
-            if((Ball.Location.X<= Player1.Location.X+Player1.Width)&&(Ball.Location.Y + Ball.Height/2>= Player1.Location.Y)&& (Ball.Location.Y + Ball.Height / 2 <= Player1.Location.Y+Player1.Height))
-                { return true; }
+            if ((Ball.Location.X <= Player1.Location.X + Player1.Width) && (Ball.Location.Y + Ball.Height / 2 >= Player1.Location.Y) && (Ball.Location.Y + Ball.Height / 2 <= Player1.Location.Y + Player1.Height))
+            { return true; }
             return false;
         }
 
         private bool abprallenPaddle2()
         {
-            if ((Ball.Location.X <= Player2.Location.X) && (Ball.Location.Y+20 + Ball.Height / 2 >= Player2.Location.Y) && (Ball.Location.Y+20 + Ball.Height / 2 <= Player2.Location.Y + Player2.Height))
+            if ((Ball.Location.X <= Player2.Location.X) && (Ball.Location.Y + 20 + Ball.Height / 2 >= Player2.Location.Y) && (Ball.Location.Y + 20 + Ball.Height / 2 <= Player2.Location.Y + Player2.Height))
             { return true; }
             return false;
         }
-
+        */
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.W)
             {
-                p1Velocity = -playerSpeed;
+                game.changePlayerMovement(game.getPlayer(1), Player.Direction.up);
             }
             else if (e.KeyCode == Keys.S)
             {
-                p1Velocity = playerSpeed;
+                game.changePlayerMovement(game.getPlayer(1), Player.Direction.down);
             }
             else if (e.KeyCode == Keys.Up)
             {
-                P2Velocity = -playerSpeed;
+                game.changePlayerMovement(game.getPlayer(2), Player.Direction.up);
             }
             else if (e.KeyCode == Keys.Down)
             {
-                P2Velocity = playerSpeed;
+                game.changePlayerMovement(game.getPlayer(2), Player.Direction.down);
             }
             else if (e.KeyCode == Keys.P)
             {
-                if (! pause)
-                {
-                    pause = true;
-                }
-                else if (pause)
-                {
-                    pause = false;
-                }
+                game.togglePause();
             }
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.W)
+            switch(e.KeyCode)
             {
-                p1Velocity = 0;
-            }
-            else if (e.KeyCode == Keys.S)
-            {
-                p1Velocity = 0;
-            }
-            else if (e.KeyCode == Keys.Up)
-            {
-                P2Velocity = 0;
-            }
-            else if (e.KeyCode == Keys.Down)
-            {
-                P2Velocity = 0;
+                case Keys.W:
+                case Keys.S:
+                    game.changePlayerMovement(game.getPlayer(1), Player.Direction.none);
+                    break;
+                case Keys.Up:
+                case Keys.Down:
+                    game.changePlayerMovement(game.getPlayer(2), Player.Direction.none);
+                    break;
             }
         }
-
-        private void P1Abprall ()
+/*
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (Ball.Location.X > Player1.Location.X)
-            {
-
-            }
-        }
-
-              private void button1_Click(object sender, EventArgs e)
-                {
-            
             p1Score = 0;
             p2Score = 0;
             WinButton.Visible = false;
-            Player1.Location = new Point(Player1.Location.X, this.Height /3);
-            Player2.Location = new Point(Player2.Location.X, this.Height /3);
+            Player1.Location = new Point(Player1.Location.X, this.Height / 3);
+            Player2.Location = new Point(Player2.Location.X, this.Height / 3);
             pause = false;
             return;
-                 }
-        
-
+        }
+        */
     }
-            
-        
 }

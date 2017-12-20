@@ -72,9 +72,11 @@
             // 
             // timer1
             // 
+            /*
             this.timer1.Enabled = true;
             this.timer1.Interval = 15;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            */
             // 
             // Player1Score
             // 
@@ -98,14 +100,14 @@
             // 
             // WinButton
             // 
-            this.WinButton.Location = new System.Drawing.Point(232, 164);
+            this.WinButton.Location = new System.Drawing.Point(233, 65);
             this.WinButton.Name = "WinButton";
             this.WinButton.Size = new System.Drawing.Size(121, 100);
             this.WinButton.TabIndex = 5;
             this.WinButton.Text = "button1";
             this.WinButton.UseVisualStyleBackColor = true;
             this.WinButton.Visible = false;
-            this.WinButton.Click += new System.EventHandler(this.button1_Click);
+            /*this.WinButton.Click += new System.EventHandler(this.button1_Click);*/
             // 
             // Form1
             // 
