@@ -8,5 +8,22 @@ namespace Spielesammlung.Donkey_Kong
 {
     class Fass
     {
+        public int ebene = 1;
+        public bool leiterZufall = false;
+
+        public void LinksDreh()
+        {
+
+        }
+
+        public void RechtsDreh()
+        {
+
+        }
+
+        public void Fall(int ebene)
+        {
+
+        }
     }
 }

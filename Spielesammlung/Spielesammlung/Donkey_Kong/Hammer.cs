@@ -8,5 +8,9 @@ namespace Spielesammlung.Donkey_Kong
 {
     class Hammer
     {
+        public Hammer()
+        {
+
+        }
     }
 }

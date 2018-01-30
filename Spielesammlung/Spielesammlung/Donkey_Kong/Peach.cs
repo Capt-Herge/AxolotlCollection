@@ -8,5 +8,9 @@ namespace Spielesammlung.Donkey_Kong
 {
     class Peach
     {
+        public Peach()
+        {
+
+        }
     }
 }

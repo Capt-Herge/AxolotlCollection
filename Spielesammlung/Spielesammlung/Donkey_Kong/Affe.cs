@@ -8,5 +8,11 @@ namespace Spielesammlung.Donkey_Kong
 {
     class Affe
     {
+        public bool blickRichtgun = false;
+
+        public void AendereBlickRichtung()
+        {
+
+        }
     }
 }

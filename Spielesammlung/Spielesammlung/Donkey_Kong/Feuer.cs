@@ -8,5 +8,16 @@ namespace Spielesammlung.Donkey_Kong
 {
     class Feuer
     {
+        public int ebene = 1;
+
+        public void LinksSchweb()
+        {
+
+        }
+
+        public void RechtsSchweb()
+        {
+
+        }
     }
 }
