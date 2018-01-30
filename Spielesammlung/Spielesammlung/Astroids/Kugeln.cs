@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace Spielesammlung.Astroids
 {
-    abstract class Astroids
+    class Kugeln
     {
+        public bool spielerSchuss = true;
 
+        public Kugeln()
+        {
+
+        }
     }
 }

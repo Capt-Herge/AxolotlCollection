@@ -62,13 +62,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Astroids\Asteroid.cs" />
+    <Compile Include="Astroids\AsteroidGross.cs" />
+    <Compile Include="Astroids\AsteroidKlein.cs" />
+    <Compile Include="Astroids\AsteroidMittel.cs" />
     <Compile Include="Astroids\Astroids.cs" />
-    <Compile Include="Astroids\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Astroids\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Astroids\Figuren.cs" />
+    <Compile Include="Astroids\Kugeln.cs" />
+    <Compile Include="Astroids\Schiff.cs" />
+    <Compile Include="Astroids\Schwung.cs" />
+    <Compile Include="Astroids\Score.cs" />
+    <Compile Include="Astroids\Spielfeld.cs" />
+    <Compile Include="Astroids\StoppUhr.cs" />
+    <Compile Include="Astroids\UFO.cs" />
     <Compile Include="Donkey_Kong\Affe.cs" />
     <Compile Include="Donkey_Kong\Donkey_Kong.cs" />
     <Compile Include="Donkey_Kong\Ebene.cs" />

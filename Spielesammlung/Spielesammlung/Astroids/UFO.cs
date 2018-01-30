@@ -6,8 +6,16 @@ using System.Threading.Tasks;
 
 namespace Spielesammlung.Astroids
 {
-    abstract class Astroids
+    class UFO : Figuren
     {
+        public UFO()
+        {
 
+        }
+
+        public void Schiessen()
+        {
+
+        }
     }
 }

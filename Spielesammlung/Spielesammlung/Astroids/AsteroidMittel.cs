@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Spielesammlung.Astroids
 {
-    abstract class Astroids
+    class AsteroidMittel : Asteroid
     {
+        public AsteroidMittel()
+        {
 
+        }
     }
 }
