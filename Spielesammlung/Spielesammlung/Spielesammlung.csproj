@@ -119,6 +119,9 @@
     <Compile Include="Snake\Form_Snake.Designer.cs">
       <DependentUpon>Form_Snake.cs</DependentUpon>
     </Compile>
+    <Compile Include="Snake\Snake.cs" />
+    <Compile Include="Snake\Spielfeld.cs" />
+    <Compile Include="Snake\Steuerung.cs" />
     <Compile Include="Tic_Tac_Toe\CTicTacToe.cs" />
     <Compile Include="Tic_Tac_Toe\form_TicTacToe.cs">
       <SubType>Form</SubType>
@@ -155,6 +158,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Snake\Form_Snake.resx">
+      <DependentUpon>Form_Snake.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tic_Tac_Toe\form_TicTacToe.resx">
       <DependentUpon>form_TicTacToe.cs</DependentUpon>
     </EmbeddedResource>
