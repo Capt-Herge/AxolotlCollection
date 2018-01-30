@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Spielesammlung.Donkey_Kong
 {
-    class Ebene_Gerade
+    class Ebene_Gerade : Ebene
     {
+        public Ebene_Gerade()
+        {
+
+        }
     }
 }

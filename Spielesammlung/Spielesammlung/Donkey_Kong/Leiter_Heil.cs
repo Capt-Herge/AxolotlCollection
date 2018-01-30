@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Spielesammlung.Donkey_Kong
 {
-    class Leiter_Heil
+    class Leiter_Heil : Leitern
     {
+        public Leiter_Heil()
+        {
+
+        }
     }
 }
