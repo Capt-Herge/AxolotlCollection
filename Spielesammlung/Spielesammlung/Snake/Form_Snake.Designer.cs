@@ -92,6 +92,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form_Snake";
             this.Text = "Form_Snake";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_Snake_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form_Snake_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSnake)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

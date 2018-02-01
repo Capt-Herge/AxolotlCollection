@@ -35,6 +35,7 @@ namespace Spielesammlung.Snake
             }
         }
 
+        // Konstruktor
         public Element()
         {
             x = 0;
