@@ -110,6 +110,13 @@
       <DependentUpon>form_Menue.cs</DependentUpon>
     </Compile>
     <Compile Include="Highscore.cs" />
+    <Compile Include="Minesweeper\Form_Minesweeper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Minesweeper\Form_Minesweeper.Designer.cs">
+      <DependentUpon>Form_Minesweeper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Minesweeper\Spielfeld.cs" />
     <Compile Include="Pinball\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form_Menue.resx">
       <DependentUpon>form_Menue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Minesweeper\Form_Minesweeper.resx">
+      <DependentUpon>Form_Minesweeper.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pong\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
