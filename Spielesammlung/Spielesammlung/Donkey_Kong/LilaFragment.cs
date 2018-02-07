@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Spielesammlung.Donkey_Kong
 {
-    class Ebene_Schief : Ebene
+    class LilaFragment : Ebene
     {
-        public Ebene_Schief()
+        public LilaFragment()
         {
 
         }

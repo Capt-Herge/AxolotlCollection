@@ -76,10 +76,11 @@
     <Compile Include="Astroids\StoppUhr.cs" />
     <Compile Include="Astroids\UFO.cs" />
     <Compile Include="Donkey_Kong\Affe.cs" />
+    <Compile Include="Donkey_Kong\BlauesFragmentKurz.cs" />
+    <Compile Include="Donkey_Kong\BlauesFragmentLang.cs" />
+    <Compile Include="Donkey_Kong\BlauesFragmentOberstes.cs" />
     <Compile Include="Donkey_Kong\Donkey_Kong.cs" />
     <Compile Include="Donkey_Kong\Ebene.cs" />
-    <Compile Include="Donkey_Kong\Ebene_Gerade.cs" />
-    <Compile Include="Donkey_Kong\Ebene_Schief.cs" />
     <Compile Include="Donkey_Kong\Falltuer.cs" />
     <Compile Include="Donkey_Kong\Fass.cs" />
     <Compile Include="Donkey_Kong\Feuer.cs" />
@@ -88,6 +89,10 @@
     <Compile Include="Donkey_Kong\Leitern.cs" />
     <Compile Include="Donkey_Kong\Leiter_Heil.cs" />
     <Compile Include="Donkey_Kong\Leiter_Kaputt.cs" />
+    <Compile Include="Donkey_Kong\LilaFragment.cs" />
+    <Compile Include="Donkey_Kong\LilaFragmentHalbLinks.cs" />
+    <Compile Include="Donkey_Kong\LilaFragmentHalbRechts.cs" />
+    <Compile Include="Donkey_Kong\LilaFragmentOberstes.cs" />
     <Compile Include="Donkey_Kong\Mario.cs" />
     <Compile Include="Donkey_Kong\Peach.cs" />
     <Compile Include="Donkey_Kong\Score.cs" />
