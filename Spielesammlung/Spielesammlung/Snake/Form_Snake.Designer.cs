@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Snake));
             this.pictureBoxSnake = new System.Windows.Forms.PictureBox();
             this.labelScoreText = new System.Windows.Forms.Label();
             this.labelScoreWert = new System.Windows.Forms.Label();
@@ -40,7 +41,9 @@
             // pictureBoxSnake
             // 
             this.pictureBoxSnake.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.pictureBoxSnake.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxSnake.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSnake.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSnake.Image")));
             this.pictureBoxSnake.Location = new System.Drawing.Point(14, 18);
             this.pictureBoxSnake.Name = "pictureBoxSnake";
             this.pictureBoxSnake.Size = new System.Drawing.Size(900, 700);
@@ -92,6 +95,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form_Snake";
             this.Text = "Form_Snake";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_Snake_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form_Snake_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSnake)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
