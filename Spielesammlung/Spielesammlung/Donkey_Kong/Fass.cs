@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Spielesammlung.Donkey_Kong
 {
-    class Fass
+    class Fass : Figuren
     {
-        public int ebene = 1;
-        public bool leiterZufall = false;
+        public int ebene { get; set; } = 1;
+        public bool leiterZufall { get; set; } = false;
 
         public void LinksDreh()
         {

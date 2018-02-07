@@ -8,9 +8,9 @@ namespace Spielesammlung.Donkey_Kong
 {
     abstract class Ebene
     {
-        public int nummer = 0;
-        public int xPosition = 1;
-        public int yPosition = 1;
-        public int laenge = 1;
+        public int nummer { get; set; } = 0;
+        public int xPosition { get; set; } = 1;
+        public int yPosition { get; set; } = 1;
+        public int laenge { get; set; } = 1;
     }
 }

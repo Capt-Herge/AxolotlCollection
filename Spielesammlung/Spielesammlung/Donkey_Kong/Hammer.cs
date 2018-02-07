@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Spielesammlung.Donkey_Kong
 {
-    class Hammer
+    class Hammer : Figuren
     {
         public Hammer()
         {

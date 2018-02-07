@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Spielesammlung.Donkey_Kong
 {
-    class Feuer
+    class Feuer : Figuren
     {
-        public int ebene = 1;
+        public int ebene { get; set; } = 1;
 
         public void LinksSchweb()
         {

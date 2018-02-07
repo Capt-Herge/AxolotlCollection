@@ -91,7 +91,12 @@
     <Compile Include="Donkey_Kong\Mario.cs" />
     <Compile Include="Donkey_Kong\Peach.cs" />
     <Compile Include="Donkey_Kong\Score.cs" />
-    <Compile Include="Donkey_Kong\Spielfeld.cs" />
+    <Compile Include="Donkey_Kong\Spielfeld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Donkey_Kong\Spielfeld.Designer.cs">
+      <DependentUpon>Spielfeld.cs</DependentUpon>
+    </Compile>
     <Compile Include="Donkey_Kong\StoppUhr.cs" />
     <Compile Include="form_Menue.cs">
       <SubType>Form</SubType>
@@ -148,6 +153,9 @@
     <Compile Include="Vanguards\Vanguards.Designer.cs">
       <DependentUpon>Vanguards.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Donkey_Kong\Spielfeld.resx">
+      <DependentUpon>Spielfeld.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="form_Menue.resx">
       <DependentUpon>form_Menue.cs</DependentUpon>
     </EmbeddedResource>

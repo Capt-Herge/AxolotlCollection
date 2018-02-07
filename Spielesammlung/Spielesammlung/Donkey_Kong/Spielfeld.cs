@@ -1,29 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Spielesammlung.Donkey_Kong
 {
-    class Spielfeld
+    public partial class Spielfeld : Form
     {
-        public int xGroesse = 0;
-        public int yGroesse = 0;
-        public int ebenen = 0;
-        public int level = 1;
+        public int levle { get; set; } = 1;
 
         public Spielfeld()
         {
-
+            InitializeComponent();
         }
 
-        public void Leben(int level)
-        {
-
-        }
-
-        public void Sterben()
+        private void Spielfeld_Load(object sender, EventArgs e)
         {
 
         }

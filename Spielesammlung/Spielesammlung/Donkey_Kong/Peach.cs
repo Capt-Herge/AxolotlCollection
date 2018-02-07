@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Spielesammlung.Donkey_Kong
 {
-    class Peach
+    class Peach : Figuren
     {
         public Peach()
         {

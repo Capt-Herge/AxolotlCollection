@@ -8,8 +8,8 @@ namespace Spielesammlung.Donkey_Kong
 {
     abstract class Leitern
     {
-        public int xPosition = 1;
-        public int yPosotion = 1;
+        public int xPosition { get; set; } = 1;
+        public int yPosotion { get; set; } = 1;
 
         public void Leben()
         {

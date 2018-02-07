@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Spielesammlung.Donkey_Kong
 {
-    class Affe
+    class Affe : Figuren
     {
-        public bool blickRichtgun = false;
+        public bool blickRichtgun { get; set; } = false;
 
         public void AendereBlickRichtung()
         {
