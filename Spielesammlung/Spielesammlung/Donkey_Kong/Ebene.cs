@@ -13,5 +13,16 @@ namespace Spielesammlung.Donkey_Kong
         public int yPosition { get; set; } = 1;
         public int laenge { get; set; } = 1;
         public int[,] form { get; set; }
+        public Pixel[,] model { get; set; }
+
+        public void Leben()
+        {
+
+        }
+
+        public void Sterben()
+        {
+
+        }
     }
 }

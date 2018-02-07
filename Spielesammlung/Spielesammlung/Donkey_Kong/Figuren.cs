@@ -10,6 +10,7 @@ namespace Spielesammlung.Donkey_Kong
     {
         public int xPosition { get; set; } = 1;
         public int yPosition { get; set; } = 1;
+        public Pixel[,] model { get; set; }
 
         public void Leben()
         {
