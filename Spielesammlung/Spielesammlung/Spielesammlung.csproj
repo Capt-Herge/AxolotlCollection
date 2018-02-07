@@ -95,6 +95,7 @@
     <Compile Include="Donkey_Kong\LilaFragmentOberstes.cs" />
     <Compile Include="Donkey_Kong\Mario.cs" />
     <Compile Include="Donkey_Kong\Peach.cs" />
+    <Compile Include="Donkey_Kong\Pixel.cs" />
     <Compile Include="Donkey_Kong\Score.cs" />
     <Compile Include="Donkey_Kong\Spielfeld.cs">
       <SubType>Form</SubType>
