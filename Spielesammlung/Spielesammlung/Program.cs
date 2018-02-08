@@ -19,7 +19,7 @@ namespace Spielesammlung
             //Application.Run(new form_Menue());
             //Application.Run(new Vanguards.Vanguards());
             //Application.Run(new Pong.Form1());
-            Application.Run(new Donkey_Kong.Donkey_Kong().Donkey_Kong_Start());
+            //Application.Run(new Donkey_Kong.Donkey_Kong().Donkey_Kong_Start());
         }
     }
 }
