@@ -85,6 +85,12 @@
     <Compile Include="Donkey_Kong\Fass.cs" />
     <Compile Include="Donkey_Kong\Feuer.cs" />
     <Compile Include="Donkey_Kong\Figuren.cs" />
+    <Compile Include="Donkey_Kong\FormDonkeyKong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Donkey_Kong\FormDonkeyKong.Designer.cs">
+      <DependentUpon>FormDonkeyKong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Donkey_Kong\Hammer.cs" />
     <Compile Include="Donkey_Kong\Leitern.cs" />
     <Compile Include="Donkey_Kong\Leiter_Heil_Blau.cs" />
@@ -98,12 +104,6 @@
     <Compile Include="Donkey_Kong\Peach.cs" />
     <Compile Include="Donkey_Kong\Pixel.cs" />
     <Compile Include="Donkey_Kong\Score.cs" />
-    <Compile Include="Donkey_Kong\Spielfeld.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Donkey_Kong\Spielfeld.Designer.cs">
-      <DependentUpon>Spielfeld.cs</DependentUpon>
-    </Compile>
     <Compile Include="Donkey_Kong\StoppUhr.cs" />
     <Compile Include="form_Menue.cs">
       <SubType>Form</SubType>
@@ -172,8 +172,8 @@
     <Compile Include="Vanguards\Vanguards.Designer.cs">
       <DependentUpon>Vanguards.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Donkey_Kong\Spielfeld.resx">
-      <DependentUpon>Spielfeld.cs</DependentUpon>
+    <EmbeddedResource Include="Donkey_Kong\FormDonkeyKong.resx">
+      <DependentUpon>FormDonkeyKong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form_Menue.resx">
       <DependentUpon>form_Menue.cs</DependentUpon>

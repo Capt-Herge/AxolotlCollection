@@ -14,6 +14,7 @@ namespace Spielesammlung.Donkey_Kong
 
         public Peach()
         {
+            model = new Pixel[17, 9];
 
             #region stehAnimation
             stehAnimation[0, 0] = 0;
@@ -170,6 +171,22 @@ namespace Spielesammlung.Donkey_Kong
             stehAnimation[16, 7] = 9;
             stehAnimation[16, 8] = 9;
             #endregion
+
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i] = new Pixel();
+                }
+            }
+
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i].farbe = stehAnimation[j, i];
+                }
+            }
 
         }
     }

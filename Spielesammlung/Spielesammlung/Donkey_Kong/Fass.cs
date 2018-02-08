@@ -10,14 +10,17 @@ namespace Spielesammlung.Donkey_Kong
     {
         public int ebene { get; set; } = 1;
         public bool leiterZufall { get; set; } = false;
+
         #region bilder
-        public int[,] rollAnimation1 { get; set; } = new int[8,8];
+        public int[,] rollAnimation1 { get; set; } = new int[8, 8];
         public int[,] rollAnimation2 { get; set; } = new int[8, 8];
         public int[,] fallAnimation { get; set; } = new int[8, 8];
         #endregion
 
         public Fass()
         {
+            model = new Pixel[8, 8];
+
             #region rollAnimation1
             rollAnimation1[0, 0] = 0;
             rollAnimation1[0, 1] = 0;
@@ -164,7 +167,7 @@ namespace Spielesammlung.Donkey_Kong
             fallAnimation[1, 0] = 0;
             fallAnimation[1, 1] = 6;
             fallAnimation[1, 2] = 0;
-            fallAnimation[1, 3] = 0;
+            fallAnimation[1, 3] = 6;
             fallAnimation[1, 4] = 6;
             fallAnimation[1, 5] = 0;
             fallAnimation[1, 6] = 6;
@@ -218,6 +221,16 @@ namespace Spielesammlung.Donkey_Kong
             fallAnimation[7, 6] = 0;
             fallAnimation[7, 7] = 0;
             #endregion
+
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i] = new Pixel();
+                }
+            }
+
+            Fall(1);
         }
 
         public void LinksDreh()
@@ -232,7 +245,13 @@ namespace Spielesammlung.Donkey_Kong
 
         public void Fall(int ebene)
         {
-
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                   model[j, i].farbe = fallAnimation[j, i];
+                }
+            }
         }
     }
 }

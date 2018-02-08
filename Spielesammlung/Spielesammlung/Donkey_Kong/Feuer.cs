@@ -16,6 +16,8 @@ namespace Spielesammlung.Donkey_Kong
 
         public Feuer()
         {
+            model = new Pixel[8, 8];
+
             #region linksSchwebAnimation
             linksSchwebAnimation[0, 0] = 0;
             linksSchwebAnimation[0, 1] = 7;
@@ -149,6 +151,16 @@ namespace Spielesammlung.Donkey_Kong
             rechtsSchwebAnimation[7, 6] = 0;
             rechtsSchwebAnimation[7, 7] = 0;
             #endregion
+
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i] = new Pixel();
+                }
+            }
+
+            RechtsSchweb();
         }
 
         public void LinksSchweb()
@@ -158,7 +170,13 @@ namespace Spielesammlung.Donkey_Kong
 
         public void RechtsSchweb()
         {
-
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i].farbe = rechtsSchwebAnimation[j, i];
+                }
+            }
         }
     }
 }
