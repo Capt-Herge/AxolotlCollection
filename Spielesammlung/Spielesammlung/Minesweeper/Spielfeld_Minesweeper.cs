@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spielesammlung.Minesweeper
+namespace Spielesammlung
 {
-    class Spielfeld
+    class Spielfeld_Minesweeper
     {
         public static bool GameOver { set; get; }
 
         public static int Minen { set; get; }
 
-        public Spielfeld()
+        public Spielfeld_Minesweeper()
         {
             GameOver = false;
             Minen = 60;

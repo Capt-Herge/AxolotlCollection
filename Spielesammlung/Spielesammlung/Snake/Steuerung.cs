@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Collections;
 using System.Windows.Forms;
 
-namespace Spielesammlung.Snake
+namespace Spielesammlung
 {
     class Steuerung
     {

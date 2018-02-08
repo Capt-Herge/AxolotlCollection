@@ -1,4 +1,4 @@
-﻿namespace Spielesammlung.Snake
+﻿namespace Spielesammlung
 {
     partial class Form_Snake
     {

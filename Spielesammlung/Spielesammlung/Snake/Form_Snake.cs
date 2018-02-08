@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Spielesammlung.Snake
+namespace Spielesammlung
 {
     public partial class Form_Snake : Form
     {
@@ -28,10 +28,10 @@ namespace Spielesammlung.Snake
             InitializeComponent();
 
             // Objekt Spielfeld erzeugen
-            new Spielfeld();
+            new Spielfeld_Snake();
 
             // Festlegen des Intervalls für den Timer 
-            timerSnake.Interval = 1000 / Spielfeld.Geschwindigkeit;
+            timerSnake.Interval = 1000 / Spielfeld_Snake.Geschwindigkeit;
             // Nach Ablauf des Intervalls wird das Spiel aktualisiert
             timerSnake.Tick += UpdateSpiel;
             // Startet des Timer
@@ -48,7 +48,7 @@ namespace Spielesammlung.Snake
             labelGameOver.Visible = false;
 
             // Objekt Spielfeld erzeugen 
-            new Spielfeld();
+            new Spielfeld_Snake();
 
             // Schlange wird gelöscht
             Schlange.Clear();
@@ -61,7 +61,7 @@ namespace Spielesammlung.Snake
             Schlange.Add(KopfSchlange);
 
             // Startwert für den Score 
-            labelScoreWert.Text = Spielfeld.Score.ToString();
+            labelScoreWert.Text = Spielfeld_Snake.Score.ToString();
 
             // Platzieren der Nahrung auf dem Spielfeld
             SetzeNahrung();
@@ -70,8 +70,8 @@ namespace Spielesammlung.Snake
         public void SetzeNahrung()
         {
             // Maximale Werte für X und Y bestimmen
-            int xMax = pictureBoxSnake.Size.Width / Spielfeld.Breite;
-            int yMax = pictureBoxSnake.Size.Height / Spielfeld.Höhe;
+            int xMax = pictureBoxSnake.Size.Width / Spielfeld_Snake.Breite;
+            int yMax = pictureBoxSnake.Size.Height / Spielfeld_Snake.Höhe;
 
             // aktuelle Position für Nahrung wird zufällig bestimmt
             Random zufall = new Random();
@@ -84,7 +84,7 @@ namespace Spielesammlung.Snake
         public void UpdateSpiel(object sender, EventArgs e)
         {
             // Wenn das Spiel vorbei ist, wird mit Enter das neue Spiel gestartet
-            if (Spielfeld.GameOver == true)
+            if (Spielfeld_Snake.GameOver == true)
             {
                 if (Steuerung.TasteGedrückt(Keys.Enter))
                 {
@@ -94,21 +94,21 @@ namespace Spielesammlung.Snake
             // Während des Spiels ist die entgegengesetzte Richtungen nicht erlaubt, damit die Schlange sich nicht selbst trifft
             else
             {
-                if (Steuerung.TasteGedrückt(Keys.W) && Spielfeld.Richtung != 3)
+                if (Steuerung.TasteGedrückt(Keys.W) && Spielfeld_Snake.Richtung != 3)
                 {
-                    Spielfeld.Richtung = 1;
+                    Spielfeld_Snake.Richtung = 1;
                 }
-                if (Steuerung.TasteGedrückt(Keys.A) && Spielfeld.Richtung != 4)
+                if (Steuerung.TasteGedrückt(Keys.A) && Spielfeld_Snake.Richtung != 4)
                 {
-                    Spielfeld.Richtung = 2;
+                    Spielfeld_Snake.Richtung = 2;
                 }
-                if (Steuerung.TasteGedrückt(Keys.S) && Spielfeld.Richtung != 1)
+                if (Steuerung.TasteGedrückt(Keys.S) && Spielfeld_Snake.Richtung != 1)
                 {
-                    Spielfeld.Richtung = 3;
+                    Spielfeld_Snake.Richtung = 3;
                 }
-                if (Steuerung.TasteGedrückt(Keys.D) && Spielfeld.Richtung != 2)
+                if (Steuerung.TasteGedrückt(Keys.D) && Spielfeld_Snake.Richtung != 2)
                 {
-                    Spielfeld.Richtung = 4;
+                    Spielfeld_Snake.Richtung = 4;
                 }
 
                 // Position der Schlange wird aktualisiert
@@ -125,7 +125,7 @@ namespace Spielesammlung.Snake
             // Teile der Schlange werden gefärbt
             Graphics feld = e.Graphics;
 
-            if (Spielfeld.GameOver == false)
+            if (Spielfeld_Snake.GameOver == false)
             {
                 Brush farbeSchlange;
 
@@ -144,20 +144,20 @@ namespace Spielesammlung.Snake
 
                     // Malt die Teile der Schlange aus
                     feld.FillEllipse(farbeSchlange, 
-                                    new Rectangle(Schlange[i].X*Spielfeld.Breite, Schlange[i].Y*Spielfeld.Höhe,
-                                                  Spielfeld.Breite, Spielfeld.Höhe));
+                                    new Rectangle(Schlange[i].X* Spielfeld_Snake.Breite, Schlange[i].Y* Spielfeld_Snake.Höhe,
+                                                  Spielfeld_Snake.Breite, Spielfeld_Snake.Höhe));
 
                     // Malt die Nahrung aus
                     feld.FillEllipse(Brushes.Red,
-                                    new Rectangle(Nahrung.X * Spielfeld.Breite, Nahrung.Y * Spielfeld.Höhe,
-                                                  Spielfeld.Breite, Spielfeld.Höhe));
+                                    new Rectangle(Nahrung.X * Spielfeld_Snake.Breite, Nahrung.Y * Spielfeld_Snake.Höhe,
+                                                  Spielfeld_Snake.Breite, Spielfeld_Snake.Höhe));
                 }
             }
 
             // Wenn das Spiel vorbei ist, wird GameOver angezeigt
             else
             {
-                string gameOver = "Game Over! \n Score: " + Spielfeld.Score;
+                string gameOver = "Game Over! \n Score: " + Spielfeld_Snake.Score;
                 labelGameOver.Text = gameOver;
                 labelGameOver.Visible = true;
             }
@@ -170,7 +170,7 @@ namespace Spielesammlung.Snake
                 //Kopf der Schlange wird je nach Richtung bewegt
                 if (i == 0)
                 {
-                    switch (Spielfeld.Richtung)
+                    switch (Spielfeld_Snake.Richtung)
                     {
                         // Oben
                         case 1:
@@ -191,8 +191,8 @@ namespace Spielesammlung.Snake
                     }
 
                     // Maximale Werte für X und Y bestimmen
-                    int xMax = pictureBoxSnake.Size.Width / Spielfeld.Breite;
-                    int yMax = pictureBoxSnake.Size.Height / Spielfeld.Höhe;
+                    int xMax = pictureBoxSnake.Size.Width / Spielfeld_Snake.Breite;
+                    int yMax = pictureBoxSnake.Size.Height / Spielfeld_Snake.Höhe;
 
                     // Kollision mit den Rändern
                     if (Schlange[i].X < 0 || Schlange[i].Y < 0 || Schlange[i].X >= xMax || Schlange[i].Y >= yMax)
@@ -229,7 +229,7 @@ namespace Spielesammlung.Snake
         private void SchlangeTot()
         {
             // GameOver wird auf true gesetzt
-            Spielfeld.GameOver = true;
+            Spielfeld_Snake.GameOver = true;
         }
 
         private void NahrungEssen()
@@ -243,8 +243,8 @@ namespace Spielesammlung.Snake
             Schlange.Add(Nahrung);
 
             // Score erhöhen
-            Spielfeld.Score = Spielfeld.Score + Spielfeld.Punkte;
-            labelScoreWert.Text = Spielfeld.Score.ToString();
+            Spielfeld_Snake.Score = Spielfeld_Snake.Score + Spielfeld_Snake.Punkte;
+            labelScoreWert.Text = Spielfeld_Snake.Score.ToString();
 
             // Neue Nahrung erstellen
             SetzeNahrung();

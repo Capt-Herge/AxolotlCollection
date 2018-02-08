@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spielesammlung.Snake
+namespace Spielesammlung
 {
-    class Spielfeld
+    class Spielfeld_Snake
+
     {
         // getter und setter
         public static int Breite
@@ -39,7 +40,7 @@ namespace Spielesammlung.Snake
         }
 
         // Konsturktor
-        public Spielfeld()
+        public Spielfeld_Snake()
         {
             Höhe = 22;
             Breite = 22;

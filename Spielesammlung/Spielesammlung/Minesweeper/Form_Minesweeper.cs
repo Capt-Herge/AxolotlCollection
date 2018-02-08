@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Spielesammlung.Minesweeper
+namespace Spielesammlung
 {
     public partial class Form_Minesweeper : Form
     {
@@ -22,7 +22,7 @@ namespace Spielesammlung.Minesweeper
             InitializeComponent();
 
             // Erzeugt ein Objekt Spielfeld
-            new Spielfeld();
+            new Spielfeld_Minesweeper();
 
             // Erstellt das Feld mit den Buttons
             ErstelleFeld();
@@ -47,6 +47,7 @@ namespace Spielesammlung.Minesweeper
                     // Hinzufügen des Buttons zum dahinter liegenden Panels
                     panelMinesweeper.Controls.Add(buttonArray[x, y]);
 
+                    // Click-Eventhandler für jeden Button
                     buttonArray[x, y].Click += new EventHandler(ButtonGeklickt);
 
                 }
@@ -67,10 +68,10 @@ namespace Spielesammlung.Minesweeper
         void NeuesSpiel()
         {
             // Erzeugt ein Objekt Spielfeld
-            new Spielfeld();
+            new Spielfeld_Minesweeper();
 
             // Gameover wird zurück auf false gesetzt
-            Spielfeld.GameOver = false;
+            Spielfeld_Minesweeper.GameOver = false;
 
             // Die Liste mit den Minen wird geleert
             ListeMinen.Clear();
@@ -87,7 +88,7 @@ namespace Spielesammlung.Minesweeper
             Random zufall = new Random();
 
             // Es sollen eine bestimmte Anzahl Minen erstellt werden
-            for (int i = 1; i <= Spielfeld.Minen; i++)
+            for (int i = 1; i <= Spielfeld_Minesweeper.Minen; i++)
             {
                 // Es werden zufällige x- und y-Werte ermittelt
                 int zufallX = zufall.Next(0, (buttonArray.Length - 1));
