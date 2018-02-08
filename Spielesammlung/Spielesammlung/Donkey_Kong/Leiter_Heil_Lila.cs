@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Spielesammlung.Donkey_Kong
 {
-    class Leiter_Kaputt : Leitern
+    class Leiter_Heil_Lila : Leitern
     {
-        public Leiter_Kaputt()
+        public Leiter_Heil_Lila()
         {
             form = new int[13, 5];
             model = new Pixel[13, 5];
@@ -29,11 +29,11 @@ namespace Spielesammlung.Donkey_Kong
             form[2, 2] = 0;
             form[2, 3] = 0;
             form[2, 4] = 0;
-            form[3, 0] = 0;
-            form[3, 1] = 0;
-            form[3, 2] = 0;
-            form[3, 3] = 0;
-            form[3, 4] = 0;
+            form[3, 0] = 10;
+            form[3, 1] = 10;
+            form[3, 2] = 10;
+            form[3, 3] = 10;
+            form[3, 4] = 10;
             form[4, 0] = 0;
             form[4, 1] = 0;
             form[4, 2] = 0;
