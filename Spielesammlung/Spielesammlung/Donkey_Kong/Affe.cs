@@ -16,6 +16,8 @@ namespace Spielesammlung.Donkey_Kong
 
         public Affe()
         {
+            model = new Pixel[21, 18];
+
             #region linksAnimation
             linksAnimation[0, 0] = 0;
             linksAnimation[0, 1] = 0;
@@ -777,11 +779,27 @@ namespace Spielesammlung.Donkey_Kong
             rechtsAnimation[20, 16] = 0;
             rechtsAnimation[20, 17] = 0;
             #endregion
+
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i] = new Pixel();
+                }
+            }
+
+            AendereBlickRichtung();
         }
 
         public void AendereBlickRichtung()
         {
-
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i].farbe = linksAnimation[j, i];
+                }
+            }
         }
     }
 }

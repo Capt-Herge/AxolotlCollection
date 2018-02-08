@@ -1,6 +1,6 @@
 ﻿namespace Spielesammlung.Donkey_Kong
 {
-    partial class Spielfeld
+    partial class FormDonkeyKong
     {
         /// <summary>
         /// Required designer variable.
@@ -34,23 +34,22 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.BackColor = System.Drawing.Color.Black;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(590, 634);
+            this.pictureBox1.Size = new System.Drawing.Size(1075, 757);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
-            // Spielfeld
+            // FormDonkeyKong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 634);
+            this.ClientSize = new System.Drawing.Size(1099, 771);
             this.Controls.Add(this.pictureBox1);
-            this.KeyPreview = true;
-            this.Name = "Spielfeld";
-            this.Text = "Spielfeld";
-            this.Load += new System.EventHandler(this.Spielfeld_Load);
+            this.Name = "FormDonkeyKong";
+            this.Text = "FormDonkeyKong";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

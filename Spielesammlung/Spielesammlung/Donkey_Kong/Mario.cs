@@ -26,6 +26,8 @@ namespace Spielesammlung.Donkey_Kong
 
         public Mario()
         {
+            model = new Pixel[18, 9];
+
             #region linksStehAnimation
             linksStehAnimation[0, 0] = 0;
             linksStehAnimation[0, 1] = 0;
@@ -1273,6 +1275,22 @@ namespace Spielesammlung.Donkey_Kong
             rechtsLaufAnimation[16, 7] = 0;
             rechtsLaufAnimation[16, 8] = 0;
             #endregion
+
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i] = new Pixel();
+                }
+            }
+
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i].farbe = linksStehAnimation[j, i];
+                }
+            }
         }
 
         public void LinksLauf(KeyEventArgs e)

@@ -15,9 +15,9 @@ namespace Spielesammlung.Donkey_Kong
 
         }
 
-        public Spielfeld Donkey_Kong_Start()
+        public FormDonkeyKong Donkey_Kong_Start()
         {
-            return (new Spielfeld());
+            return (new FormDonkeyKong());
         }
     }
 }
