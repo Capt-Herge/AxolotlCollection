@@ -26,6 +26,7 @@ namespace Spielesammlung.Snake
         public Form_Snake()
         {
             InitializeComponent();
+
             // Objekt Spielfeld erzeugen
             new Spielfeld();
 
