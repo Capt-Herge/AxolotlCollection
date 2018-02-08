@@ -1299,7 +1299,7 @@ namespace Spielesammlung.Donkey_Kong
             }
         }
 
-        public void HochKlettern(KeyEventArgs e, Leiter_Heil leiter)
+        public void HochKlettern(KeyEventArgs e, Leiter_Heil_Lila leiter)
         {
             while ((e.KeyCode == Keys.Up) && (leiter.xPosition == xPosition) && (leiterPosition != 3))
             {
@@ -1313,7 +1313,7 @@ namespace Spielesammlung.Donkey_Kong
             }
         }
 
-        public void RunterKlettern(KeyEventArgs e, Leiter_Heil leiter)
+        public void RunterKlettern(KeyEventArgs e, Leiter_Heil_Lila leiter)
         {
             while ((e.KeyCode == Keys.Down) && (leiter.xPosition == xPosition) && (leiterPosition != 0))
             {
