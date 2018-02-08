@@ -1,4 +1,4 @@
-﻿namespace Spielesammlung
+﻿namespace Spielesammlung.Minesweeper
 {
     partial class Form_Minesweeper
     {

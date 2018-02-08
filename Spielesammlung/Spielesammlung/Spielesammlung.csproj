@@ -118,7 +118,7 @@
     <Compile Include="Minesweeper\Form_Minesweeper.Designer.cs">
       <DependentUpon>Form_Minesweeper.cs</DependentUpon>
     </Compile>
-    <Compile Include="Minesweeper\Spielfeld_Minesweeper.cs" />
+    <Compile Include="Minesweeper\Spielfeld.cs" />
     <Compile Include="Pinball\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,7 +149,7 @@
     <Compile Include="Snake\Form_Snake.Designer.cs">
       <DependentUpon>Form_Snake.cs</DependentUpon>
     </Compile>
-    <Compile Include="Snake\Spielfeld_Snake.cs" />
+    <Compile Include="Snake\Spielfeld.cs" />
     <Compile Include="Snake\Steuerung.cs" />
     <Compile Include="Tic_Tac_Toe\CTicTacToe.cs" />
     <Compile Include="Tic_Tac_Toe\form_TicTacToe.cs">
