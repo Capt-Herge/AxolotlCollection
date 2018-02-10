@@ -16,16 +16,19 @@ namespace Spielesammlung.Minesweeper
         Button[,] buttonArray = new Button[20, 20];
         // Liste für die Minen
         private List<int> ListeMinen = new List<int>();
+        // Liste für die Nullen, die noch abgearbeitet werden müssen
+        private List<int> NullenAufzudecken = new List<int>();
 
         public Form_Minesweeper()
         {
             InitializeComponent();
 
-            // Erzeugt ein Objekt Spielfeld
-            new Spielfeld();
-
             // Erstellt das Feld mit den Buttons
             ErstelleFeld();
+
+            // Startet ein neues Spiel
+            NeuesSpiel();
+
         }
 
         private void ErstelleFeld()
@@ -37,16 +40,15 @@ namespace Spielesammlung.Minesweeper
                 {
                     // Erstellen eines Buttons an Position x,y
                     buttonArray[x, y] = new Button();
-                    // Ändern des Namens des Buttons
-                    buttonArray[x, y].Name = "button" + x + "" + y + "";
                     // Größe des Buttons Festlegen
                     buttonArray[x, y].Size = new Size(35, 35);
                     //Position des Buttons wird festgelegt
                     buttonArray[x, y].Left = x * 35;
                     buttonArray[x, y].Top = y * 35;
-                    // Hinzufügen des Buttons zum dahinter liegenden Panels
+                    // Hintergundfarbe der Buttons
+                    buttonArray[x, y].BackColor = Color.LightSteelBlue;
+                    // Hinzufügen des Buttons zum dahinter liegenden Panel
                     panelMinesweeper.Controls.Add(buttonArray[x, y]);
-
                     // Click-Eventhandler für jeden Button
                     buttonArray[x, y].Click += new EventHandler(ButtonGeklickt);
 
@@ -60,6 +62,64 @@ namespace Spielesammlung.Minesweeper
             // sender zu Button casten, damit der "richtige" Button reagiert
             Button button = (Button)sender;
 
+            // wenn der geklickte Button eine Mine ist,
+            if (button.Name.Equals("Mine"))
+            {
+                // dann färbe den Button rot
+                button.BackColor = Color.Red;
+
+                // und decke alle Felder auf
+                for (int x = 0; x < buttonArray.GetLength(0); x++)
+                {
+                    for (int y = 0; y < buttonArray.GetLength(1); y++)
+                    {
+                        if (buttonArray[x, y].Enabled == true)
+                        {
+                            if (buttonArray[x, y].Name.Equals("Mine"))
+                            {
+                                buttonArray[x, y].Text = "X";
+                            }
+                            else
+                            {
+                                buttonArray[x, y].Text = buttonArray[x, y].Name;
+                            }
+
+                            buttonArray[x, y].Enabled = false;
+                        }
+                    }
+                }
+
+                Spielfeld.GameOver = true;
+                labelGameOver.Visible = true;
+                buttonNeustart.Visible = true;
+
+            }
+
+            else if (button.Name.Equals("0"))
+            {
+                button.Text = button.Name;
+                button.Enabled = false;
+
+                for (int x = 0; x < buttonArray.GetLength(0); x++)
+                {
+                    for (int y = 0; y < buttonArray.GetLength(1); y++)
+                    {
+                        if (buttonArray[x, y] == button)
+                        {
+                            NullenAufzudecken.Add(x + 100 + y);
+                        }
+                    }
+                }
+
+                AufdeckenNullen();
+
+            }
+
+            else
+            {
+                button.Text = button.Name;
+                button.Enabled = false;
+            }
 
         }
 
@@ -67,6 +127,26 @@ namespace Spielesammlung.Minesweeper
 
         void NeuesSpiel()
         {
+            // Button und Label sind nicht mehr sichtbar
+            labelGameOver.Visible = false;
+            buttonNeustart.Visible = false;
+
+            // für jeden Button 
+            for (int x = 0; x < buttonArray.GetLength(0); x++)
+            {
+                for (int y = 0; y < buttonArray.GetLength(1); y++)
+                {
+                    // Name und Text zurücksetzen
+                    buttonArray[x, y].Name = "";
+                    buttonArray[x, y].Text = "";
+                    // Hintergundfarbe zurücksetzen
+                    buttonArray[x, y].BackColor = Color.LightSteelBlue;
+                    // Verfügbarkeit zurücksetzen
+                    buttonArray[x, y].Enabled = true;
+
+                }
+            }
+
             // Erzeugt ein Objekt Spielfeld
             new Spielfeld();
 
@@ -176,7 +256,126 @@ namespace Spielesammlung.Minesweeper
             }
         }
 
+        void AufdeckenNullen()
+        {
+            while (NullenAufzudecken.Count != 0)
+            {
+                int x = NullenAufzudecken[0] / 100;
+                int y = NullenAufzudecken[0] % 100;
+                NullenAufzudecken.RemoveAt(0);
 
+                // oben links
+                if (x > 0 && y > 0)
+                {
+                    if (buttonArray[x - 1, y - 1].Name == "0")
+                    {
+                        if (buttonArray[x - 1, y - 1].Enabled == true)
+                        {
+                            buttonArray[x - 1, y - 1].Text = buttonArray[x - 1, y - 1].Name;
+                            NullenAufzudecken.Add((x - 1) * 100 + (y - 1));
+                            buttonArray[x - 1, y - 1].Enabled = false;
+                        }
+                    }
+                }
+                // oben mitte
+                if (y > 0)
+                {
+                    if (buttonArray[x, y - 1].Name == "0")
+                    {
+                        if (buttonArray[x, y - 1].Enabled == true)
+                        {
+                            buttonArray[x, y - 1].Text = buttonArray[x, y - 1].Name;
+                            NullenAufzudecken.Add(x * 100 + (y - 1));
+                            buttonArray[x, y - 1].Enabled = false;
+                        }
+                    }
+                }
+                // oben rechts
+                if (x < buttonArray.GetLength(0) - 1 && y > 0)
+                {
+                    if (buttonArray[x + 1, y - 1].Name == "0")
+                    {
+                        if (buttonArray[x + 1, y - 1].Enabled == true)
+                        {
+                            buttonArray[x + 1, y - 1].Text = buttonArray[x + 1, y - 1].Name;
+                            NullenAufzudecken.Add((x + 1) * 100 + (y - 1));
+                            buttonArray[x + 1, y - 1].Enabled = false;
+                        }
+                    }
+                }
+                // links
+                if (x > 0)
+                {
+                    if (buttonArray[x - 1, y].Name == "0")
+                    {
+                        if (buttonArray[x - 1, y].Enabled == true)
+                        {
+                            buttonArray[x - 1, y].Text = buttonArray[x - 1, y].Name;
+                            NullenAufzudecken.Add((x - 1) * 100 + y);
+                            buttonArray[x - 1, y].Enabled = false;
+                        }
+                    }
+                }
+                // rechts
+                if (x < buttonArray.GetLength(0) - 1)
+                {
+                    if (buttonArray[x + 1, y].Name == "0")
+                    {
+                        if (buttonArray[x + 1, y].Enabled == true)
+                        {
+                            buttonArray[x + 1, y].Text = buttonArray[x + 1, y].Name;
+                            NullenAufzudecken.Add((x + 1) * 100 + y);
+                            buttonArray[x + 1, y].Enabled = false;
+                        }
+                    }
+                }
+                // unten links
+                if (x > 0 && y < buttonArray.GetLength(1) - 1)
+                {
+                    if (buttonArray[x - 1, y + 1].Name == "0")
+                    {
+                        if (buttonArray[x - 1, y + 1].Enabled == true)
+                        {
+                            buttonArray[x - 1, y + 1].Text = buttonArray[x - 1, y + 1].Name;
+                            NullenAufzudecken.Add((x - 1) * 100 + (y + 1));
+                            buttonArray[x - 1, y + 1].Enabled = false;
+                        }
+                    }
+                }
+                // unten mitte
+                if (y < buttonArray.GetLength(1) - 1)
+                {
+                    if (buttonArray[x, y + 1].Name == "0")
+                    {
+                        if (buttonArray[x, y + 1].Enabled == true)
+                        {
+                            buttonArray[x, y + 1].Text = buttonArray[x, y + 1].Name;
+                            NullenAufzudecken.Add(x * 100 + (y + 1));
+                            buttonArray[x, y + 1].Enabled = false;
+                        }
+                    }
+                }
+                // unten rechts
+                if (x < buttonArray.GetLength(0) - 1 && y < buttonArray.GetLength(1) - 1)
+                {
+                    if (buttonArray[x + 1, y + 1].Name == "0")
+                    {
+                        if (buttonArray[x + 1, y + 1].Enabled == true)
+                        {
+                            buttonArray[x + 1, y + 1].Text = buttonArray[x + 1, y + 1].Name;
+                            NullenAufzudecken.Add((x + 1) * 100 + (y + 1));
+                            buttonArray[x + 1, y + 1].Enabled = false;
+                        }
+                    }
+                }
 
+                AufdeckenNullen();
+            }
+        }
+
+        private void buttonNeustart_Click(object sender, EventArgs e)
+        {
+            NeuesSpiel();
+        }
     }
 }
