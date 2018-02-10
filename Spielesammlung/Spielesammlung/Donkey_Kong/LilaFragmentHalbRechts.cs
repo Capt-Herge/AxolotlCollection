@@ -55,6 +55,22 @@ namespace Spielesammlung.Donkey_Kong
             form[4, 6] = 10;
             form[4, 7] = 10;
             #endregion
+
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i] = new Pixel();
+                }
+            }
+
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i].farbe = form[j, i];
+                }
+            }
         }
     }
 }

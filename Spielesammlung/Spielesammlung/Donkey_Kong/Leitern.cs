@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace Spielesammlung.Donkey_Kong
 {
-    abstract class Leitern
+    abstract class Leitern : Ebene
     {
-        public int xPosition { get; set; } = 1;
-        public int yPosotion { get; set; } = 1;
-        public Pixel[,] model { get; set; }
-        public int[,] form { get; set; }
-
         public void Leben()
         {
 

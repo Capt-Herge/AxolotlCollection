@@ -6,17 +6,13 @@ using System.Threading.Tasks;
 
 namespace Spielesammlung.Donkey_Kong
 {
-    class Falltuer
+    class Falltuer : Ebene
     {
-        public int ebene { get; set; } = 0;
-        public int xPosition { get; set; } = 1;
-        public int yPosition { get; set; } = 1;
         public bool offen { get; set; } = false;
-        public Pixel[,] model { get; set; } = new Pixel[1, 9];
-        public int[,] form { get; set; } = new int[1, 9];
 
         public Falltuer()
         {
+
             #region form
             form[0, 0] = 11;
             form[0, 1] = 11;
@@ -28,6 +24,22 @@ namespace Spielesammlung.Donkey_Kong
             form[0, 7] = 11;
             form[0, 8] = 11;
             #endregion
+
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i] = new Pixel();
+                }
+            }
+
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i].farbe = form[j, i];
+                }
+            }
         }
     }
 }

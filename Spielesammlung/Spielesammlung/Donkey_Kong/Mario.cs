@@ -1288,7 +1288,7 @@ namespace Spielesammlung.Donkey_Kong
             {
                 for (int j = 0; j < model.GetLength(0); j++)
                 {
-                    model[j, i].farbe = linksStehAnimation[j, i];
+                    model[j, i].farbe = rechtsStehAnimation[j, i];
                 }
             }
         }

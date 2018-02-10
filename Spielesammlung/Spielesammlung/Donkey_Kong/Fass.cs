@@ -230,17 +230,29 @@ namespace Spielesammlung.Donkey_Kong
                 }
             }
 
-            Fall(1);
+            RechtsDreh();
         }
 
         public void LinksDreh()
         {
-
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i].farbe = rollAnimation1[j, i];
+                }
+            }
         }
 
         public void RechtsDreh()
         {
-
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i].farbe = rollAnimation2[j, i];
+                }
+            }
         }
 
         public void Fall(int ebene)

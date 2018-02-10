@@ -16,6 +16,8 @@ namespace Spielesammlung.Donkey_Kong
 
         public Hammer()
         {
+            model = new Pixel[6, 6];
+
             #region obenAnimation
             obenAnimation[0, 0] = 0;
             obenAnimation[0, 1] = 0;
@@ -133,6 +135,21 @@ namespace Spielesammlung.Donkey_Kong
             rechtsAnimation[5, 5] = 0;
             #endregion
 
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i] = new Pixel();
+                }
+            }
+
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i].farbe = obenAnimation[j, i];
+                }
+            }
         }
     }
 }
