@@ -9,6 +9,7 @@ namespace Spielesammlung.Donkey_Kong
     class Feuer : Figuren
     {
         public int ebene { get; set; } = 1;
+        public bool leiterZufall { get; set; } = false;
         #region bilder
         public int[,] linksSchwebAnimation { get; set; } = new int[8, 8];
         public int[,] rechtsSchwebAnimation { get; set; } = new int[8, 8];

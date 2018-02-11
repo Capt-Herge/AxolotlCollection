@@ -13,6 +13,9 @@ namespace Spielesammlung.Donkey_Kong
         public Falltuer()
         {
 
+            form = new int[1, 9];
+            model = new Pixel[1, 9];
+
             #region form
             form[0, 0] = 11;
             form[0, 1] = 11;

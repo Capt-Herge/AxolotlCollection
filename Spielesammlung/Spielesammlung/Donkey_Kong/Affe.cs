@@ -8,7 +8,7 @@ namespace Spielesammlung.Donkey_Kong
 {
     class Affe : Figuren
     {
-        public bool blickRichtung { get; set; } = false;
+        public static bool blickRichtung = true;
         #region bilder
         public int[,] linksAnimation { get; set; } = new int[21,18];
         public int[,] rechtsAnimation { get; set; } = new int[21,18];
@@ -793,12 +793,31 @@ namespace Spielesammlung.Donkey_Kong
 
         public void AendereBlickRichtung()
         {
-            for (int i = 0; i < model.GetLength(1); i++)
+            switch(blickRichtung)
             {
-                for (int j = 0; j < model.GetLength(0); j++)
-                {
-                    model[j, i].farbe = linksAnimation[j, i];
-                }
+                case true:
+                    for (int i = 0; i < model.GetLength(1); i++)
+                    {
+                        for (int j = 0; j < model.GetLength(0); j++)
+                        {
+                            model[j, i].farbe = linksAnimation[j, i];
+                        }
+                    }
+
+                    blickRichtung = false;
+                    break;
+
+                case false:
+                    for (int i = 0; i < model.GetLength(1); i++)
+                    {
+                        for (int j = 0; j < model.GetLength(0); j++)
+                        {
+                            model[j, i].farbe = rechtsAnimation[j, i];
+                        }
+                    }
+
+                    blickRichtung = true;
+                    break;
             }
         }
     }

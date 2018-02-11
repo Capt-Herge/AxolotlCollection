@@ -96,6 +96,8 @@
     <Compile Include="Donkey_Kong\Leiter_Heil_Blau.cs" />
     <Compile Include="Donkey_Kong\Leiter_Heil_Lila.cs" />
     <Compile Include="Donkey_Kong\Leiter_Kaputt.cs" />
+    <Compile Include="Donkey_Kong\Level1.cs" />
+    <Compile Include="Donkey_Kong\Level2.cs" />
     <Compile Include="Donkey_Kong\LilaFragment.cs" />
     <Compile Include="Donkey_Kong\LilaFragmentHalbLinks.cs" />
     <Compile Include="Donkey_Kong\LilaFragmentHalbRechts.cs" />
