@@ -33,6 +33,8 @@
             this.labelZeitWert = new System.Windows.Forms.Label();
             this.panelMinesweeper = new System.Windows.Forms.Panel();
             this.timerMinesweeper = new System.Windows.Forms.Timer(this.components);
+            this.labelGameOver = new System.Windows.Forms.Label();
+            this.buttonNeustart = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelZeitText
@@ -57,17 +59,40 @@
             // 
             // panelMinesweeper
             // 
-            this.panelMinesweeper.BackColor = System.Drawing.Color.Gray;
-            this.panelMinesweeper.Location = new System.Drawing.Point(108, 18);
+            this.panelMinesweeper.BackColor = System.Drawing.Color.Black;
+            this.panelMinesweeper.Location = new System.Drawing.Point(58, 18);
             this.panelMinesweeper.Name = "panelMinesweeper";
             this.panelMinesweeper.Size = new System.Drawing.Size(700, 700);
             this.panelMinesweeper.TabIndex = 2;
+            // 
+            // labelGameOver
+            // 
+            this.labelGameOver.AutoSize = true;
+            this.labelGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGameOver.Location = new System.Drawing.Point(816, 292);
+            this.labelGameOver.Name = "labelGameOver";
+            this.labelGameOver.Size = new System.Drawing.Size(145, 29);
+            this.labelGameOver.TabIndex = 7;
+            this.labelGameOver.Text = "Game Over";
+            this.labelGameOver.Visible = false;
+            // 
+            // buttonNeustart
+            // 
+            this.buttonNeustart.Location = new System.Drawing.Point(854, 342);
+            this.buttonNeustart.Name = "buttonNeustart";
+            this.buttonNeustart.Size = new System.Drawing.Size(75, 23);
+            this.buttonNeustart.TabIndex = 8;
+            this.buttonNeustart.Text = "Neustart";
+            this.buttonNeustart.UseVisualStyleBackColor = true;
+            this.buttonNeustart.Click += new System.EventHandler(this.buttonNeustart_Click);
             // 
             // Form_Minesweeper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 730);
+            this.Controls.Add(this.buttonNeustart);
+            this.Controls.Add(this.labelGameOver);
             this.Controls.Add(this.panelMinesweeper);
             this.Controls.Add(this.labelZeitWert);
             this.Controls.Add(this.labelZeitText);
@@ -84,5 +109,7 @@
         private System.Windows.Forms.Label labelZeitWert;
         private System.Windows.Forms.Panel panelMinesweeper;
         private System.Windows.Forms.Timer timerMinesweeper;
+        private System.Windows.Forms.Label labelGameOver;
+        private System.Windows.Forms.Button buttonNeustart;
     }
 }
