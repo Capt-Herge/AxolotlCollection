@@ -66,5 +66,56 @@ namespace Spielesammlung
         {
 
         }
+
+        private void vanguardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void donkeyKongToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void vanguardToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void snakeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void breakoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void minesweeperToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void astroidsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flappyBirdToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

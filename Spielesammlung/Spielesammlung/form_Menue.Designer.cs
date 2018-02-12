@@ -35,6 +35,12 @@
             this.neustartenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.programmBeendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.highscoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vanguardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.snakeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.breakoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.minesweeperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.astroidsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.flappyBirdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -45,6 +51,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.donkeyKongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,9 +103,59 @@
             // 
             // highscoreToolStripMenuItem
             // 
+            this.highscoreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.donkeyKongToolStripMenuItem,
+            this.vanguardToolStripMenuItem,
+            this.snakeToolStripMenuItem,
+            this.breakoutToolStripMenuItem,
+            this.minesweeperToolStripMenuItem,
+            this.astroidsToolStripMenuItem,
+            this.flappyBirdToolStripMenuItem});
             this.highscoreToolStripMenuItem.Name = "highscoreToolStripMenuItem";
             this.highscoreToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.highscoreToolStripMenuItem.Text = "Highscore";
+            // 
+            // vanguardToolStripMenuItem
+            // 
+            this.vanguardToolStripMenuItem.Name = "vanguardToolStripMenuItem";
+            this.vanguardToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.vanguardToolStripMenuItem.Text = "Vanguard";
+            this.vanguardToolStripMenuItem.Click += new System.EventHandler(this.vanguardToolStripMenuItem_Click_1);
+            // 
+            // snakeToolStripMenuItem
+            // 
+            this.snakeToolStripMenuItem.Name = "snakeToolStripMenuItem";
+            this.snakeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.snakeToolStripMenuItem.Text = "Snake";
+            this.snakeToolStripMenuItem.Click += new System.EventHandler(this.snakeToolStripMenuItem_Click);
+            // 
+            // breakoutToolStripMenuItem
+            // 
+            this.breakoutToolStripMenuItem.Name = "breakoutToolStripMenuItem";
+            this.breakoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.breakoutToolStripMenuItem.Text = "Breakout";
+            this.breakoutToolStripMenuItem.Click += new System.EventHandler(this.breakoutToolStripMenuItem_Click);
+            // 
+            // minesweeperToolStripMenuItem
+            // 
+            this.minesweeperToolStripMenuItem.Name = "minesweeperToolStripMenuItem";
+            this.minesweeperToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.minesweeperToolStripMenuItem.Text = "Minesweeper";
+            this.minesweeperToolStripMenuItem.Click += new System.EventHandler(this.minesweeperToolStripMenuItem_Click);
+            // 
+            // astroidsToolStripMenuItem
+            // 
+            this.astroidsToolStripMenuItem.Name = "astroidsToolStripMenuItem";
+            this.astroidsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.astroidsToolStripMenuItem.Text = "Astroids";
+            this.astroidsToolStripMenuItem.Click += new System.EventHandler(this.astroidsToolStripMenuItem_Click);
+            // 
+            // flappyBirdToolStripMenuItem
+            // 
+            this.flappyBirdToolStripMenuItem.Name = "flappyBirdToolStripMenuItem";
+            this.flappyBirdToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.flappyBirdToolStripMenuItem.Text = "Flappy Bird";
+            this.flappyBirdToolStripMenuItem.Click += new System.EventHandler(this.flappyBirdToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -210,7 +267,14 @@
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
-            // Form1
+            // donkeyKongToolStripMenuItem
+            // 
+            this.donkeyKongToolStripMenuItem.Name = "donkeyKongToolStripMenuItem";
+            this.donkeyKongToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.donkeyKongToolStripMenuItem.Text = "Donkey Kong";
+            this.donkeyKongToolStripMenuItem.Click += new System.EventHandler(this.donkeyKongToolStripMenuItem_Click);
+            // 
+            // form_Menue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -230,7 +294,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1024, 768);
             this.MinimumSize = new System.Drawing.Size(1024, 768);
-            this.Name = "Form1";
+            this.Name = "form_Menue";
             this.Text = "Axolotl Collection";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -258,6 +322,13 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.ToolStripMenuItem vanguardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem snakeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem breakoutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem minesweeperToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem astroidsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem flappyBirdToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem donkeyKongToolStripMenuItem;
     }
 }
 
