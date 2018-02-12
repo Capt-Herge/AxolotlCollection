@@ -35,6 +35,7 @@
             this.timerMinesweeper = new System.Windows.Forms.Timer(this.components);
             this.labelGameOver = new System.Windows.Forms.Label();
             this.buttonNeustart = new System.Windows.Forms.Button();
+            this.labelGewonnen = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelZeitText
@@ -51,7 +52,7 @@
             // 
             this.labelZeitWert.AutoSize = true;
             this.labelZeitWert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelZeitWert.Location = new System.Drawing.Point(907, 176);
+            this.labelZeitWert.Location = new System.Drawing.Point(895, 174);
             this.labelZeitWert.Name = "labelZeitWert";
             this.labelZeitWert.Size = new System.Drawing.Size(34, 29);
             this.labelZeitWert.TabIndex = 1;
@@ -86,11 +87,23 @@
             this.buttonNeustart.UseVisualStyleBackColor = true;
             this.buttonNeustart.Click += new System.EventHandler(this.buttonNeustart_Click);
             // 
+            // labelGewonnen
+            // 
+            this.labelGewonnen.AutoSize = true;
+            this.labelGewonnen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGewonnen.Location = new System.Drawing.Point(823, 254);
+            this.labelGewonnen.Name = "labelGewonnen";
+            this.labelGewonnen.Size = new System.Drawing.Size(138, 29);
+            this.labelGewonnen.TabIndex = 9;
+            this.labelGewonnen.Text = "Gewonnen";
+            this.labelGewonnen.Visible = false;
+            // 
             // Form_Minesweeper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 730);
+            this.Controls.Add(this.labelGewonnen);
             this.Controls.Add(this.buttonNeustart);
             this.Controls.Add(this.labelGameOver);
             this.Controls.Add(this.panelMinesweeper);
@@ -111,5 +124,6 @@
         private System.Windows.Forms.Timer timerMinesweeper;
         private System.Windows.Forms.Label labelGameOver;
         private System.Windows.Forms.Button buttonNeustart;
+        private System.Windows.Forms.Label labelGewonnen;
     }
 }

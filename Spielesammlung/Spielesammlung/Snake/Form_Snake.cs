@@ -143,7 +143,7 @@ namespace Spielesammlung.Snake
                     }
 
                     // Malt die Teile der Schlange aus
-                    feld.FillEllipse(farbeSchlange, 
+                    feld.FillRectangle(farbeSchlange, 
                                     new Rectangle(Schlange[i].X* Spielfeld.Breite, Schlange[i].Y* Spielfeld.Höhe,
                                                   Spielfeld.Breite, Spielfeld.Höhe));
 
