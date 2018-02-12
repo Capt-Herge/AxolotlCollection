@@ -82,6 +82,10 @@ namespace Spielesammlung.Tic_Tac_Toe
             punkteX = 0;
             punkteO = 0;
         }
+        private void btn_menue_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
         #region Methoden
         private void ArrayInitialisieren()

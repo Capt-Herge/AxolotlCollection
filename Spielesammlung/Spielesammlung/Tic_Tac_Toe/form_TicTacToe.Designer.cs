@@ -45,6 +45,7 @@
             this.lbl_punkteX = new System.Windows.Forms.Label();
             this.lbl_punkteO = new System.Windows.Forms.Label();
             this.lbl_spielstand = new System.Windows.Forms.Label();
+            this.btn_menue = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_A1
@@ -148,7 +149,8 @@
             // 
             // btn_reset
             // 
-            this.btn_reset.Location = new System.Drawing.Point(650, 500);
+            this.btn_reset.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_reset.Location = new System.Drawing.Point(650, 444);
             this.btn_reset.Name = "btn_reset";
             this.btn_reset.Size = new System.Drawing.Size(200, 50);
             this.btn_reset.TabIndex = 9;
@@ -240,12 +242,24 @@
             this.lbl_spielstand.Text = "Spielstand";
             this.lbl_spielstand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btn_menue
+            // 
+            this.btn_menue.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_menue.Location = new System.Drawing.Point(650, 500);
+            this.btn_menue.Name = "btn_menue";
+            this.btn_menue.Size = new System.Drawing.Size(200, 50);
+            this.btn_menue.TabIndex = 17;
+            this.btn_menue.Text = "Zum Menü";
+            this.btn_menue.UseVisualStyleBackColor = true;
+            this.btn_menue.Click += new System.EventHandler(this.btn_menue_Click);
+            // 
             // form_TicTacToe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.btn_menue);
             this.Controls.Add(this.lbl_spielstand);
             this.Controls.Add(this.lbl_punkteO);
             this.Controls.Add(this.lbl_punkteX);
@@ -281,6 +295,7 @@
         private System.Windows.Forms.Button btn_C2;
         private System.Windows.Forms.Button btn_C3;
         private System.Windows.Forms.Button btn_reset;
+        private System.Windows.Forms.Button btn_menue;
         private System.Windows.Forms.Label lbl_zug;
         private System.Windows.Forms.Label lbl_zuganzeige;
         private System.Windows.Forms.Label lbl_spielerX;
