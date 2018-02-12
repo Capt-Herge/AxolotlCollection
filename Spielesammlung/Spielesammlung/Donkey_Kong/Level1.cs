@@ -12,8 +12,11 @@ namespace Spielesammlung.Donkey_Kong
 {
     class Level1
     {
-        public Level1(PaintEventArgs e)
+       public int affeHilf;
+
+        public Level1(PaintEventArgs e, int affe)
         {
+            affeHilf = affe;
             Level1Laden(e);
         }
 
@@ -35,7 +38,6 @@ namespace Spielesammlung.Donkey_Kong
             Ebene6Leiter1Lila(e);
             Ebene6Leiter2Lila(e);
 
-
             Ebene1Lila(e);
             Ebene2Lila(e);
             Ebene3Lila(e);
@@ -44,7 +46,15 @@ namespace Spielesammlung.Donkey_Kong
             Ebene6Lila(e);
             Ebene7Lila(e);
 
-            AffeSetzen(e);
+            if(affeHilf > 200)
+            {
+                AffeSetzen(e);
+            }
+            if(affeHilf <= 200)
+            {
+                AffeSetzen(e).AendereBlickRichtung();
+            }
+            
             PeachSetzen(e);
             HammerSetzen(e);
             MarioSetzen(e);

@@ -12,9 +12,11 @@ namespace Spielesammlung.Donkey_Kong
 {
     class Level2
     {
+        public int affeHilf;
 
-        public Level2(PaintEventArgs e)
+        public Level2(PaintEventArgs e, int affe)
         {
+            affeHilf = affe;
             Level2Laden(e);
         }
 
@@ -49,7 +51,15 @@ namespace Spielesammlung.Donkey_Kong
             Ebene5Blau(e);
             Ebene6Blau(e);
 
-            AffeSetzen(e);
+            if (affeHilf > 200)
+            {
+                AffeSetzen(e);
+            }
+            if (affeHilf <= 200)
+            {
+                AffeSetzen(e).AendereBlickRichtung();
+            }
+
             PeachSetzen(e);
             HammerSetzen(e);
             MarioSetzen(e);
@@ -952,7 +962,7 @@ namespace Spielesammlung.Donkey_Kong
 
 
         #region Figuren
-        public void AffeSetzen(PaintEventArgs e)
+        public Affe AffeSetzen(PaintEventArgs e)
         {
             int[] xPositionen;
             int[] yPositionen;
@@ -979,6 +989,8 @@ namespace Spielesammlung.Donkey_Kong
             verteilungFigur(figuren, xPositionen, yPositionen);
 
             FaerbenFigure(figuren, e, xPositionen, yPositionen);
+
+            return (kong);
         }
 
 

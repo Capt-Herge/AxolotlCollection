@@ -1295,53 +1295,67 @@ namespace Spielesammlung.Donkey_Kong
 
         public void LinksLauf(KeyEventArgs e)
         {
-            while(e.KeyCode == Keys.Left)
+            for (int i = 0; i < model.GetLength(1); i++)
             {
-
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i].farbe = linksLaufAnimation[j, i];
+                }
             }
         }
 
         public void RechtsLauf(KeyEventArgs e)
         {
-            while (e.KeyCode == Keys.Right)
+            for (int i = 0; i < model.GetLength(1); i++)
             {
-
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i].farbe = rechtsLaufAnimation[j, i];
+                }
             }
         }
 
-        public void Springen(KeyEventArgs e)
+        public void SpringenLinks(KeyEventArgs e)
         {
-            while (e.KeyCode == Keys.Up)
+            for (int i = 0; i < model.GetLength(1); i++)
             {
-
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i].farbe = linksSpringAnimation[j, i];
+                }
             }
         }
 
-        public void HochKlettern(KeyEventArgs e, Leiter_Heil_Lila leiter)
+        public void SpringenRechts(KeyEventArgs e)
         {
-            while ((e.KeyCode == Keys.Up) && (leiter.xPosition == xPosition) && (leiterPosition != 3))
+            for (int i = 0; i < model.GetLength(1); i++)
             {
-                leiterPosition++;
-            }
-
-            if(leiterPosition == 3)
-            {
-                leiterPosition = 0;
-                ebene++;
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i].farbe = rechtsSpringAnimation[j, i];
+                }
             }
         }
 
-        public void RunterKlettern(KeyEventArgs e, Leiter_Heil_Lila leiter)
+        public void RechtsKlettern(KeyEventArgs e, Leiter_Heil_Lila leiter)
         {
-            while ((e.KeyCode == Keys.Down) && (leiter.xPosition == xPosition) && (leiterPosition != 0))
+            for (int i = 0; i < model.GetLength(1); i++)
             {
-                leiterPosition--;
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i].farbe = rechtsKletterAnimation[j, i];
+                }
             }
+        }
 
-            if ((leiterPosition == 0) && (leiter.xPosition == xPosition))
+        public void LinksKlettern(KeyEventArgs e, Leiter_Heil_Lila leiter)
+        {
+            for (int i = 0; i < model.GetLength(1); i++)
             {
-                leiterPosition = 3;
-                ebene--;
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i].farbe = linksKletterAnimation[j, i];
+                }
             }
         }
 
