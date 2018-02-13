@@ -40,6 +40,5 @@ namespace Spielesammlung.Minesweeper
             Minute = 0;
             Stunde = 0;
         }
-
     }
 }

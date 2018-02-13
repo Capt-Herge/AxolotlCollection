@@ -42,7 +42,7 @@
             // 
             this.labelZeitText.AutoSize = true;
             this.labelZeitText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelZeitText.Location = new System.Drawing.Point(877, 120);
+            this.labelZeitText.Location = new System.Drawing.Point(839, 98);
             this.labelZeitText.Name = "labelZeitText";
             this.labelZeitText.Size = new System.Drawing.Size(64, 29);
             this.labelZeitText.TabIndex = 0;
@@ -52,11 +52,11 @@
             // 
             this.labelZeitWert.AutoSize = true;
             this.labelZeitWert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelZeitWert.Location = new System.Drawing.Point(895, 174);
+            this.labelZeitWert.Location = new System.Drawing.Point(839, 139);
             this.labelZeitWert.Name = "labelZeitWert";
-            this.labelZeitWert.Size = new System.Drawing.Size(34, 29);
+            this.labelZeitWert.Size = new System.Drawing.Size(97, 29);
             this.labelZeitWert.TabIndex = 1;
-            this.labelZeitWert.Text = "...";
+            this.labelZeitWert.Text = "0:00:00";
             // 
             // panelMinesweeper
             // 
@@ -70,7 +70,7 @@
             // 
             this.labelGameOver.AutoSize = true;
             this.labelGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGameOver.Location = new System.Drawing.Point(816, 292);
+            this.labelGameOver.Location = new System.Drawing.Point(794, 350);
             this.labelGameOver.Name = "labelGameOver";
             this.labelGameOver.Size = new System.Drawing.Size(145, 29);
             this.labelGameOver.TabIndex = 7;
@@ -79,7 +79,7 @@
             // 
             // buttonNeustart
             // 
-            this.buttonNeustart.Location = new System.Drawing.Point(854, 342);
+            this.buttonNeustart.Location = new System.Drawing.Point(828, 392);
             this.buttonNeustart.Name = "buttonNeustart";
             this.buttonNeustart.Size = new System.Drawing.Size(75, 23);
             this.buttonNeustart.TabIndex = 8;
@@ -91,7 +91,7 @@
             // 
             this.labelGewonnen.AutoSize = true;
             this.labelGewonnen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGewonnen.Location = new System.Drawing.Point(823, 254);
+            this.labelGewonnen.Location = new System.Drawing.Point(794, 297);
             this.labelGewonnen.Name = "labelGewonnen";
             this.labelGewonnen.Size = new System.Drawing.Size(138, 29);
             this.labelGewonnen.TabIndex = 9;

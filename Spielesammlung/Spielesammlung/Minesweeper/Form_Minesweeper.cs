@@ -33,7 +33,6 @@ namespace Spielesammlung.Minesweeper
 
             // Startet ein neues Spiel
             NeuesSpiel();
-
         }
 
         public void ErstelleFeld()
@@ -56,7 +55,6 @@ namespace Spielesammlung.Minesweeper
                     panelMinesweeper.Controls.Add(buttonArray[x, y]);
                     // Click-Eventhandler für jeden Button
                     buttonArray[x, y].Click += new EventHandler(ButtonGeklickt);
-
                 }
             }
         }
@@ -88,12 +86,14 @@ namespace Spielesammlung.Minesweeper
                                 // und färbe ihn rot
                                 buttonArray[x, y].BackColor = Color.Red;
                             }
+
                             // wenn der Button keine Mine ist
                             else
                             {
                                 // zeige den Namen des Buttons an
                                 buttonArray[x, y].Text = buttonArray[x, y].Name;
                             }
+
                             // der bearbeitete Button ist dann nicht mehr verfügbar
                             buttonArray[x, y].Enabled = false;
                         }
@@ -105,8 +105,8 @@ namespace Spielesammlung.Minesweeper
                 // Button und Label werden sichtbar
                 labelGameOver.Visible = true;
                 buttonNeustart.Visible = true;
-
             }
+
             // wenn der geklickte Button eine 0 ist
             else if (button.Name.Equals("0"))
             {
@@ -129,12 +129,13 @@ namespace Spielesammlung.Minesweeper
                         }
                     }
                 }
+
                 // Es sollen alle anliegenden Nullen mit aufgedeckt werden
                 AufdeckenNullen();
                 // Überprüft, ob der Spieler gewonnen hat
                 Gewonnen();
-
             }
+
             // wenn der Button keine Mine und keine 0 ist,
             else
             {
@@ -147,13 +148,10 @@ namespace Spielesammlung.Minesweeper
                 // Überprüft, ob der Spieler gewonnen hat
                 Gewonnen();
             }
-
         }
 
         public void NeuesSpiel()
         {
-            timerMinesweeper.Stop();
-
             // Button und Label sind nicht mehr sichtbar
             labelGameOver.Visible = false;
             labelGewonnen.Visible = false;
@@ -161,9 +159,6 @@ namespace Spielesammlung.Minesweeper
 
             // Text im Label für die Zeit wird zurückgesetzt
             labelZeitWert.Text = "0:00:00";
-
-            // 
-            //Spielfeld.FelderRest = 1;
 
             // für jeden Button 
             for (int x = 0; x < buttonArray.GetLength(0); x++)
@@ -177,21 +172,15 @@ namespace Spielesammlung.Minesweeper
                     buttonArray[x, y].BackColor = Color.LightSteelBlue;
                     // Verfügbarkeit zurücksetzen
                     buttonArray[x, y].Enabled = true;
-
                 }
             }
 
             // Erzeugt ein Objekt Spielfeld
             new Spielfeld();
 
-            // Gameover wird zurück auf false gesetzt
-            Spielfeld.GameOver = false;
-
-            // Gewonnen wird zurück auf false gesetzt
-            Spielfeld.Gewonnen = false;
-
             // Die Liste mit den Minen wird geleert
             ListeMinen.Clear();
+
             // Es werden neue Positionen für die Minen ermittelt
             PlatziereMinen();
 
@@ -200,8 +189,6 @@ namespace Spielesammlung.Minesweeper
 
             // Der Timer wird gestartet
             timerMinesweeper.Start();
-
-
         }
 
 
@@ -231,7 +218,6 @@ namespace Spielesammlung.Minesweeper
 
                 // Der Name des jeweiligen Buttons wird geändert
                 buttonArray[zufallX, zufallY].Name = "Mine";
-
                 // Eintrag wird zur Liste der Minen hinzugefügt
                 ListeMinen.Add(eintrag);
             }
@@ -464,6 +450,7 @@ namespace Spielesammlung.Minesweeper
                         }
                     }
                 }
+
                 // Methode wird wieder aufgerufen, um gesamten Bereich aufzudecken
                 AufdeckenNullen();
             }
@@ -479,12 +466,11 @@ namespace Spielesammlung.Minesweeper
                 // der Timer gestoppt
                 timerMinesweeper.Stop();
                 // der Text mit der Zeit angeseigt
-                string gewonnen = "Gewonnen! \n Deine Zeit: \n" + labelZeitWert.Text;
+                string gewonnen = "Gewonnen! \n Deine Zeit:\n    " + labelZeitWert.Text;
                 labelGewonnen.Text = gewonnen;
                 labelGewonnen.Visible = true;
                 // und der Button zum Neustarten angezeigt
                 buttonNeustart.Visible = true;
-
             }
         }
 
@@ -521,8 +507,8 @@ namespace Spielesammlung.Minesweeper
                 {
                     labelZeitWert.Text = Spielfeld.Stunde.ToString() + ":" + Spielfeld.Minute.ToString() + ":" + Spielfeld.Sekunde.ToString();
                 }
-
             }
+
             // wenn Sekunde 59 ist
             else if (Spielfeld.Sekunde == 59)
             {
@@ -538,7 +524,6 @@ namespace Spielesammlung.Minesweeper
                     Spielfeld.Minute = 0;
                     // wird Stunde auf 1 gesetzt
                     Spielfeld.Stunde += 1;
-
                 }
 
                 // je nach Höhe der Sekunden und Minuten wird die Zeit entsprechend angezeigt
@@ -558,10 +543,7 @@ namespace Spielesammlung.Minesweeper
                 {
                     labelZeitWert.Text = Spielfeld.Stunde.ToString() + ":" + Spielfeld.Minute.ToString() + ":" + Spielfeld.Sekunde.ToString();
                 }
-
             }
-
         }
-
     }
 }

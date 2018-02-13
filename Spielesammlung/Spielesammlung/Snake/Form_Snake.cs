@@ -17,12 +17,6 @@ namespace Spielesammlung.Snake
         // Element für die Nahrung
         private Element Nahrung = new Element();
 
-        private void Update(object sender, EventArgs e)
-        {
-            // Spielfeld(PictureBox) wird neu gezeichnet
-            pictureBoxSnake.Invalidate();
-        }
-
         public Form_Snake()
         {
             InitializeComponent();
@@ -37,9 +31,8 @@ namespace Spielesammlung.Snake
             // Startet des Timer
             timerSnake.Start();
 
-            //Spiel wird gestartet
+            // Spiel wird gestartet
             StarteNeuesSpiel();
-
         }
 
         private void StarteNeuesSpiel()
@@ -78,7 +71,6 @@ namespace Spielesammlung.Snake
             Nahrung = new Element();
             Nahrung.X = zufall.Next(0, xMax);
             Nahrung.Y = zufall.Next(0, yMax);
-
         }
 
         public void UpdateSpiel(object sender, EventArgs e)
@@ -144,7 +136,7 @@ namespace Spielesammlung.Snake
 
                     // Malt die Teile der Schlange aus
                     feld.FillRectangle(farbeSchlange, 
-                                    new Rectangle(Schlange[i].X* Spielfeld.Breite, Schlange[i].Y* Spielfeld.Höhe,
+                                    new Rectangle(Schlange[i].X * Spielfeld.Breite, Schlange[i].Y * Spielfeld.Höhe,
                                                   Spielfeld.Breite, Spielfeld.Höhe));
 
                     // Malt die Nahrung aus
@@ -214,9 +206,8 @@ namespace Spielesammlung.Snake
                     {
                         NahrungEssen();
                     }
-                   
-                     
                 }
+
                 // Jedes Element des Körpers der Schlange bekommt die Position des Vorgängers
                 else
                 {
@@ -248,7 +239,6 @@ namespace Spielesammlung.Snake
 
             // Neue Nahrung erstellen
             SetzeNahrung();
-
         }
 
         // Event Taste kommt hoch ändert den Status
