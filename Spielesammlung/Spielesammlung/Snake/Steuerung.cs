@@ -31,6 +31,5 @@ namespace Spielesammlung.Snake
                 return (bool)tasten[key];
             }
         }
-
     }
 }
