@@ -12,11 +12,32 @@ namespace Spielesammlung.Donkey_Kong
 {
     class Level1
     {
-       public int affeHilf;
+        public static int zufall = new Random().Next(0, 200);
 
-        public Level1(PaintEventArgs e, int affe)
+        public int affeHilf;
+
+        public int faesserHilf;
+
+        public static int fassHilf1 = 0;
+        public static int yFassHilf1 = 0;
+        public static bool randFass1 = false;
+
+        public static int fassHilf2 = 0;
+        public static int yFassHilf2 = 0;
+        public static bool randFass2 = false;
+
+        public static int fassHilf3 = 0;
+        public static int yFassHilf3 = 0;
+        public static bool randFass3 = false;
+
+        public static int feuerHilf4 = 0;
+        public static int yFassHilf4 = 0;
+        public static bool randFass4 = false;
+
+        public Level1(PaintEventArgs e, int affe, int fass)
         {
             affeHilf = affe;
+            faesserHilf = fass;
             Level1Laden(e);
         }
 
@@ -58,7 +79,15 @@ namespace Spielesammlung.Donkey_Kong
             PeachSetzen(e);
             HammerSetzen(e);
             MarioSetzen(e);
-            FassSetzen(e);
+
+            if(faesserHilf > 23)
+            {
+                FassSetzen(e);
+            }
+            if (faesserHilf <= 23)
+            {
+                FassSetzen(e).Dreh();
+            }
         }
 
 
@@ -916,7 +945,7 @@ namespace Spielesammlung.Donkey_Kong
         }
 
 
-        public void FassSetzen(PaintEventArgs e)
+        public Fass FassSetzen(PaintEventArgs e)
         {
             int[] xPositionen;
             int[] yPositionen;
@@ -935,14 +964,65 @@ namespace Spielesammlung.Donkey_Kong
             yPositionen = new int[figuren.GetLength(0)];
 
             #region Position
-            xPositionen[0] = (((13 * pixelGreosse) * 2) + offset);
+            if (fassHilf1 >= 380)
+            {
+                randFass1 = true;
+            }
 
-            yPositionen[0] = (74 * pixelGreosse);
+            if (((zufall >= 1984) && (zufall < 1988)) && (fassHilf1 < 380))
+            {
+                if (randFass1 == false)
+                {
+                    randFass1 = true;
+                }
+                if (randFass1 == true)
+                {
+                    randFass1 = false;
+                }
+            }
+
+            if (fassHilf1 == 0)
+            {
+                xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf1;
+
+                yPositionen[0] = (74 * pixelGreosse);
+
+                fassHilf1++;
+
+                if (randFass1 == false)
+                {
+                    randFass1 = true;
+                }
+                if (randFass1 == true)
+                {
+                    randFass1 = false;
+                }
+            }
+
+            if ((fassHilf1 > 0) && (randFass1 == false))
+            {
+                xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf1;
+
+                yPositionen[0] = (74 * pixelGreosse);
+
+                fassHilf1++;
+            }
+
+            if ((fassHilf1 > 0) && (randFass1 == true))
+            {
+                xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf1;
+
+                yPositionen[0] = (74 * pixelGreosse);
+
+                fassHilf1--;
+            }
             #endregion
 
             verteilungFigur(figuren, xPositionen, yPositionen);
 
             FaerbenFigure(figuren, e, xPositionen, yPositionen);
+
+            return (kong);
         }
         #endregion
 

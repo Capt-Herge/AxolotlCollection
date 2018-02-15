@@ -12,7 +12,18 @@ namespace Spielesammlung.Donkey_Kong
 {
     class Level2
     {
+        public static int zufall = new Random().Next(0, 200);
+
         public int affeHilf;
+
+        public static int feuerHilf1 = 0;
+        public static bool randFeuer1 = false;
+        public static int feuerHilf2 = 0;
+        public static bool randFeuer2 = false;
+        public static int feuerHilf3 = 0;
+        public static bool randFeuer3 = false;
+        public static int feuerHilf4 = 0;
+        public static bool randFeuer4 = false;
 
         public Level2(PaintEventArgs e, int affe)
         {
@@ -1084,12 +1095,13 @@ namespace Spielesammlung.Donkey_Kong
         }
 
 
-        public void Feuer1Setzen(PaintEventArgs e)
+        public Feuer Feuer1Setzen(PaintEventArgs e)
         {
             int[] xPositionen;
             int[] yPositionen;
             int pixelGreosse = 3;
             int offset = 250;
+            zufall = new Random().Next(0, 2000);
 
             Feuer kong = new Feuer();
 
@@ -1103,23 +1115,77 @@ namespace Spielesammlung.Donkey_Kong
             yPositionen = new int[figuren.GetLength(0)];
 
             #region Position
-            xPositionen[0] = (((17 * pixelGreosse) * 2) + offset);
+            if (feuerHilf1 >= 380)
+            {
+                randFeuer1 = true;
+            }
 
-            yPositionen[0] = (174 * pixelGreosse);
+            if (((zufall >= 1984) && (zufall < 1988)) && (feuerHilf1 < 380))
+            {
+                if(randFeuer1 == false)
+                {
+                    randFeuer1 = true;
+                }
+                if (randFeuer1 == true)
+                {
+                    randFeuer1 = false;
+                }
+            }
+
+            if (feuerHilf1 == 0)
+            {
+                xPositionen[0] = (17 * pixelGreosse) + offset+ feuerHilf1;
+
+                yPositionen[0] = (174 * pixelGreosse);
+
+                feuerHilf1++;
+
+                if(randFeuer1 == false)
+                {
+                    randFeuer1 = true;
+                }
+                if (randFeuer1 == true)
+                {
+                    randFeuer1 = false;
+                }
+            }
+
+            if ((feuerHilf1 > 0) && (randFeuer1 == false))
+            {
+                xPositionen[0] = (17 * pixelGreosse) + offset + feuerHilf1;
+
+                yPositionen[0] = (174 * pixelGreosse);
+
+                feuerHilf1++;
+            }
+
+            if ((feuerHilf1 > 0) && (randFeuer1 == true))
+            {
+                xPositionen[0] = (17 * pixelGreosse) + offset + feuerHilf1;
+
+                yPositionen[0] = (174 * pixelGreosse);
+
+                kong.LinksSchweb();
+
+                feuerHilf1--;
+            }
             #endregion
 
             verteilungFigur(figuren, xPositionen, yPositionen);
 
             FaerbenFigure(figuren, e, xPositionen, yPositionen);
+
+            return (kong);
         }
 
 
-        public void Feuer2Setzen(PaintEventArgs e)
+        public Feuer Feuer2Setzen(PaintEventArgs e)
         {
             int[] xPositionen;
             int[] yPositionen;
             int pixelGreosse = 3;
             int offset = 250;
+            zufall = new Random().Next(0, 2000);
 
             Feuer kong = new Feuer();
 
@@ -1133,23 +1199,77 @@ namespace Spielesammlung.Donkey_Kong
             yPositionen = new int[figuren.GetLength(0)];
 
             #region Position
-            xPositionen[0] = (((17 * pixelGreosse) * 2) + offset);
+            if (feuerHilf2 >= 380)
+            {
+                randFeuer2 = true;
+            }
 
-            yPositionen[0] = (148 * pixelGreosse);
+            if (((zufall >= 1988) && (zufall < 1992)) && (feuerHilf2 < 380))
+            {
+                if (randFeuer2 == false)
+                {
+                    randFeuer2 = true;
+                }
+                if (randFeuer2 == true)
+                {
+                    randFeuer2 = false;
+                }
+            }
+
+            if (feuerHilf2 == 0)
+            {
+                xPositionen[0] = (17 * pixelGreosse) + offset + feuerHilf2;
+
+                yPositionen[0] = (148 * pixelGreosse);
+
+                feuerHilf2++;
+
+                if (randFeuer2 == false)
+                {
+                    randFeuer2 = true;
+                }
+                if (randFeuer2 == true)
+                {
+                    randFeuer2 = false;
+                }
+            }
+
+            if ((feuerHilf2 > 0) && (randFeuer2 == false))
+            {
+                xPositionen[0] = (17 * pixelGreosse) + offset + feuerHilf2;
+
+                yPositionen[0] = (148 * pixelGreosse);
+
+                feuerHilf2++;
+            }
+
+            if ((feuerHilf2 > 0) && (randFeuer2 == true))
+            {
+                xPositionen[0] = (17 * pixelGreosse) + offset + feuerHilf2;
+
+                yPositionen[0] = (148 * pixelGreosse);
+
+                kong.LinksSchweb();
+
+                feuerHilf2--;
+            }
             #endregion
 
             verteilungFigur(figuren, xPositionen, yPositionen);
 
             FaerbenFigure(figuren, e, xPositionen, yPositionen);
+
+            return (kong);
         }
 
 
-        public void Feuer3Setzen(PaintEventArgs e)
+        public Feuer Feuer3Setzen(PaintEventArgs e)
         {
             int[] xPositionen;
             int[] yPositionen;
             int pixelGreosse = 3;
             int offset = 250;
+            zufall = new Random().Next(0, 2000);
 
             Feuer kong = new Feuer();
 
@@ -1163,23 +1283,77 @@ namespace Spielesammlung.Donkey_Kong
             yPositionen = new int[figuren.GetLength(0)];
 
             #region Position
-            xPositionen[0] = (((17 * pixelGreosse) * 2) + offset);
+            if (feuerHilf3 >= 380)
+            {
+                randFeuer3 = true;
+            }
 
-            yPositionen[0] = (122 * pixelGreosse);
+            if (((zufall >= 1992) && (zufall < 1996)) && (feuerHilf3 < 380))
+            {
+                if (randFeuer3 == false)
+                {
+                    randFeuer3 = true;
+                }
+                if (randFeuer3 == true)
+                {
+                    randFeuer3 = false;
+                }
+            }
+
+            if (feuerHilf3 == 0)
+            {
+                xPositionen[0] = (17 * pixelGreosse) + offset + feuerHilf3;
+
+                yPositionen[0] = (122 * pixelGreosse);
+
+                feuerHilf3++;
+
+                if (randFeuer3 == false)
+                {
+                    randFeuer3 = true;
+                }
+                if (randFeuer3 == true)
+                {
+                    randFeuer3 = false;
+                }
+            }
+
+            if ((feuerHilf3 > 0) && (randFeuer3 == false))
+            {
+                xPositionen[0] = (17 * pixelGreosse) + offset + feuerHilf3;
+
+                yPositionen[0] = (122 * pixelGreosse);
+
+                feuerHilf3++;
+            }
+
+            if ((feuerHilf3 > 0) && (randFeuer3 == true))
+            {
+                xPositionen[0] = (17 * pixelGreosse) + offset + feuerHilf3;
+
+                yPositionen[0] = (122 * pixelGreosse);
+
+                kong.LinksSchweb();
+
+                feuerHilf3--;
+            }
             #endregion
 
             verteilungFigur(figuren, xPositionen, yPositionen);
 
             FaerbenFigure(figuren, e, xPositionen, yPositionen);
+
+            return (kong);
         }
 
 
-        public void Feuer4Setzen(PaintEventArgs e)
+        public Feuer Feuer4Setzen(PaintEventArgs e)
         {
             int[] xPositionen;
             int[] yPositionen;
             int pixelGreosse = 3;
             int offset = 250;
+            zufall = new Random().Next(0, 2000);
 
             Feuer kong = new Feuer();
 
@@ -1193,14 +1367,67 @@ namespace Spielesammlung.Donkey_Kong
             yPositionen = new int[figuren.GetLength(0)];
 
             #region Position
-            xPositionen[0] = (((17 * pixelGreosse) * 2) + offset);
+            if (feuerHilf4 >= 380)
+            {
+                randFeuer4 = true;
+            }
 
-            yPositionen[0] = (96 * pixelGreosse);
+            if ((zufall >= 1996) && (feuerHilf4 < 380))
+            {
+                if (randFeuer4 == false)
+                {
+                    randFeuer4 = true;
+                }
+                if (randFeuer4 == true)
+                {
+                    randFeuer4 = false;
+                }
+            }
+
+            if (feuerHilf4 == 0)
+            {
+                xPositionen[0] = (17 * pixelGreosse) + offset + feuerHilf4;
+
+                yPositionen[0] = (96 * pixelGreosse);
+
+                feuerHilf4++;
+
+                if (randFeuer4 == false)
+                {
+                    randFeuer4 = true;
+                }
+                if (randFeuer4 == true)
+                {
+                    randFeuer4 = false;
+                }
+            }
+
+            if ((feuerHilf4 > 0) && (randFeuer4 == false))
+            {
+                xPositionen[0] = (17 * pixelGreosse) + offset + feuerHilf4;
+
+                yPositionen[0] = (96 * pixelGreosse);
+
+                feuerHilf4++;
+            }
+
+            if ((feuerHilf4 > 0) && (randFeuer4 == true))
+            {
+                xPositionen[0] = (17 * pixelGreosse) + offset + feuerHilf4;
+
+                yPositionen[0] = (96 * pixelGreosse);
+
+                kong.LinksSchweb();
+
+                feuerHilf4--;
+            }
             #endregion
 
             verteilungFigur(figuren, xPositionen, yPositionen);
 
             FaerbenFigure(figuren, e, xPositionen, yPositionen);
+
+            return (kong);
         }
         #endregion
 

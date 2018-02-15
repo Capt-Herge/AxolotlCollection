@@ -9,7 +9,6 @@ namespace Spielesammlung.Donkey_Kong
     class Feuer : Figuren
     {
         public int ebene { get; set; } = 1;
-        public bool leiterZufall { get; set; } = false;
         #region bilder
         public int[,] linksSchwebAnimation { get; set; } = new int[8, 8];
         public int[,] rechtsSchwebAnimation { get; set; } = new int[8, 8];
@@ -161,21 +160,22 @@ namespace Spielesammlung.Donkey_Kong
                 }
             }
 
-            RechtsSchweb();
-        }
-
-        public void LinksSchweb()
-        {
-
-        }
-
-        public void RechtsSchweb()
-        {
             for (int i = 0; i < model.GetLength(1); i++)
             {
                 for (int j = 0; j < model.GetLength(0); j++)
                 {
                     model[j, i].farbe = rechtsSchwebAnimation[j, i];
+                }
+            }
+        }
+
+        public void LinksSchweb()
+        {
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i].farbe = linksSchwebAnimation[j, i];
                 }
             }
         }
