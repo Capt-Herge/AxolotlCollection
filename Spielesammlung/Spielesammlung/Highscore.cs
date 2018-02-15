@@ -2,6 +2,15 @@
 
 public class Highscore
 {
+    // globale Variablen
+    string aktuellesZeichen;
+    string aktuelleZeile;
+    string[] liste;
+    string[] zeilewort;
+    string[] zeilezahl;
+    string[] zahl;
+    string[] wort;
+
     //Leerer Konstruktor
     public Highscore()
     {
@@ -11,10 +20,6 @@ public class Highscore
     //Liest ein Dokument das den Highscore enthaelt ein und gibt ihn als Stringarray mit einer Zeile pro Arrayplatz zurueck
     public string[] Lesen(string spiel)
     {
-        //Varablen
-        string[] liste;
-        string aktuelleZeile;
-
         //Liest das Dokument ein
         System.IO.StreamReader datei = new System.IO.StreamReader(@"%APPDATA%\AxolotlCollection\" + spiel +".txt");
 
@@ -33,12 +38,7 @@ public class Highscore
     //Traegt einen Highscore, wenn ausreichend in die Liste ein
     public void Schreiben(string spiel, string spielername, int highscore)
     {
-        //Varablen
-        string[] zeilewort;
-        string[] zeilezahl;
-        string[] zahl;
-        string[] wort;
-        string aktuellesZeichen;
+        //Varablen;
 
         //Liest das Dokument ein
         System.IO.StreamReader datei = new System.IO.StreamReader(@"%APPDATA%\AxolotlCollection\" + spiel + ".txt");
@@ -47,7 +47,7 @@ public class Highscore
         for (int i = 0; (aktuelleZeile = datei.ReadLine()) != null; i++)
         {
             //Score
-            for (int j = 0; (aktuellesZeichen = datei.Read()) != " "; j++)
+            for (int j = 0; (aktuellesZeichen = datei.Read().ToString()) != " "; j++)
             {
                 zahl[j] = aktuellesZeichen;
             }
@@ -58,7 +58,7 @@ public class Highscore
             }
 
             //Spieler Name
-            for (int j = 0; (aktuellesZeichen = datei.Read()) != " "; j++)
+            for (int j = 0; (aktuellesZeichen = datei.Read().ToString()) != " "; j++)
             {
                 wort[j] = aktuellesZeichen;
             }
@@ -71,7 +71,5 @@ public class Highscore
 
         //Beendet das lesen der Datei und gibt die liste zurueck
         datei.Close();
-
-        
     }
 }
