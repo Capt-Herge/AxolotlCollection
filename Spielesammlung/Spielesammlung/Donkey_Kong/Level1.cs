@@ -12,27 +12,46 @@ namespace Spielesammlung.Donkey_Kong
 {
     class Level1
     {
-        public static int zufall = new Random().Next(0, 200);
-
         public int affeHilf;
 
-        public int faesserHilf;
+        public static bool ebenenLock1 = false;
+        public static bool ebenenLock2 = false;
+        public static bool ebenenLock3 = false;
+        public static bool ebenenLock4 = false;
+        public static bool ebenenLock5 = false;
+        public static bool ebenenLock6 = false;
 
-        public static int fassHilf1 = 0;
+        public static int faesserHilf;
+        public static bool fallen = false;
+        public static bool gefallen = false;
+        public static int fassYGesamt = 0;
+        public static bool leiterLock = false;
+        public static bool leiterEbene1Lock = false;
+
+        public static int fassHilf1 = 1;
         public static int yFassHilf1 = 0;
         public static bool randFass1 = false;
+        public static int fass1Ebene = 6;
+        public static int fass1EbenenHilfe = 0;
+        public static int fass1EbenenHilfe2 = 0;
 
-        public static int fassHilf2 = 0;
+        public static int fassHilf2 = 1;
         public static int yFassHilf2 = 0;
         public static bool randFass2 = false;
+        public static int fass2Ebene = 0;
+        public static int fass2EbenenHilfe = 0;
 
-        public static int fassHilf3 = 0;
+        public static int fassHilf3 = 1;
         public static int yFassHilf3 = 0;
         public static bool randFass3 = false;
+        public static int fass3Ebene = 6;
+        public static int fass3EbenenHilfe = 0;
 
-        public static int feuerHilf4 = 0;
+        public static int feuerHilf4 = 1;
         public static int yFassHilf4 = 0;
         public static bool randFass4 = false;
+        public static int fass4Ebene = 6;
+        public static int fass4EbenenHilfe = 0;
 
         public Level1(PaintEventArgs e, int affe, int fass)
         {
@@ -67,11 +86,11 @@ namespace Spielesammlung.Donkey_Kong
             Ebene6Lila(e);
             Ebene7Lila(e);
 
-            if(affeHilf > 200)
+            if (affeHilf > 200)
             {
                 AffeSetzen(e);
             }
-            if(affeHilf <= 200)
+            else if (affeHilf <= 200)
             {
                 AffeSetzen(e).AendereBlickRichtung();
             }
@@ -80,14 +99,48 @@ namespace Spielesammlung.Donkey_Kong
             HammerSetzen(e);
             MarioSetzen(e);
 
-            if(faesserHilf > 23)
-            {
+        
+           if (fass1Ebene == 1 || fass1Ebene == 6)
+           {
+               fass1EbenenHilfe2 = 0;
+           }
+           else if ((fass1Ebene == 2) || (fass1Ebene == 3) || (fass1Ebene == 4) || (fass1Ebene == 5))
+           {
+                if (fass1EbenenHilfe2 > 14)
+                {
+                    fass1EbenenHilfe++;
+                    fass1EbenenHilfe2 = 0;
+                }               
+                else if (fass1EbenenHilfe2 <= 14)
+                {
+                    fass1EbenenHilfe2++;
+                }
+           }           
+
+           if (((fass1Ebene == 3) || (fass1Ebene == 4) || (fass1Ebene == 2)) && (leiterLock == false))
+           {
+                fassYGesamt = (fassYGesamt - 8);
+                leiterLock = true;
+           }
+
+           if ((fass1Ebene == 1) && (leiterEbene1Lock == false))
+           {
+               fassYGesamt = (fassYGesamt - 18);
+               leiterEbene1Lock = true;
+            }
+
+            if (fallen == true)
+           {
+                FassSetzen(e).Fall();
+           }
+           else if (faesserHilf > 23)
+           {
                 FassSetzen(e);
-            }
-            if (faesserHilf <= 23)
-            {
+           }
+           else if (faesserHilf <= 23)
+           {
                 FassSetzen(e).Dreh();
-            }
+           }
         }
 
 
@@ -952,7 +1005,7 @@ namespace Spielesammlung.Donkey_Kong
             int pixelGreosse = 3;
             int offset = 250;
 
-            Fass kong = new Fass();
+            Fass kong = new Fass(fallen);
 
             Figuren[] figuren;
             figuren = new Figuren[]
@@ -964,58 +1017,139 @@ namespace Spielesammlung.Donkey_Kong
             yPositionen = new int[figuren.GetLength(0)];
 
             #region Position
-            if (fassHilf1 >= 380)
+            if ((fassHilf1 >= 380) && (gefallen == false))
             {
                 randFass1 = true;
+                fallen = true;
             }
 
-            if (((zufall >= 1984) && (zufall < 1988)) && (fassHilf1 < 380))
+
+            if ((fallen == true) && (gefallen == false))
             {
+                yFassHilf1++;
+
+                if (fass1Ebene == 6)
+                {
+                    if (yFassHilf1 >= 69)
+                    {
+                        fassYGesamt = fassYGesamt + yFassHilf1;
+                        fass1Ebene--;
+                        yFassHilf1 = 0;
+                        fallen = false;
+                        gefallen = true;
+                        leiterLock = false;
+                    }
+                }
+                else if (fass1Ebene == 5)
+                {
+                    if (yFassHilf1 >= 68)
+                    {
+                        fassYGesamt = fassYGesamt + yFassHilf1;
+                        fass1Ebene--;
+                        yFassHilf1 = 0;
+                        fallen = false;
+                        gefallen = true;
+                        leiterLock = false;
+                    }
+                }
+                else if (fass1Ebene == 4)
+                {
+                    if (yFassHilf1 >= 69)
+                    {
+                        fassYGesamt = fassYGesamt + yFassHilf1;
+                        fass1Ebene--;
+                        yFassHilf1 = 0;
+                        fallen = false;
+                        gefallen = true;
+                        leiterLock = false;
+                    }
+                }
+                else if (fass1Ebene == 3)
+                {
+                    if (yFassHilf1 >= 72)
+                    {
+                        fassYGesamt = fassYGesamt + yFassHilf1;
+                        fass1Ebene--;
+                        yFassHilf1 = 0;
+                        fallen = false;
+                        gefallen = true;
+                        leiterLock = false;
+                    }
+                }
+                else if (fass1Ebene == 2)
+                {
+                    if (yFassHilf1 >= 72)
+                    {
+                        fassYGesamt = fassYGesamt + yFassHilf1;
+                        fass1Ebene--;
+                        yFassHilf1 = 0;
+                        fallen = false;
+                        gefallen = true;
+                        leiterLock = false;
+                    }
+                }
+                else if (fass1Ebene == 1)
+                {
+                    if (yFassHilf1 >= 72)
+                    {
+                        fassYGesamt = fassYGesamt + yFassHilf1;
+                        fass1Ebene--;
+                        yFassHilf1 = 0;
+                        fallen = false;
+                        gefallen = true;
+                        leiterLock = false;
+                    }
+                }
+
+                xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf1;
+
+                yPositionen[0] = ((74 * pixelGreosse) + yFassHilf1 + fassYGesamt + fass1EbenenHilfe);
+
+            }
+            else if ((fassHilf1 == 0) && (gefallen == false))
+            {
+                fallen = true;
+            }
+            else if ((fassHilf1 == 0) && (gefallen == true))
+            {
+                gefallen = false;
+
+                xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf1;
+
+                yPositionen[0] = ((74 * pixelGreosse) + fassYGesamt + fass1EbenenHilfe);
+
+                fassHilf1++;               
+
                 if (randFass1 == false)
                 {
                     randFass1 = true;
                 }
                 if (randFass1 == true)
                 {
-                    randFass1 = false;
-                }
+                     randFass1 = false;
+                }               
             }
-
-            if (fassHilf1 == 0)
+            else if ((fassHilf1 > 0) && (randFass1 == false))
             {
+                gefallen = false;
+
                 xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf1;
 
-                yPositionen[0] = (74 * pixelGreosse);
-
-                fassHilf1++;
-
-                if (randFass1 == false)
-                {
-                    randFass1 = true;
-                }
-                if (randFass1 == true)
-                {
-                    randFass1 = false;
-                }
-            }
-
-            if ((fassHilf1 > 0) && (randFass1 == false))
-            {
-                xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf1;
-
-                yPositionen[0] = (74 * pixelGreosse);
+                yPositionen[0] = ((74 * pixelGreosse) + fassYGesamt + fass1EbenenHilfe);
 
                 fassHilf1++;
             }
-
-            if ((fassHilf1 > 0) && (randFass1 == true))
+            else if ((fassHilf1 > 0) && (randFass1 == true))
             {
+                gefallen = false;
+
                 xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf1;
 
-                yPositionen[0] = (74 * pixelGreosse);
+                yPositionen[0] = ((74 * pixelGreosse) + fassYGesamt + fass1EbenenHilfe);
 
                 fassHilf1--;
             }
+
             #endregion
 
             verteilungFigur(figuren, xPositionen, yPositionen);

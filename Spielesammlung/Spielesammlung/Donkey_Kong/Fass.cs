@@ -8,7 +8,6 @@ namespace Spielesammlung.Donkey_Kong
 {
     class Fass : Figuren
     {
-        public int ebene { get; set; } = 1;
         public static bool blickRichtung { get; set; } = true;
 
         #region bilder
@@ -17,7 +16,7 @@ namespace Spielesammlung.Donkey_Kong
         public int[,] fallAnimation { get; set; } = new int[8, 8];
         #endregion
 
-        public Fass()
+        public Fass(bool fallen)
         {
             model = new Pixel[8, 8];
 
@@ -230,7 +229,14 @@ namespace Spielesammlung.Donkey_Kong
                 }
             }
 
-            Dreh();
+            if(fallen == true)
+            {
+                Fall();
+            }
+            else
+            {
+                Dreh();
+            }
         }
 
         public void Dreh()
@@ -242,7 +248,7 @@ namespace Spielesammlung.Donkey_Kong
                     {
                         for (int j = 0; j < model.GetLength(0); j++)
                         {
-                            model[j, i].farbe = rollAnimation1[j, i];
+                                model[j, i].farbe = rollAnimation1[j, i];
                         }
                     }
 
@@ -253,7 +259,7 @@ namespace Spielesammlung.Donkey_Kong
                     {
                         for (int j = 0; j < model.GetLength(0); j++)
                         {
-                            model[j, i].farbe = rollAnimation2[j, i];
+                                model[j, i].farbe = rollAnimation2[j, i];
                         }
                     }
 
@@ -262,15 +268,15 @@ namespace Spielesammlung.Donkey_Kong
             }
         }
 
-        //public void Fall()
-        //{
-         //   for (int i = 0; i < model.GetLength(1); i++)
-          //  {
-           //     for (int j = 0; j < model.GetLength(0); j++)
-            //    {
-             //      model[j, i].farbe = fallAnimation[j, i];
-              //  }
-            //}
-        //}
+        public void Fall()
+        {
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i].farbe = fallAnimation[j, i];
+                }
+            }
+        }
     }
 }
