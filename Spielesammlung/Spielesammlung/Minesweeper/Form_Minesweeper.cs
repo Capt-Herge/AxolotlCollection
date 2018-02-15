@@ -53,100 +53,126 @@ namespace Spielesammlung.Minesweeper
                     buttonArray[x, y].BackColor = Color.LightSteelBlue;
                     // Hinzufügen des Buttons zum dahinter liegenden Panel
                     panelMinesweeper.Controls.Add(buttonArray[x, y]);
-                    // Click-Eventhandler für jeden Button
-                    buttonArray[x, y].Click += new EventHandler(ButtonGeklickt);
+                    // Eventhandler für jeden Button
+                    buttonArray[x, y].MouseDown += new MouseEventHandler(ButtonGeklickt);
                 }
             }
         }
 
 
-        public void ButtonGeklickt(object sender, EventArgs e)
+        public void ButtonGeklickt(object sender, MouseEventArgs e)
         {
             // sender zu Button casten, damit der "richtige" Button reagiert
             Button button = (Button)sender;
 
-            // wenn der geklickte Button eine Mine ist,
-            if (button.Name.Equals("Mine"))
+            // wenn die rechte Maustaste gedrückt wurde (für eine vermutete Mine)
+            if (e.Button == MouseButtons.Right)
             {
-                // Timer wird gestoppt
-                timerMinesweeper.Stop();
-
-                // und decke alle Felder auf, die noch verfüfbar sind
-                for (int x = 0; x < buttonArray.GetLength(0); x++)
+                // und der Button verfügbar ist
+                if (button.Enabled == true)
                 {
-                    for (int y = 0; y < buttonArray.GetLength(1); y++)
+                    // und der Button schon geld ist
+                    if (button.BackColor == Color.Yellow)
                     {
-                        if (buttonArray[x, y].Enabled == true)
-                        {
-                            // wenn das Feld eine Mine ist
-                            if (buttonArray[x, y].Name.Equals("Mine"))
-                            {
-                                // Zeige ein "X" auf dem Button an
-                                buttonArray[x, y].Text = "X";
-                                // und färbe ihn rot
-                                buttonArray[x, y].BackColor = Color.Red;
-                            }
-
-                            // wenn der Button keine Mine ist
-                            else
-                            {
-                                // zeige den Namen des Buttons an
-                                buttonArray[x, y].Text = buttonArray[x, y].Name;
-                            }
-
-                            // der bearbeitete Button ist dann nicht mehr verfügbar
-                            buttonArray[x, y].Enabled = false;
-                        }
+                        // wird die Farbe zurückgesetzt 
+                        button.BackColor = Color.LightSteelBlue;
+                        // und der Button ist wieder "leer"
+                        button.Text = "";
+                    }
+                    // wenn das Feld noch nicht gelb ist
+                    else
+                    {
+                        // wird es gelb gefärbt
+                        button.BackColor = Color.Yellow;
+                        // und es erscheint ein Ausrufezeichen 
+                        button.Text = "!";
                     }
                 }
-
-                //gameover auf true setzen
-                Spielfeld.GameOver = true;
-                // Button und Label werden sichtbar
-                labelGameOver.Visible = true;
-                buttonNeustart.Visible = true;
             }
-
-            // wenn der geklickte Button eine 0 ist
-            else if (button.Name.Equals("0"))
+            // wenn die linke Maustaste grdückt wurde
+            else if (e.Button == MouseButtons.Left)
             {
-                // Soll der Button eine 0 anzeigen
-                button.Text = button.Name;
-                // und der Button nicht mehr verfühbar sein
-                button.Enabled = false;
-                // die restlichen Felder um 1 verringern
-                Spielfeld.FelderRest--;
-
-                // der ausgewählte Button soll in die Liste der Nullen eingetragen werden
-                for (int x = 0; x < buttonArray.GetLength(0); x++)
+                // und wenn der geklickte Button eine Mine ist,
+                if (button.Name.Equals("Mine"))
                 {
-                    for (int y = 0; y < buttonArray.GetLength(1); y++)
+                    // Timer wird gestoppt
+                    timerMinesweeper.Stop();
+
+                    // und decke alle Felder auf, die noch verfüfbar sind
+                    for (int x = 0; x < buttonArray.GetLength(0); x++)
                     {
-                        if (buttonArray[x, y] == button)
+                        for (int y = 0; y < buttonArray.GetLength(1); y++)
                         {
-                            // Hinzufügen des Buttons zu der Liste
-                            NullenAufzudecken.Add(x * 100 + y);
+                            if (buttonArray[x, y].Enabled == true)
+                            {
+                                // wenn das Feld eine Mine ist
+                                if (buttonArray[x, y].Name.Equals("Mine"))
+                                {
+                                    // Zeige ein "X" auf dem Button an
+                                    buttonArray[x, y].Text = "X";
+                                    // und färbe ihn rot
+                                    buttonArray[x, y].BackColor = Color.Red;
+                                }
+
+                                // wenn der Button keine Mine ist
+                                else
+                                {
+                                    // zeige den Namen des Buttons an
+                                    buttonArray[x, y].Text = buttonArray[x, y].Name;
+                                }
+
+                                // der bearbeitete Button ist dann nicht mehr verfügbar
+                                buttonArray[x, y].Enabled = false;
+                            }
                         }
                     }
+
+                    //gameover auf true setzen
+                    Spielfeld.GameOver = true;
+                    // Button und Label werden sichtbar
+                    labelGameOver.Visible = true;
+                    buttonNeustart.Visible = true;
                 }
+                // und wenn der geklickte Button eine 0 ist
+                else if (button.Name.Equals("0"))
+                {
+                    // Soll der Button eine 0 anzeigen
+                    button.Text = button.Name;
+                    // und der Button nicht mehr verfühbar sein
+                    button.Enabled = false;
+                    // die restlichen Felder um 1 verringern
+                    Spielfeld.FelderRest--;
 
-                // Es sollen alle anliegenden Nullen mit aufgedeckt werden
-                AufdeckenNullen();
-                // Überprüft, ob der Spieler gewonnen hat
-                Gewonnen();
-            }
+                    // der ausgewählte Button soll in die Liste der Nullen eingetragen werden
+                    for (int x = 0; x < buttonArray.GetLength(0); x++)
+                    {
+                        for (int y = 0; y < buttonArray.GetLength(1); y++)
+                        {
+                            if (buttonArray[x, y] == button)
+                            {
+                                // Hinzufügen des Buttons zu der Liste
+                                NullenAufzudecken.Add(x * 100 + y);
+                            }
+                        }
+                    }
 
-            // wenn der Button keine Mine und keine 0 ist,
-            else
-            {
-                // wird der Name als Text anezeigt
-                button.Text = button.Name;
-                // und der Button ist nicht mehr verfügbar
-                button.Enabled = false;
-                // die restlichen Felder um 1 verringern
-                Spielfeld.FelderRest--;
-                // Überprüft, ob der Spieler gewonnen hat
-                Gewonnen();
+                    // Es sollen alle anliegenden Nullen mit aufgedeckt werden
+                    AufdeckenNullen();
+                    // Überprüft, ob der Spieler gewonnen hat
+                    Gewonnen();
+                }
+                //und wenn der Button keine Mine und keine 0 ist,
+                else
+                {
+                    // wird der Name als Text anezeigt
+                    button.Text = button.Name;
+                    // und der Button ist nicht mehr verfügbar
+                    button.Enabled = false;
+                    // die restlichen Felder um 1 verringern
+                    Spielfeld.FelderRest--;
+                    // Überprüft, ob der Spieler gewonnen hat
+                    Gewonnen();
+                }
             }
         }
 

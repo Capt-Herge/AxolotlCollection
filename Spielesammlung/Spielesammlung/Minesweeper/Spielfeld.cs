@@ -34,7 +34,7 @@ namespace Spielesammlung.Minesweeper
             Breite = 20;
             GameOver = false;
             Gewonnen = false;
-            Minen = 6;
+            Minen = 60;
             FelderRest = Höhe * Breite - Minen;
             Sekunde = 0;
             Minute = 0;
