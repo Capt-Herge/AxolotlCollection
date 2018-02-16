@@ -12,7 +12,7 @@ namespace Spielesammlung.Donkey_Kong
 {
     class Level2
     {
-        public static int zufall = new Random().Next(0, 200);
+        public static int zufall = new Random().Next(0, 2000);
 
         public int affeHilf;
 

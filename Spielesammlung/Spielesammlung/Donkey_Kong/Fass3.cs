@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Spielesammlung.Donkey_Kong
 {
-    class Fass : Figuren
+    class Fass3 : Figuren
     {
-        public static bool blickRichtung { get; set; } = true;
+        public static bool blickRichtung1 { get; set; } = true;
 
         #region bilder
         public int[,] rollAnimation1 { get; set; } = new int[8, 8];
@@ -16,7 +16,7 @@ namespace Spielesammlung.Donkey_Kong
         public int[,] fallAnimation { get; set; } = new int[8, 8];
         #endregion
 
-        public Fass(bool fallen)
+        public Fass3(bool fallen)
         {
             model = new Pixel[8, 8];
 
@@ -229,7 +229,7 @@ namespace Spielesammlung.Donkey_Kong
                 }
             }
 
-            if(fallen == true)
+            if (fallen == true)
             {
                 Fall();
             }
@@ -241,29 +241,29 @@ namespace Spielesammlung.Donkey_Kong
 
         public void Dreh()
         {
-            switch (blickRichtung)
+            switch (blickRichtung1)
             {
                 case true:
                     for (int i = 0; i < model.GetLength(1); i++)
                     {
                         for (int j = 0; j < model.GetLength(0); j++)
                         {
-                                model[j, i].farbe = rollAnimation1[j, i];
+                            model[j, i].farbe = rollAnimation1[j, i];
                         }
                     }
 
-                    blickRichtung = false;
+                    blickRichtung1 = false;
                     break;
                 case false:
                     for (int i = 0; i < model.GetLength(1); i++)
                     {
                         for (int j = 0; j < model.GetLength(0); j++)
                         {
-                                model[j, i].farbe = rollAnimation2[j, i];
+                            model[j, i].farbe = rollAnimation2[j, i];
                         }
                     }
 
-                    blickRichtung = true;
+                    blickRichtung1 = true;
                     break;
             }
         }

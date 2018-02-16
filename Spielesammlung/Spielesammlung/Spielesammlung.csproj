@@ -82,7 +82,10 @@
     <Compile Include="Donkey_Kong\Donkey_Kong.cs" />
     <Compile Include="Donkey_Kong\Ebene.cs" />
     <Compile Include="Donkey_Kong\Falltuer.cs" />
-    <Compile Include="Donkey_Kong\Fass.cs" />
+    <Compile Include="Donkey_Kong\Fass1.cs" />
+    <Compile Include="Donkey_Kong\Fass2.cs" />
+    <Compile Include="Donkey_Kong\Fass3.cs" />
+    <Compile Include="Donkey_Kong\Fass4.cs" />
     <Compile Include="Donkey_Kong\Feuer.cs" />
     <Compile Include="Donkey_Kong\Figuren.cs" />
     <Compile Include="Donkey_Kong\FormDonkeyKong.cs">

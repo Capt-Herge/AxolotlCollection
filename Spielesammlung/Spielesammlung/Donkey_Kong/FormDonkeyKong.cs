@@ -14,7 +14,10 @@ namespace Spielesammlung.Donkey_Kong
     {
         int aktuellesLevel = 2;
         static int  affeHilf = 0;
-        static int fassHilf = 0;
+        static int fassHilf1 = 0;
+        static int fassHilf2 = 0;
+        static int fassHilf3 = 0;
+        static int fassHilf4 = 0;
 
         public FormDonkeyKong()
         {
@@ -37,7 +40,10 @@ namespace Spielesammlung.Donkey_Kong
         private void UpdateSpiel(object sender, EventArgs e)
         {
             affeHilf++;
-            fassHilf++;
+            fassHilf1++;
+            fassHilf2++;
+            fassHilf3++;
+            fassHilf4++;
             pictureBox1.Invalidate();
         }
 
@@ -60,15 +66,27 @@ namespace Spielesammlung.Donkey_Kong
                     }
                     break;
                 case 2:
-                    Level1 level1 = new Level1(e, affeHilf, fassHilf);     
+                    Level1 level1 = new Level1(e, affeHilf, fassHilf1, fassHilf2, fassHilf3, fassHilf4);     
                     if(affeHilf > 200)
                     {
                         affeHilf = 0;
                     }
 
-                    if (fassHilf > 23)
+                    if (fassHilf1 > 23)
                     {
-                        fassHilf = 0;
+                        fassHilf1 = 0;
+                    }
+                    if (fassHilf2 > 23)
+                    {
+                        fassHilf2 = 0;
+                    }
+                    if (fassHilf3 > 23)
+                    {
+                        fassHilf3 = 0;
+                    }
+                    if (fassHilf4 > 23)
+                    {
+                        fassHilf4 = 0;
                     }
                     break;
             }

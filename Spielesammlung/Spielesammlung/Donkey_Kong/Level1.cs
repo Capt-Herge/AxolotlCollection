@@ -14,55 +14,120 @@ namespace Spielesammlung.Donkey_Kong
     {
         public int affeHilf;
 
-        public static bool ebenenLock1 = false;
-        public static bool ebenenLock2 = false;
-        public static bool ebenenLock3 = false;
-        public static bool ebenenLock4 = false;
-        public static bool ebenenLock5 = false;
-        public static bool ebenenLock6 = false;
+        #region Counter für die versätzt startenden Fässer
+        public static int count1 = 0;
+        public static int count2 = 0;
+        public static int count3 = 0;
+        #endregion
 
-        public static int faesserHilf;
-        public static bool fallen = false;
-        public static bool gefallen = false;
-        public static int fassYGesamt = 0;
-        public static bool leiterLock = false;
-        public static bool leiterEbene1Lock = false;
-
+        #region Faesser
+        #region Fass1
+        public static int zufalllLeiterFallHilfe1 = 0;
+        public static int zufall1 = new Random().Next(0, 2000);
+        public static bool leiterLockFass1 = false;
+        public static bool leiterEbene1LockFass1 = false;
+        public static bool ebenenLock1Fass1 = false;
+        public static bool ebenenLock2Fass1 = false;
+        public static bool ebenenLock3Fass1 = false;
+        public static bool ebenenLock4Fass1 = false;
+        public static bool ebenenLock5Fass1 = false;
+        public static bool ebenenLock6Fass1 = false;
+        public static int faesserHilfFass1;
+        public static bool fallenFass1 = false;
+        public static bool gefallenFass1 = false;
+        public static int fassYGesamtFass1 = 0;
         public static int fassHilf1 = 1;
         public static int yFassHilf1 = 0;
         public static bool randFass1 = false;
         public static int fass1Ebene = 6;
         public static int fass1EbenenHilfe = 0;
         public static int fass1EbenenHilfe2 = 0;
+        #endregion
 
+        #region Fass2
+        public static int zufalllLeiterFallHilfe2 = 0;
+        public static int zufall2 = new Random().Next(0, 2000);
+        public static bool leiterLockFass2 = false;
+        public static bool leiterEbene1LockFass2 = false;
+        public static bool ebenenLock1Fass2 = false;
+        public static bool ebenenLock2Fass2 = false;
+        public static bool ebenenLock3Fass2 = false;
+        public static bool ebenenLock4Fass2 = false;
+        public static bool ebenenLock5Fass2 = false;
+        public static bool ebenenLock6Fass2 = false;
+        public static int faesserHilfFass2;
+        public static bool fallenFass2 = false;
+        public static bool gefallenFass2 = false;
+        public static int fassYGesamtFass2 = 0;
         public static int fassHilf2 = 1;
         public static int yFassHilf2 = 0;
         public static bool randFass2 = false;
-        public static int fass2Ebene = 0;
+        public static int fass2Ebene = 6;
         public static int fass2EbenenHilfe = 0;
+        public static int fass2EbenenHilfe2 = 0;
+        #endregion
 
+        #region Fass3
+        public static int zufalllLeiterFallHilfe3 = 0;
+        public static int zufall3 = new Random().Next(0, 2000);
+        public static bool leiterLockFass3 = false;
+        public static bool leiterEbene1LockFass3 = false;
+        public static bool ebenenLock1Fass3 = false;
+        public static bool ebenenLock2Fass3 = false;
+        public static bool ebenenLock3Fass3 = false;
+        public static bool ebenenLock4Fass3 = false;
+        public static bool ebenenLock5Fass3 = false;
+        public static bool ebenenLock6Fass3 = false;
+        public static int faesserHilfFass3;
+        public static bool fallenFass3 = false;
+        public static bool gefallenFass3 = false;
+        public static int fassYGesamtFass3 = 0;
         public static int fassHilf3 = 1;
         public static int yFassHilf3 = 0;
         public static bool randFass3 = false;
         public static int fass3Ebene = 6;
         public static int fass3EbenenHilfe = 0;
+        public static int fass3EbenenHilfe2 = 0;
+        #endregion
 
-        public static int feuerHilf4 = 1;
+        #region Fass4
+        public static int zufalllLeiterFallHilfe4 = 0;
+        public static int zufall4 = new Random().Next(0, 2000);
+        public static bool leiterLockFass4 = false;
+        public static bool leiterEbene1LockFass4 = false;
+        public static bool ebenenLock1Fass4 = false;
+        public static bool ebenenLock2Fass4 = false;
+        public static bool ebenenLock3Fass4 = false;
+        public static bool ebenenLock4Fass4 = false;
+        public static bool ebenenLock5Fass4 = false;
+        public static bool ebenenLock6Fass4 = false;
+        public static int faesserHilfFass4;
+        public static bool fallenFass4 = false;
+        public static bool gefallenFass4 = false;
+        public static int fassYGesamtFass4 = 0;
+        public static int fassHilf4 = 1;
         public static int yFassHilf4 = 0;
         public static bool randFass4 = false;
         public static int fass4Ebene = 6;
         public static int fass4EbenenHilfe = 0;
+        public static int fass4EbenenHilfe2 = 0;
+        #endregion
+        #endregion
 
-        public Level1(PaintEventArgs e, int affe, int fass)
+        public Level1(PaintEventArgs e, int affe, int fass1, int fass2, int fass3, int fass4)
         {
             affeHilf = affe;
-            faesserHilf = fass;
+            faesserHilfFass1 = fass1;
+            faesserHilfFass2 = fass2;
+            faesserHilfFass3 = fass3;
+            faesserHilfFass4 = fass4;
             Level1Laden(e);
         }
 
 
         private void Level1Laden(PaintEventArgs e)
         {
+            #region Leitern
             Ebene1Leiter1Lila(e);
             Ebene1Leiter2Lila(e);
             Ebene2Leiter1Lila(e);
@@ -77,7 +142,9 @@ namespace Spielesammlung.Donkey_Kong
             Ebene5Leiter2Lila(e);
             Ebene6Leiter1Lila(e);
             Ebene6Leiter2Lila(e);
+            #endregion
 
+            #region Ebenen
             Ebene1Lila(e);
             Ebene2Lila(e);
             Ebene3Lila(e);
@@ -85,7 +152,9 @@ namespace Spielesammlung.Donkey_Kong
             Ebene5Lila(e);
             Ebene6Lila(e);
             Ebene7Lila(e);
+            #endregion
 
+            #region Affe
             if (affeHilf > 200)
             {
                 AffeSetzen(e);
@@ -94,12 +163,13 @@ namespace Spielesammlung.Donkey_Kong
             {
                 AffeSetzen(e).AendereBlickRichtung();
             }
-            
+            #endregion
+
             PeachSetzen(e);
             HammerSetzen(e);
             MarioSetzen(e);
 
-        
+            #region Fass1            
            if (fass1Ebene == 1 || fass1Ebene == 6)
            {
                fass1EbenenHilfe2 = 0;
@@ -117,30 +187,176 @@ namespace Spielesammlung.Donkey_Kong
                 }
            }           
 
-           if (((fass1Ebene == 3) || (fass1Ebene == 4) || (fass1Ebene == 2)) && (leiterLock == false))
+           if (((fass1Ebene == 3) || (fass1Ebene == 4) || (fass1Ebene == 2)) && (leiterLockFass1 == false))
            {
-                fassYGesamt = (fassYGesamt - 8);
-                leiterLock = true;
+                fassYGesamtFass1 = (fassYGesamtFass1 - 8);
+                leiterLockFass1 = true;
            }
 
-           if ((fass1Ebene == 1) && (leiterEbene1Lock == false))
+           if ((fass1Ebene == 1) && (leiterEbene1LockFass1 == false))
            {
-               fassYGesamt = (fassYGesamt - 18);
-               leiterEbene1Lock = true;
+                fassYGesamtFass1 = (fassYGesamtFass1 - 18);
+                leiterEbene1LockFass1 = true;
             }
 
-            if (fallen == true)
+            if (fallenFass1 == true)
            {
-                FassSetzen(e).Fall();
+                FassSetzen1(e).Fall();
            }
-           else if (faesserHilf > 23)
+           else if (faesserHilfFass1 > 23)
            {
-                FassSetzen(e);
+                FassSetzen1(e);
            }
-           else if (faesserHilf <= 23)
+           else if (faesserHilfFass1 <= 23)
            {
-                FassSetzen(e).Dreh();
+                FassSetzen1(e).Dreh();
            }
+            #endregion
+
+            count1++;
+            count2++;
+            count3++;
+
+            if (count1 >= 650)
+            {
+                #region Fass2           
+                if (fass2Ebene == 1 || fass2Ebene == 6)
+                {
+                    fass2EbenenHilfe2 = 0;
+                }
+                else if ((fass2Ebene == 2) || (fass2Ebene == 3) || (fass2Ebene == 4) || (fass2Ebene == 5))
+                {
+                    if (fass2EbenenHilfe2 > 14)
+                    {
+                        fass2EbenenHilfe++;
+                        fass2EbenenHilfe2 = 0;
+                    }
+                    else if (fass2EbenenHilfe2 <= 14)
+                    {
+                        fass2EbenenHilfe2++;
+                    }
+                }
+
+                if (((fass2Ebene == 3) || (fass2Ebene == 4) || (fass2Ebene == 2)) && (leiterLockFass2 == false))
+                {
+                    fassYGesamtFass2 = (fassYGesamtFass2 - 8);
+                    leiterLockFass2 = true;
+                }
+
+                if ((fass2Ebene == 1) && (leiterEbene1LockFass2 == false))
+                {
+                    fassYGesamtFass2 = (fassYGesamtFass2 - 18);
+                    leiterEbene1LockFass2 = true;
+                }
+
+                if (fallenFass2 == true)
+                {
+                    FassSetzen2(e).Fall();
+                }
+                else if (faesserHilfFass2 > 23)
+                {
+                    FassSetzen2(e);
+                }
+                else if (faesserHilfFass2 <= 23)
+                {
+                    FassSetzen2(e).Dreh();
+                }
+                #endregion
+            }
+
+            if (count2 >= 1300)
+            {
+                #region Fass3           
+                if (fass3Ebene == 1 || fass3Ebene == 6)
+                {
+                    fass3EbenenHilfe2 = 0;
+                }
+                else if ((fass3Ebene == 2) || (fass3Ebene == 3) || (fass3Ebene == 4) || (fass3Ebene == 5))
+                {
+                    if (fass3EbenenHilfe2 > 14)
+                    {
+                        fass3EbenenHilfe++;
+                        fass3EbenenHilfe2 = 0;
+                    }
+                    else if (fass3EbenenHilfe2 <= 14)
+                    {
+                        fass3EbenenHilfe2++;
+                    }
+                }
+
+                if (((fass3Ebene == 3) || (fass3Ebene == 4) || (fass3Ebene == 2)) && (leiterLockFass3 == false))
+                {
+                    fassYGesamtFass3 = (fassYGesamtFass3 - 8);
+                    leiterLockFass3 = true;
+                }
+
+                if ((fass3Ebene == 1) && (leiterEbene1LockFass3 == false))
+                {
+                    fassYGesamtFass3 = (fassYGesamtFass3 - 18);
+                    leiterEbene1LockFass3 = true;
+                }
+
+                if (fallenFass3 == true)
+                {
+                    FassSetzen3(e).Fall();
+                }
+                else if (faesserHilfFass3 > 23)
+                {
+                    FassSetzen3(e);
+                }
+                else if (faesserHilfFass3 <= 23)
+                {
+                    FassSetzen3(e).Dreh();
+                }
+                #endregion
+            }
+
+            if (count3 >= 1950)
+            {
+                #region Fass4          
+                if (fass4Ebene == 1 || fass4Ebene == 6)
+                {
+                    fass4EbenenHilfe2 = 0;
+                }
+                else if ((fass4Ebene == 2) || (fass4Ebene == 3) || (fass4Ebene == 4) || (fass4Ebene == 5))
+                {
+                    if (fass4EbenenHilfe2 > 14)
+                    {
+                        fass4EbenenHilfe++;
+                        fass4EbenenHilfe2 = 0;
+                    }
+                    else if (fass4EbenenHilfe2 <= 14)
+                    {
+                        fass4EbenenHilfe2++;
+                    }
+                }
+
+                if (((fass4Ebene == 3) || (fass4Ebene == 4) || (fass4Ebene == 2)) && (leiterLockFass4 == false))
+                {
+                    fassYGesamtFass4 = (fassYGesamtFass4 - 8);
+                    leiterLockFass4 = true;
+                }
+
+                if ((fass4Ebene == 1) && (leiterEbene1LockFass4 == false))
+                {
+                    fassYGesamtFass4 = (fassYGesamtFass4 - 18);
+                    leiterEbene1LockFass4 = true;
+                }
+
+                if (fallenFass4 == true)
+                {
+                    FassSetzen4(e).Fall();
+                }
+                else if (faesserHilfFass4 > 23)
+                {
+                    FassSetzen4(e);
+                }
+                else if (faesserHilfFass4 <= 23)
+                {
+                    FassSetzen4(e).Dreh();
+                }
+                #endregion
+            }
         }
 
 
@@ -998,14 +1214,15 @@ namespace Spielesammlung.Donkey_Kong
         }
 
 
-        public Fass FassSetzen(PaintEventArgs e)
+        public Fass1 FassSetzen1(PaintEventArgs e)
         {
             int[] xPositionen;
             int[] yPositionen;
             int pixelGreosse = 3;
             int offset = 250;
+            zufall1 = new Random().Next(0, 2000);
 
-            Fass kong = new Fass(fallen);
+            Fass1 kong = new Fass1(fallenFass1);
 
             Figuren[] figuren;
             figuren = new Figuren[]
@@ -1017,14 +1234,35 @@ namespace Spielesammlung.Donkey_Kong
             yPositionen = new int[figuren.GetLength(0)];
 
             #region Position
-            if ((fassHilf1 >= 380) && (gefallen == false))
+            if ((fassHilf1 < 1 ) && (fass1Ebene == 1))
             {
-                randFass1 = true;
-                fallen = true;
+                leiterLockFass1 = false;
+                leiterEbene1LockFass1 = false;
+                ebenenLock1Fass1 = false;
+                ebenenLock2Fass1 = false;
+                ebenenLock3Fass1 = false;
+                ebenenLock4Fass1 = false;
+                ebenenLock5Fass1 = false;
+                ebenenLock6Fass1 = false;
+                faesserHilfFass1 = 0;
+                fallenFass1 = false;
+                gefallenFass1 = false;
+                fassYGesamtFass1 = 0;
+                fassHilf1 = 1;
+                yFassHilf1 = 0;
+                randFass1 = false;
+                fass1Ebene = 6;
+                fass1EbenenHilfe = 0;
+                fass1EbenenHilfe2 = 0;
             }
 
+            if ((fassHilf1 == 380) && (gefallenFass1 == false))
+            {
+                randFass1 = true;
+                fallenFass1 = true;
+            }
 
-            if ((fallen == true) && (gefallen == false))
+            if ((fallenFass1 == true) && (gefallenFass1 == false))
             {
                 yFassHilf1++;
 
@@ -1032,91 +1270,99 @@ namespace Spielesammlung.Donkey_Kong
                 {
                     if (yFassHilf1 >= 69)
                     {
-                        fassYGesamt = fassYGesamt + yFassHilf1;
+                        fassYGesamtFass1 = fassYGesamtFass1 + yFassHilf1 + zufalllLeiterFallHilfe1;
                         fass1Ebene--;
                         yFassHilf1 = 0;
-                        fallen = false;
-                        gefallen = true;
-                        leiterLock = false;
+                        fallenFass1 = false;
+                        gefallenFass1 = true;
+                        leiterLockFass1 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
                     }
                 }
                 else if (fass1Ebene == 5)
                 {
                     if (yFassHilf1 >= 68)
                     {
-                        fassYGesamt = fassYGesamt + yFassHilf1;
+                        fassYGesamtFass1 = fassYGesamtFass1 + yFassHilf1 + zufalllLeiterFallHilfe1;
                         fass1Ebene--;
                         yFassHilf1 = 0;
-                        fallen = false;
-                        gefallen = true;
-                        leiterLock = false;
+                        fallenFass1 = false;
+                        gefallenFass1 = true;
+                        leiterLockFass1 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
                     }
                 }
                 else if (fass1Ebene == 4)
                 {
-                    if (yFassHilf1 >= 69)
+                    if (yFassHilf1 >= 72)
                     {
-                        fassYGesamt = fassYGesamt + yFassHilf1;
+                        fassYGesamtFass1 = fassYGesamtFass1 + yFassHilf1 + zufalllLeiterFallHilfe1;
                         fass1Ebene--;
                         yFassHilf1 = 0;
-                        fallen = false;
-                        gefallen = true;
-                        leiterLock = false;
+                        fallenFass1 = false;
+                        gefallenFass1 = true;
+                        leiterLockFass1 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
                     }
                 }
                 else if (fass1Ebene == 3)
                 {
-                    if (yFassHilf1 >= 72)
+                    if (yFassHilf1 >= 68)
                     {
-                        fassYGesamt = fassYGesamt + yFassHilf1;
+                        fassYGesamtFass1 = fassYGesamtFass1 + yFassHilf1 + zufalllLeiterFallHilfe1;
                         fass1Ebene--;
                         yFassHilf1 = 0;
-                        fallen = false;
-                        gefallen = true;
-                        leiterLock = false;
+                        fallenFass1 = false;
+                        gefallenFass1 = true;
+                        leiterLockFass1 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
                     }
                 }
                 else if (fass1Ebene == 2)
                 {
                     if (yFassHilf1 >= 72)
                     {
-                        fassYGesamt = fassYGesamt + yFassHilf1;
+                        fassYGesamtFass1 = fassYGesamtFass1 + yFassHilf1 + zufalllLeiterFallHilfe1;                       
                         fass1Ebene--;
                         yFassHilf1 = 0;
-                        fallen = false;
-                        gefallen = true;
-                        leiterLock = false;
+                        fallenFass1 = false;
+                        gefallenFass1 = true;
+                        leiterLockFass1 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
                     }
-                }
-                else if (fass1Ebene == 1)
-                {
-                    if (yFassHilf1 >= 72)
-                    {
-                        fassYGesamt = fassYGesamt + yFassHilf1;
-                        fass1Ebene--;
-                        yFassHilf1 = 0;
-                        fallen = false;
-                        gefallen = true;
-                        leiterLock = false;
-                    }
-                }
+                }              
 
                 xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf1;
 
-                yPositionen[0] = ((74 * pixelGreosse) + yFassHilf1 + fassYGesamt + fass1EbenenHilfe);
+                yPositionen[0] = ((74 * pixelGreosse) + yFassHilf1 + fassYGesamtFass1 + fass1EbenenHilfe);                
 
             }
-            else if ((fassHilf1 == 0) && (gefallen == false))
+            else if ((fassHilf1 == 0) && (gefallenFass1 == false))
             {
-                fallen = true;
+                fallenFass1 = true;
             }
-            else if ((fassHilf1 == 0) && (gefallen == true))
+            else if ((fassHilf1 == 0) && (gefallenFass1 == true))
             {
-                gefallen = false;
+                gefallenFass1 = false;
 
                 xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf1;
 
-                yPositionen[0] = ((74 * pixelGreosse) + fassYGesamt + fass1EbenenHilfe);
+                yPositionen[0] = ((74 * pixelGreosse) + fassYGesamtFass1 + fass1EbenenHilfe);
 
                 fassHilf1++;               
 
@@ -1131,25 +1377,869 @@ namespace Spielesammlung.Donkey_Kong
             }
             else if ((fassHilf1 > 0) && (randFass1 == false))
             {
-                gefallen = false;
+                gefallenFass1 = false;
 
                 xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf1;
 
-                yPositionen[0] = ((74 * pixelGreosse) + fassYGesamt + fass1EbenenHilfe);
+                yPositionen[0] = ((74 * pixelGreosse) + fassYGesamtFass1 + fass1EbenenHilfe);
 
                 fassHilf1++;
             }
             else if ((fassHilf1 > 0) && (randFass1 == true))
             {
-                gefallen = false;
+                gefallenFass1 = false;
 
                 xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf1;
 
-                yPositionen[0] = ((74 * pixelGreosse) + fassYGesamt + fass1EbenenHilfe);
+                yPositionen[0] = ((74 * pixelGreosse) + fassYGesamtFass1 + fass1EbenenHilfe);
 
                 fassHilf1--;
             }
 
+            //if (((zufall1 >= 1850) && (zufall1 < 2000)) && (((xPositionen[0] == 622) && (fass1Ebene == 2)) ||
+            //    ((xPositionen[0] == 496) && (fass1Ebene == 3)) || ((xPositionen[0] == 365) && (fass1Ebene == 3)) ||
+            //    ((xPositionen[0] == 530) && (fass1Ebene == 4)) || ((xPositionen[0] == 620) && (fass1Ebene == 4)) ||
+            //    ((xPositionen[0] == 455) && (fass1Ebene == 5)) || ((xPositionen[0] == 366) && (fass1Ebene == 5)) ||
+            //    ((xPositionen[0] == 620) && (fass1Ebene == 6))))
+            //{
+            //    if (randFass1 == false)
+            //    {
+            //        fallenFass1 = true;
+            //        randFass1 = true;
+            //    }
+            //    else if (randFass1 == true)
+            //    {
+            //        fallenFass1 = true;
+            //        randFass1 = false;
+            //    }
+
+            //    if(((xPositionen[0] == 455) && (fass1Ebene == 5)) || ((xPositionen[0] == 496) && (fass1Ebene == 3)) ||
+            //        ((xPositionen[0] == 620) && (fass1Ebene == 4)))
+            //    {
+            //        if (fass1Ebene == 6)
+            //        {
+            //            zufalllLeiterFallHilfe1 = 10;
+            //        }
+            //        else if (fass1Ebene == 5)
+            //        {
+            //            zufalllLeiterFallHilfe1 = 25;
+            //        }
+            //        else if (fass1Ebene == 4)
+            //        {
+            //            zufalllLeiterFallHilfe1 = 30;
+            //        }
+            //        else if (fass1Ebene == 3)
+            //        {
+            //            zufalllLeiterFallHilfe1 = 30;
+            //        }
+            //        else if (fass1Ebene == 2)
+            //        {
+            //            zufalllLeiterFallHilfe1 = 20;
+            //        }
+            //    }
+            //    else if (((xPositionen[0] == 620) && (fass1Ebene == 6)) || ((xPositionen[0] == 366) && (fass1Ebene == 5)) ||
+            //             ((xPositionen[0] == 620) && (fass1Ebene == 4)) || ((xPositionen[0] == 365) && (fass1Ebene == 3)) ||
+            //             ((xPositionen[0] == 624) && (fass1Ebene == 2)))
+            //    {
+            //        if (fass1Ebene == 6)
+            //        {
+            //            zufalllLeiterFallHilfe1 = 5;
+            //        }
+            //        else if (fass1Ebene == 5)
+            //        {
+            //            zufalllLeiterFallHilfe1 = 10;
+            //        }
+            //        else if (fass1Ebene == 4)
+            //        {
+            //            zufalllLeiterFallHilfe1 = 15;
+            //        }
+            //        else if (fass1Ebene == 3)
+            //        {
+            //            zufalllLeiterFallHilfe1 = 10;
+            //        }
+            //        else if (fass1Ebene == 2)
+            //        {
+            //            zufalllLeiterFallHilfe1 = 15;
+            //        }
+            //    }        
+            //}
+            #endregion
+
+            verteilungFigur(figuren, xPositionen, yPositionen);
+
+            FaerbenFigure(figuren, e, xPositionen, yPositionen);
+
+            return (kong);
+        }
+
+
+        public Fass2 FassSetzen2(PaintEventArgs e)
+        {
+            int[] xPositionen;
+            int[] yPositionen;
+            int pixelGreosse = 3;
+            int offset = 250;
+            zufall2 = new Random().Next(0, 2000);
+
+            Fass2 kong = new Fass2(fallenFass2);
+
+            Figuren[] figuren;
+            figuren = new Figuren[]
+            {
+                        kong
+            };
+
+            xPositionen = new int[figuren.GetLength(0)];
+            yPositionen = new int[figuren.GetLength(0)];
+
+            #region Position
+            if ((fassHilf2 < 1) && (fass2Ebene == 1))
+            {
+                leiterLockFass2 = false;
+                leiterEbene1LockFass2 = false;
+                ebenenLock1Fass2 = false;
+                ebenenLock2Fass2 = false;
+                ebenenLock3Fass2 = false;
+                ebenenLock4Fass2 = false;
+                ebenenLock5Fass2 = false;
+                ebenenLock6Fass2 = false;
+                faesserHilfFass2 = 0;
+                fallenFass2 = false;
+                gefallenFass2 = false;
+                fassYGesamtFass2 = 0;
+                fassHilf2 = 1;
+                yFassHilf2 = 0;
+                randFass2 = false;
+                fass2Ebene = 6;
+                fass2EbenenHilfe = 0;
+                fass2EbenenHilfe2 = 0;
+            }
+
+            if ((fassHilf2 == 380) && (gefallenFass2 == false))
+            {
+                randFass2 = true;
+                fallenFass2 = true;
+            }
+
+            if ((fallenFass2 == true) && (gefallenFass2 == false))
+            {
+                yFassHilf2++;
+
+                if (fass2Ebene == 6)
+                {
+                    if (yFassHilf2 >= 69)
+                    {
+                        fassYGesamtFass2 = fassYGesamtFass2 + yFassHilf2 + zufalllLeiterFallHilfe2;
+                        fass2Ebene--;
+                        yFassHilf2 = 0;
+                        fallenFass2 = false;
+                        gefallenFass2 = true;
+                        leiterLockFass2 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
+                    }
+                }
+                else if (fass2Ebene == 5)
+                {
+                    if (yFassHilf2 >= 68)
+                    {
+                        fassYGesamtFass2 = fassYGesamtFass2 + yFassHilf2 + zufalllLeiterFallHilfe2;
+                        fass2Ebene--;
+                        yFassHilf2 = 0;
+                        fallenFass2 = false;
+                        gefallenFass2 = true;
+                        leiterLockFass2 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
+                    }
+                }
+                else if (fass2Ebene == 4)
+                {
+                    if (yFassHilf2 >= 72)
+                    {
+                        fassYGesamtFass2 = fassYGesamtFass2 + yFassHilf2 + zufalllLeiterFallHilfe2;
+                        fass2Ebene--;
+                        yFassHilf2 = 0;
+                        fallenFass2 = false;
+                        gefallenFass2 = true;
+                        leiterLockFass2 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
+                    }
+                }
+                else if (fass2Ebene == 3)
+                {
+                    if (yFassHilf2 >= 68)
+                    {
+                        fassYGesamtFass2 = fassYGesamtFass2 + yFassHilf2 + zufalllLeiterFallHilfe2;
+                        fass2Ebene--;
+                        yFassHilf2 = 0;
+                        fallenFass2 = false;
+                        gefallenFass2 = true;
+                        leiterLockFass2 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
+                    }
+                }
+                else if (fass2Ebene == 2)
+                {
+                    if (yFassHilf2 >= 72)
+                    {
+                        fassYGesamtFass2 = fassYGesamtFass2 + yFassHilf2 + zufalllLeiterFallHilfe2;
+                        fass2Ebene--;
+                        yFassHilf2 = 0;
+                        fallenFass2 = false;
+                        gefallenFass2 = true;
+                        leiterLockFass2 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
+                    }
+                }
+
+                xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf2;
+
+                yPositionen[0] = ((74 * pixelGreosse) + yFassHilf2 + fassYGesamtFass2 + fass2EbenenHilfe);
+
+            }
+            else if ((fassHilf2 == 0) && (gefallenFass2 == false))
+            {
+                fallenFass2 = true;
+            }
+            else if ((fassHilf2 == 0) && (gefallenFass2 == true))
+            {
+                gefallenFass2 = false;
+
+                xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf2;
+
+                yPositionen[0] = ((74 * pixelGreosse) + fassYGesamtFass2 + fass2EbenenHilfe);
+
+                fassHilf2++;
+
+                if (randFass2 == false)
+                {
+                    randFass2 = true;
+                }
+                if (randFass2 == true)
+                {
+                    randFass2 = false;
+                }
+            }
+            else if ((fassHilf2 > 0) && (randFass2 == false))
+            {
+                gefallenFass2 = false;
+
+                xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf2;
+
+                yPositionen[0] = ((74 * pixelGreosse) + fassYGesamtFass2 + fass2EbenenHilfe);
+
+                fassHilf2++;
+            }
+            else if ((fassHilf2 > 0) && (randFass2 == true))
+            {
+                gefallenFass2 = false;
+
+                xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf2;
+
+                yPositionen[0] = ((74 * pixelGreosse) + fassYGesamtFass2 + fass2EbenenHilfe);
+
+                fassHilf2--;
+            }
+
+            //if (((zufall2 >= 1850) && (zufall2 < 2000)) && (((xPositionen[0] == 622) && (fass2Ebene == 2)) ||
+            //    ((xPositionen[0] == 496) && (fass2Ebene == 3)) || ((xPositionen[0] == 365) && (fass2Ebene == 3)) ||
+            //    ((xPositionen[0] == 530) && (fass2Ebene == 4)) || ((xPositionen[0] == 620) && (fass2Ebene == 4)) ||
+            //    ((xPositionen[0] == 455) && (fass2Ebene == 5)) || ((xPositionen[0] == 366) && (fass2Ebene == 5)) ||
+            //    ((xPositionen[0] == 620) && (fass2Ebene == 6))))
+            //{
+            //    if (randFass2 == false)
+            //    {
+            //        fallenFass2 = true;
+            //        randFass2 = true;
+            //    }
+            //    else if (randFass2 == true)
+            //    {
+            //        fallenFass2 = true;
+            //        randFass2 = false;
+            //    }
+
+            //    if (((xPositionen[0] == 455) && (fass2Ebene == 5)) || ((xPositionen[0] == 496) && (fass2Ebene == 3)) ||
+            //        ((xPositionen[0] == 620) && (fass2Ebene == 4)))
+            //    {
+            //        if (fass2Ebene == 6)
+            //        {
+            //            zufalllLeiterFallHilfe2 = 5;
+            //        }
+            //        else if (fass2Ebene == 5)
+            //        {
+            //            zufalllLeiterFallHilfe2 = 20;
+            //        }
+            //        else if (fass2Ebene == 4)
+            //        {
+            //            zufalllLeiterFallHilfe2 = 25;
+            //        }
+            //        else if (fass2Ebene == 3)
+            //        {
+            //            zufalllLeiterFallHilfe2 = 25;
+            //        }
+            //        else if (fass2Ebene == 2)
+            //        {
+            //            zufalllLeiterFallHilfe2 = 20;
+            //        }
+            //    }
+            //    else if (((xPositionen[0] == 620) && (fass2Ebene == 6)) || ((xPositionen[0] == 366) && (fass2Ebene == 5)) ||
+            //             ((xPositionen[0] == 620) && (fass2Ebene == 4)) || ((xPositionen[0] == 365) && (fass2Ebene == 3)) ||
+            //             ((xPositionen[0] == 624) && (fass2Ebene == 2)))
+            //    {
+            //        if (fass2Ebene == 6)
+            //        {
+            //            zufalllLeiterFallHilfe2 = 3;
+            //        }
+            //        else if (fass2Ebene == 5)
+            //        {
+            //            zufalllLeiterFallHilfe2 = 10;
+            //        }
+            //        else if (fass2Ebene == 4)
+            //        {
+            //            zufalllLeiterFallHilfe2 = 5;
+            //        }
+            //        else if (fass2Ebene == 3)
+            //        {
+            //            zufalllLeiterFallHilfe2 = 10;
+            //        }
+            //        else if (fass2Ebene == 2)
+            //        {
+            //            zufalllLeiterFallHilfe2 = 5;
+            //        }
+            //    }
+            //}
+            #endregion
+
+            verteilungFigur(figuren, xPositionen, yPositionen);
+
+            FaerbenFigure(figuren, e, xPositionen, yPositionen);
+
+            return (kong);
+        }
+
+
+        public Fass3 FassSetzen3(PaintEventArgs e)
+        {
+            int[] xPositionen;
+            int[] yPositionen;
+            int pixelGreosse = 3;
+            int offset = 250;
+            zufall3 = new Random().Next(0, 2000);
+
+            Fass3 kong = new Fass3(fallenFass3);
+
+            Figuren[] figuren;
+            figuren = new Figuren[]
+            {
+                        kong
+            };
+
+            xPositionen = new int[figuren.GetLength(0)];
+            yPositionen = new int[figuren.GetLength(0)];
+
+            #region Position
+            if ((fassHilf3 < 1) && (fass3Ebene == 1))
+            {
+                leiterLockFass3 = false;
+                leiterEbene1LockFass3 = false;
+                ebenenLock1Fass3 = false;
+                ebenenLock2Fass3 = false;
+                ebenenLock3Fass3 = false;
+                ebenenLock4Fass3 = false;
+                ebenenLock5Fass3 = false;
+                ebenenLock6Fass3 = false;
+                faesserHilfFass3 = 0;
+                fallenFass3 = false;
+                gefallenFass3 = false;
+                fassYGesamtFass3 = 0;
+                fassHilf3 = 1;
+                yFassHilf3 = 0;
+                randFass3 = false;
+                fass3Ebene = 6;
+                fass3EbenenHilfe = 0;
+                fass3EbenenHilfe2 = 0;
+            }
+
+            if ((fassHilf3 == 380) && (gefallenFass3 == false))
+            {
+                randFass3 = true;
+                fallenFass3 = true;
+            }
+
+            if ((fallenFass3 == true) && (gefallenFass3 == false))
+            {
+                yFassHilf3++;
+
+                if (fass3Ebene == 6)
+                {
+                    if (yFassHilf3 >= 69)
+                    {
+                        fassYGesamtFass3 = fassYGesamtFass3 + yFassHilf3 + zufalllLeiterFallHilfe3;
+                        fass3Ebene--;
+                        yFassHilf3 = 0;
+                        fallenFass3 = false;
+                        gefallenFass3 = true;
+                        leiterLockFass3 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
+                    }
+                }
+                else if (fass3Ebene == 5)
+                {
+                    if (yFassHilf3 >= 68)
+                    {
+                        fassYGesamtFass3 = fassYGesamtFass3 + yFassHilf3 + zufalllLeiterFallHilfe3;
+                        fass3Ebene--;
+                        yFassHilf3 = 0;
+                        fallenFass3 = false;
+                        gefallenFass3 = true;
+                        leiterLockFass3 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
+                    }
+                }
+                else if (fass3Ebene == 4)
+                {
+                    if (yFassHilf3 >= 72)
+                    {
+                        fassYGesamtFass3 = fassYGesamtFass3 + yFassHilf3 + zufalllLeiterFallHilfe3;
+                        fass3Ebene--;
+                        yFassHilf3 = 0;
+                        fallenFass3 = false;
+                        gefallenFass3 = true;
+                        leiterLockFass3 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
+                    }
+                }
+                else if (fass3Ebene == 3)
+                {
+                    if (yFassHilf3 >= 68)
+                    {
+                        fassYGesamtFass3 = fassYGesamtFass3 + yFassHilf3 + zufalllLeiterFallHilfe3;
+                        fass3Ebene--;
+                        yFassHilf3 = 0;
+                        fallenFass3 = false;
+                        gefallenFass3 = true;
+                        leiterLockFass3 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
+                    }
+                }
+                else if (fass3Ebene == 2)
+                {
+                    if (yFassHilf3 >= 72)
+                    {
+                        fassYGesamtFass3 = fassYGesamtFass3 + yFassHilf3 + zufalllLeiterFallHilfe3;
+                        fass3Ebene--;
+                        yFassHilf3 = 0;
+                        fallenFass3 = false;
+                        gefallenFass3 = true;
+                        leiterLockFass3 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
+                    }
+                }
+
+                xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf3;
+
+                yPositionen[0] = ((74 * pixelGreosse) + yFassHilf3 + fassYGesamtFass3 + fass3EbenenHilfe);
+
+            }
+            else if ((fassHilf3 == 0) && (gefallenFass3 == false))
+            {
+                fallenFass3 = true;
+            }
+            else if ((fassHilf3 == 0) && (gefallenFass3 == true))
+            {
+                gefallenFass3 = false;
+
+                xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf3;
+
+                yPositionen[0] = ((74 * pixelGreosse) + fassYGesamtFass3 + fass3EbenenHilfe);
+
+                fassHilf3++;
+
+                if (randFass3 == false)
+                {
+                    randFass3 = true;
+                }
+                if (randFass3 == true)
+                {
+                    randFass3 = false;
+                }
+            }
+            else if ((fassHilf3 > 0) && (randFass3 == false))
+            {
+                gefallenFass3 = false;
+
+                xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf3;
+
+                yPositionen[0] = ((74 * pixelGreosse) + fassYGesamtFass3 + fass3EbenenHilfe);
+
+                fassHilf3++;
+            }
+            else if ((fassHilf3 > 0) && (randFass3 == true))
+            {
+                gefallenFass3 = false;
+
+                xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf3;
+
+                yPositionen[0] = ((74 * pixelGreosse) + fassYGesamtFass3 + fass3EbenenHilfe);
+
+                fassHilf3--;
+            }
+
+            //if (((zufall3 >= 1850) && (zufall3 < 2000)) && (((xPositionen[0] == 622) && (fass3Ebene == 2)) ||
+            //    ((xPositionen[0] == 496) && (fass3Ebene == 3)) || ((xPositionen[0] == 365) && (fass3Ebene == 3)) ||
+            //    ((xPositionen[0] == 530) && (fass3Ebene == 4)) || ((xPositionen[0] == 620) && (fass3Ebene == 4)) ||
+            //    ((xPositionen[0] == 455) && (fass3Ebene == 5)) || ((xPositionen[0] == 366) && (fass3Ebene == 5)) ||
+            //    ((xPositionen[0] == 620) && (fass3Ebene == 6))))
+            //{
+            //    if (randFass3 == false)
+            //    {
+            //        fallenFass3 = true;
+            //        randFass3 = true;
+            //    }
+            //    else if (randFass3 == true)
+            //    {
+            //        fallenFass3 = true;
+            //        randFass3 = false;
+            //    }
+
+            //    if (((xPositionen[0] == 455) && (fass3Ebene == 5)) || ((xPositionen[0] == 496) && (fass3Ebene == 3)) ||
+            //        ((xPositionen[0] == 620) && (fass3Ebene == 4)))
+            //    {
+            //        if (fass3Ebene == 6)
+            //        {
+            //            zufalllLeiterFallHilfe3 = 5;
+            //        }
+            //        else if (fass3Ebene == 5)
+            //        {
+            //            zufalllLeiterFallHilfe3 = 20;
+            //        }
+            //        else if (fass3Ebene == 4)
+            //        {
+            //            zufalllLeiterFallHilfe3 = 25;
+            //        }
+            //        else if (fass3Ebene == 3)
+            //        {
+            //            zufalllLeiterFallHilfe3 = 25;
+            //        }
+            //        else if (fass3Ebene == 2)
+            //        {
+            //            zufalllLeiterFallHilfe3 = 20;
+            //        }
+            //    }
+            //    else if (((xPositionen[0] == 620) && (fass3Ebene == 6)) || ((xPositionen[0] == 366) && (fass3Ebene == 5)) ||
+            //             ((xPositionen[0] == 620) && (fass3Ebene == 4)) || ((xPositionen[0] == 365) && (fass3Ebene == 3)) ||
+            //             ((xPositionen[0] == 624) && (fass3Ebene == 2)))
+            //    {
+            //        if (fass3Ebene == 6)
+            //        {
+            //            zufalllLeiterFallHilfe3 = 3;
+            //        }
+            //        else if (fass3Ebene == 5)
+            //        {
+            //            zufalllLeiterFallHilfe3 = 10;
+            //        }
+            //        else if (fass3Ebene == 4)
+            //        {
+            //            zufalllLeiterFallHilfe3 = 5;
+            //        }
+            //        else if (fass3Ebene == 3)
+            //        {
+            //            zufalllLeiterFallHilfe3 = 10;
+            //        }
+            //        else if (fass3Ebene == 2)
+            //        {
+            //            zufalllLeiterFallHilfe3 = 5;
+            //        }
+            //    }
+            //}
+            #endregion
+
+            verteilungFigur(figuren, xPositionen, yPositionen);
+
+            FaerbenFigure(figuren, e, xPositionen, yPositionen);
+
+            return (kong);
+        }
+
+
+        public Fass4 FassSetzen4(PaintEventArgs e)
+        {
+            int[] xPositionen;
+            int[] yPositionen;
+            int pixelGreosse = 3;
+            int offset = 250;
+            zufall4 = new Random().Next(0, 2000);
+
+            Fass4 kong = new Fass4(fallenFass4);
+
+            Figuren[] figuren;
+            figuren = new Figuren[]
+            {
+                        kong
+            };
+
+            xPositionen = new int[figuren.GetLength(0)];
+            yPositionen = new int[figuren.GetLength(0)];
+
+            #region Position
+            if ((fassHilf4 < 1) && (fass4Ebene == 1))
+            {
+                leiterLockFass4 = false;
+                leiterEbene1LockFass4 = false;
+                ebenenLock1Fass4 = false;
+                ebenenLock2Fass4 = false;
+                ebenenLock3Fass4 = false;
+                ebenenLock4Fass4 = false;
+                ebenenLock5Fass4 = false;
+                ebenenLock6Fass4 = false;
+                faesserHilfFass4 = 0;
+                fallenFass4 = false;
+                gefallenFass4 = false;
+                fassYGesamtFass4 = 0;
+                fassHilf4 = 1;
+                yFassHilf4 = 0;
+                randFass4 = false;
+                fass4Ebene = 6;
+                fass4EbenenHilfe = 0;
+                fass4EbenenHilfe2 = 0;
+            }
+
+            if ((fassHilf4 == 380) && (gefallenFass4 == false))
+            {
+                randFass4 = true;
+                fallenFass4 = true;
+            }
+
+            if ((fallenFass4 == true) && (gefallenFass4 == false))
+            {
+                yFassHilf4++;
+
+                if (fass4Ebene == 6)
+                {
+                    if (yFassHilf4 >= 69)
+                    {
+                        fassYGesamtFass4 = fassYGesamtFass4 + yFassHilf4 + zufalllLeiterFallHilfe4;
+                        fass4Ebene--;
+                        yFassHilf4 = 0;
+                        fallenFass4 = false;
+                        gefallenFass4 = true;
+                        leiterLockFass4 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
+                    }
+                }
+                else if (fass4Ebene == 5)
+                {
+                    if (yFassHilf4 >= 68)
+                    {
+                        fassYGesamtFass4 = fassYGesamtFass4 + yFassHilf4 + zufalllLeiterFallHilfe4;
+                        fass4Ebene--;
+                        yFassHilf4 = 0;
+                        fallenFass4 = false;
+                        gefallenFass4 = true;
+                        leiterLockFass4 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
+                    }
+                }
+                else if (fass4Ebene == 4)
+                {
+                    if (yFassHilf4 >= 72)
+                    {
+                        fassYGesamtFass4 = fassYGesamtFass4 + yFassHilf4 + zufalllLeiterFallHilfe4;
+                        fass4Ebene--;
+                        yFassHilf4 = 0;
+                        fallenFass4 = false;
+                        gefallenFass4 = true;
+                        leiterLockFass4 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
+                    }
+                }
+                else if (fass4Ebene == 3)
+                {
+                    if (yFassHilf4 >= 68)
+                    {
+                        fassYGesamtFass4 = fassYGesamtFass4 + yFassHilf4 + zufalllLeiterFallHilfe4;
+                        fass4Ebene--;
+                        yFassHilf4 = 0;
+                        fallenFass4 = false;
+                        gefallenFass4 = true;
+                        leiterLockFass4 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
+                    }
+                }
+                else if (fass4Ebene == 2)
+                {
+                    if (yFassHilf4 >= 72)
+                    {
+                        fassYGesamtFass4 = fassYGesamtFass4 + yFassHilf4 + zufalllLeiterFallHilfe4;
+                        fass4Ebene--;
+                        yFassHilf4 = 0;
+                        fallenFass4 = false;
+                        gefallenFass4 = true;
+                        leiterLockFass4 = false;
+                        //zufalllLeiterFallHilfe1 = 0;
+                        //zufalllLeiterFallHilfe2 = 0;
+                        //zufalllLeiterFallHilfe3 = 0;
+                        //zufalllLeiterFallHilfe4 = 0;
+                    }
+                }
+
+                xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf4;
+
+                yPositionen[0] = ((74 * pixelGreosse) + yFassHilf4 + fassYGesamtFass4 + fass4EbenenHilfe);
+
+            }
+            else if ((fassHilf4 == 0) && (gefallenFass4 == false))
+            {
+                fallenFass4 = true;
+            }
+            else if ((fassHilf4 == 0) && (gefallenFass4 == true))
+            {
+                gefallenFass4 = false;
+
+                xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf4;
+
+                yPositionen[0] = ((74 * pixelGreosse) + fassYGesamtFass4 + fass4EbenenHilfe);
+
+                fassHilf4++;
+
+                if (randFass4 == false)
+                {
+                    randFass4 = true;
+                }
+                if (randFass4 == true)
+                {
+                    randFass4 = false;
+                }
+            }
+            else if ((fassHilf4 > 0) && (randFass4 == false))
+            {
+                gefallenFass4 = false;
+
+                xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf4;
+
+                yPositionen[0] = ((74 * pixelGreosse) + fassYGesamtFass4 + fass4EbenenHilfe);
+
+                fassHilf4++;
+            }
+            else if ((fassHilf4 > 0) && (randFass4 == true))
+            {
+                gefallenFass4 = false;
+
+                xPositionen[0] = (17 * pixelGreosse) + offset + fassHilf4;
+
+                yPositionen[0] = ((74 * pixelGreosse) + fassYGesamtFass4 + fass4EbenenHilfe);
+
+                fassHilf4--;
+            }
+
+            //if (((zufall4 >= 1850) && (zufall4 < 2000)) && (((xPositionen[0] == 622) && (fass4Ebene == 2)) ||
+            //    ((xPositionen[0] == 496) && (fass4Ebene == 3)) || ((xPositionen[0] == 365) && (fass4Ebene == 3)) ||
+            //    ((xPositionen[0] == 530) && (fass4Ebene == 4)) || ((xPositionen[0] == 620) && (fass4Ebene == 4)) ||
+            //    ((xPositionen[0] == 455) && (fass4Ebene == 5)) || ((xPositionen[0] == 366) && (fass4Ebene == 5)) ||
+            //    ((xPositionen[0] == 620) && (fass4Ebene == 6))))
+            //{
+            //    if (randFass4 == false)
+            //    {
+            //        fallenFass4 = true;
+            //        randFass4 = true;
+            //    }
+            //    else if (randFass4 == true)
+            //    {
+            //        fallenFass4 = true;
+            //        randFass4 = false;
+            //    }
+
+            //    if (((xPositionen[0] == 455) && (fass4Ebene == 5)) || ((xPositionen[0] == 496) && (fass4Ebene == 3)) ||
+            //        ((xPositionen[0] == 620) && (fass4Ebene == 4)))
+            //    {
+            //        if (fass4Ebene == 6)
+            //        {
+            //            zufalllLeiterFallHilfe4 = 5;
+            //        }
+            //        else if (fass4Ebene == 5)
+            //        {
+            //            zufalllLeiterFallHilfe4 = 20;
+            //        }
+            //        else if (fass4Ebene == 4)
+            //        {
+            //            zufalllLeiterFallHilfe4 = 25;
+            //        }
+            //        else if (fass4Ebene == 3)
+            //        {
+            //            zufalllLeiterFallHilfe4 = 25;
+            //        }
+            //        else if (fass4Ebene == 2)
+            //        {
+            //            zufalllLeiterFallHilfe4 = 20;
+            //        }
+            //    }
+            //    else if (((xPositionen[0] == 620) && (fass4Ebene == 6)) || ((xPositionen[0] == 366) && (fass4Ebene == 5)) ||
+            //             ((xPositionen[0] == 620) && (fass4Ebene == 4)) || ((xPositionen[0] == 365) && (fass4Ebene == 3)) ||
+            //             ((xPositionen[0] == 624) && (fass4Ebene == 2)))
+            //    {
+            //        if (fass4Ebene == 6)
+            //        {
+            //            zufalllLeiterFallHilfe4 = 3;
+            //        }
+            //        else if (fass4Ebene == 5)
+            //        {
+            //            zufalllLeiterFallHilfe4 = 10;
+            //        }
+            //        else if (fass4Ebene == 4)
+            //        {
+            //            zufalllLeiterFallHilfe4 = 5;
+            //        }
+            //        else if (fass4Ebene == 3)
+            //        {
+            //            zufalllLeiterFallHilfe4 = 10;
+            //        }
+            //        else if (fass4Ebene == 2)
+            //        {
+            //            zufalllLeiterFallHilfe4 = 5;
+            //        }
+            //    }
+            //}
             #endregion
 
             verteilungFigur(figuren, xPositionen, yPositionen);
