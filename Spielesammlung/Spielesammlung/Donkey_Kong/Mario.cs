@@ -9,7 +9,7 @@ namespace Spielesammlung.Donkey_Kong
 {
     class Mario : Figuren
     {
-        public int ebene { get; set; } = 1;
+        public static int ebene { get; set; } = 1;
         public bool hammer { get; set; } = false;
         public int leiterPosition { get; set; } = 0;
 
@@ -24,7 +24,7 @@ namespace Spielesammlung.Donkey_Kong
         public int[,] rechtsLaufAnimation { get; set; } = new int[18, 9];
         #endregion
 
-        public Mario()
+        public Mario(KeyEventArgs a)
         {
             model = new Pixel[18, 9];
 
@@ -1283,17 +1283,9 @@ namespace Spielesammlung.Donkey_Kong
                     model[j, i] = new Pixel();
                 }
             }
-
-            for (int i = 0; i < model.GetLength(1); i++)
-            {
-                for (int j = 0; j < model.GetLength(0); j++)
-                {
-                    model[j, i].farbe = rechtsStehAnimation[j, i];
-                }
-            }
         }
 
-        public void LinksLauf(KeyEventArgs e)
+        public void LinksLauf()
         {
             for (int i = 0; i < model.GetLength(1); i++)
             {
@@ -1304,7 +1296,7 @@ namespace Spielesammlung.Donkey_Kong
             }
         }
 
-        public void RechtsLauf(KeyEventArgs e)
+        public void RechtsLauf()
         {
             for (int i = 0; i < model.GetLength(1); i++)
             {
@@ -1315,7 +1307,7 @@ namespace Spielesammlung.Donkey_Kong
             }
         }
 
-        public void SpringenLinks(KeyEventArgs e)
+        public void SpringenLinks()
         {
             for (int i = 0; i < model.GetLength(1); i++)
             {
@@ -1326,7 +1318,7 @@ namespace Spielesammlung.Donkey_Kong
             }
         }
 
-        public void SpringenRechts(KeyEventArgs e)
+        public void SpringenRechts()
         {
             for (int i = 0; i < model.GetLength(1); i++)
             {
@@ -1337,7 +1329,7 @@ namespace Spielesammlung.Donkey_Kong
             }
         }
 
-        public void RechtsKlettern(KeyEventArgs e, Leiter_Heil_Lila leiter)
+        public void RechtsKlettern()
         {
             for (int i = 0; i < model.GetLength(1); i++)
             {
@@ -1348,7 +1340,7 @@ namespace Spielesammlung.Donkey_Kong
             }
         }
 
-        public void LinksKlettern(KeyEventArgs e, Leiter_Heil_Lila leiter)
+        public void LinksKlettern()
         {
             for (int i = 0; i < model.GetLength(1); i++)
             {
@@ -1358,6 +1350,29 @@ namespace Spielesammlung.Donkey_Kong
                 }
             }
         }
+
+        public void RechtsStehen()
+        {
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i].farbe = rechtsStehAnimation[j, i];
+                }
+            }
+        }
+
+        public void LinksStehen()
+        {
+            for (int i = 0; i < model.GetLength(1); i++)
+            {
+                for (int j = 0; j < model.GetLength(0); j++)
+                {
+                    model[j, i].farbe = linksStehAnimation[j, i];
+                }
+            }
+        }
+
 
         public void HammerSchwingen()
         {

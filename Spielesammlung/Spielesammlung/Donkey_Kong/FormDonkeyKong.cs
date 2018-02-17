@@ -13,11 +13,16 @@ namespace Spielesammlung.Donkey_Kong
     public partial class FormDonkeyKong : Form
     {
         int aktuellesLevel = 2;
+
         static int  affeHilf = 0;
         static int fassHilf1 = 0;
         static int fassHilf2 = 0;
         static int fassHilf3 = 0;
         static int fassHilf4 = 0;
+
+        static KeyEventArgs Taste = new KeyEventArgs(new Keys());
+
+
 
         public FormDonkeyKong()
         {
@@ -52,13 +57,22 @@ namespace Spielesammlung.Donkey_Kong
             Levelladen(aktuellesLevel, e);
         }
 
+        private void FormDonkeyKong_KeyDown(object sender, KeyEventArgs e)
+        {
+            Taste = e;
+        }
+
+        private void FormDonkeyKong_KeyUp(object sender, KeyEventArgs e)
+        {
+            Taste = new KeyEventArgs(new Keys());
+        }
 
         private void Levelladen(int altesLevel, PaintEventArgs e)
         {
             switch (altesLevel)
             {
                 case 1:
-                    Level2 level2 = new Level2(e, affeHilf);
+                    Level2 level2 = new Level2(e, affeHilf, Taste);
 
                     if (affeHilf > 200)
                     {
@@ -66,7 +80,7 @@ namespace Spielesammlung.Donkey_Kong
                     }
                     break;
                 case 2:
-                    Level1 level1 = new Level1(e, affeHilf, fassHilf1, fassHilf2, fassHilf3, fassHilf4);     
+                    Level1 level1 = new Level1(e, affeHilf, fassHilf1, fassHilf2, fassHilf3, fassHilf4, Taste);     
                     if(affeHilf > 200)
                     {
                         affeHilf = 0;

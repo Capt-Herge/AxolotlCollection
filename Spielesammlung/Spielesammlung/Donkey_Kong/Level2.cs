@@ -15,7 +15,15 @@ namespace Spielesammlung.Donkey_Kong
         public static int zufall = new Random().Next(0, 2000);
 
         public int affeHilf;
+        public static  int xMario = 0;
+        public static int yMario = 0;
+        public static bool blickRichtungMario = false;
+        public static bool marioSchritt = false;
+        public static int marioZeahler = 0;
+        public static int marioSprungHoehe = 0;
+        public static bool mariospringen = false;
 
+        #region Feuer
         public static int feuerHilf1 = 0;
         public static bool randFeuer1 = false;
         public static int feuerHilf2 = 0;
@@ -24,15 +32,16 @@ namespace Spielesammlung.Donkey_Kong
         public static bool randFeuer3 = false;
         public static int feuerHilf4 = 0;
         public static bool randFeuer4 = false;
+        #endregion
 
-        public Level2(PaintEventArgs e, int affe)
+        public Level2(PaintEventArgs e, int affe, KeyEventArgs a)
         {
             affeHilf = affe;
-            Level2Laden(e);
+            Level2Laden(e, a);
         }
 
 
-        private void Level2Laden(PaintEventArgs e)
+        private void Level2Laden(PaintEventArgs e, KeyEventArgs a)
         {
             Ebene1Leiter1Blau(e);
             Ebene2Leiter1Blau(e);
@@ -66,14 +75,16 @@ namespace Spielesammlung.Donkey_Kong
             {
                 AffeSetzen(e);
             }
-            if (affeHilf <= 200)
+            else if (affeHilf <= 200)
             {
                 AffeSetzen(e).AendereBlickRichtung();
             }
 
             PeachSetzen(e);
             HammerSetzen(e);
-            MarioSetzen(e);
+
+            MarioSetzen(e, a);
+
             Feuer1Setzen(e);
             Feuer2Setzen(e);
             Feuer3Setzen(e);
@@ -1065,14 +1076,14 @@ namespace Spielesammlung.Donkey_Kong
         }
 
 
-        public void MarioSetzen(PaintEventArgs e)
+        public Mario MarioSetzen(PaintEventArgs e, KeyEventArgs a)
         {
             int[] xPositionen;
             int[] yPositionen;
             int pixelGreosse = 3;
             int offset = 250;
 
-            Mario kong = new Mario();
+            Mario kong = new Mario(a);
 
             Figuren[] figuren;
             figuren = new Figuren[]
@@ -1084,14 +1095,157 @@ namespace Spielesammlung.Donkey_Kong
             yPositionen = new int[figuren.GetLength(0)];
 
             #region Position
-            xPositionen[0] = (((18 * pixelGreosse) * 2) + offset);
+            xPositionen[0] = (((18 * pixelGreosse) * 2) + offset + xMario);
 
-            yPositionen[0] = (191 * pixelGreosse);
+            yPositionen[0] = (191 * pixelGreosse + yMario);
+
+            if ((yPositionen[0] >= 184) && ((a.KeyCode == Keys.Up) &&
+               (((xPositionen[0] >= 318) && (xPositionen[0] <= 338)) || ((xPositionen[0] >= 405) && (xPositionen[0] <= 425)) ||
+               ((xPositionen[0] >= 561) && (xPositionen[0] <= 581)) || ((xPositionen[0] >= 648) && (xPositionen[0] <= 668)))))
+            {
+                yMario--;
+                if (marioZeahler < 9)
+                {
+                    kong.RechtsKlettern();
+                }
+                else if (marioZeahler >= 9)
+                {
+                    kong.LinksKlettern();
+
+                    if (marioZeahler >= 17)
+                    {
+                        marioZeahler = 0;
+                    }
+                }
+                marioZeahler++;
+            }
+            else if ((yPositionen[0] >= 154) && ((a.KeyCode == Keys.Up))&&
+                    !(((xPositionen[0] >= 318) && (xPositionen[0] <= 338)) || ((xPositionen[0] >= 405) && (xPositionen[0] <= 425)) ||
+                    ((xPositionen[0] >= 561) && (xPositionen[0] <= 581)) || ((xPositionen[0] >= 648) && (xPositionen[0] <= 668))))
+            {
+                mariospringen = true;
+            }
+            else if (mariospringen == true)
+            {
+                if ((marioSprungHoehe < 50) && (marioSprungHoehe >= 0))
+                {
+                    if (blickRichtungMario == false)
+                    {
+                        yMario--;
+                        kong.SpringenRechts();
+                    }
+                    else if (blickRichtungMario == true)
+                    {
+                        yMario--;
+                        kong.SpringenLinks();
+                    }
+                    marioSprungHoehe++;
+                }
+                else if (marioSprungHoehe >= 50 && marioSprungHoehe <= 99)
+                {
+                    if (blickRichtungMario == false)
+                    {
+                        yMario++;
+                        kong.SpringenRechts();
+                    }
+                    else if (blickRichtungMario == true)
+                    {
+                        yMario++;
+                        kong.SpringenLinks();
+                    }
+                    marioSprungHoehe++;
+                }
+                else if (marioSprungHoehe >= 100)
+                {
+                    marioSprungHoehe = 0;
+                    mariospringen = false;
+                }
+                else
+                {
+                    mariospringen = false;
+                }
+            }
+            else if ((yPositionen[0] <= 573) && ((a.KeyCode == Keys.Down) &&
+                    (((xPositionen[0] >= 318) && (xPositionen[0] <= 338)) || ((xPositionen[0] >= 405) && (xPositionen[0] <= 425)) ||
+                    ((xPositionen[0] >= 561) && (xPositionen[0] <= 581)) || ((xPositionen[0] >= 648) && (xPositionen[0] <= 668)))))
+            {
+                yMario++;
+                if (marioZeahler < 9)
+                {
+                    kong.RechtsKlettern();
+                }
+                else if (marioZeahler >= 9)
+                {
+                    kong.LinksKlettern();
+
+                    if (marioZeahler >= 17)
+                    {
+                        marioZeahler = 0;
+                    }
+                }
+                marioZeahler++;
+            }
+            else if (((a.KeyCode == Keys.Right) && (xPositionen[0] < 685)) &&
+                    (((yPositionen[0] >= 570) && (yPositionen[0] <= 576)) || ((yPositionen[0] >= 492) && (yPositionen[0] <= 498)) ||
+                    ((yPositionen[0] >= 414) && (yPositionen[0] <= 420)) || ((yPositionen[0] >= 336) && (yPositionen[0] <= 342)) ||
+                    ((yPositionen[0] >= 258) && (yPositionen[0] <= 264)) || ((yPositionen[0] >= 180) && (yPositionen[0] <= 186))))
+            {
+                xMario++;               
+                if(marioZeahler < 9)
+                {
+                    kong.RechtsLauf();
+                }
+                else if(marioZeahler >= 9)
+                {
+                    kong.RechtsStehen();
+                    
+                    if(marioZeahler >= 17)
+                    {
+                        marioZeahler = 0;
+                    }
+                }
+                marioZeahler++;               
+                blickRichtungMario = false;
+            }
+            else if ((a.KeyCode == Keys.Left) && (xPositionen[0] >= 303) &&
+                    (((yPositionen[0] >= 570) && (yPositionen[0] <= 576)) || ((yPositionen[0] >= 492) && (yPositionen[0] <= 498)) ||
+                    ((yPositionen[0] >= 414) && (yPositionen[0] <= 420)) || ((yPositionen[0] >= 336) && (yPositionen[0] <= 342)) ||
+                    ((yPositionen[0] >= 258) && (yPositionen[0] <= 264)) || ((yPositionen[0] >= 180) && (yPositionen[0] <= 186))))
+            {
+                xMario--;
+                if (marioZeahler < 9)
+                {
+                    kong.LinksLauf();
+                }
+                else if (marioZeahler >= 9)
+                {
+                    kong.LinksStehen();
+
+                    if (marioZeahler >= 17)
+                    {
+                        marioZeahler = 0;
+                    }
+                }
+                marioZeahler++;
+                blickRichtungMario = true;
+            }
+            else if (blickRichtungMario == false)
+            {
+                marioSprungHoehe = 0;
+                kong.RechtsStehen();
+            }
+            else if (blickRichtungMario == true)
+            {
+                marioSprungHoehe = 0;
+                kong.LinksStehen();
+            }
             #endregion
 
             verteilungFigur(figuren, xPositionen, yPositionen);
 
             FaerbenFigure(figuren, e, xPositionen, yPositionen);
+
+            return (kong);
         }
 
 
@@ -1446,7 +1600,7 @@ namespace Spielesammlung.Donkey_Kong
                         switch (figurArray[l].model[i, j].farbe)
                         {
                             case 0:
-                                g.FillRectangle(Brushes.Black, new Rectangle((j * pixelGroesse) + xPosition[l], (i * pixelGroesse) + yPosition[l], pixelGroesse, pixelGroesse));
+                                g.FillRectangle(Brushes.Transparent, new Rectangle((j * pixelGroesse) + xPosition[l], (i * pixelGroesse) + yPosition[l], pixelGroesse, pixelGroesse));
                                 break;
                             case 1:
                                 g.FillRectangle(Brushes.Beige, new Rectangle((j * pixelGroesse) + xPosition[l], (i * pixelGroesse) + yPosition[l], pixelGroesse, pixelGroesse));
@@ -1503,7 +1657,7 @@ namespace Spielesammlung.Donkey_Kong
                         switch (ebenenElementeArray[l].model[i, j].farbe)
                         {
                             case 0:
-                                g.FillRectangle(Brushes.Black, new Rectangle((j * pixelGroesse) + xPosition[l], (i * pixelGroesse) + yPosition[l], pixelGroesse, pixelGroesse));
+                                g.FillRectangle(Brushes.Transparent, new Rectangle((j * pixelGroesse) + xPosition[l], (i * pixelGroesse) + yPosition[l], pixelGroesse, pixelGroesse));
                                 break;
                             case 1:
                                 g.FillRectangle(Brushes.Beige, new Rectangle((j * pixelGroesse) + xPosition[l], (i * pixelGroesse) + yPosition[l], pixelGroesse, pixelGroesse));
