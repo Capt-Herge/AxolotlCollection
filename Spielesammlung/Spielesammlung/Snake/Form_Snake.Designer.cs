@@ -35,6 +35,13 @@
             this.labelScoreWert = new System.Windows.Forms.Label();
             this.timerSnake = new System.Windows.Forms.Timer(this.components);
             this.labelGameOver = new System.Windows.Forms.Label();
+            this.labelSnake = new System.Windows.Forms.Label();
+            this.buttonStart = new System.Windows.Forms.Button();
+            this.labelAnleitung = new System.Windows.Forms.Label();
+            this.buttonWeiter = new System.Windows.Forms.Button();
+            this.textBoxSpieler = new System.Windows.Forms.TextBox();
+            this.buttonNeustart = new System.Windows.Forms.Button();
+            this.labelHighscore = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSnake)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,26 +74,119 @@
             this.labelScoreWert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelScoreWert.Location = new System.Drawing.Point(920, 184);
             this.labelScoreWert.Name = "labelScoreWert";
-            this.labelScoreWert.Size = new System.Drawing.Size(34, 29);
+            this.labelScoreWert.Size = new System.Drawing.Size(27, 29);
             this.labelScoreWert.TabIndex = 2;
-            this.labelScoreWert.Text = "...";
+            this.labelScoreWert.Text = "0";
             // 
             // labelGameOver
             // 
             this.labelGameOver.AutoSize = true;
-            this.labelGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGameOver.Location = new System.Drawing.Point(330, 226);
+            this.labelGameOver.BackColor = System.Drawing.Color.LightGray;
+            this.labelGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGameOver.Location = new System.Drawing.Point(277, 286);
             this.labelGameOver.Name = "labelGameOver";
-            this.labelGameOver.Size = new System.Drawing.Size(203, 42);
+            this.labelGameOver.Size = new System.Drawing.Size(150, 31);
             this.labelGameOver.TabIndex = 3;
             this.labelGameOver.Text = "game over";
             this.labelGameOver.Visible = false;
+            // 
+            // labelSnake
+            // 
+            this.labelSnake.AutoSize = true;
+            this.labelSnake.BackColor = System.Drawing.Color.LightGray;
+            this.labelSnake.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSnake.Location = new System.Drawing.Point(415, 215);
+            this.labelSnake.Name = "labelSnake";
+            this.labelSnake.Size = new System.Drawing.Size(96, 31);
+            this.labelSnake.TabIndex = 17;
+            this.labelSnake.Text = "Snake";
+            this.labelSnake.Visible = false;
+            // 
+            // buttonStart
+            // 
+            this.buttonStart.BackColor = System.Drawing.Color.LightGray;
+            this.buttonStart.Enabled = false;
+            this.buttonStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStart.Location = new System.Drawing.Point(420, 496);
+            this.buttonStart.Name = "buttonStart";
+            this.buttonStart.Size = new System.Drawing.Size(91, 37);
+            this.buttonStart.TabIndex = 16;
+            this.buttonStart.Text = "Start";
+            this.buttonStart.UseVisualStyleBackColor = false;
+            this.buttonStart.Visible = false;
+            // 
+            // labelAnleitung
+            // 
+            this.labelAnleitung.AutoSize = true;
+            this.labelAnleitung.BackColor = System.Drawing.Color.LightGray;
+            this.labelAnleitung.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAnleitung.Location = new System.Drawing.Point(259, 245);
+            this.labelAnleitung.Name = "labelAnleitung";
+            this.labelAnleitung.Size = new System.Drawing.Size(103, 25);
+            this.labelAnleitung.TabIndex = 15;
+            this.labelAnleitung.Text = "Anleitung";
+            this.labelAnleitung.Visible = false;
+            // 
+            // buttonWeiter
+            // 
+            this.buttonWeiter.BackColor = System.Drawing.Color.LightGray;
+            this.buttonWeiter.Enabled = false;
+            this.buttonWeiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonWeiter.Location = new System.Drawing.Point(504, 434);
+            this.buttonWeiter.Name = "buttonWeiter";
+            this.buttonWeiter.Size = new System.Drawing.Size(91, 38);
+            this.buttonWeiter.TabIndex = 14;
+            this.buttonWeiter.Text = "Weiter";
+            this.buttonWeiter.UseVisualStyleBackColor = false;
+            this.buttonWeiter.Visible = false;
+            // 
+            // textBoxSpieler
+            // 
+            this.textBoxSpieler.BackColor = System.Drawing.Color.LightGray;
+            this.textBoxSpieler.Enabled = false;
+            this.textBoxSpieler.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSpieler.Location = new System.Drawing.Point(371, 434);
+            this.textBoxSpieler.MaxLength = 3;
+            this.textBoxSpieler.Name = "textBoxSpieler";
+            this.textBoxSpieler.Size = new System.Drawing.Size(91, 38);
+            this.textBoxSpieler.TabIndex = 13;
+            this.textBoxSpieler.Visible = false;
+            // 
+            // buttonNeustart
+            // 
+            this.buttonNeustart.Enabled = false;
+            this.buttonNeustart.Location = new System.Drawing.Point(927, 374);
+            this.buttonNeustart.Name = "buttonNeustart";
+            this.buttonNeustart.Size = new System.Drawing.Size(75, 23);
+            this.buttonNeustart.TabIndex = 12;
+            this.buttonNeustart.Text = "Neustart";
+            this.buttonNeustart.UseVisualStyleBackColor = true;
+            this.buttonNeustart.Visible = false;
+            // 
+            // labelHighscore
+            // 
+            this.labelHighscore.AutoSize = true;
+            this.labelHighscore.BackColor = System.Drawing.Color.LightGray;
+            this.labelHighscore.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHighscore.Location = new System.Drawing.Point(331, 142);
+            this.labelHighscore.Name = "labelHighscore";
+            this.labelHighscore.Size = new System.Drawing.Size(146, 31);
+            this.labelHighscore.TabIndex = 11;
+            this.labelHighscore.Text = "Highscore";
+            this.labelHighscore.Visible = false;
             // 
             // Form_Snake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 730);
+            this.Controls.Add(this.labelSnake);
+            this.Controls.Add(this.buttonStart);
+            this.Controls.Add(this.labelAnleitung);
+            this.Controls.Add(this.buttonWeiter);
+            this.Controls.Add(this.textBoxSpieler);
+            this.Controls.Add(this.buttonNeustart);
+            this.Controls.Add(this.labelHighscore);
             this.Controls.Add(this.labelGameOver);
             this.Controls.Add(this.labelScoreWert);
             this.Controls.Add(this.labelScoreText);
@@ -110,5 +210,12 @@
         private System.Windows.Forms.Label labelScoreWert;
         private System.Windows.Forms.Timer timerSnake;
         private System.Windows.Forms.Label labelGameOver;
+        private System.Windows.Forms.Label labelSnake;
+        private System.Windows.Forms.Button buttonStart;
+        private System.Windows.Forms.Label labelAnleitung;
+        private System.Windows.Forms.Button buttonWeiter;
+        private System.Windows.Forms.TextBox textBoxSpieler;
+        private System.Windows.Forms.Button buttonNeustart;
+        private System.Windows.Forms.Label labelHighscore;
     }
 }
