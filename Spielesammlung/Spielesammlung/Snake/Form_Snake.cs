@@ -34,14 +34,15 @@ namespace Spielesammlung.Snake
             // Nach Ablauf des Intervalls wird das Spiel aktualisiert
             timerSnake.Tick += UpdateSpiel;
 
+            // zu Beginn wird die Anleitung des Spiels angezeigt
             string anleitung = "     Steuere die Schlange mit W,A,S,D.\nSammel so viel Nahrung wie möglich und\n    erhalte einen möglichst hohen Score.\nDoch triff nicht den Rand oder dich selbst\n          denn dann ist das Spiel vorbei.";
             labelAnleitung.Text = anleitung;
-
-            labelSnake.Visible = true;
             labelAnleitung.Visible = true;
+            labelSnake.Visible = true;
+
+            // Der Button um das Spiel zu Beginnen wird angezeigt und ist verfügbar
             buttonStart.Visible = true;
             buttonStart.Enabled = true;
-
         }
 
         private void StarteNeuesSpiel()
@@ -71,12 +72,14 @@ namespace Spielesammlung.Snake
             // Wenn das Spiel vorbei ist, wird mit Enter das neue Spiel gestartet
             if (Spielfeld.GameOver == true)
             {
+                // logScore verhindert, dass Score mehrfach wegen des Timers geschrieben wird
                 if (logScore == true)
                 {
+                    // logScore wird auf false gesetzt, damit es nur 1mal durchläuft
                     logScore = false;
-
+                    // Leerstelle für Textformatierung
                     string leer = "            ";
-
+                    // Text für GameOver wird angezeigt sowie das Textfeld zum Namen eingeben und der Button zum weiter kommen
                     string gameOver = leer + "     Game Over!\n" + leer + "        Score: " + Spielfeld.Score + "\nBitte gib deinen Spielernamen ein\n" + leer + "(genau 3 Zeichen)";
                     labelGameOver.Text = gameOver;
                     labelGameOver.Visible = true;
@@ -231,6 +234,7 @@ namespace Spielesammlung.Snake
             // GameOver wird auf true gesetzt
             Spielfeld.GameOver = true;
 
+            // logScore wird auf true gesetzt
             logScore = true;
         }
 
@@ -264,44 +268,61 @@ namespace Spielesammlung.Snake
             Steuerung.ChangeState(e.KeyCode, true);
         }
 
+        // Button um den Highscore angezeigt zu bekommen
         private void buttonWeiter_Click(object sender, EventArgs e)
         {
-            labelGameOver.Visible = false;
-            textBoxSpieler.Visible = false;
-            textBoxSpieler.Enabled = false;
-            buttonWeiter.Visible = false;
-            buttonWeiter.Enabled = false;
+            // Überprüft, ob das Textfeld genau 3 Zeichen enthält
+            if (textBoxSpieler.TextLength == 3)
+            {
+                // Der Text für GameOver sowie das Textfeld und der Button werden nicht mehr angezeigt
+                // Button und Textfeld sind dann nicht mehr verfügbar
+                labelGameOver.Visible = false;
+                textBoxSpieler.Visible = false;
+                textBoxSpieler.Enabled = false;
+                buttonWeiter.Visible = false;
+                buttonWeiter.Enabled = false;
 
-            string spieler = textBoxSpieler.Text;
-            string punktzahl = Spielfeld.Score.ToString();
+                // der Spielername wird aus der Textbox geholt
+                string spieler = textBoxSpieler.Text;
+                // Die erreicht Punktzahl wird aus der Variablen Score geholt
+                string punktzahl = Spielfeld.Score.ToString();
 
-            Highscore snakeHighscore = new Highscore();
-
-            labelHighscore.Text = snakeHighscore.HighscoreEintragen("Snake", spieler, punktzahl);
-
-            labelHighscore.Visible = true;
-
-            buttonNeustart.Visible = true;
-            buttonNeustart.Enabled = true;
+                // erstellen eines Objektes der Klasse Highscore
+                Highscore snakeHighscore = new Highscore();
+                // Anzeigen des Highscores
+                labelHighscore.Text = snakeHighscore.HighscoreEintragen("Snake", spieler, punktzahl);
+                labelHighscore.Visible = true;
+                // Der Button zum Neustart wird sichtbar und verfügbar
+                buttonNeustart.Visible = true;
+                buttonNeustart.Enabled = true;
+            }
         }
 
+        // Button um ein neues Spiel zu beginnen
         private void buttonNeustart_Click(object sender, EventArgs e)
         {
-            // Label für den Highscore soll nicht sichtbar sein zu Beginn des Spiels
+            // Highscore soll nicht sichtbar sein zu Beginn des Spiels
             labelHighscore.Visible = false;
+            // Der Button zum Neustart verschwindet und ist nicht mehr verfügbar 
             buttonNeustart.Visible = false;
             buttonNeustart.Enabled = false;
+            // Es wird ein neues Spiel gestartet
             StarteNeuesSpiel();
+            // Der Fokus wird auf die Form gelegt, damit die Steuerung über die Tastatur funktioniert
             this.Focus();
         }
 
+        // Button um das Spiel nach der Anleitung zu starten
         private void buttonStart_Click(object sender, EventArgs e)
         {
+            // Anleitung und Button sind nicht mehr sichtbar und der Button auch nicht mehr verfügbar
             labelSnake.Visible = false;
             labelAnleitung.Visible = false;
             buttonStart.Visible = false;
             buttonStart.Enabled = false;
+            // Es wird ein neues Spiel gestartet
             StarteNeuesSpiel();
+            // Der Fokus wird auf die Form gelegt, damit die Steuerung über die Tastatur funktioniert
             this.Focus();
         }
     }
