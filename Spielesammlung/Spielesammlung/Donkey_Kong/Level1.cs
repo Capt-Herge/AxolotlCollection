@@ -487,7 +487,7 @@ namespace Spielesammlung.Donkey_Kong
             yPositionen = new int[ebenenElemente.GetLength(0)];
 
             #region Ebenen Aufbau
-            xPositionen[0] = (((17 * pixelGreosse) * 1) + (offset + 36)); xPositionen[1] = (((17 * pixelGreosse) * 2) + offset);
+            xPositionen[0] = (((17 * pixelGreosse) * 1) + (offset + 27)); xPositionen[1] = (((17 * pixelGreosse) * 2) + offset);
             xPositionen[2] = (((17 * pixelGreosse) * 3) + offset); xPositionen[3] = (((17 * pixelGreosse) * 4) + offset);
             xPositionen[4] = (((17 * pixelGreosse) * 5) + offset); xPositionen[5] = (((17 * pixelGreosse) * 6) + offset);
             xPositionen[6] = (((17 * pixelGreosse) * 7) + offset); xPositionen[7] = (((17 * pixelGreosse) * 8) + offset);
@@ -1221,10 +1221,10 @@ namespace Spielesammlung.Donkey_Kong
 
             yPositionen[0] = (205 * pixelGreosse + yMario + marioEbenenHilf);
 
-            if (((yPositionen[0] >= 184) && ((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 609) && (xPositionen[0] <= 629) && (marioEbene == 1)))) && marioLeiterPositionHoch <= 62)
+            if ((((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 609) && (xPositionen[0] <= 629) && (marioEbene == 1)))) && marioLeiterPositionHoch <= 62)
             {
                 yMario--;
-                
+
                 if (marioZeahler < 9)
                 {
                     kong.RechtsKlettern();
@@ -1235,15 +1235,15 @@ namespace Spielesammlung.Donkey_Kong
 
                     if (marioZeahler >= 17)
                     {
-                        marioZeahler = 0;                            
+                        marioZeahler = 0;
                     }
                 }
 
                 marioLeiterPositionHoch++;
                 marioZeahler++;
-                
+
             }
-            else if (((yPositionen[0] >= 184) && ((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 483) && (xPositionen[0] <= 503) && (marioEbene == 2)))) && marioLeiterPositionHoch <= 90)
+            else if ((((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 483) && (xPositionen[0] <= 503) && (marioEbene == 2)))) && marioLeiterPositionHoch <= 90)
             {
                 yMario--;
 
@@ -1264,7 +1264,7 @@ namespace Spielesammlung.Donkey_Kong
                 marioLeiterPositionHoch++;
                 marioZeahler++;
             }
-            else if (((yPositionen[0] >= 184) && ((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 352) && (xPositionen[0] <= 372) && (marioEbene == 2)))) && marioLeiterPositionHoch <= 72)
+            else if ((((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 352) && (xPositionen[0] <= 372) && (marioEbene == 2)))) && marioLeiterPositionHoch <= 72)
             {
                 yMario--;
 
@@ -1285,7 +1285,7 @@ namespace Spielesammlung.Donkey_Kong
                 marioLeiterPositionHoch++;
                 marioZeahler++;
             }
-            else if (((yPositionen[0] >= 184) && ((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 517) && (xPositionen[0] <= 537) && (marioEbene == 3)))) && marioLeiterPositionHoch <= 60)
+            else if ((((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 517) && (xPositionen[0] <= 537) && (marioEbene == 3)))) && marioLeiterPositionHoch <= 85)
             {
                 yMario--;
 
@@ -1306,7 +1306,7 @@ namespace Spielesammlung.Donkey_Kong
                 marioLeiterPositionHoch++;
                 marioZeahler++;
             }
-            else if (((yPositionen[0] >= 184) && ((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 607) && (xPositionen[0] <= 627) && (marioEbene == 3)))) && marioLeiterPositionHoch <= 60)
+            else if ((((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 607) && (xPositionen[0] <= 627) && (marioEbene == 3)))) && marioLeiterPositionHoch <= 74)
             {
                 yMario--;
 
@@ -1327,7 +1327,7 @@ namespace Spielesammlung.Donkey_Kong
                 marioLeiterPositionHoch++;
                 marioZeahler++;
             }
-            else if (((yPositionen[0] >= 184) && ((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 443) && (xPositionen[0] <= 462) && (marioEbene == 4)))) && marioLeiterPositionHoch <= 60)
+            else if ((((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 443) && (xPositionen[0] <= 462) && (marioEbene == 4)))) && marioLeiterPositionHoch <= 85)
             {
                 yMario--;
 
@@ -1348,27 +1348,7 @@ namespace Spielesammlung.Donkey_Kong
                 marioLeiterPositionHoch++;
                 marioZeahler++;
             }
-            else if (((yPositionen[0] >= 184) && ((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 620) && (xPositionen[0] <= 640) && (marioEbene == 4)))) && marioLeiterPositionHoch <= 60)
-            {
-                yMario--;
-
-                if (marioZeahler < 9)
-                {
-                    kong.RechtsKlettern();
-                }
-                else if (marioZeahler >= 9)
-                {
-                    kong.LinksKlettern();
-
-                    if (marioZeahler >= 17)
-                    {
-                        marioZeahler = 0;
-                    }
-                }
-
-                marioZeahler++;
-            }
-            else if (((yPositionen[0] >= 184) && ((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 607) && (xPositionen[0] <= 627) && (marioEbene == 5)))) && marioLeiterPositionHoch <= 60)
+            else if ((((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 358) && (xPositionen[0] <= 378) && (marioEbene == 4)))) && marioLeiterPositionHoch <= 73)
             {
                 yMario--;
 
@@ -1389,7 +1369,74 @@ namespace Spielesammlung.Donkey_Kong
                 marioLeiterPositionHoch++;
                 marioZeahler++;
             }
-            else if (marioLeiterPositionHoch > 60)
+            else if ((((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 607) && (xPositionen[0] <= 627) && (marioEbene == 5)))) && marioLeiterPositionHoch <= 70)
+            {
+                yMario--;
+
+                if (marioZeahler < 9)
+                {
+                    kong.RechtsKlettern();
+                }
+                else if (marioZeahler >= 9)
+                {
+                    kong.LinksKlettern();
+
+                    if (marioZeahler >= 17)
+                    {
+                        marioZeahler = 0;
+                    }
+                }
+
+                marioLeiterPositionHoch++;
+                marioZeahler++;
+            }
+            else if ((((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 477) && (xPositionen[0] <= 497) && (marioEbene == 6)))) && marioLeiterPositionHoch <= 88)
+            {
+                yMario--;
+
+                if (marioZeahler < 9)
+                {
+                    kong.RechtsKlettern();
+                }
+                else if (marioZeahler >= 9)
+                {
+                    kong.LinksKlettern();
+
+                    if (marioZeahler >= 17)
+                    {
+                        marioZeahler = 0;
+                    }
+                }
+
+                marioLeiterPositionHoch++;
+                marioZeahler++;
+            }
+            else if ((((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 291) && (xPositionen[0] <= 311) && (marioEbene == 6)))) && marioLeiterPositionHoch <= 88)
+            {
+                yMario--;
+
+                if (marioZeahler < 9)
+                {
+                    kong.RechtsKlettern();
+                }
+                else if (marioZeahler >= 9)
+                {
+                    kong.LinksKlettern();
+
+                    if (marioZeahler >= 17)
+                    {
+                        marioZeahler = 0;
+                    }
+                }
+
+                marioLeiterPositionHoch++;
+                marioZeahler++;
+            }
+            else if (((marioLeiterPositionHoch == 63) && (marioEbene == 1)) || ((marioLeiterPositionHoch == 91) && (marioEbene == 2)) ||
+                     ((marioLeiterPositionHoch == 73) && (marioEbene == 2)) || ((marioLeiterPositionHoch == 86) && (marioEbene == 3)) ||
+                     ((marioLeiterPositionHoch == 86) && (marioEbene == 4)) || ((marioLeiterPositionHoch == 75) && (marioEbene == 3)) ||
+                     ((marioLeiterPositionHoch == 74) && (marioEbene == 4)) || ((marioLeiterPositionHoch == 71) && (marioEbene == 5)) ||
+                     ((marioLeiterPositionHoch == 89) && (marioEbene == 6)))
             {
                 marioEbene++;
                 marioLeiterPositionHoch = 0;
@@ -1442,50 +1489,7 @@ namespace Spielesammlung.Donkey_Kong
                     mariospringen = false;
                 }
             }
-            else if (((yPositionen[0] >= 184) && ((a.KeyCode == Keys.Down) && ((xPositionen[0] >= 609) && (xPositionen[0] <= 629) && (marioEbene == 2)))) && marioLeiterPositionRunter <= 62)
-            {
-                yMario++;               
-
-                if (marioZeahler < 9)
-                {
-                    kong.RechtsKlettern();
-                }
-                else if (marioZeahler >= 9)
-                {
-                    kong.LinksKlettern();
-
-                    if (marioZeahler >= 17)
-                    {
-                        marioZeahler = 0;
-                    }
-                }
-
-                marioLeiterPositionRunter++;
-                marioZeahler++;
-            }
-            else if (((yPositionen[0] >= 184) && ((a.KeyCode == Keys.Down) && ((xPositionen[0] >= 483) && (xPositionen[0] <= 503) && (marioEbene == 3)))) && marioLeiterPositionRunter <= 90)
-            {
-                yMario++;
-
-                if (marioZeahler < 9)
-                {
-                    kong.RechtsKlettern();
-                }
-                else if (marioZeahler >= 9)
-                {
-                    kong.LinksKlettern();
-
-                    if (marioZeahler >= 17)
-                    {
-                        marioZeahler = 0;
-                        marioLeiterPositionRunter = 0;
-                    }
-                }
-
-                marioLeiterPositionRunter++;
-                marioZeahler++;
-            }
-            else if (((yPositionen[0] >= 184) && ((a.KeyCode == Keys.Down) && ((xPositionen[0] >= 352) && (xPositionen[0] <= 372) && (marioEbene == 3)))) && marioLeiterPositionRunter <= 72)
+            else if ((((a.KeyCode == Keys.Down) && ((xPositionen[0] >= 609) && (xPositionen[0] <= 629) && (marioEbene == 2)))) && marioLeiterPositionRunter <= 62)
             {
                 yMario++;
 
@@ -1506,7 +1510,112 @@ namespace Spielesammlung.Donkey_Kong
                 marioLeiterPositionRunter++;
                 marioZeahler++;
             }
-            else if (((yPositionen[0] >= 184) && ((a.KeyCode == Keys.Down) && ((xPositionen[0] >= 517) && (xPositionen[0] <= 537) && (marioEbene == 4)))) && marioLeiterPositionRunter <= 60)
+            else if ((((a.KeyCode == Keys.Down) && ((xPositionen[0] >= 483) && (xPositionen[0] <= 503) && (marioEbene == 3)))) && marioLeiterPositionRunter <= 90)
+            {
+                yMario++;
+
+                if (marioZeahler < 9)
+                {
+                    kong.RechtsKlettern();
+                }
+                else if (marioZeahler >= 9)
+                {
+                    kong.LinksKlettern();
+
+                    if (marioZeahler >= 17)
+                    {
+                        marioZeahler = 0;
+                    }
+                }
+
+                marioLeiterPositionRunter++;
+                marioZeahler++;
+            }
+            else if ((((a.KeyCode == Keys.Down) && ((xPositionen[0] >= 352) && (xPositionen[0] <= 372) && (marioEbene == 3)))) && marioLeiterPositionRunter <= 72)
+            {
+                yMario++;
+
+                if (marioZeahler < 9)
+                {
+                    kong.RechtsKlettern();
+                }
+                else if (marioZeahler >= 9)
+                {
+                    kong.LinksKlettern();
+
+                    if (marioZeahler >= 17)
+                    {
+                        marioZeahler = 0;
+                    }
+                }
+
+                marioLeiterPositionRunter++;
+                marioZeahler++;
+            }
+            else if ((((a.KeyCode == Keys.Down) && ((xPositionen[0] >= 517) && (xPositionen[0] <= 537) && (marioEbene == 4)))) && marioLeiterPositionRunter <= 85)
+            {
+                yMario++;
+
+                if (marioZeahler < 9)
+                {
+                    kong.RechtsKlettern();
+                }
+                else if (marioZeahler >= 9)
+                {
+                    kong.LinksKlettern();
+
+                    if (marioZeahler >= 17)
+                    {
+                        marioZeahler = 0;
+                    }
+                }
+
+                marioLeiterPositionRunter++;
+                marioZeahler++;
+            }
+            else if ((((a.KeyCode == Keys.Down) && ((xPositionen[0] >= 607) && (xPositionen[0] <= 627) && (marioEbene == 4)))) && marioLeiterPositionRunter <= 74)
+            {
+                yMario++;
+
+                if (marioZeahler < 9)
+                {
+                    kong.RechtsKlettern();
+                }
+                else if (marioZeahler >= 9)
+                {
+                    kong.LinksKlettern();
+
+                    if (marioZeahler >= 17)
+                    {
+                        marioZeahler = 0;
+                    }
+                }
+
+                marioLeiterPositionRunter++;
+                marioZeahler++;
+            }
+            else if ((((a.KeyCode == Keys.Down) && ((xPositionen[0] >= 443) && (xPositionen[0] <= 462) && (marioEbene == 5)))) && marioLeiterPositionRunter <= 85)
+            {
+                yMario++;
+
+                if (marioZeahler < 9)
+                {
+                    kong.RechtsKlettern();
+                }
+                else if (marioZeahler >= 9)
+                {
+                    kong.LinksKlettern();
+
+                    if (marioZeahler >= 17)
+                    {
+                        marioZeahler = 0;
+                    }
+                }
+
+                marioLeiterPositionRunter++;
+                marioZeahler++;
+            }
+            else if ((((a.KeyCode == Keys.Down) && ((xPositionen[0] >= 358) && (xPositionen[0] <= 378) && (marioEbene == 5)))) && marioLeiterPositionRunter <= 73)
             {
                 yMario++;
 
@@ -1527,7 +1636,7 @@ namespace Spielesammlung.Donkey_Kong
                 marioZeahler++;
                 marioLeiterPositionRunter++;
             }
-            else if (((yPositionen[0] >= 184) && ((a.KeyCode == Keys.Down) && ((xPositionen[0] >= 607) && (xPositionen[0] <= 627) && (marioEbene == 4)))) && marioLeiterPositionRunter <= 60)
+            else if ((((a.KeyCode == Keys.Down) && ((xPositionen[0] >= 607) && (xPositionen[0] <= 627) && (marioEbene == 6)))) && marioLeiterPositionRunter <= 70)
             {
                 yMario++;
 
@@ -1548,7 +1657,7 @@ namespace Spielesammlung.Donkey_Kong
                 marioZeahler++;
                 marioLeiterPositionRunter++;
             }
-            else if (((yPositionen[0] >= 184) && ((a.KeyCode == Keys.Down) && ((xPositionen[0] >= 443) && (xPositionen[0] <= 462) && (marioEbene == 5)))) && marioLeiterPositionRunter <= 60)
+            else if ((((a.KeyCode == Keys.Down) && ((xPositionen[0] >= 477) && (xPositionen[0] <= 497) && (marioEbene == 7)))) && marioLeiterPositionRunter <= 88)
             {
                 yMario++;
 
@@ -1569,7 +1678,7 @@ namespace Spielesammlung.Donkey_Kong
                 marioZeahler++;
                 marioLeiterPositionRunter++;
             }
-            else if (((yPositionen[0] >= 184) && ((a.KeyCode == Keys.Down) && ((xPositionen[0] >= 620) && (xPositionen[0] <= 640) && (marioEbene == 5)))) && marioLeiterPositionRunter <= 60)
+            else if ((((a.KeyCode == Keys.Down) && ((xPositionen[0] >= 291) && (xPositionen[0] <= 311) && (marioEbene == 7)))) && marioLeiterPositionRunter <= 88)
             {
                 yMario++;
 
@@ -1590,33 +1699,16 @@ namespace Spielesammlung.Donkey_Kong
                 marioZeahler++;
                 marioLeiterPositionRunter++;
             }
-            else if (((yPositionen[0] >= 184) && ((a.KeyCode == Keys.Down) && ((xPositionen[0] >= 607) && (xPositionen[0] <= 627) && (marioEbene == 6)))) && marioLeiterPositionRunter <= 60)
-            {
-                yMario++;
-
-                if (marioZeahler < 9)
-                {
-                    kong.RechtsKlettern();
-                }
-                else if (marioZeahler >= 9)
-                {
-                    kong.LinksKlettern();
-
-                    if (marioZeahler >= 17)
-                    {
-                        marioZeahler = 0;
-                    }
-                }
-
-                marioZeahler++;
-                marioLeiterPositionRunter++;
-            }
-            else if (marioLeiterPositionRunter > 60)
+            else if (((marioLeiterPositionRunter == 63) && (marioEbene == 2)) || ((marioLeiterPositionRunter == 91) && (marioEbene == 3)) ||
+                     ((marioLeiterPositionRunter == 73) && (marioEbene == 3)) || ((marioLeiterPositionRunter == 86) && (marioEbene == 4)) ||
+                     ((marioLeiterPositionRunter == 86) && (marioEbene == 5)) || ((marioLeiterPositionRunter == 75) && (marioEbene == 4)) ||
+                     ((marioLeiterPositionRunter == 74) && (marioEbene == 5)) || ((marioLeiterPositionRunter == 71) && (marioEbene == 6)) ||
+                     ((marioLeiterPositionRunter == 89) && (marioEbene == 7)))
             {
                 marioEbene--;
                 marioLeiterPositionRunter = 0;
             }
-            else if (((a.KeyCode == Keys.Right) && (xPositionen[0] < 685)) && ((yPositionen[0] >= 0) && (yPositionen[0] <= 1000)))
+            else if ((a.KeyCode == Keys.Right) && (xPositionen[0] < 685) && (marioLeiterPositionHoch == 0) && (marioLeiterPositionRunter == 0))
             {
                 xMario++;
                 marioEbenenHilf2Right++;
@@ -1651,12 +1743,12 @@ namespace Spielesammlung.Donkey_Kong
                 marioZeahler++;
                 blickRichtungMario = false;
             }
-            else if ((a.KeyCode == Keys.Left) && (xPositionen[0] >= 303) && ((yPositionen[0] >= 0) && (yPositionen[0] <= 1000)))
+            else if ((a.KeyCode == Keys.Left) && (xPositionen[0] >= 303) && (marioLeiterPositionHoch == 0) && (marioLeiterPositionRunter == 0))
             {
                 xMario--;
                 marioEbenenHilf2Left++;
 
-                if(marioEbenenHilf2Left > 16)
+                if (marioEbenenHilf2Left > 16)
                 {
                     if ((!(marioEbene == 1 || marioEbene == 6)) && ((marioEbene == 2) || (marioEbene == 4)))
                     {
