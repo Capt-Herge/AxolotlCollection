@@ -12,7 +12,7 @@ namespace Spielesammlung.Donkey_Kong
 {
     public partial class FormDonkeyKong : Form
     {
-        int aktuellesLevel = 2;
+        static int aktuellesLevel = 2;
 
         static int  affeHilf = 0;
         static int fassHilf1 = 0;
@@ -78,10 +78,20 @@ namespace Spielesammlung.Donkey_Kong
                     {
                         affeHilf = 0;
                     }
+
+                    if (level2.levelbeendedt == true)
+                    {
+                        level2.Neustart();
+                        aktuellesLevel = 2;
+                        affeHilf = 0;
+                        level2.levelbeendedt = false;
+                    }
+
                     break;
                 case 2:
-                    Level1 level1 = new Level1(e, affeHilf, fassHilf1, fassHilf2, fassHilf3, fassHilf4, Taste);     
-                    if(affeHilf > 200)
+                    Level1 level1 = new Level1(e, affeHilf, fassHilf1, fassHilf2, fassHilf3, fassHilf4, Taste);
+
+                    if (affeHilf > 200)
                     {
                         affeHilf = 0;
                     }
@@ -101,6 +111,18 @@ namespace Spielesammlung.Donkey_Kong
                     if (fassHilf4 > 23)
                     {
                         fassHilf4 = 0;
+                    }
+
+                    if (level1.levelbeendedt == true)
+                    {
+                        level1.Neustart();
+                        aktuellesLevel = 1;
+                        affeHilf = 0;
+                        fassHilf1 = 0;
+                        fassHilf2 = 0;
+                        fassHilf3 = 0;
+                        fassHilf4 = 0;
+                        level1.levelbeendedt = false;
                     }
                     break;
             }

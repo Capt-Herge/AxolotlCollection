@@ -12,8 +12,13 @@ namespace Spielesammlung.Donkey_Kong
 {
     class Level1
     {
+        public static bool neustart = false;
+        public bool levelbeendedt = false;
         public int affeHilf;
 
+        #region Mario
+        public static int marioXPositionen = 0;
+        public static int marioYPositionen = 0;
         public static int xMario = 0;
         public static int yMario = 0;
         public static bool blickRichtungMario = false;
@@ -27,6 +32,7 @@ namespace Spielesammlung.Donkey_Kong
         public static int marioEbenenHilf = 0;
         public static int marioEbenenHilf2Left = 0;
         public static int marioEbenenHilf2Right = 0;
+        #endregion
 
         #region Counter für die versätzt startenden Fässer
         public static int count1 = 0;
@@ -36,6 +42,8 @@ namespace Spielesammlung.Donkey_Kong
 
         #region Faesser
         #region Fass1
+        public static int fass1XPositionen = 0;
+        public static int fass1YPositionen = 0;
         public static int zufalllLeiterFallHilfe1 = 0;
         public static int zufall1 = new Random().Next(0, 2000);
         public static bool leiterLockFass1 = false;
@@ -46,7 +54,7 @@ namespace Spielesammlung.Donkey_Kong
         public static bool ebenenLock4Fass1 = false;
         public static bool ebenenLock5Fass1 = false;
         public static bool ebenenLock6Fass1 = false;
-        public static int faesserHilfFass1;
+        public static int faesserHilfFass1 = 0;
         public static bool fallenFass1 = false;
         public static bool gefallenFass1 = false;
         public static int fassYGesamtFass1 = 0;
@@ -59,6 +67,8 @@ namespace Spielesammlung.Donkey_Kong
         #endregion
 
         #region Fass2
+        public static int fass2XPositionen = 0;
+        public static int fass2YPositionen = 0;
         public static int zufalllLeiterFallHilfe2 = 0;
         public static int zufall2 = new Random().Next(0, 2000);
         public static bool leiterLockFass2 = false;
@@ -69,7 +79,7 @@ namespace Spielesammlung.Donkey_Kong
         public static bool ebenenLock4Fass2 = false;
         public static bool ebenenLock5Fass2 = false;
         public static bool ebenenLock6Fass2 = false;
-        public static int faesserHilfFass2;
+        public static int faesserHilfFass2 = 0;
         public static bool fallenFass2 = false;
         public static bool gefallenFass2 = false;
         public static int fassYGesamtFass2 = 0;
@@ -82,6 +92,8 @@ namespace Spielesammlung.Donkey_Kong
         #endregion
 
         #region Fass3
+        public static int fass3XPositionen = 0;
+        public static int fass3YPositionen = 0;
         public static int zufalllLeiterFallHilfe3 = 0;
         public static int zufall3 = new Random().Next(0, 2000);
         public static bool leiterLockFass3 = false;
@@ -92,7 +104,7 @@ namespace Spielesammlung.Donkey_Kong
         public static bool ebenenLock4Fass3 = false;
         public static bool ebenenLock5Fass3 = false;
         public static bool ebenenLock6Fass3 = false;
-        public static int faesserHilfFass3;
+        public static int faesserHilfFass3 = 0;
         public static bool fallenFass3 = false;
         public static bool gefallenFass3 = false;
         public static int fassYGesamtFass3 = 0;
@@ -105,6 +117,8 @@ namespace Spielesammlung.Donkey_Kong
         #endregion
 
         #region Fass4
+        public static int fass4XPositionen = 0;
+        public static int fass4YPositionen = 0;
         public static int zufalllLeiterFallHilfe4 = 0;
         public static int zufall4 = new Random().Next(0, 2000);
         public static bool leiterLockFass4 = false;
@@ -115,7 +129,7 @@ namespace Spielesammlung.Donkey_Kong
         public static bool ebenenLock4Fass4 = false;
         public static bool ebenenLock5Fass4 = false;
         public static bool ebenenLock6Fass4 = false;
-        public static int faesserHilfFass4;
+        public static int faesserHilfFass4 = 0;
         public static bool fallenFass4 = false;
         public static bool gefallenFass4 = false;
         public static int fassYGesamtFass4 = 0;
@@ -179,8 +193,16 @@ namespace Spielesammlung.Donkey_Kong
             }
             #endregion
 
+            if ((((marioXPositionen == (fass1XPositionen - 8)) || ((marioXPositionen == (fass1XPositionen + 8)))) && (marioYPositionen >= (fass1YPositionen - 51)) && (marioYPositionen <= (fass1YPositionen + 2))) ||
+                 ((marioXPositionen == (fass2XPositionen - 8)) && (marioYPositionen >= (fass2YPositionen - 51)) && (marioYPositionen <= (fass2YPositionen + 2))) ||
+                 ((marioXPositionen == (fass3XPositionen - 8)) && (marioYPositionen >= (fass3YPositionen - 51)) && (marioYPositionen <= (fass3YPositionen + 2))) ||
+                 ((marioXPositionen == (fass4XPositionen - 8)) && (marioYPositionen >= (fass4YPositionen - 51)) && (marioYPositionen <= (fass4YPositionen + 2))))
+            {
+                Neustart();
+            }
+
             PeachSetzen(e);
-            HammerSetzen(e);            
+            //HammerSetzen(e);            
             MarioSetzen(e, a);
 
             #region Fass1            
@@ -1221,7 +1243,11 @@ namespace Spielesammlung.Donkey_Kong
 
             yPositionen[0] = (205 * pixelGreosse + yMario + marioEbenenHilf);
 
-            if ((((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 609) && (xPositionen[0] <= 629) && (marioEbene == 1)))) && marioLeiterPositionHoch <= 62)
+            if(marioEbene == 7)
+            {
+                levelbeendedt = true;
+            }
+            else if ((((a.KeyCode == Keys.Up) && ((xPositionen[0] >= 609) && (xPositionen[0] <= 629) && (marioEbene == 1)))) && marioLeiterPositionHoch <= 62)
             {
                 yMario--;
 
@@ -1786,6 +1812,9 @@ namespace Spielesammlung.Donkey_Kong
             {
                 kong.LinksStehen();
             }
+
+            marioXPositionen = xPositionen[0];
+            marioYPositionen = yPositionen[0];
             #endregion
 
             verteilungFigur(figuren, xPositionen, yPositionen);
@@ -2045,6 +2074,9 @@ namespace Spielesammlung.Donkey_Kong
             //        }
             //    }        
             //}
+
+            fass1XPositionen = xPositionen[0];
+            fass1YPositionen = yPositionen[0];
             #endregion
 
             verteilungFigur(figuren, xPositionen, yPositionen);
@@ -2304,6 +2336,9 @@ namespace Spielesammlung.Donkey_Kong
             //        }
             //    }
             //}
+
+            fass2XPositionen = xPositionen[0];
+            fass2YPositionen = yPositionen[0];
             #endregion
 
             verteilungFigur(figuren, xPositionen, yPositionen);
@@ -2563,6 +2598,9 @@ namespace Spielesammlung.Donkey_Kong
             //        }
             //    }
             //}
+
+            fass3XPositionen = xPositionen[0];
+            fass3YPositionen = yPositionen[0];
             #endregion
 
             verteilungFigur(figuren, xPositionen, yPositionen);
@@ -2822,6 +2860,9 @@ namespace Spielesammlung.Donkey_Kong
             //        }
             //    }
             //}
+
+            fass4XPositionen = xPositionen[0];
+            fass4YPositionen = yPositionen[0];
             #endregion
 
             verteilungFigur(figuren, xPositionen, yPositionen);
@@ -2962,6 +3003,137 @@ namespace Spielesammlung.Donkey_Kong
                 ebenenElemente[k].xPosition = neuexPositionen[k];
                 ebenenElemente[k].yPosition = neueyPositionen[k];
             }
+        }
+
+        public void Neustart()
+        {
+            #region Mario
+            marioXPositionen = 0;
+            marioYPositionen = 0;
+            xMario = 0;
+            yMario = 0;
+            blickRichtungMario = false;
+            marioSchritt = false;
+            marioZeahler = 0;
+            marioSprungHoehe = 0;
+            mariospringen = false;
+            marioEbene = 1;
+            marioLeiterPositionHoch = 0;
+            marioLeiterPositionRunter = 0;
+            marioEbenenHilf = 0;
+            marioEbenenHilf2Left = 0;
+            marioEbenenHilf2Right = 0;
+            #endregion
+
+            #region Counter für die versätzt startenden Fässer
+            count1 = 0;
+            count2 = 0;
+            count3 = 0;
+            #endregion
+
+            #region Faesser
+            #region Fass1
+            fass1XPositionen = 0;
+            fass1YPositionen = 0;
+            zufalllLeiterFallHilfe1 = 0;
+            zufall1 = new Random().Next(0, 2000);
+            leiterLockFass1 = false;
+            leiterEbene1LockFass1 = false;
+            ebenenLock1Fass1 = false;
+            ebenenLock2Fass1 = false;
+            ebenenLock3Fass1 = false;
+            ebenenLock4Fass1 = false;
+            ebenenLock5Fass1 = false;
+            ebenenLock6Fass1 = false;
+            faesserHilfFass1 = 0;
+            fallenFass1 = false;
+            gefallenFass1 = false;
+            fassYGesamtFass1 = 0;
+            fassHilf1 = 1;
+            yFassHilf1 = 0;
+            randFass1 = false;
+            fass1Ebene = 6;
+            fass1EbenenHilfe = 0;
+            fass1EbenenHilfe2 = 0;
+            #endregion
+
+            #region Fass2
+            fass2XPositionen = 0;
+            fass2YPositionen = 0;
+            zufalllLeiterFallHilfe2 = 0;
+            zufall2 = new Random().Next(0, 2000);
+            leiterLockFass2 = false;
+            leiterEbene1LockFass2 = false;
+            ebenenLock1Fass2 = false;
+            ebenenLock2Fass2 = false;
+            ebenenLock3Fass2 = false;
+            ebenenLock4Fass2 = false;
+            ebenenLock5Fass2 = false;
+            ebenenLock6Fass2 = false;
+            faesserHilfFass2 = 0;
+            fallenFass2 = false;
+            gefallenFass2 = false;
+            fassYGesamtFass2 = 0;
+            fassHilf2 = 1;
+            yFassHilf2 = 0;
+            randFass2 = false;
+            fass2Ebene = 6;
+            fass2EbenenHilfe = 0;
+            fass2EbenenHilfe2 = 0;
+            #endregion
+
+            #region Fass3
+            fass3XPositionen = 0;
+            fass3YPositionen = 0;
+            zufalllLeiterFallHilfe3 = 0;
+            zufall3 = new Random().Next(0, 2000);
+            leiterLockFass3 = false;
+            leiterEbene1LockFass3 = false;
+            ebenenLock1Fass3 = false;
+            ebenenLock2Fass3 = false;
+            ebenenLock3Fass3 = false;
+            ebenenLock4Fass3 = false;
+            ebenenLock5Fass3 = false;
+            ebenenLock6Fass3 = false;
+            faesserHilfFass3 = 0;
+            fallenFass3 = false;
+            gefallenFass3 = false;
+            fassYGesamtFass3 = 0;
+            fassHilf3 = 1;
+            yFassHilf3 = 0;
+            randFass3 = false;
+            fass3Ebene = 6;
+            fass3EbenenHilfe = 0;
+            fass3EbenenHilfe2 = 0;
+            #endregion
+
+            #region Fass4
+            fass4XPositionen = 0;
+            fass4YPositionen = 0;
+            zufalllLeiterFallHilfe4 = 0;
+            zufall4 = new Random().Next(0, 2000);
+            leiterLockFass4 = false;
+            leiterEbene1LockFass4 = false;
+            ebenenLock1Fass4 = false;
+            ebenenLock2Fass4 = false;
+            ebenenLock3Fass4 = false;
+            ebenenLock4Fass4 = false;
+            ebenenLock5Fass4 = false;
+            ebenenLock6Fass4 = false;
+            faesserHilfFass4 = 0;
+            fallenFass4 = false;
+            gefallenFass4 = false;
+            fassYGesamtFass4 = 0;
+            fassHilf4 = 1;
+            yFassHilf4 = 0;
+            randFass4 = false;
+            fass4Ebene = 6;
+            fass4EbenenHilfe = 0;
+            fass4EbenenHilfe2 = 0;
+            #endregion
+            #endregion
+
+            neustart = false;
         }
     }
 }

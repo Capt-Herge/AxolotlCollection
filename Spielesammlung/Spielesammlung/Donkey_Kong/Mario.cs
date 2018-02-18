@@ -1373,7 +1373,6 @@ namespace Spielesammlung.Donkey_Kong
             }
         }
 
-
         public void HammerSchwingen()
         {
 

@@ -12,9 +12,14 @@ namespace Spielesammlung.Donkey_Kong
 {
     class Level2
     {
-        public static int zufall = new Random().Next(0, 2000);
+        public static bool neustart = false;
+        public bool levelbeendedt = false;
 
         public int affeHilf;
+
+        #region Mario
+        public static int marioXPositionen = 0;
+        public static int marioYPositionen = 0;
         public static  int xMario = 0;
         public static int yMario = 0;
         public static bool blickRichtungMario = false;
@@ -22,16 +27,80 @@ namespace Spielesammlung.Donkey_Kong
         public static int marioZeahler = 0;
         public static int marioSprungHoehe = 0;
         public static bool mariospringen = false;
+        #endregion
 
         #region Feuer
+        public static int zufall = new Random().Next(0, 2000);
+
         public static int feuerHilf1 = 0;
         public static bool randFeuer1 = false;
+        public static int feuer1XPositionen = 0;
+        public static int feuer1YPositionen = 0;
+
         public static int feuerHilf2 = 0;
         public static bool randFeuer2 = false;
+        public static int feuer2XPositionen = 0;
+        public static int feuer2YPositionen = 0;
+
         public static int feuerHilf3 = 0;
         public static bool randFeuer3 = false;
+        public static int feuer3XPositionen = 0;
+        public static int feuer3YPositionen = 0;
+
         public static int feuerHilf4 = 0;
         public static bool randFeuer4 = false;
+        public static int feuer4XPositionen = 0;
+        public static int feuer4YPositionen = 0;
+        #endregion
+
+        #region Falltueren
+        #region Falltuer1
+        public static bool fallTuer1OffenLock = false;
+        public static bool fallTuer1LinksLock = false;
+        public static bool fallTuer1RechtsLock = false;
+        #endregion
+
+        #region Falltuer2
+        public static bool fallTuer2OffenLock = false;
+        public static bool fallTuer2LinksLock = false;
+        public static bool fallTuer2RechtsLock = false;
+        #endregion
+
+        #region Falltuer3
+        public static bool fallTuer3OffenLock = false;
+        public static bool fallTuer3LinksLock = false;
+        public static bool fallTuer3RechtsLock = false;
+        #endregion
+
+        #region Falltuer4
+        public static bool fallTuer4OffenLock = false;
+        public static bool fallTuer4LinksLock = false;
+        public static bool fallTuer4RechtsLock = false;
+        #endregion
+
+        #region Falltuer5
+        public static bool fallTuer5OffenLock = false;
+        public static bool fallTuer5LinksLock = false;
+        public static bool fallTuer5RechtsLock = false;
+        #endregion
+
+        #region Falltuer6
+        public static bool fallTuer6OffenLock = false;
+        public static bool fallTuer6LinksLock = false;
+        public static bool fallTuer6RechtsLock = false;
+        #endregion
+
+        #region Falltuer7
+        public static bool fallTuer7OffenLock = false;
+        public static bool fallTuer7LinksLock = false;
+        public static bool fallTuer7RechtsLock = false;
+        #endregion
+
+        #region Falltuer8
+        public static bool fallTuer8OffenLock = false;
+        public static bool fallTuer8LinksLock = false;
+        public static bool fallTuer8RechtsLock = false;
+        #endregion
         #endregion
 
         public Level2(PaintEventArgs e, int affe, KeyEventArgs a)
@@ -43,6 +112,7 @@ namespace Spielesammlung.Donkey_Kong
 
         private void Level2Laden(PaintEventArgs e, KeyEventArgs a)
         {
+            #region Leitern
             Ebene1Leiter1Blau(e);
             Ebene2Leiter1Blau(e);
             Ebene3Leiter1Blau(e);
@@ -63,13 +133,30 @@ namespace Spielesammlung.Donkey_Kong
             Ebene3Leiter4Blau(e);
             Ebene4Leiter4Blau(e);
             Ebene5Leiter4Blau(e);
+            #endregion
 
+            #region Ebenen
             Ebene1Blau(e);
             Ebene2Blau(e);
             Ebene3Blau(e);
             Ebene4Blau(e);
             Ebene5Blau(e);
             Ebene6Blau(e);
+            #endregion
+
+            if((fallTuer1OffenLock == true) && (fallTuer2OffenLock == true) && (fallTuer3OffenLock == true) && (fallTuer4OffenLock == true) && 
+               (fallTuer5OffenLock == true) && (fallTuer6OffenLock == true) && (fallTuer7OffenLock == true) && (fallTuer8OffenLock == true))
+            {
+                levelbeendedt = true;
+            }
+
+            if ((((marioXPositionen == (feuer1XPositionen - 8)) || ((marioXPositionen == (feuer1XPositionen + 8)))) && (marioYPositionen >= (feuer1YPositionen - 51)) && (marioYPositionen <= (feuer1YPositionen + 2))) ||
+                 ((marioXPositionen == (feuer2XPositionen - 8)) && (marioYPositionen >= (feuer2YPositionen - 51)) && (marioYPositionen <= (feuer2YPositionen + 2))) ||
+                 ((marioXPositionen == (feuer3XPositionen - 8)) && (marioYPositionen >= (feuer3YPositionen - 51)) && (marioYPositionen <= (feuer3YPositionen + 2))) ||
+                 ((marioXPositionen == (feuer4XPositionen - 8)) && (marioYPositionen >= (feuer4YPositionen - 51)) && (marioYPositionen <= (feuer4YPositionen + 2))))
+            {
+                Neustart();
+            }
 
             if (affeHilf > 200)
             {
@@ -81,14 +168,17 @@ namespace Spielesammlung.Donkey_Kong
             }
 
             PeachSetzen(e);
-            HammerSetzen(e);
-
             MarioSetzen(e, a);
+            //HammerSetzen(e);
 
+            #region Feuer
             Feuer1Setzen(e);
             Feuer2Setzen(e);
             Feuer3Setzen(e);
             Feuer4Setzen(e);
+            #endregion
+
+
         }
 
 
@@ -798,6 +888,82 @@ namespace Spielesammlung.Donkey_Kong
             yPositionen[6] = (183 * pixelGreosse);
             #endregion
 
+            #region Falltuer1
+            if (((marioYPositionen <= 501) && (marioYPositionen >= 491)) && (marioXPositionen == 376))
+            {
+                if (fallTuer1RechtsLock == true)
+                {
+                    fallTuer1OffenLock = true;
+                }
+                else
+                {
+                    fallTuer1LinksLock = true;
+                }
+            }
+            if((marioXPositionen < 376) && (fallTuer1LinksLock == true) && (fallTuer1OffenLock == false))
+            {
+                fallTuer1LinksLock = false;
+            }
+            if (((marioYPositionen <= 501) && (marioYPositionen >= 491)) && (marioXPositionen == 385))
+            {
+                if(fallTuer1LinksLock == true)
+                {
+                    fallTuer1OffenLock = true;
+                }
+                else
+                {
+                    fallTuer1RechtsLock = true;
+                }             
+            }
+            if ((marioXPositionen > 385) && (fallTuer1LinksLock == true) && (fallTuer1OffenLock == false))
+            {
+                fallTuer1RechtsLock = false;
+            }
+
+            if(fallTuer1OffenLock == true)
+            {
+                fragment2.Oeffnen();
+            }
+            #endregion
+
+            #region Falltuer2
+            if (((marioYPositionen <= 501) && (marioYPositionen >= 491)) && (marioXPositionen == 604))
+            {
+                if (fallTuer2RechtsLock == true)
+                {
+                    fallTuer2OffenLock = true;
+                }
+                else
+                {
+                    fallTuer2LinksLock = true;
+                }
+            }
+            if ((marioXPositionen < 376) && (fallTuer2LinksLock == true) && (fallTuer2OffenLock == false))
+            {
+                fallTuer2LinksLock = false;
+            }
+            if (((marioYPositionen <= 501) && (marioYPositionen >= 491)) && (marioXPositionen == 613))
+            {
+                if (fallTuer2LinksLock == true)
+                {
+                    fallTuer2OffenLock = true;
+                }
+                else
+                {
+                    fallTuer2RechtsLock = true;
+                }
+            }
+            if ((marioXPositionen > 385) && (fallTuer2LinksLock == true) && (fallTuer2OffenLock == false))
+            {
+                fallTuer2RechtsLock = false;
+            }
+
+            if (fallTuer2OffenLock == true)
+            {
+                fragment6.Oeffnen();
+            }
+            #endregion
+
             verteilungEbene(ebenenElemente, xPositionen, yPositionen);
 
             FaerbenEbene(ebenenElemente, e, xPositionen, yPositionen);
@@ -841,6 +1007,82 @@ namespace Spielesammlung.Donkey_Kong
             yPositionen[2] = (157 * pixelGreosse); yPositionen[3] = (157 * pixelGreosse);
             yPositionen[4] = (157 * pixelGreosse); yPositionen[5] = (157 * pixelGreosse);
             yPositionen[6] = (157 * pixelGreosse);
+            #endregion
+
+            #region Falltuer3
+            if (((marioYPositionen <= 423) && (marioYPositionen >= 413)) && (marioXPositionen == 376))
+            {
+                if (fallTuer3RechtsLock == true)
+                {
+                    fallTuer3OffenLock = true;
+                }
+                else
+                {
+                    fallTuer3LinksLock = true;
+                }
+            }
+            if ((marioXPositionen < 376) && (fallTuer3LinksLock == true) && (fallTuer3OffenLock == false))
+            {
+                fallTuer3LinksLock = false;
+            }
+            if (((marioYPositionen <= 423) && (marioYPositionen >= 413)) && (marioXPositionen == 385))
+            {
+                if (fallTuer3LinksLock == true)
+                {
+                    fallTuer3OffenLock = true;
+                }
+                else
+                {
+                    fallTuer3RechtsLock = true;
+                }
+            }
+            if ((marioXPositionen > 385) && (fallTuer3LinksLock == true) && (fallTuer3OffenLock == false))
+            {
+                fallTuer3RechtsLock = false;
+            }
+
+            if (fallTuer3OffenLock == true)
+            {
+                fragment2.Oeffnen();
+            }
+            #endregion
+
+            #region Falltuer4
+            if (((marioYPositionen <= 423) && (marioYPositionen >= 413)) && (marioXPositionen == 604))
+            {
+                if (fallTuer4RechtsLock == true)
+                {
+                    fallTuer4OffenLock = true;
+                }
+                else
+                {
+                    fallTuer4LinksLock = true;
+                }
+            }
+            if ((marioXPositionen < 376) && (fallTuer4LinksLock == true) && (fallTuer4OffenLock == false))
+            {
+                fallTuer4LinksLock = false;
+            }
+            if (((marioYPositionen <= 423) && (marioYPositionen >= 413)) && (marioXPositionen == 613))
+            {
+                if (fallTuer4LinksLock == true)
+                {
+                    fallTuer4OffenLock = true;
+                }
+                else
+                {
+                    fallTuer4RechtsLock = true;
+                }
+            }
+            if ((marioXPositionen > 385) && (fallTuer4LinksLock == true) && (fallTuer4OffenLock == false))
+            {
+                fallTuer4RechtsLock = false;
+            }
+
+            if (fallTuer4OffenLock == true)
+            {
+                fragment6.Oeffnen();
+            }
             #endregion
 
             verteilungEbene(ebenenElemente, xPositionen, yPositionen);
@@ -888,6 +1130,82 @@ namespace Spielesammlung.Donkey_Kong
             yPositionen[6] = (131 * pixelGreosse);
             #endregion
 
+            #region Falltuer5
+            if (((marioYPositionen <= 345) && (marioYPositionen >= 335)) && (marioXPositionen == 376))
+            {
+                if (fallTuer5RechtsLock == true)
+                {
+                    fallTuer5OffenLock = true;
+                }
+                else
+                {
+                    fallTuer5LinksLock = true;
+                }
+            }
+            if ((marioXPositionen < 376) && (fallTuer5LinksLock == true) && (fallTuer5OffenLock == false))
+            {
+                fallTuer5LinksLock = false;
+            }
+            if (((marioYPositionen <= 345) && (marioYPositionen >= 335)) && (marioXPositionen == 385))
+            {
+                if (fallTuer5LinksLock == true)
+                {
+                    fallTuer5OffenLock = true;
+                }
+                else
+                {
+                    fallTuer5RechtsLock = true;
+                }
+            }
+            if ((marioXPositionen > 385) && (fallTuer5LinksLock == true) && (fallTuer5OffenLock == false))
+            {
+                fallTuer5RechtsLock = false;
+            }
+
+            if (fallTuer5OffenLock == true)
+            {
+                fragment2.Oeffnen();
+            }
+            #endregion
+
+            #region Falltuer6
+            if (((marioYPositionen <= 345) && (marioYPositionen >= 335)) && (marioXPositionen == 604))
+            {
+                if (fallTuer6RechtsLock == true)
+                {
+                    fallTuer6OffenLock = true;
+                }
+                else
+                {
+                    fallTuer6LinksLock = true;
+                }
+            }
+            if ((marioXPositionen < 376) && (fallTuer6LinksLock == true) && (fallTuer6OffenLock == false))
+            {
+                fallTuer6LinksLock = false;
+            }
+            if (((marioYPositionen <= 345) && (marioYPositionen >= 335)) && (marioXPositionen == 613))
+            {
+                if (fallTuer6LinksLock == true)
+                {
+                    fallTuer6OffenLock = true;
+                }
+                else
+                {
+                    fallTuer6RechtsLock = true;
+                }
+            }
+            if ((marioXPositionen > 385) && (fallTuer6LinksLock == true) && (fallTuer6OffenLock == false))
+            {
+                fallTuer6RechtsLock = false;
+            }
+
+            if (fallTuer6OffenLock == true)
+            {
+                fragment6.Oeffnen();
+            }
+            #endregion
+
             verteilungEbene(ebenenElemente, xPositionen, yPositionen);
 
             FaerbenEbene(ebenenElemente, e, xPositionen, yPositionen);
@@ -931,6 +1249,82 @@ namespace Spielesammlung.Donkey_Kong
             yPositionen[2] = (105 * pixelGreosse); yPositionen[3] = (105 * pixelGreosse);
             yPositionen[4] = (105 * pixelGreosse); yPositionen[5] = (105 * pixelGreosse);
             yPositionen[6] = (105 * pixelGreosse);
+            #endregion
+
+            #region Falltuer7
+            if (((marioYPositionen <= 267) && (marioYPositionen >= 257)) && (marioXPositionen == 376))
+            {
+                if (fallTuer7RechtsLock == true)
+                {
+                    fallTuer7OffenLock = true;
+                }
+                else
+                {
+                    fallTuer7LinksLock = true;
+                }
+            }
+            if ((marioXPositionen < 376) && (fallTuer7LinksLock == true) && (fallTuer7OffenLock == false))
+            {
+                fallTuer7LinksLock = false;
+            }
+            if (((marioYPositionen <= 267) && (marioYPositionen >= 257)) && (marioXPositionen == 385))
+            {
+                if (fallTuer7LinksLock == true)
+                {
+                    fallTuer7OffenLock = true;
+                }
+                else
+                {
+                    fallTuer7RechtsLock = true;
+                }
+            }
+            if ((marioXPositionen > 385) && (fallTuer7LinksLock == true) && (fallTuer7OffenLock == false))
+            {
+                fallTuer7RechtsLock = false;
+            }
+
+            if (fallTuer7OffenLock == true)
+            {
+                fragment2.Oeffnen();
+            }
+            #endregion
+
+            #region Falltuer8
+            if (((marioYPositionen <= 267) && (marioYPositionen >= 257)) && (marioXPositionen == 604))
+            {
+                if (fallTuer8RechtsLock == true)
+                {
+                    fallTuer8OffenLock = true;
+                }
+                else
+                {
+                    fallTuer8LinksLock = true;
+                }
+            }
+            if ((marioXPositionen < 376) && (fallTuer8LinksLock == true) && (fallTuer8OffenLock == false))
+            {
+                fallTuer8LinksLock = false;
+            }
+            if (((marioYPositionen <= 267) && (marioYPositionen >= 257)) && (marioXPositionen == 613))
+            {
+                if (fallTuer8LinksLock == true)
+                {
+                    fallTuer8OffenLock = true;
+                }
+                else
+                {
+                    fallTuer8RechtsLock = true;
+                }
+            }
+            if ((marioXPositionen > 385) && (fallTuer8LinksLock == true) && (fallTuer8OffenLock == false))
+            {
+                fallTuer8RechtsLock = false;
+            }
+
+            if (fallTuer8OffenLock == true)
+            {
+                fragment6.Oeffnen();
+            }
             #endregion
 
             verteilungEbene(ebenenElemente, xPositionen, yPositionen);
@@ -1239,6 +1633,9 @@ namespace Spielesammlung.Donkey_Kong
                 marioSprungHoehe = 0;
                 kong.LinksStehen();
             }
+
+            marioXPositionen = xPositionen[0];
+            marioYPositionen = yPositionen[0];
             #endregion
 
             verteilungFigur(figuren, xPositionen, yPositionen);
@@ -1323,6 +1720,9 @@ namespace Spielesammlung.Donkey_Kong
 
                 feuerHilf1--;
             }
+
+            feuer1XPositionen = xPositionen[0];
+            feuer1YPositionen = yPositionen[0];
             #endregion
 
             verteilungFigur(figuren, xPositionen, yPositionen);
@@ -1407,6 +1807,9 @@ namespace Spielesammlung.Donkey_Kong
 
                 feuerHilf2--;
             }
+
+            feuer2XPositionen = xPositionen[0];
+            feuer2YPositionen = yPositionen[0];
             #endregion
 
             verteilungFigur(figuren, xPositionen, yPositionen);
@@ -1491,6 +1894,9 @@ namespace Spielesammlung.Donkey_Kong
 
                 feuerHilf3--;
             }
+
+            feuer3XPositionen = xPositionen[0];
+            feuer3YPositionen = yPositionen[0];
             #endregion
 
             verteilungFigur(figuren, xPositionen, yPositionen);
@@ -1575,6 +1981,9 @@ namespace Spielesammlung.Donkey_Kong
 
                 feuerHilf4--;
             }
+
+            feuer4XPositionen = xPositionen[0];
+            feuer4YPositionen = yPositionen[0];
             #endregion
 
             verteilungFigur(figuren, xPositionen, yPositionen);
@@ -1718,6 +2127,96 @@ namespace Spielesammlung.Donkey_Kong
             }
         }
 
+        public void Neustart()
+        {
+            #region Mario
+            marioXPositionen = 0;
+            marioYPositionen = 0;
+            xMario = 0;
+            yMario = 0;
+            blickRichtungMario = false;
+            marioSchritt = false;
+            marioZeahler = 0;
+            marioSprungHoehe = 0;
+            mariospringen = false;
+            #endregion
+
+            #region Feuer
+            zufall = new Random().Next(0, 2000);
+
+            feuerHilf1 = 0;
+            randFeuer1 = false;
+            feuer1XPositionen = 0;
+            feuer1YPositionen = 0;
+
+            feuerHilf2 = 0;
+            randFeuer2 = false;
+            feuer2XPositionen = 0;
+            feuer2YPositionen = 0;
+
+            feuerHilf3 = 0;
+            randFeuer3 = false;
+            feuer3XPositionen = 0;
+            feuer3YPositionen = 0;
+
+            feuerHilf4 = 0;
+            randFeuer4 = false;
+            feuer4XPositionen = 0;
+            feuer4YPositionen = 0;
+            #endregion
+
+            #region Falltueren
+            #region Falltuer1
+            fallTuer1OffenLock = false;
+            fallTuer1LinksLock = false;
+            fallTuer1RechtsLock = false;
+            #endregion
+
+            #region Falltuer2
+            fallTuer2OffenLock = false;
+            fallTuer2LinksLock = false;
+            fallTuer2RechtsLock = false;
+            #endregion
+
+            #region Falltuer3
+            fallTuer3OffenLock = false;
+            fallTuer3LinksLock = false;
+            fallTuer3RechtsLock = false;
+            #endregion
+
+            #region Falltuer4
+            fallTuer4OffenLock = false;
+            fallTuer4LinksLock = false;
+            fallTuer4RechtsLock = false;
+            #endregion
+
+            #region Falltuer5
+            fallTuer5OffenLock = false;
+            fallTuer5LinksLock = false;
+            fallTuer5RechtsLock = false;
+            #endregion
+
+            #region Falltuer6
+            fallTuer6OffenLock = false;
+            fallTuer6LinksLock = false;
+            fallTuer6RechtsLock = false;
+            #endregion
+
+            #region Falltuer7
+            fallTuer7OffenLock = false;
+            fallTuer7LinksLock = false;
+            fallTuer7RechtsLock = false;
+            #endregion
+
+            #region Falltuer8
+            fallTuer8OffenLock = false;
+            fallTuer8LinksLock = false;
+            fallTuer8RechtsLock = false;
+            #endregion
+            #endregion
+
+            neustart = false;
+        }
     }
 }
 
