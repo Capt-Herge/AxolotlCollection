@@ -227,8 +227,8 @@ namespace Spielesammlung.Minesweeper
             for (int i = 1; i <= Spielfeld.Minen; i++)
             {
                 // Es werden zufällige x- und y-Werte ermittelt
-                int zufallX = zufall.Next(0, (buttonArray.GetLength(0) - 1));
-                int zufallY = zufall.Next(0, (buttonArray.GetLength(1) - 1));
+                int zufallX = zufall.Next(0, (buttonArray.GetLength(0)));
+                int zufallY = zufall.Next(0, (buttonArray.GetLength(1)));
 
                 // mit x und y wird der eingetragene Wert berechnet
                 int eintrag = zufallX * 100 + zufallY;
