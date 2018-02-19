@@ -81,6 +81,12 @@
     <Compile Include="Astroids\Spielfeld.cs" />
     <Compile Include="Astroids\StoppUhr.cs" />
     <Compile Include="Astroids\UFO.cs" />
+    <Compile Include="Breakout\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Breakout\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Donkey_Kong\Affe.cs" />
     <Compile Include="Donkey_Kong\BlauesFragmentKurz.cs" />
     <Compile Include="Donkey_Kong\BlauesFragmentLang.cs" />
@@ -137,15 +143,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Pinball\Pinball.cs" />
-    <Compile Include="Pong\Ball.cs" />
     <Compile Include="Pong\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pong\Form1.designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pong\Game.cs" />
-    <Compile Include="Pong\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
