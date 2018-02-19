@@ -68,6 +68,12 @@
     <Compile Include="Astroids\AsteroidMittel.cs" />
     <Compile Include="Astroids\Astroids.cs" />
     <Compile Include="Astroids\Figuren.cs" />
+    <Compile Include="Astroids\FormAsteroids.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Astroids\FormAsteroids.Designer.cs">
+      <DependentUpon>FormAsteroids.cs</DependentUpon>
+    </Compile>
     <Compile Include="Astroids\Kugeln.cs" />
     <Compile Include="Astroids\Schiff.cs" />
     <Compile Include="Astroids\Schwung.cs" />
@@ -175,6 +181,9 @@
     <Compile Include="Vanguards\Vanguards.Designer.cs">
       <DependentUpon>Vanguards.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Astroids\FormAsteroids.resx">
+      <DependentUpon>FormAsteroids.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Donkey_Kong\FormDonkeyKong.resx">
       <DependentUpon>FormDonkeyKong.cs</DependentUpon>
     </EmbeddedResource>
