@@ -18,12 +18,12 @@ namespace Spielesammlung.Vanguards
 {
     class PlayerShip
     {
-        private int _posX = 0;
-        private int _posY = 0;
+        private int _posX = 20;
+        private int _posY = 300;
         private D2D.Bitmap spaceshipBitmap;
         private Bitmap spaceshipBitmapGDI;
         private int shipHitboxX = 100;
-        private int shipHitboxY = 100;
+        private int shipHitboxY = 70;
 
         public int PosX
         {

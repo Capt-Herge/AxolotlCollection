@@ -169,6 +169,9 @@
       <DependentUpon>form_TicTacToe.cs</DependentUpon>
     </Compile>
     <Compile Include="Vanguards\PlayerShip.cs" />
+    <Compile Include="Vanguards\Resources\EnemyShip.cs" />
+    <Compile Include="Vanguards\Resources\Level.cs" />
+    <Compile Include="Vanguards\Resources\LevelObject.cs" />
     <Compile Include="Vanguards\Resources\Projektile.cs" />
     <Compile Include="Vanguards\Resources\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -228,7 +231,26 @@
   <ItemGroup>
     <None Include="Resources\Snake_grass-background.jpeg" />
     <None Include="Resources\Snake_grass-background1.jpeg" />
+    <None Include="Resources\SpaceBackground1.png" />
+    <None Include="Resources\starfield_alpha.png" />
+    <None Include="Resources\PIA03239.jpg" />
+    <None Include="Resources\cyberspace.jpg" />
+    <None Include="Resources\Orbital Colossus.mp3" />
+    <None Include="Resources\b423b42.wav" />
+    <None Include="Resources\a10000.png" />
+    <None Include="Resources\a10001.png" />
+    <None Include="Resources\a10002.png" />
+    <None Include="Resources\a10010.png" />
+    <None Include="Resources\a10012.png" />
+    <None Include="Resources\a10015.png" />
+    <None Include="Resources\a10014.png" />
+    <None Include="Resources\cartoonship red.png" />
+    <None Include="Resources\continue.png" />
+    <None Include="Resources\GameOver.png" />
+    <None Include="Resources\sewer.png" />
+    <None Include="Resources\NextLevel.png" />
     <Content Include="Vanguards\Resources\greenProjectile.png" />
+    <None Include="Vanguards\Resources\greenprojectile1.png" />
     <Content Include="Vanguards\Resources\spaceship.pod_.1.green_.png" />
     <Content Include="Vanguards\Resources\Puzzle.png" />
   </ItemGroup>
