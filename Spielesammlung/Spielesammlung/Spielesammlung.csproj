@@ -81,6 +81,12 @@
     <Compile Include="Astroids\Spielfeld.cs" />
     <Compile Include="Astroids\StoppUhr.cs" />
     <Compile Include="Astroids\UFO.cs" />
+    <Compile Include="Breakout\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Breakout\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Donkey_Kong\Affe.cs" />
     <Compile Include="Donkey_Kong\BlauesFragmentKurz.cs" />
     <Compile Include="Donkey_Kong\BlauesFragmentLang.cs" />
