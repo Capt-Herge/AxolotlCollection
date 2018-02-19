@@ -25,7 +25,7 @@ namespace Spielesammlung.Tic_Tac_Toe
             InitializeComponent();
             ArrayInitialisieren();
         }
-        #region Buttons
+        #region Eventhandler
         // Hier kommen die Clickevents aller Buttons hin
         // (9 vom Spielfeld + Reset-Button)
         private void btn_Spielfeld_Click(object sender, EventArgs e)
@@ -72,7 +72,7 @@ namespace Spielesammlung.Tic_Tac_Toe
         }
         private void btn_reset_Click(object sender, EventArgs e)
         {
-            // Eventhandler vom Resetbutton
+            // Eventhandler vom Resetbutton und Zurücksetzen-Menüeintrag
             // Startet neue Runde und setzt alle weiteren Variablen zurück
             NeueRunde();
             zug = 'X';
@@ -83,6 +83,10 @@ namespace Spielesammlung.Tic_Tac_Toe
             punkteO = 0;
         }
         private void btn_menue_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void spielBeendenToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
@@ -215,13 +219,7 @@ namespace Spielesammlung.Tic_Tac_Toe
         {
             // Beginn einer neuen Runde und zurücksetzen der Variablen
             zugCounter = 0;
-            for (int s = 0; s < 3; s++)
-            {
-                for (int r = 0; r < 3; r++)
-                {
-                    spielfeld[s, r] = 'L';
-                }
-            }
+            ArrayInitialisieren();
             btn_A1.Text = "";
             btn_A2.Text = "";
             btn_A3.Text = "";
