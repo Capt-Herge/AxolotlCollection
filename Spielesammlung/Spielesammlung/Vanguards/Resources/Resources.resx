@@ -127,4 +127,61 @@
   <data name="GreenSpaceShip" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>spaceship.pod_.1.green_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="b423b42" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\b423b42.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cyberspace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\cyberspace.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Orbital_Colossus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\Orbital Colossus.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PIA03239" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\PIA03239.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpaceBackground1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\SpaceBackground1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="starfield_alpha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\starfield_alpha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="a10000" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\a10000.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="a10001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\a10001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="a10002" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\a10002.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="a10010" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\a10010.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="a10012" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\a10012.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="a10014" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\a10014.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="a10015" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\a10015.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cartoonship_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\cartoonship red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GameOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\GameOver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="greenprojectile1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>greenprojectile1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NextLevel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\NextLevel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sewer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\sewer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_continue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\Resources\continue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

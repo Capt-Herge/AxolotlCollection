@@ -15,39 +15,54 @@ using D2D = SlimDX.Direct2D;
 using DXGI = SlimDX.DXGI;
 using System.Threading;
 using System.Windows.Input;
+using SlimDX.XAudio2;
+using System.Timers;
 
 namespace Spielesammlung.Vanguards
 {
     public partial class Vanguards : Form
     {
-        //Resources for Direct2D rendering
+        //Visual Ressources
         private D2D.Factory m_factory;
         private D2D.WindowRenderTarget m_renderTarget;
         private D2D.LinearGradientBrush m_backBrushEx;
         private D2D.GradientStopCollection m_backBrushGradient;
         private D2D.Bitmap m_puzzleBitmap;
         private D2D.Bitmap spaceShipBitmap;
-        //Some generic members
         private Bitmap m_puzzleBitmapGdi;
         private Bitmap spaceshipBitmapGDI;
         private Brush m_backBrushGdi;
         private bool m_initialized;
         private bool m_debugMode;
+
+        //Player Ressources
+        private bool destroyed = false;
+        private int score = 0;
+        private int lives = 0;
         private PlayerShip _Player;
-        private Thread _PlayerControll;
-        private bool _KeyUp = false ;
+        private bool _KeyUp = false;
         private bool _KeyDown = false;
         private bool _KeyLeft = false;
         private bool _KeyRight = false;
-        private String _Taste;
-        private System.Windows.Forms.Timer _movementTimer = new System.Windows.Forms.Timer { Interval = 15 };
-        private System.Windows.Forms.Timer _projektileTimer = new System.Windows.Forms.Timer { Interval = 15 };
-        private Resources.Projektile[] _projektile;
-        private List<Resources.Projektile> _projektilListe= new List<Resources.Projektile>();
+        //private System.Windows.Forms.Timer _movementTimer = new System.Windows.Forms.Timer { Interval = 15 };
+        // private System.Windows.Forms.Timer _projektileTimer = new System.Windows.Forms.Timer { Interval = 10 };
+        // private System.Windows.Forms.Timer _levelTimer = new System.Windows.Forms.Timer { Interval = 30 };
+        private System.Windows.Forms.Timer _enemyFireTimer = new System.Windows.Forms.Timer { Interval = 50 };
+        private List<Resources.Projektile> _projektilListe = new List<Resources.Projektile>();
         private D2D.Bitmap projektileBitmap;
         private Bitmap projektileBitmapGdi;
+        private D2D.Bitmap projektileHostileBitmap;
+        private Bitmap projektileHostileBitmapGdi;
+        private Bitmap continueScreenGDI = Resources.Resources._continue;
+        private bool gameOver = false;
+        private System.Timers.Timer levelTicker = new System.Timers.Timer();
+        private System.Timers.Timer projectileTicker = new System.Timers.Timer();
+        private System.Timers.Timer movementTicker = new System.Timers.Timer();
         private static bool[] keys_down;
         private static Keys[] key_props;
+        private Resources.Level level = new Resources.Level();
+        private bool pause = false;
+        private bool nextLevel = false;
         public Vanguards()
         {
             InitializeComponent();
@@ -62,97 +77,147 @@ namespace Spielesammlung.Vanguards
             m_backBrushGdi = new SolidBrush(this.BackColor);
 
             InitializeGraphics();
-            _movementTimer.Tick += tick;
-            _movementTimer.Start();
-            _projektileTimer.Tick += ProjektilTicK;
-            _projektileTimer.Start();
+            // _movementTimer.Tick += tick;
+            // _movementTimer.Start();
+            // _projektileTimer.Tick += ProjektilTicK;
+            // _projektileTimer.Start();
+            //_levelTimer.Tick += LevelTick;
+            //_levelTimer.Start();
+            _enemyFireTimer.Tick += EnemyFireTick;
+            _enemyFireTimer.Start();
+            level.LoadLevel1();
+            levelTicker.Elapsed += new ElapsedEventHandler(LevelTick);
+            levelTicker.Interval = 15;
+            movementTicker.Elapsed += new ElapsedEventHandler(tick);
+            movementTicker.Interval = 1;
+            movementTicker.Enabled = true;
+            projectileTicker.Elapsed += new ElapsedEventHandler(ProjektilTicK);
+            projectileTicker.Interval = 20;
+            projectileTicker.Enabled = true;
 
-            
+            levelTicker.Enabled = true;
+            lives = 3;
+            label1.Text = "Leben:" + lives;
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(Vanguards_KeyDown);
             this.KeyUp += new KeyEventHandler(Vanguards_KeyUp);
-
+            continueScreenGDI.MakeTransparent(Color.White);
         }
 
         static bool IntersectPixels(Rectangle rectangleA, Bitmap bmpA,
                             Rectangle rectangleB, Bitmap bmpB)
         {
-            bool collision = false;
+            return rectangleA.IntersectsWith(rectangleB);
 
-            Size s1 = bmpA.Size;
-            Size s2 = bmpB.Size;
-
-            PixelFormat fmt1 = bmpA.PixelFormat;
-            PixelFormat fmt2 = bmpB.PixelFormat;
-
-            Rectangle rect = new Rectangle(0, 0, s1.Width, s1.Height);
-            Rectangle rectB = new Rectangle(0, 0, s2.Width, s2.Height);
-
-            BitmapData bmp1Data = bmpA.LockBits(rect, ImageLockMode.ReadOnly, fmt1);
-            BitmapData bmp2Data = bmpB.LockBits(rectB, ImageLockMode.ReadOnly, fmt2);
-
-            int size1 = bmp1Data.Stride * bmp1Data.Height;
-            int size2 = bmp2Data.Stride * bmp2Data.Height;
-            byte[] data1 = new byte[size1];
-            byte[] data2 = new byte[size2];
-            Color[] cData1 = new Color[size1];
-            Color[] cData2 = new Color[size2];
-
-            System.Runtime.InteropServices.Marshal.Copy(bmp1Data.Scan0, data1, 0, size1);
-            System.Runtime.InteropServices.Marshal.Copy(bmp2Data.Scan0, data2, 0, size2);
-
-            // Find the bounds of the rectangle intersection
-            int top = Math.Max(rectangleA.Top, rectangleB.Top);
-            int bottom = Math.Min(rectangleA.Bottom, rectangleB.Bottom);
-            int left = Math.Max(rectangleA.Left, rectangleB.Left);
-            int right = Math.Min(rectangleA.Right, rectangleB.Right);
-
-
-            // Check every point within the intersection bounds
-            for (int y = top; y < bottom; y++)
-            {
-                for (int x = left; x < right; x++)
-                {
-                    // Color data are BGRA!
-                    // Get the alpha (+3!) value of both pixels at this point
-                    byte colorA = data1[(x - rectangleA.Left) +
-                                        (y - rectangleA.Top) * rectangleA.Width + 3];
-                    byte colorB = data2[(x - rectangleB.Left) +
-                                        (y - rectangleB.Top) * rectangleB.Width + 3];
-
-                    // If both pixels are not completely transparent,
-                    if (colorA != 0 && colorB != 0)
-                    {
-                        // then an intersection has been found
-                        { collision = true; goto done; }
-                    }
-                }
-            }
-
-        done:
-            bmpA.UnlockBits(bmp1Data);
-            bmpB.UnlockBits(bmp2Data);
-            return collision;
         }
 
         private void tick(Object source, EventArgs e)
         {
-            // Do this every timing interval.
-            _DoMovement();
 
-        
-        }
-        private void ProjektilTicK(Object source,EventArgs e)
-        {
-            foreach(Resources.Projektile singleProjectile in _projektilListe)
-{
-                singleProjectile.PosX += 5;
-                singleProjectile.FlightTime += 1;
-              //  if(singleProjectile.FlightTime==20)
-              //  { _projektilListe.Remove(singleProjectile); }
+            // Do this every timing interval.
+            if (!pause)
+            {
+                _DoMovement();
             }
-            this.Invalidate();
-            
+
+
+        }
+        private void ProjektilTicK(Object source, EventArgs e)
+        {
+            if (!pause)
+            {
+                for (int i = _projektilListe.Count - 1; i >= 0; i--)
+                {
+                    if (_projektilListe[i].PosX < this.Width && _projektilListe[i].PosX > 0)
+                    {
+                        if (_projektilListe[i].Hostile)
+                        {
+                            _projektilListe[i].PosX -= 15;
+                            _projektilListe[i].FlightTime += 1;
+                            if (IntersectPixels(new Rectangle(_Player.PosX, _Player.PosY, _Player.ShipHitboxX, _Player.ShipHitboxY), _Player.SpaceshipBitmapGDI, new Rectangle(_projektilListe[i].PosX, _projektilListe[i].PosY, 30, 5), _projektilListe[i].ProjectileBit))
+                            {
+                                destroyed = true;
+                            }
+
+                        }
+                        else
+                        {
+                            _projektilListe[i].PosX += 15;
+                            _projektilListe[i].FlightTime += 1;
+                        }
+                    }
+                    else
+                    {
+                        _projektilListe.RemoveAt(i);
+                    }
+                }
+                this.Invalidate();
+
+            }
+        }
+        private void EnemyFireTick(Object source, EventArgs e)
+        {
+            // foreach(Resources.EnemyShip enemy in level.EnemyShipList)
+            //{
+            //   if (enemy.PosX < this.Width&&enemy.PosX>0)
+            //  {
+            //      enemy.WeaponCooldonw += 10;
+            //     if (enemy.WeaponCooldonw == 100&&!enemy.Destroyed)
+            //   {
+            //     _projektilListe.Add(new Resources.Projektile(true, true, enemy.PosX, enemy.PosY + 50, 5));
+            //    enemy.WeaponCooldonw = 0;
+            //}
+            //}
+            //}
+        }
+
+        private void LevelTick(Object source, EventArgs e)
+        {
+            if (!pause)
+            {
+                level.LevelPositionX = level.LevelPositionX - 1;
+                if(level.LevelPositionX==-1850)
+                {
+                    score += 50;
+                    nextLevel = true;
+                    
+                   
+                    
+                }
+                level.ScoreCount += 10;
+                if (level.ScoreCount >= 100)
+                {
+                    score += 1;
+                    level.ScoreCount = 0;
+                }
+
+                foreach (Resources.EnemyShip ships in level.EnemyShipList)
+                {
+                    if ((ships.PosX + ships.ShipHitboxX) > 0)
+                    {
+                        ships.PosX -= 6;
+                        foreach (Resources.Projektile projektil in _projektilListe)
+                        {
+                            if ((ships.Destroyed == false) && (projektil.Visible == true) && (!projektil.Hostile))
+                                if (IntersectPixels(new Rectangle(ships.PosX, ships.PosY, ships.ShipHitboxX, ships.ShipHitboxY), ships.SpaceshipBitmapGDI, new Rectangle(projektil.PosX, projektil.PosY, 30, 5), projektil.ProjectileBit))
+                                {
+                                    ships.Destroyed = true;
+                                    projektil.Visible = false;
+                                    score += 10;
+
+                                }
+                        }
+                    }
+                    if (IntersectPixels(new Rectangle(_Player.PosX, _Player.PosY, _Player.ShipHitboxX, _Player.ShipHitboxY), _Player.SpaceshipBitmapGDI, new Rectangle(ships.PosX, ships.PosY, ships.ShipHitboxX, ships.ShipHitboxY), ships.SpaceshipBitmapGDI)&&!ships.Destroyed)
+                    {
+                        destroyed = true;
+                    }
+                }
+                foreach (Resources.LevelObject objects in level.ObjectList)
+                {
+                    objects.PosX -= 3;
+                }
+            }
         }
 
         private void movementTimer_Tick(object sender, EventArgs e)
@@ -220,7 +285,7 @@ namespace Spielesammlung.Vanguards
             this.Invalidate();
             if (!_KeyDown && !_KeyLeft && !_KeyRight && !_KeyUp)
             {
-                _movementTimer.Stop();
+                // _movementTimer.Stop();
             }
 
         }
@@ -255,8 +320,8 @@ namespace Spielesammlung.Vanguards
 
             //Lock the gdi resource
             BitmapData drawingBitmapData = drawingBitmap.LockBits(
-                new Rectangle(0, 0, drawingBitmap.Width, drawingBitmap.Height),
-                ImageLockMode.ReadOnly, PixelFormat.Format32bppPArgb);
+            new Rectangle(0, 0, drawingBitmap.Width, drawingBitmap.Height),
+            ImageLockMode.ReadOnly, PixelFormat.Format32bppPArgb);
 
             //Prepare loading the image from gdi resource
             DataStream dataStream = new DataStream(
@@ -305,7 +370,7 @@ namespace Spielesammlung.Vanguards
             D2D.GradientStop[] gradientStops = new D2D.GradientStop[]
             {
                 new D2D.GradientStop(){ Position = 0f, Color = new Color4(Color.LightGray) },
-                new D2D.GradientStop(){ Position = 1f, Color = new Color4(Color.LightSteelBlue) }
+                new D2D.GradientStop(){ Position = 1f, Color = new Color4(Color.Black) }
             };
             m_backBrushGradient = new D2D.GradientStopCollection(m_renderTarget, gradientStops);
             m_backBrushEx = new D2D.LinearGradientBrush(
@@ -326,6 +391,8 @@ namespace Spielesammlung.Vanguards
                 Color.LightSteelBlue);
 
             //Load the bitmap
+            level.Backgroundgdi = Resources.Resources.SpaceBackground1;
+            level.Background = LoadBitmap(level.Backgroundgdi);
             m_puzzleBitmapGdi = Resources.Resources.Puzzle;
             m_puzzleBitmap = LoadBitmap(m_puzzleBitmapGdi);
             spaceshipBitmapGDI = Resources.Resources.GreenSpaceShip;
@@ -333,6 +400,8 @@ namespace Spielesammlung.Vanguards
             _Player = new PlayerShip(spaceShipBitmap);
             projektileBitmapGdi = Resources.Resources.greenProjectile;
             projektileBitmap = LoadBitmap(projektileBitmapGdi);
+            projektileHostileBitmapGdi = Resources.Resources.greenprojectile1;
+            projektileHostileBitmap = LoadBitmap(projektileHostileBitmapGdi);
 
             //Update initialization flag
             m_initialized = true;
@@ -402,72 +471,112 @@ namespace Spielesammlung.Vanguards
         {
             this.Invalidate();
         }
-        
+
         private void Vanguards_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
 
-
-                switch (e.KeyCode)
+            if (!pause)
             {
-              case Keys.S:
+                switch (e.KeyCode)
+                {
+                    case Keys.S:
 
 
-                    _KeyDown = true;
-
-                    
-              break;
-
-                case Keys.Down:
-                    
                         _KeyDown = true;
 
-                    break;
-                case Keys.W:
 
-                    _KeyUp = true;    
+                        break;
 
-                    break;
+                    case Keys.Down:
 
-                case Keys.Up:
+                        _KeyDown = true;
 
-                    _KeyUp = true;
+                        break;
+                    case Keys.W:
 
-                    break;
-                case Keys.D:
+                        _KeyUp = true;
 
-                    _KeyRight = true;
-                    break;
+                        break;
 
-                case Keys.A:
+                    case Keys.Up:
 
-                    _KeyLeft = true;
-                    break;
+                        _KeyUp = true;
 
-                case Keys.Left:
-                    _KeyLeft = true;
-                    break;
+                        break;
+                    case Keys.D:
 
-                case Keys.Space:
-                    _projektilListe.Add(new Resources.Projektile(false, _Player.PosX+100,_Player.PosY+50,5));
+                        _KeyRight = true;
+                        break;
 
-                    break;
+                    case Keys.A:
+
+                        _KeyLeft = true;
+                        break;
+
+                    case Keys.Left:
+                        _KeyLeft = true;
+                        break;
+                    case Keys.P:
+                        pause = !pause;
+                        break;
+
+                    case Keys.Space:
+                        _projektilListe.Add(new Resources.Projektile(false, true, _Player.PosX + 100, _Player.PosY + 33, 5));
+
+                        break;
 
                 }
-            _movementTimer.Start();
-            _DoMovement();
-            _movementTimer.Start();
+                _DoMovement();
+                //_movementTimer.Start();
+            }
+            else
+            {
+                if (destroyed)
+                {
+                    if (e.KeyCode == Keys.Space&&!gameOver)
+                    {
+                        _Player.PosX = 20;
+                        _Player.PosY = 300;
+                        destroyed = false;
+                        pause = false;
+                        lives--;
+                    }
+                }
+                if(nextLevel)
+                {
+                    if(e.KeyCode==Keys.Space)
+                    {
+                        level.NextLevel();
+                        
+                        nextLevel = false;
+                        pause = false;
+                        FinalScoreLabel.Visible = false;
+                    }
+                }
+                if (e.KeyCode == Keys.P)
+                {
+                    pause = false;
+                }
+
+                _DoMovement();
+                //_movementTimer.Start();
+            }
+
+
         }
-        
+
         private void ShipDown()
         {
-            
             _Player.PosY = _Player.PosY + 1;
             this.Invalidate();
         }
         protected override void OnPaint(PaintEventArgs e)
         {
+
+            label1.Text = "Leben:" + lives;
+            label2.Text = "Score:" + score;
             base.OnPaint(e);
-            if(m_initialized)
+            if (m_initialized)
             {
                 m_renderTarget.BeginDraw();
                 try
@@ -481,17 +590,40 @@ namespace Spielesammlung.Vanguards
 
                     //Apply quality
                     D2D.InterpolationMode interpolationMode = D2D.InterpolationMode.NearestNeighbor;
-                    interpolationMode = D2D.InterpolationMode.Linear; 
+                    interpolationMode = D2D.InterpolationMode.Linear;
 
                     //Draw all images
-                    int imageCount = 0;
- 
-                    Stopwatch stopwatch = new Stopwatch();
-                    stopwatch.Start();
-                    m_renderTarget.DrawBitmap(m_puzzleBitmap, new Rectangle(0, 0, _Player.ShipHitboxX, _Player.ShipHitboxY), 1f, interpolationMode);
-                    m_renderTarget.DrawBitmap(_Player.getShipBitmap(), new Rectangle(_Player.PosX, _Player.PosY, _Player.ShipHitboxX, _Player.ShipHitboxY), 1f, interpolationMode);
 
-                   
+                    if (gameOver||nextLevel)
+                    {
+                        level.Background = LoadBitmap(level.Backgroundgdi);
+                        m_renderTarget.DrawBitmap(level.Background, new Rectangle(0, 0, this.Width, this.Height), 1f, interpolationMode);
+                    }
+                    else
+                    {
+                        level.Background = LoadBitmap(level.Backgroundgdi);
+                        m_renderTarget.DrawBitmap(level.Background, new Rectangle(level.LevelPositionX, 0, 8352, 5300), 1f, interpolationMode);
+                    }
+                    m_renderTarget.DrawBitmap(m_puzzleBitmap, new Rectangle(0, 0, _Player.ShipHitboxX, _Player.ShipHitboxY), 1f, interpolationMode);
+
+                    foreach (Resources.EnemyShip ships in level.EnemyShipList)
+                    {
+                        if (ships.Destroyed == false)
+                        {
+                            D2D.Bitmap objectLoad = LoadBitmap(ships.SpaceshipBitmapGDI);
+                            m_renderTarget.DrawBitmap(objectLoad, new Rectangle(ships.PosX, ships.PosY, ships.ShipHitboxX, ships.ShipHitboxY), 1f, interpolationMode);
+                        }
+                    }
+
+                    foreach (Resources.LevelObject levelObject in level.ObjectList)
+                    {
+                        D2D.Bitmap objectLoad = LoadBitmap(levelObject.ObjectBitmapGDI);
+                        m_renderTarget.DrawBitmap(objectLoad, new Rectangle(levelObject.PosX, levelObject.PosY, levelObject.RectangleBreite, levelObject.RectangleHoehe), 1f, interpolationMode);
+                        if (IntersectPixels(new Rectangle(_Player.PosX, _Player.PosY, _Player.ShipHitboxX, _Player.ShipHitboxY), spaceshipBitmapGDI, new Rectangle(levelObject.PosX, levelObject.PosY, levelObject.RectangleBreite, levelObject.RectangleHoehe), m_puzzleBitmapGdi))
+                        {
+                            destroyed = true;
+                        }
+                    }
 
                     if (IntersectPixels(new Rectangle(_Player.PosX, _Player.PosY, _Player.ShipHitboxX, _Player.ShipHitboxY), spaceshipBitmapGDI, new Rectangle(0, 0, _Player.ShipHitboxX, _Player.ShipHitboxY), m_puzzleBitmapGdi))
                     {
@@ -500,9 +632,51 @@ namespace Spielesammlung.Vanguards
 
                     foreach (Resources.Projektile projektile in _projektilListe)
                     {
-                        m_renderTarget.DrawBitmap(projektileBitmap, new Rectangle(projektile.PosX, projektile.PosY,30,5), 1f, interpolationMode);
+                        if ((projektile.Visible == true) && (projektile.PosX < this.Width) && (projektile.PosX > 0))
+                        {
+                            if (projektile.Hostile)
+                            {
+                                m_renderTarget.DrawBitmap(projektileHostileBitmap, new Rectangle(projektile.PosX, projektile.PosY, 30, 5), 1f, interpolationMode);
+                            }
+                            else
+                            {
+                                m_renderTarget.DrawBitmap(projektileBitmap, new Rectangle(projektile.PosX, projektile.PosY, 30, 5), 1f, interpolationMode);
+                            }
+                        }
+
                     }
-                    stopwatch.Stop();
+                    if (destroyed)
+                    {
+                        if (lives > 0)
+                        {
+                            D2D.Bitmap continueScreen = LoadBitmap(continueScreenGDI);
+                            pause = true;
+                            m_renderTarget.DrawBitmap(continueScreen, new Rectangle(10, 200, 1052, 222), 1f, interpolationMode);
+                        }
+                        else
+                        {
+                            gameOver = true;
+                            level.LoadLevelGameOver();
+                            level.Background = LoadBitmap(level.Backgroundgdi);
+                            FinalScoreLabel.Visible = true;
+                            FinalScoreLabel.Text = "Score: " + score;
+                            pause =true;
+                        }
+                    }
+                    else if(nextLevel)
+                    {
+                        level.LoadLevelNextLevel();
+                        level.Background = LoadBitmap(level.Backgroundgdi);
+                        FinalScoreLabel.Visible = true;
+                        FinalScoreLabel.Text = "Score: " + score;
+                        pause = true;
+                    }
+                    else 
+                    {
+                        m_renderTarget.DrawBitmap(_Player.getShipBitmap(), new Rectangle(_Player.PosX, _Player.PosY, _Player.ShipHitboxX, _Player.ShipHitboxY), 1f, interpolationMode);
+
+                    }
+
 
                 }
                 finally
@@ -511,7 +685,7 @@ namespace Spielesammlung.Vanguards
                 }
 
             }
-           
+
         }
 
         /// <summary>
