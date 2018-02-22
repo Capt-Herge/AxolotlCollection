@@ -265,6 +265,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Donkey_Kong\Neuer Ordner\" />
+    <Folder Include="Frogger\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
