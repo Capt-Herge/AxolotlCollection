@@ -28,11 +28,17 @@ namespace Spielesammlung.Minesweeper
             // Nach 1 Sekunde wird die Zeit erhöht
             timerMinesweeper.Tick += ErhöheZeit;
 
-            // Erstellt das Feld mit den Buttons
-            ErstelleFeld();
+            // Hintergrundfarbe wird blau, damit die Anleitung besser zu lesen ist
+            panelMinesweeper.BackColor = Color.LightSteelBlue;
 
-            // Startet ein neues Spiel
-            NeuesSpiel();
+            // Anleitung, Name des Spiels und der Button zum Starten des Spiels werden angezeigt
+            string anleitung = "Klicke mit der linken Maustaste auf die Felder,\num diese aufzudecken. Ziel ist es in möglichst\nkurzer Zeit alle Felder ohne Bomben aufzudecken.\nWenn sich eine Bombe unter dem geklickten Feld\n          befindet ist das Spiel vobei.\nHinweis: Mit Rechtslkick können vermutete Bomben\n         markiert werden ohne diese aufzudecken.";
+            labelAnleitung.Text = anleitung;
+            labelAnleitung.Visible = true;
+            labelMinesweeper.Visible = true;
+            buttonStart.Enabled = true;
+            buttonStart.Visible = true;
+
         }
 
         public void ErstelleFeld()
@@ -53,7 +59,7 @@ namespace Spielesammlung.Minesweeper
                     buttonArray[x, y].BackColor = Color.LightSteelBlue;
                     // Hinzufügen des Buttons zum dahinter liegenden Panel
                     panelMinesweeper.Controls.Add(buttonArray[x, y]);
-                    // Eventhandler für jeden Button
+                    // Click-Eventhandler für jeden Button
                     buttonArray[x, y].MouseDown += new MouseEventHandler(ButtonGeklickt);
                 }
             }
@@ -95,10 +101,7 @@ namespace Spielesammlung.Minesweeper
                 // und wenn der geklickte Button eine Mine ist,
                 if (button.Name.Equals("Mine"))
                 {
-                    // Timer wird gestoppt
-                    timerMinesweeper.Stop();
-
-                    // und decke alle Felder auf, die noch verfüfbar sind
+                    // decke alle Felder auf, die noch verfüfbar sind
                     for (int x = 0; x < buttonArray.GetLength(0); x++)
                     {
                         for (int y = 0; y < buttonArray.GetLength(1); y++)
@@ -129,10 +132,10 @@ namespace Spielesammlung.Minesweeper
 
                     //gameover auf true setzen
                     Spielfeld.GameOver = true;
-                    // Button und Label werden sichtbar
-                    labelGameOver.Visible = true;
-                    buttonNeustart.Visible = true;
+                    // Die Highscoreliste soll eingezeigt werden
+                    SpielVorbei();
                 }
+
                 // und wenn der geklickte Button eine 0 ist
                 else if (button.Name.Equals("0"))
                 {
@@ -161,7 +164,8 @@ namespace Spielesammlung.Minesweeper
                     // Überprüft, ob der Spieler gewonnen hat
                     Gewonnen();
                 }
-                //und wenn der Button keine Mine und keine 0 ist,
+
+                // und wenn der Button keine Mine und keine 0 ist,
                 else
                 {
                     // wird der Name als Text anezeigt
@@ -178,11 +182,6 @@ namespace Spielesammlung.Minesweeper
 
         public void NeuesSpiel()
         {
-            // Button und Label sind nicht mehr sichtbar
-            labelGameOver.Visible = false;
-            labelGewonnen.Visible = false;
-            buttonNeustart.Visible = false;
-
             // Text im Label für die Zeit wird zurückgesetzt
             labelZeitWert.Text = "0:00:00";
 
@@ -201,7 +200,7 @@ namespace Spielesammlung.Minesweeper
                 }
             }
 
-            // Erzeugt ein Objekt Spielfeld
+            // Erzeugt ein Objekt Spielfeld, damit beinhaltete Variablen den Standardwert annehmen
             new Spielfeld();
 
             // Die Liste mit den Minen wird geleert
@@ -216,7 +215,6 @@ namespace Spielesammlung.Minesweeper
             // Der Timer wird gestartet
             timerMinesweeper.Start();
         }
-
 
         public void PlatziereMinen()
         {
@@ -489,24 +487,10 @@ namespace Spielesammlung.Minesweeper
             {
                 // wird gewonnen auf true gesetzt
                 Spielfeld.Gewonnen = true;
-                // der Timer gestoppt
-                timerMinesweeper.Stop();
-                // der Text mit der Zeit angeseigt
-                string gewonnen = "Gewonnen! \n Deine Zeit:\n    " + labelZeitWert.Text;
-                labelGewonnen.Text = gewonnen;
-                labelGewonnen.Visible = true;
-                // und der Button zum Neustarten angezeigt
-                buttonNeustart.Visible = true;
+                // Der Score soll eingetragen und die Highscoreliste angezeigt werden
+                SpielVorbei();
             }
         }
-
-
-        private void buttonNeustart_Click(object sender, EventArgs e)
-        {
-            // wenn der Button Neustart geklickt wird, beginnt ein neues Spiel
-            NeuesSpiel();
-        }
-
 
         public void ErhöheZeit(object sender, EventArgs e)
         {
@@ -569,6 +553,107 @@ namespace Spielesammlung.Minesweeper
                 {
                     labelZeitWert.Text = Spielfeld.Stunde.ToString() + ":" + Spielfeld.Minute.ToString() + ":" + Spielfeld.Sekunde.ToString();
                 }
+            }
+        }
+
+        public void SpielVorbei()
+        {
+            // Wird ausgeführt, wenn man das Spiel gewonnen hat
+            if (Spielfeld.Gewonnen == true)
+            {
+                // der Timer gestoppt
+                timerMinesweeper.Stop();
+
+                // Die Nachricht gewonnen mit der Zeit, die Textbox für den Spielernamen und der Button zum Bestätigen wird angezeigt
+                string gewonnen = "            Gewonnen!\n         Score: " + labelZeitWert.Text + "\nBitte gib deinen Spielernamen ein\n        (genau 3 Zeichen)";
+                labelGewonnen.Text = gewonnen;
+                labelGewonnen.Visible = true;
+                buttonWeiter.Visible = true;
+                buttonWeiter.Enabled = true;
+                textBoxSpieler.Visible = true;
+                textBoxSpieler.Enabled = true;
+
+            }
+            // Wird ausgeführt, wenn man das Spiel verloren hat
+            else if (Spielfeld.GameOver == true)
+            {
+                // Es wird ein Objekt vom Tyo Highscore erstellt
+                Highscore minesweeperHighscore = new Highscore();
+
+                // Timer wird gestoppt
+                timerMinesweeper.Stop();
+
+                // Der aktuelle Highscore soll engezeigt werden
+                labelHighscore.Text = minesweeperHighscore.EinträgeAnzeigenZeit("Minesweeper");
+                labelHighscore.Visible = true;
+
+                // Button zum Neustart und Label GameOver werden sichtbar
+                labelGameOver.Visible = true;
+                buttonNeustart.Visible = true;
+                buttonNeustart.Enabled = true;
+
+            }
+        }
+
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+            // Anleitung, Name des Spiels und der Button zum Starten sind während des Spiels nicht sichtbar
+            labelAnleitung.Visible = false;
+            labelMinesweeper.Visible = false;
+            buttonStart.Visible = false;
+            // und der Button nicht aktiviert
+            buttonStart.Enabled = false;
+
+            // Der Hintergrund soll während des Spiels schwarz sein, damit die Abgrenzung der Felder deutlicher ist
+            panelMinesweeper.BackColor = Color.Black;
+
+            // Erstellt das Feld mit den Buttons
+            ErstelleFeld();
+
+            // Startet ein neues Spiel
+            NeuesSpiel();
+        }
+
+        private void buttonNeustart_Click(object sender, EventArgs e)
+        {
+            // wenn der Button Neustart geklickt wird, beginnt ein neues Spiel
+            NeuesSpiel();
+            // der Highscore, die jeweilige Nachrichte (Gewonnen oder GameOver), und der Button für einen Neustart werden ausgeblendet
+            labelHighscore.Visible = false;
+            labelGameOver.Visible = false;
+            labelGewonnen.Visible = false;
+            buttonNeustart.Visible = false;
+            buttonNeustart.Enabled = false;
+        }
+
+        private void buttonWeiter_Click(object sender, EventArgs e)
+        {
+            // Überprüft, ob das Textfeld genau 3 Zeichen enthält
+            if (textBoxSpieler.TextLength == 3)
+            {
+                // Der Button zum Bestätigen, die Textbox für den Spielernamen und der Schirftzug Gewonnen werden ausgeblendet
+                buttonWeiter.Visible = false;
+                buttonWeiter.Enabled = false;
+                textBoxSpieler.Visible = false;
+                textBoxSpieler.Enabled = false;
+                labelGewonnen.Visible = false;
+
+                // Es wird ein Objekt vom Tyo Highscore erstellt
+                Highscore minesweeperHighscore = new Highscore();
+
+                // Der Spielername wird aus der Textbox übernommen
+                string spieler = textBoxSpieler.Text;
+                // Die Zeit wird aus dem Label genommen, das diese anzeigt
+                string punktzahl = labelZeitWert.Text;
+
+                // Der Score wird eingetragen und die neue Highscoreliste angezeigt
+                labelHighscore.Text = minesweeperHighscore.HighscoreEintragen("Minesweeper", spieler, punktzahl);
+                labelHighscore.Visible = true;
+
+                // Der Button für den Neustart wird sichtbar und aktiviert
+                buttonNeustart.Visible = true;
+                buttonNeustart.Enabled = true;
+
             }
         }
     }

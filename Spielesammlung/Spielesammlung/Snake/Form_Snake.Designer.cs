@@ -61,20 +61,20 @@
             // labelScoreText
             // 
             this.labelScoreText.AutoSize = true;
-            this.labelScoreText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelScoreText.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelScoreText.Location = new System.Drawing.Point(920, 142);
             this.labelScoreText.Name = "labelScoreText";
-            this.labelScoreText.Size = new System.Drawing.Size(82, 29);
+            this.labelScoreText.Size = new System.Drawing.Size(82, 27);
             this.labelScoreText.TabIndex = 1;
             this.labelScoreText.Text = "Score";
             // 
             // labelScoreWert
             // 
             this.labelScoreWert.AutoSize = true;
-            this.labelScoreWert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelScoreWert.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelScoreWert.Location = new System.Drawing.Point(920, 184);
             this.labelScoreWert.Name = "labelScoreWert";
-            this.labelScoreWert.Size = new System.Drawing.Size(27, 29);
+            this.labelScoreWert.Size = new System.Drawing.Size(26, 27);
             this.labelScoreWert.TabIndex = 2;
             this.labelScoreWert.Text = "0";
             // 
@@ -82,10 +82,10 @@
             // 
             this.labelGameOver.AutoSize = true;
             this.labelGameOver.BackColor = System.Drawing.Color.LightGray;
-            this.labelGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGameOver.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGameOver.Location = new System.Drawing.Point(277, 286);
             this.labelGameOver.Name = "labelGameOver";
-            this.labelGameOver.Size = new System.Drawing.Size(150, 31);
+            this.labelGameOver.Size = new System.Drawing.Size(158, 31);
             this.labelGameOver.TabIndex = 3;
             this.labelGameOver.Text = "game over";
             this.labelGameOver.Visible = false;
@@ -94,10 +94,10 @@
             // 
             this.labelSnake.AutoSize = true;
             this.labelSnake.BackColor = System.Drawing.Color.LightGray;
-            this.labelSnake.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSnake.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSnake.Location = new System.Drawing.Point(415, 215);
             this.labelSnake.Name = "labelSnake";
-            this.labelSnake.Size = new System.Drawing.Size(96, 31);
+            this.labelSnake.Size = new System.Drawing.Size(94, 31);
             this.labelSnake.TabIndex = 17;
             this.labelSnake.Text = "Snake";
             this.labelSnake.Visible = false;
@@ -106,7 +106,7 @@
             // 
             this.buttonStart.BackColor = System.Drawing.Color.LightGray;
             this.buttonStart.Enabled = false;
-            this.buttonStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStart.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonStart.Location = new System.Drawing.Point(420, 496);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(91, 37);
@@ -114,15 +114,16 @@
             this.buttonStart.Text = "Start";
             this.buttonStart.UseVisualStyleBackColor = false;
             this.buttonStart.Visible = false;
+            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
             // labelAnleitung
             // 
             this.labelAnleitung.AutoSize = true;
             this.labelAnleitung.BackColor = System.Drawing.Color.LightGray;
-            this.labelAnleitung.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAnleitung.Location = new System.Drawing.Point(259, 245);
+            this.labelAnleitung.Font = new System.Drawing.Font("Courier New", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAnleitung.Location = new System.Drawing.Point(200, 245);
             this.labelAnleitung.Name = "labelAnleitung";
-            this.labelAnleitung.Size = new System.Drawing.Size(103, 25);
+            this.labelAnleitung.Size = new System.Drawing.Size(118, 23);
             this.labelAnleitung.TabIndex = 15;
             this.labelAnleitung.Text = "Anleitung";
             this.labelAnleitung.Visible = false;
@@ -131,7 +132,7 @@
             // 
             this.buttonWeiter.BackColor = System.Drawing.Color.LightGray;
             this.buttonWeiter.Enabled = false;
-            this.buttonWeiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonWeiter.Font = new System.Drawing.Font("Courier New", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonWeiter.Location = new System.Drawing.Point(504, 434);
             this.buttonWeiter.Name = "buttonWeiter";
             this.buttonWeiter.Size = new System.Drawing.Size(91, 38);
@@ -139,12 +140,13 @@
             this.buttonWeiter.Text = "Weiter";
             this.buttonWeiter.UseVisualStyleBackColor = false;
             this.buttonWeiter.Visible = false;
+            this.buttonWeiter.Click += new System.EventHandler(this.buttonWeiter_Click);
             // 
             // textBoxSpieler
             // 
             this.textBoxSpieler.BackColor = System.Drawing.Color.LightGray;
             this.textBoxSpieler.Enabled = false;
-            this.textBoxSpieler.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSpieler.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxSpieler.Location = new System.Drawing.Point(371, 434);
             this.textBoxSpieler.MaxLength = 3;
             this.textBoxSpieler.Name = "textBoxSpieler";
@@ -155,6 +157,7 @@
             // buttonNeustart
             // 
             this.buttonNeustart.Enabled = false;
+            this.buttonNeustart.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNeustart.Location = new System.Drawing.Point(927, 374);
             this.buttonNeustart.Name = "buttonNeustart";
             this.buttonNeustart.Size = new System.Drawing.Size(75, 23);
@@ -162,15 +165,16 @@
             this.buttonNeustart.Text = "Neustart";
             this.buttonNeustart.UseVisualStyleBackColor = true;
             this.buttonNeustart.Visible = false;
+            this.buttonNeustart.Click += new System.EventHandler(this.buttonNeustart_Click);
             // 
             // labelHighscore
             // 
             this.labelHighscore.AutoSize = true;
             this.labelHighscore.BackColor = System.Drawing.Color.LightGray;
-            this.labelHighscore.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHighscore.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHighscore.Location = new System.Drawing.Point(331, 142);
             this.labelHighscore.Name = "labelHighscore";
-            this.labelHighscore.Size = new System.Drawing.Size(146, 31);
+            this.labelHighscore.Size = new System.Drawing.Size(158, 31);
             this.labelHighscore.TabIndex = 11;
             this.labelHighscore.Text = "Highscore";
             this.labelHighscore.Visible = false;

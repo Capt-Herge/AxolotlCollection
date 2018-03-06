@@ -85,7 +85,7 @@ public class Highscore
         // Erstellen des StringBuilders zum Anzeigen der Einträge
         StringBuilder sb = new StringBuilder();
         // Fügt eine neue Zeile mit "Name  Score" und einen Zeilenumbruch ein
-        sb.Append("Name  Score");
+        sb.Append("Spieler    Score");
         sb.Append("\n");
 
         // für alle Zeilen im Array
@@ -170,7 +170,7 @@ public class Highscore
         // Erstellen des StringBuilders zum Anzeigen der Einträge
         StringBuilder sb = new StringBuilder();
         // Fügt eine neue Zeile mit "Name  Score" und einen Zeilenumbruch ein
-        sb.Append("Name         Zeit");
+        sb.Append("Spieler       Zeit");
         sb.Append("\n");
 
         // für alle Zeilen im Array

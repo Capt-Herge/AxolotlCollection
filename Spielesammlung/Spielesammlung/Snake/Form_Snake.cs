@@ -35,7 +35,7 @@ namespace Spielesammlung.Snake
             timerSnake.Tick += UpdateSpiel;
 
             // zu Beginn wird die Anleitung des Spiels angezeigt
-            string anleitung = "     Steuere die Schlange mit W,A,S,D.\nSammel so viel Nahrung wie möglich und\n    erhalte einen möglichst hohen Score.\nDoch triff nicht den Rand oder dich selbst\n          denn dann ist das Spiel vorbei.";
+            string anleitung = "      Steuere die Schlange mit W,A,S,D.\n  Sammel so viel Nahrung wie möglich und\n    erhalte einen möglichst hohen Score.\nDoch triff nicht den Rand oder dich selbst\n       denn dann ist das Spiel vorbei.";
             labelAnleitung.Text = anleitung;
             labelAnleitung.Visible = true;
             labelSnake.Visible = true;
@@ -77,10 +77,8 @@ namespace Spielesammlung.Snake
                 {
                     // logScore wird auf false gesetzt, damit es nur 1mal durchläuft
                     logScore = false;
-                    // Leerstelle für Textformatierung
-                    string leer = "            ";
                     // Text für GameOver wird angezeigt sowie das Textfeld zum Namen eingeben und der Button zum weiter kommen
-                    string gameOver = leer + "     Game Over!\n" + leer + "        Score: " + Spielfeld.Score + "\nBitte gib deinen Spielernamen ein\n" + leer + "(genau 3 Zeichen)";
+                    string gameOver = "           Game Over!\n            Score: " + Spielfeld.Score + "\nBitte gib deinen Spielernamen ein\n         (genau 3 Zeichen)";
                     labelGameOver.Text = gameOver;
                     labelGameOver.Visible = true;
                     textBoxSpieler.Visible = true;
