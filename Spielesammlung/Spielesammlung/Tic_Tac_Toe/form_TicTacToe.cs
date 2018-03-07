@@ -30,7 +30,7 @@ namespace Spielesammlung.Tic_Tac_Toe
         // (9 vom Spielfeld + Reset-Button)
         private void btn_Spielfeld_Click(object sender, EventArgs e)
         {
-            // ClickeventHandler für alle 9 Spielfeldbuttons
+            // ClickeventHandler für alle 3x3=9 Spielfeldbuttons
             // Casten des geklickten Buttons, sodass genau der Button verwendet werden kann
             Button button = (Button)sender;
 
@@ -84,7 +84,8 @@ namespace Spielesammlung.Tic_Tac_Toe
         }
         private void btn_menue_Click(object sender, EventArgs e)
         {
-
+            // Todo
+            // zum Menü wechseln, Form beenden
         }
         private void spielBeendenToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -106,7 +107,7 @@ namespace Spielesammlung.Tic_Tac_Toe
         }
         private void ArrayZuweisung(string buttonName, char zug)
         {
-            // Methode zum belegen des Arrays per Switchcase
+            // Methode zum Belegen des Arrays per Switchcase
             switch (buttonName)
             {
                 case "btn_A1":
@@ -217,7 +218,7 @@ namespace Spielesammlung.Tic_Tac_Toe
         }
         private void NeueRunde()
         {
-            // Beginn einer neuen Runde und zurücksetzen der Variablen
+            // Beginn einer neuen Runde durch Zurücksetzen der Variablen
             zugCounter = 0;
             ArrayInitialisieren();
             btn_A1.Text = "";

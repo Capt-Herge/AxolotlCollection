@@ -48,8 +48,8 @@
             this.btn_menue = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menüToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zurücksetzenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.spielBeendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neustartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zumMenueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -154,7 +154,7 @@
             // 
             // btn_reset
             // 
-            this.btn_reset.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_reset.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_reset.Location = new System.Drawing.Point(650, 444);
             this.btn_reset.Name = "btn_reset";
             this.btn_reset.Size = new System.Drawing.Size(200, 50);
@@ -167,7 +167,7 @@
             // 
             this.lbl_zug.BackColor = System.Drawing.Color.Yellow;
             this.lbl_zug.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbl_zug.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_zug.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_zug.Location = new System.Drawing.Point(600, 100);
             this.lbl_zug.Name = "lbl_zug";
             this.lbl_zug.Size = new System.Drawing.Size(300, 50);
@@ -179,7 +179,7 @@
             // 
             this.lbl_zuganzeige.BackColor = System.Drawing.Color.Yellow;
             this.lbl_zuganzeige.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbl_zuganzeige.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_zuganzeige.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_zuganzeige.Location = new System.Drawing.Point(600, 150);
             this.lbl_zuganzeige.Name = "lbl_zuganzeige";
             this.lbl_zuganzeige.Size = new System.Drawing.Size(300, 50);
@@ -191,7 +191,7 @@
             // 
             this.lbl_spielerX.BackColor = System.Drawing.Color.Lime;
             this.lbl_spielerX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbl_spielerX.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_spielerX.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_spielerX.Location = new System.Drawing.Point(600, 300);
             this.lbl_spielerX.Name = "lbl_spielerX";
             this.lbl_spielerX.Size = new System.Drawing.Size(150, 50);
@@ -203,7 +203,7 @@
             // 
             this.lbl_spielerO.BackColor = System.Drawing.Color.Lime;
             this.lbl_spielerO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbl_spielerO.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_spielerO.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_spielerO.Location = new System.Drawing.Point(750, 300);
             this.lbl_spielerO.Name = "lbl_spielerO";
             this.lbl_spielerO.Size = new System.Drawing.Size(150, 50);
@@ -215,7 +215,7 @@
             // 
             this.lbl_punkteX.BackColor = System.Drawing.Color.Lime;
             this.lbl_punkteX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbl_punkteX.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_punkteX.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_punkteX.Location = new System.Drawing.Point(600, 350);
             this.lbl_punkteX.Name = "lbl_punkteX";
             this.lbl_punkteX.Size = new System.Drawing.Size(150, 50);
@@ -227,7 +227,7 @@
             // 
             this.lbl_punkteO.BackColor = System.Drawing.Color.Lime;
             this.lbl_punkteO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbl_punkteO.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_punkteO.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_punkteO.Location = new System.Drawing.Point(750, 350);
             this.lbl_punkteO.Name = "lbl_punkteO";
             this.lbl_punkteO.Size = new System.Drawing.Size(150, 50);
@@ -239,7 +239,7 @@
             // 
             this.lbl_spielstand.BackColor = System.Drawing.Color.Lime;
             this.lbl_spielstand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbl_spielstand.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_spielstand.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_spielstand.Location = new System.Drawing.Point(600, 250);
             this.lbl_spielstand.Name = "lbl_spielstand";
             this.lbl_spielstand.Size = new System.Drawing.Size(300, 50);
@@ -249,7 +249,7 @@
             // 
             // btn_menue
             // 
-            this.btn_menue.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_menue.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_menue.Location = new System.Drawing.Point(650, 500);
             this.btn_menue.Name = "btn_menue";
             this.btn_menue.Size = new System.Drawing.Size(200, 50);
@@ -271,25 +271,25 @@
             // menüToolStripMenuItem
             // 
             this.menüToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.zurücksetzenToolStripMenuItem,
-            this.spielBeendenToolStripMenuItem});
+            this.neustartToolStripMenuItem,
+            this.zumMenueToolStripMenuItem});
             this.menüToolStripMenuItem.Name = "menüToolStripMenuItem";
             this.menüToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menüToolStripMenuItem.Text = "Menü";
             // 
-            // zurücksetzenToolStripMenuItem
+            // neustartToolStripMenuItem
             // 
-            this.zurücksetzenToolStripMenuItem.Name = "zurücksetzenToolStripMenuItem";
-            this.zurücksetzenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.zurücksetzenToolStripMenuItem.Text = "Neustart";
-            this.zurücksetzenToolStripMenuItem.Click += new System.EventHandler(this.btn_reset_Click);
+            this.neustartToolStripMenuItem.Name = "neustartToolStripMenuItem";
+            this.neustartToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.neustartToolStripMenuItem.Text = "Neustart";
+            this.neustartToolStripMenuItem.Click += new System.EventHandler(this.btn_reset_Click);
             // 
-            // spielBeendenToolStripMenuItem
+            // zumMenueToolStripMenuItem
             // 
-            this.spielBeendenToolStripMenuItem.Name = "spielBeendenToolStripMenuItem";
-            this.spielBeendenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.spielBeendenToolStripMenuItem.Text = "Zum Menü";
-            this.spielBeendenToolStripMenuItem.Click += new System.EventHandler(this.spielBeendenToolStripMenuItem_Click);
+            this.zumMenueToolStripMenuItem.Name = "zumMenueToolStripMenuItem";
+            this.zumMenueToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.zumMenueToolStripMenuItem.Text = "Zum Menü";
+            this.zumMenueToolStripMenuItem.Click += new System.EventHandler(this.spielBeendenToolStripMenuItem_Click);
             // 
             // form_TicTacToe
             // 
@@ -348,7 +348,7 @@
         private System.Windows.Forms.Label lbl_spielstand;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menüToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem zurücksetzenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem spielBeendenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem neustartToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zumMenueToolStripMenuItem;
     }
 }

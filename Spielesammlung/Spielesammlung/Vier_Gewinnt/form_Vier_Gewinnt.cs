@@ -26,9 +26,27 @@ namespace Spielesammlung.Vier_Gewinnt
             ArrayInitialisieren();
         }
         #region EventHandler
-        private void btn_SpielClick(object sender, EventArgs e)
+        private void btn_Spielfeld_Click(object sender, EventArgs e)
         {
+            // ClickeventHandler für alle 7x6=42 Spielfeldbuttons
+            // Casten des geklickten Buttons, sodass genau der Button verwendet werden kann
+            Button button = (Button)sender;
 
+            // ToDo:
+            // Test ob Feld belegt ist
+            // Test ob Feld unterstes mögliches Feld ist
+            // Wincheck
+        }
+        private void btn_reset_Click(object sender, EventArgs e)
+        {
+            // Todo
+            // Eventhandler vom Resetbutton und Zurücksetzen-Menüeintrag
+            // Startet neue Runde und setzt alle weiteren Variablen zurück
+        }
+        private void btn_menue_Click(object sender, EventArgs e)
+        {
+            // Todo
+            // zum Menü wechseln, Form beenden
         }
         #endregion
         #region Methoden
@@ -42,6 +60,223 @@ namespace Spielesammlung.Vier_Gewinnt
                     // L als Charwert für Leer
                     spielfeld[s, r] = 'L';
                 }
+            }
+        }
+        private void ArrayZuweisung(string buttonName, char zug)
+        {
+            // Methode zum Belegen des Arrays per Switchcase
+            switch (buttonName)
+            {
+                case "btn_A1":
+                    {
+                        spielfeld[0, 0] = zug;
+                        break;
+                    }
+                case "btn_A2":
+                    {
+                        spielfeld[0, 1] = zug;
+                        break;
+                    }
+                case "btn_A3":
+                    {
+                        spielfeld[0, 2] = zug;
+                        break;
+                    }
+                case "btn_A4":
+                    {
+                        spielfeld[0, 3] = zug;
+                        break;
+                    }
+                case "btn_A5":
+                    {
+                        spielfeld[0, 4] = zug;
+                        break;
+                    }
+                case "btn_A6":
+                    {
+                        spielfeld[0, 5] = zug;
+                        break;
+                    }
+                case "btn_B1":
+                    {
+                        spielfeld[1, 0] = zug;
+                        break;
+                    }
+                case "btn_B2":
+                    {
+                        spielfeld[1, 1] = zug;
+                        break;
+                    }
+                case "btn_B3":
+                    {
+                        spielfeld[1, 2] = zug;
+                        break;
+                    }
+                case "btn_B4":
+                    {
+                        spielfeld[1, 3] = zug;
+                        break;
+                    }
+                case "btn_B5":
+                    {
+                        spielfeld[1, 4] = zug;
+                        break;
+                    }
+                case "btn_B6":
+                    {
+                        spielfeld[1, 5] = zug;
+                        break;
+                    }
+                case "btn_C1":
+                    {
+                        spielfeld[2, 0] = zug;
+                        break;
+                    }
+                case "btn_C2":
+                    {
+                        spielfeld[2, 1] = zug;
+                        break;
+                    }
+                case "btn_C3":
+                    {
+                        spielfeld[2, 2] = zug;
+                        break;
+                    }
+                case "btn_C4":
+                    {
+                        spielfeld[2, 3] = zug;
+                        break;
+                    }
+                case "btn_C5":
+                    {
+                        spielfeld[2, 4] = zug;
+                        break;
+                    }
+                case "btn_C6":
+                    {
+                        spielfeld[2, 5] = zug;
+                        break;
+                    }
+                case "btn_D1":
+                    {
+                        spielfeld[3, 0] = zug;
+                        break;
+                    }
+                case "btn_D2":
+                    {
+                        spielfeld[3, 1] = zug;
+                        break;
+                    }
+                case "btn_D3":
+                    {
+                        spielfeld[3, 2] = zug;
+                        break;
+                    }
+                case "btn_D4":
+                    {
+                        spielfeld[3, 3] = zug;
+                        break;
+                    }
+                case "btn_D5":
+                    {
+                        spielfeld[3, 4] = zug;
+                        break;
+                    }
+                case "btn_D6":
+                    {
+                        spielfeld[3, 5] = zug;
+                        break;
+                    }
+                case "btn_E1":
+                    {
+                        spielfeld[4, 0] = zug;
+                        break;
+                    }
+                case "btn_E2":
+                    {
+                        spielfeld[4, 1] = zug;
+                        break;
+                    }
+                case "btn_E3":
+                    {
+                        spielfeld[4, 2] = zug;
+                        break;
+                    }
+                case "btn_E4":
+                    {
+                        spielfeld[4, 3] = zug;
+                        break;
+                    }
+                case "btn_E5":
+                    {
+                        spielfeld[4, 4] = zug;
+                        break;
+                    }
+                case "btn_E6":
+                    {
+                        spielfeld[4, 5] = zug;
+                        break;
+                    }
+                case "btn_F1":
+                    {
+                        spielfeld[5, 0] = zug;
+                        break;
+                    }
+                case "btn_F2":
+                    {
+                        spielfeld[5, 1] = zug;
+                        break;
+                    }
+                case "btn_F3":
+                    {
+                        spielfeld[5, 2] = zug;
+                        break;
+                    }
+                case "btn_F4":
+                    {
+                        spielfeld[5, 3] = zug;
+                        break;
+                    }
+                case "btn_F5":
+                    {
+                        spielfeld[5, 4] = zug;
+                        break;
+                    }
+                case "btn_F6":
+                    {
+                        spielfeld[5, 5] = zug;
+                        break;
+                    }
+                case "btn_G1":
+                    {
+                        spielfeld[6, 0] = zug;
+                        break;
+                    }
+                case "btn_G2":
+                    {
+                        spielfeld[6, 1] = zug;
+                        break;
+                    }
+                case "btn_G3":
+                    {
+                        spielfeld[6, 2] = zug;
+                        break;
+                    }
+                case "btn_G4":
+                    {
+                        spielfeld[6, 3] = zug;
+                        break;
+                    }
+                case "btn_G5":
+                    {
+                        spielfeld[6, 4] = zug;
+                        break;
+                    }
+                case "btn_G6":
+                    {
+                        spielfeld[6, 5] = zug;
+                        break;
+                    }
             }
         }
         private void Gewonnen()
@@ -70,51 +305,9 @@ namespace Spielesammlung.Vier_Gewinnt
         }
         private void NeueRunde()
         {
-            // Beginn einer neuen Runde und zurücksetzen der Variablen
+            // Beginn einer neuen Runde durch Zurücksetzen der Variablen
             zugCounter = 0;
             ArrayInitialisieren();
-            lbl_A1.BackColor = Color.LightBlue;
-            lbl_A2.BackColor = Color.LightBlue;
-            lbl_A3.BackColor = Color.LightBlue;
-            lbl_A4.BackColor = Color.LightBlue;
-            lbl_A5.BackColor = Color.LightBlue;
-            lbl_A6.BackColor = Color.LightBlue;
-            lbl_B1.BackColor = Color.LightBlue;
-            lbl_B2.BackColor = Color.LightBlue;
-            lbl_B3.BackColor = Color.LightBlue;
-            lbl_B4.BackColor = Color.LightBlue;
-            lbl_B5.BackColor = Color.LightBlue;
-            lbl_B6.BackColor = Color.LightBlue;
-            lbl_C1.BackColor = Color.LightBlue;
-            lbl_C2.BackColor = Color.LightBlue;
-            lbl_C3.BackColor = Color.LightBlue;
-            lbl_C4.BackColor = Color.LightBlue;
-            lbl_C5.BackColor = Color.LightBlue;
-            lbl_C6.BackColor = Color.LightBlue;
-            lbl_D1.BackColor = Color.LightBlue;
-            lbl_D2.BackColor = Color.LightBlue;
-            lbl_D3.BackColor = Color.LightBlue;
-            lbl_D4.BackColor = Color.LightBlue;
-            lbl_D5.BackColor = Color.LightBlue;
-            lbl_D6.BackColor = Color.LightBlue;
-            lbl_E1.BackColor = Color.LightBlue;
-            lbl_E2.BackColor = Color.LightBlue;
-            lbl_E3.BackColor = Color.LightBlue;
-            lbl_E4.BackColor = Color.LightBlue;
-            lbl_E5.BackColor = Color.LightBlue;
-            lbl_E6.BackColor = Color.LightBlue;
-            lbl_F1.BackColor = Color.LightBlue;
-            lbl_F2.BackColor = Color.LightBlue;
-            lbl_F3.BackColor = Color.LightBlue;
-            lbl_F4.BackColor = Color.LightBlue;
-            lbl_F5.BackColor = Color.LightBlue;
-            lbl_F6.BackColor = Color.LightBlue;
-            lbl_D1.BackColor = Color.LightBlue;
-            lbl_D2.BackColor = Color.LightBlue;
-            lbl_D3.BackColor = Color.LightBlue;
-            lbl_D4.BackColor = Color.LightBlue;
-            lbl_D5.BackColor = Color.LightBlue;
-            lbl_D6.BackColor = Color.LightBlue;
         }
         #endregion
     }
