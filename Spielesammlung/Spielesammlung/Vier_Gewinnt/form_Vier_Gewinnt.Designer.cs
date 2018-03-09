@@ -108,14 +108,14 @@
             // neustartToolStripMenuItem
             // 
             this.neustartToolStripMenuItem.Name = "neustartToolStripMenuItem";
-            this.neustartToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.neustartToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.neustartToolStripMenuItem.Text = "Neustart";
             this.neustartToolStripMenuItem.Click += new System.EventHandler(this.btn_reset_Click);
             // 
             // zumMenueToolStripMenuItem
             // 
             this.zumMenueToolStripMenuItem.Name = "zumMenueToolStripMenuItem";
-            this.zumMenueToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.zumMenueToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.zumMenueToolStripMenuItem.Text = "Zum Menü";
             this.zumMenueToolStripMenuItem.Click += new System.EventHandler(this.btn_menue_Click);
             // 
