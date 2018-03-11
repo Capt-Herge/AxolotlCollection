@@ -61,11 +61,13 @@ namespace Spielesammlung.Vier_Gewinnt
                 {
                     button.BackColor = Color.Yellow;
                 }
+                zugCounter++;
                 ArrayZuweisung();
                 WinCheck();
             }
 
             // ToDo:
+            // GetKoordinaten stringNamen ändern reihe<->spalte
             // Wincheck
             // Diagonale (Außerhalb des Feldes mit Try Catch Block realisieren?
         }
@@ -221,9 +223,9 @@ namespace Spielesammlung.Vier_Gewinnt
         }
         private int Getspaltenkoordinate(string buttonname)
         {
-            // Löst aus dem Namen des Buttons die spaltenkoordinate im Array auf
-            char reihe = buttonname[5];
-            switch (reihe)
+            // Löst aus dem Namen des Buttons die Spaltenkoordinate im Array auf
+            char spalte = buttonname[5];
+            switch (spalte)
             {
                 case 'A':
                     {
@@ -258,9 +260,9 @@ namespace Spielesammlung.Vier_Gewinnt
         }
         private int Getreihenkoordinate(string buttonname)
         {
-            // Löst aus dem Namen des Buttons die reihenkoordinate im Array auf
-            char spalte = buttonname[6];
-            switch (spalte)
+            // Löst aus dem Namen des Buttons die Reihenkoordinate im Array auf
+            char reihe = buttonname[6];
+            switch (reihe)
             {
                 case '1':
                     {
@@ -291,7 +293,7 @@ namespace Spielesammlung.Vier_Gewinnt
         }
         private bool WinCheckSpalte()
         {
-            // Testet die Vertikale nach 4 Aufeinanderfolgenden 
+            // Testet die Vertikale nach 4 Aufeinanderfolgenden
             if (spielfeld[spaltenkoordinate, 0] == zug && spielfeld[spaltenkoordinate, 1] == zug && spielfeld[spaltenkoordinate, 2] == zug && spielfeld[spaltenkoordinate, 3] == zug ||
                 spielfeld[spaltenkoordinate, 1] == zug && spielfeld[spaltenkoordinate, 2] == zug && spielfeld[spaltenkoordinate, 3] == zug && spielfeld[spaltenkoordinate, 4] == zug ||
                 spielfeld[spaltenkoordinate, 2] == zug && spielfeld[spaltenkoordinate, 3] == zug && spielfeld[spaltenkoordinate, 4] == zug && spielfeld[spaltenkoordinate, 5] == zug)
@@ -302,7 +304,7 @@ namespace Spielesammlung.Vier_Gewinnt
         }
         private bool WinCheckReihe()
         {
-            // Testet die Horizontale nach 4 Aufeinanderfolgenden 
+            // Testet die Horizontale nach 4 Aufeinanderfolgenden
             if (spielfeld[0, reihenkoordinate] == zug && spielfeld[1, reihenkoordinate] == zug && spielfeld[2, reihenkoordinate] == zug && spielfeld[3, reihenkoordinate] == zug ||
                 spielfeld[1, reihenkoordinate] == zug && spielfeld[2, reihenkoordinate] == zug && spielfeld[3, reihenkoordinate] == zug && spielfeld[4, reihenkoordinate] == zug ||
                 spielfeld[2, reihenkoordinate] == zug && spielfeld[3, reihenkoordinate] == zug && spielfeld[4, reihenkoordinate] == zug && spielfeld[5, reihenkoordinate] == zug ||
@@ -314,9 +316,9 @@ namespace Spielesammlung.Vier_Gewinnt
         }
         private bool WinCheckDiagonale()
         {
-            // Testet die Diagonalen nach 4 Aufeinanderfolgenden 
-            int r = reihenkoordinate;
+            // Testet die Diagonalen nach 4 Aufeinanderfolgenden
             int s = spaltenkoordinate;
+            int r = reihenkoordinate;
             // Test links oben nach rechts unten
             while (s > 0 && r < 5)
             {
@@ -330,6 +332,8 @@ namespace Spielesammlung.Vier_Gewinnt
                 return true;
             }
             // Test links unten nach rechts oben
+            s = spaltenkoordinate;
+            r = reihenkoordinate;
             while (s > 0 && r > 0)
             {
                 s--;
