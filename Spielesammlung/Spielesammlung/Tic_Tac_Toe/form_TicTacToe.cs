@@ -12,7 +12,10 @@ namespace Spielesammlung.Tic_Tac_Toe
 {
     public partial class form_TicTacToe : Form
     {
-        // Variablendeklaration
+        // ToDo:
+        // Tests und Bugfixing
+        // Menübuttonclickevent
+        #region Variablendeklaration
         char[,] spielfeld = new char[3, 3];
         char zug = 'X';
         string message = "404";
@@ -20,14 +23,13 @@ namespace Spielesammlung.Tic_Tac_Toe
         int punkteX = 0;
         int punkteO = 0;
         int zugCounter = 0;
+        #endregion
         public form_TicTacToe()
         {
             InitializeComponent();
-            ArrayInitialisieren();
+            NeueRunde();
         }
         #region Eventhandler
-        // Hier kommen die Clickevents aller Buttons hin
-        // (9 vom Spielfeld + Reset-Button)
         private void btn_Spielfeld_Click(object sender, EventArgs e)
         {
             // ClickeventHandler für alle 3x3=9 Spielfeldbuttons
@@ -67,7 +69,7 @@ namespace Spielesammlung.Tic_Tac_Toe
                 // Eine Messagebox wird ausgegeben wenn versucht wird ein Feld zu überschreiben
                 message = "Dieses Feld ist bereits belegt! \nBitte wähle ein anderes Feld aus.";
                 caption = "Warnung!";
-                MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ShowMessage();
             }
         }
         private void btn_reset_Click(object sender, EventArgs e)
@@ -87,9 +89,12 @@ namespace Spielesammlung.Tic_Tac_Toe
             // Todo
             // zum Menü wechseln, Form beenden
         }
-        private void spielBeendenToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btn_messageOK_Click(object sender, EventArgs e)
         {
-
+            btn_messageOK.Visible = false;
+            lbl_caption.Visible = false;
+            lbl_message.Visible = false;
+            lbl_messagebackground.Visible = false;
         }
         #endregion
         #region Methoden
@@ -188,7 +193,7 @@ namespace Spielesammlung.Tic_Tac_Toe
             {
                 message = "Diese Runde ging leider unentschieden aus!";
                 caption = "Unentschieden!";
-                MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ShowMessage();
                 NeueRunde();
             }
         }
@@ -211,7 +216,7 @@ namespace Spielesammlung.Tic_Tac_Toe
                 message = "O hat diese Runde gewonnen!";
             }
             caption = "Gewonnen!";
-            MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ShowMessage();
 
             // Starten einer neuen Runde nach einem Sieg
             NeueRunde();
@@ -230,6 +235,16 @@ namespace Spielesammlung.Tic_Tac_Toe
             btn_C1.Text = "";
             btn_C2.Text = "";
             btn_C3.Text = "";
+        }
+        private void ShowMessage()
+        {
+            // Anpassen und Anzeigen der Label für das Messageoverlay
+            lbl_caption.Text = caption;
+            lbl_message.Text = message;
+            btn_messageOK.Visible = true;
+            lbl_caption.Visible = true;
+            lbl_message.Visible = true;
+            lbl_messagebackground.Visible = true;
         }
         #endregion
     }

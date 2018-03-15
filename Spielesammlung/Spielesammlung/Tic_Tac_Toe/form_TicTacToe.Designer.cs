@@ -50,6 +50,10 @@
             this.menüToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neustartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zumMenueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbl_messagebackground = new System.Windows.Forms.Label();
+            this.lbl_caption = new System.Windows.Forms.Label();
+            this.lbl_message = new System.Windows.Forms.Label();
+            this.btn_messageOK = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -170,7 +174,7 @@
             this.lbl_zug.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_zug.Location = new System.Drawing.Point(600, 100);
             this.lbl_zug.Name = "lbl_zug";
-            this.lbl_zug.Size = new System.Drawing.Size(300, 50);
+            this.lbl_zug.Size = new System.Drawing.Size(350, 50);
             this.lbl_zug.TabIndex = 10;
             this.lbl_zug.Text = "Am Zug:";
             this.lbl_zug.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -182,7 +186,7 @@
             this.lbl_zuganzeige.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_zuganzeige.Location = new System.Drawing.Point(600, 150);
             this.lbl_zuganzeige.Name = "lbl_zuganzeige";
-            this.lbl_zuganzeige.Size = new System.Drawing.Size(300, 50);
+            this.lbl_zuganzeige.Size = new System.Drawing.Size(350, 50);
             this.lbl_zuganzeige.TabIndex = 11;
             this.lbl_zuganzeige.Text = "Spieler X";
             this.lbl_zuganzeige.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -194,7 +198,7 @@
             this.lbl_spielerX.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_spielerX.Location = new System.Drawing.Point(600, 300);
             this.lbl_spielerX.Name = "lbl_spielerX";
-            this.lbl_spielerX.Size = new System.Drawing.Size(150, 50);
+            this.lbl_spielerX.Size = new System.Drawing.Size(175, 50);
             this.lbl_spielerX.TabIndex = 12;
             this.lbl_spielerX.Text = "Spieler X";
             this.lbl_spielerX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -204,9 +208,9 @@
             this.lbl_spielerO.BackColor = System.Drawing.Color.Lime;
             this.lbl_spielerO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbl_spielerO.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_spielerO.Location = new System.Drawing.Point(750, 300);
+            this.lbl_spielerO.Location = new System.Drawing.Point(775, 300);
             this.lbl_spielerO.Name = "lbl_spielerO";
-            this.lbl_spielerO.Size = new System.Drawing.Size(150, 50);
+            this.lbl_spielerO.Size = new System.Drawing.Size(175, 50);
             this.lbl_spielerO.TabIndex = 13;
             this.lbl_spielerO.Text = "Spieler O";
             this.lbl_spielerO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -218,7 +222,7 @@
             this.lbl_punkteX.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_punkteX.Location = new System.Drawing.Point(600, 350);
             this.lbl_punkteX.Name = "lbl_punkteX";
-            this.lbl_punkteX.Size = new System.Drawing.Size(150, 50);
+            this.lbl_punkteX.Size = new System.Drawing.Size(175, 50);
             this.lbl_punkteX.TabIndex = 14;
             this.lbl_punkteX.Text = "0";
             this.lbl_punkteX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -228,9 +232,9 @@
             this.lbl_punkteO.BackColor = System.Drawing.Color.Lime;
             this.lbl_punkteO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbl_punkteO.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_punkteO.Location = new System.Drawing.Point(750, 350);
+            this.lbl_punkteO.Location = new System.Drawing.Point(775, 350);
             this.lbl_punkteO.Name = "lbl_punkteO";
-            this.lbl_punkteO.Size = new System.Drawing.Size(150, 50);
+            this.lbl_punkteO.Size = new System.Drawing.Size(175, 50);
             this.lbl_punkteO.TabIndex = 15;
             this.lbl_punkteO.Text = "0";
             this.lbl_punkteO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -242,7 +246,7 @@
             this.lbl_spielstand.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_spielstand.Location = new System.Drawing.Point(600, 250);
             this.lbl_spielstand.Name = "lbl_spielstand";
-            this.lbl_spielstand.Size = new System.Drawing.Size(300, 50);
+            this.lbl_spielstand.Size = new System.Drawing.Size(350, 50);
             this.lbl_spielstand.TabIndex = 16;
             this.lbl_spielstand.Text = "Spielstand";
             this.lbl_spielstand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -289,7 +293,50 @@
             this.zumMenueToolStripMenuItem.Name = "zumMenueToolStripMenuItem";
             this.zumMenueToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.zumMenueToolStripMenuItem.Text = "Zum Menü";
-            this.zumMenueToolStripMenuItem.Click += new System.EventHandler(this.spielBeendenToolStripMenuItem_Click);
+            this.zumMenueToolStripMenuItem.Click += new System.EventHandler(this.btn_menue_Click);
+            // 
+            // lbl_messagebackground
+            // 
+            this.lbl_messagebackground.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_messagebackground.Location = new System.Drawing.Point(7, 30);
+            this.lbl_messagebackground.Name = "lbl_messagebackground";
+            this.lbl_messagebackground.Size = new System.Drawing.Size(550, 600);
+            this.lbl_messagebackground.TabIndex = 19;
+            this.lbl_messagebackground.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_messagebackground.Visible = false;
+            // 
+            // lbl_caption
+            // 
+            this.lbl_caption.Font = new System.Drawing.Font("Courier New", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_caption.Location = new System.Drawing.Point(100, 100);
+            this.lbl_caption.Name = "lbl_caption";
+            this.lbl_caption.Size = new System.Drawing.Size(400, 100);
+            this.lbl_caption.TabIndex = 20;
+            this.lbl_caption.Text = "Unentschieden!";
+            this.lbl_caption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_caption.Visible = false;
+            // 
+            // lbl_message
+            // 
+            this.lbl_message.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_message.Location = new System.Drawing.Point(100, 200);
+            this.lbl_message.Name = "lbl_message";
+            this.lbl_message.Size = new System.Drawing.Size(400, 100);
+            this.lbl_message.TabIndex = 21;
+            this.lbl_message.Text = "Diese Runde ging leider unentschieden aus!";
+            this.lbl_message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_message.Visible = false;
+            // 
+            // btn_messageOK
+            // 
+            this.btn_messageOK.Location = new System.Drawing.Point(250, 350);
+            this.btn_messageOK.Name = "btn_messageOK";
+            this.btn_messageOK.Size = new System.Drawing.Size(100, 50);
+            this.btn_messageOK.TabIndex = 22;
+            this.btn_messageOK.Text = "OK";
+            this.btn_messageOK.UseVisualStyleBackColor = true;
+            this.btn_messageOK.Visible = false;
+            this.btn_messageOK.Click += new System.EventHandler(this.btn_messageOK_Click);
             // 
             // form_TicTacToe
             // 
@@ -297,6 +344,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.btn_messageOK);
+            this.Controls.Add(this.lbl_message);
+            this.Controls.Add(this.lbl_caption);
+            this.Controls.Add(this.lbl_messagebackground);
             this.Controls.Add(this.btn_menue);
             this.Controls.Add(this.lbl_spielstand);
             this.Controls.Add(this.lbl_punkteO);
@@ -350,5 +401,9 @@
         private System.Windows.Forms.ToolStripMenuItem menüToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem neustartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zumMenueToolStripMenuItem;
+        private System.Windows.Forms.Label lbl_messagebackground;
+        private System.Windows.Forms.Label lbl_caption;
+        private System.Windows.Forms.Label lbl_message;
+        private System.Windows.Forms.Button btn_messageOK;
     }
 }

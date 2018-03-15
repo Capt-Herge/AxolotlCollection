@@ -12,21 +12,25 @@ namespace Spielesammlung.Vier_Gewinnt
 {
     public partial class form_Vier_Gewinnt : Form
     {
-        // Variablendeklaration
+        // ToDo:
+        // Tests und Bugfixing
+        // Menübuttonclickevent
+        #region Variablendeklaration
         char[,] spielfeld = new char[7, 6];
-        char zug = 'X';
-        bool zugKorrekt = true;
+        char zug = 'R';
         string message = "404";
         string caption = "404";
-        int punkteG = 0;
         int punkteR = 0;
+        int punkteG = 0;
         int zugCounter = 0;
         int spaltenkoordinate = 0;
         int reihenkoordinate = 0;
+        bool zugKorrekt = true;
+        #endregion
         public form_Vier_Gewinnt()
         {
             InitializeComponent();
-            ArrayInitialisieren();
+            NeueRunde();
         }
         #region EventHandler
         private void btn_Spielfeld_Click(object sender, EventArgs e)
@@ -57,30 +61,52 @@ namespace Spielesammlung.Vier_Gewinnt
                 {
                     button.BackColor = Color.Red;
                 }
-                if (zug == 'F')
+                if (zug == 'G')
                 {
                     button.BackColor = Color.Yellow;
                 }
                 zugCounter++;
                 ArrayZuweisung();
                 WinCheck();
+                // Spielerwechsel
+                if (zug == 'R')
+                {
+                    zug = 'G';
+                    lbl_zuganzeige.BackColor = Color.Yellow;
+                    lbl_zuganzeige.Text = "Gelb";
+                }
+                else
+                {
+                    zug = 'R';
+                    lbl_zuganzeige.BackColor = Color.Red;
+                    lbl_zuganzeige.Text = "Rot";
+                }
             }
-
-            // ToDo:
-            // GetKoordinaten stringNamen ändern reihe<->spalte
-            // Wincheck
-            // Diagonale (Außerhalb des Feldes mit Try Catch Block realisieren?
         }
         private void btn_reset_Click(object sender, EventArgs e)
         {
-            // Todo
             // Eventhandler vom Resetbutton und Zurücksetzen-Menüeintrag
             // Startet neue Runde und setzt alle weiteren Variablen zurück
+            NeueRunde();
+            lbl_punkteR.Text = "0";
+            lbl_punkteG.Text = "0";
+            punkteR = 0;
+            punkteG = 0;
+            zug = 'R';
+            lbl_zuganzeige.BackColor = Color.Red;
+            lbl_zuganzeige.Text = "Rot";
         }
         private void btn_menue_Click(object sender, EventArgs e)
         {
             // Todo
             // zum Menü wechseln, Form beenden
+        }
+        private void btn_messageOK_Click(object sender, EventArgs e)
+        {
+            btn_messageOK.Visible = false;
+            lbl_caption.Visible = false;
+            lbl_message.Visible = false;
+            lbl_messagebackground.Visible = false;
         }
         #endregion
         #region Methoden
@@ -105,13 +131,6 @@ namespace Spielesammlung.Vier_Gewinnt
         {
             // Methode zum Testen ob ein Spieler gewonnen hat
             bool gewonnen = false;
-            // Reihe kontrollieren
-            gewonnen = WinCheckReihe();
-            if (gewonnen == true)
-            {
-                Gewonnen();
-                return;
-            }
             // Spalte kontrollieren
             gewonnen = WinCheckSpalte();
             if (gewonnen == true)
@@ -119,12 +138,33 @@ namespace Spielesammlung.Vier_Gewinnt
                 Gewonnen();
                 return;
             }
-            // Diagonale kontrollieren
-            gewonnen = WinCheckDiagonale();
+            // Reihe kontrollieren
+            gewonnen = WinCheckReihe();
             if (gewonnen == true)
             {
                 Gewonnen();
                 return;
+            }
+            // Diagonalen kontrollieren
+            gewonnen = WinCheckDiagonaleLinksObenRechtsUnten();
+            if (gewonnen == true)
+            {
+                Gewonnen();
+                return;
+            }
+            gewonnen = WinCheckDiagonaleLinksUntenRechtsOben();
+            if (gewonnen == true)
+            {
+                Gewonnen();
+                return;
+            }
+            // Zugzahl kontrollieren: 42 Züge ohne Sieger => Alle Felder belegt, Unentschieden
+            if (zugCounter == 42)
+            {
+                message = "Diese Runde ging leider unentschieden aus.";
+                caption = "Unentschieden!";
+                ShowMessage();
+                NeueRunde();
             }
         }
         private void Gewonnen()
@@ -137,16 +177,16 @@ namespace Spielesammlung.Vier_Gewinnt
             {
                 punkteR++;
                 lbl_punkteR.Text = punkteR.ToString();
-                message = "R hat diese Runde gewonnen!";
+                message = "Rot hat diese Runde gewonnen!";
             }
             else
             {
                 punkteG++;
                 lbl_punkteG.Text = punkteG.ToString();
-                message = "G hat diese Runde gewonnen!";
+                message = "Gelb hat diese Runde gewonnen!";
             }
             caption = "Gewonnen!";
-            MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ShowMessage();
 
             // Starten einer neuen Runde nach einem Sieg
             NeueRunde();
@@ -207,24 +247,28 @@ namespace Spielesammlung.Vier_Gewinnt
                 zugKorrekt = false;
                 message = "Das geklickte Feld ist bereits belegt, bitte wähle ein anderes aus.";
                 caption = "Nicht möglich!";
-                MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ShowMessage();
             }
         }
         private void TestFeldUnterstesFreies()
         {
             // Methode zum Testen ob das aktuelle Feld das unterste nicht belegte Feld in der Spalte ist
-            if (spielfeld[spaltenkoordinate, reihenkoordinate] == 'R' || spielfeld[spaltenkoordinate, reihenkoordinate] == 'F')
+            if (reihenkoordinate == 0)
+            {
+                return;
+            }
+            if (spielfeld[spaltenkoordinate, reihenkoordinate - 1] == 'L')
             {
                 zugKorrekt = false;
                 message = "Das geklickte Feld ist nicht das unterste freie Feld dieser Spalte, bitte wähle ein anderes aus.";
                 caption = "Nicht möglich!";
-                MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ShowMessage();
             }
         }
         private int Getspaltenkoordinate(string buttonname)
         {
             // Löst aus dem Namen des Buttons die Spaltenkoordinate im Array auf
-            char spalte = buttonname[5];
+            char spalte = buttonname[4];
             switch (spalte)
             {
                 case 'A':
@@ -261,7 +305,7 @@ namespace Spielesammlung.Vier_Gewinnt
         private int Getreihenkoordinate(string buttonname)
         {
             // Löst aus dem Namen des Buttons die Reihenkoordinate im Array auf
-            char reihe = buttonname[6];
+            char reihe = buttonname[5];
             switch (reihe)
             {
                 case '1':
@@ -314,259 +358,66 @@ namespace Spielesammlung.Vier_Gewinnt
             }
             return false;
         }
-        private bool WinCheckDiagonale()
+        private bool WinCheckDiagonaleLinksObenRechtsUnten()
         {
-            // Testet die Diagonalen nach 4 Aufeinanderfolgenden
-            int s = spaltenkoordinate;
-            int r = reihenkoordinate;
-            // Test links oben nach rechts unten
-            while (s > 0 && r < 5)
+            try
             {
-                s--;
-                r++;
+                // Testet die Diagonale links oben nach rechts unten nach 4 Aufeinanderfolgenden
+                int s = spaltenkoordinate;
+                int r = reihenkoordinate;
+
+                while (s > 0 && r < 5)
+                {
+                    s--;
+                    r++;
+                }
+                if (spielfeld[s + 0, r - 0] == zug && spielfeld[s + 1, r - 1] == zug && spielfeld[s + 2, r - 2] == zug && spielfeld[s + 3, r - 3] == zug ||
+                    spielfeld[s + 1, r - 1] == zug && spielfeld[s + 2, r - 2] == zug && spielfeld[s + 3, r - 3] == zug && spielfeld[s + 4, r - 4] == zug ||
+                    spielfeld[s + 2, r - 2] == zug && spielfeld[s + 3, r - 3] == zug && spielfeld[s + 4, r - 4] == zug && spielfeld[s + 5, r - 5] == zug)
+                {
+                    return true;
+                }
+                return false;
             }
-            if (spielfeld[s + 0, r - 0] == zug && spielfeld[s + 1, r - 1] == zug && spielfeld[s + 2, r - 2] == zug && spielfeld[s + 3, r - 3] == zug ||
-                spielfeld[s + 1, r - 1] == zug && spielfeld[s + 2, r - 2] == zug && spielfeld[s + 3, r - 3] == zug && spielfeld[s + 4, r - 4] == zug ||
-                spielfeld[s + 2, r - 2] == zug && spielfeld[s + 3, r - 3] == zug && spielfeld[s + 4, r - 4] == zug && spielfeld[s + 5, r - 5] == zug)
+            catch
             {
-                return true;
+                return false;
             }
-            // Test links unten nach rechts oben
-            s = spaltenkoordinate;
-            r = reihenkoordinate;
-            while (s > 0 && r > 0)
-            {
-                s--;
-                r--;
-            }
-            if (spielfeld[s + 0, r + 0] == zug && spielfeld[s + 1, r + 1] == zug && spielfeld[s + 2, r + 2] == zug && spielfeld[s + 3, r + 3] == zug ||
-                spielfeld[s + 1, r + 1] == zug && spielfeld[s + 2, r + 2] == zug && spielfeld[s + 3, r + 3] == zug && spielfeld[s + 4, r + 4] == zug ||
-                spielfeld[s + 2, r + 2] == zug && spielfeld[s + 3, r + 3] == zug && spielfeld[s + 4, r + 4] == zug && spielfeld[s + 5, r + 5] == zug)
-            {
-                return true;
-            }
-            return false;
         }
-
-
-
-
-        private void LegacyArrayZuweisung(string buttonName, char zug)
+        private bool WinCheckDiagonaleLinksUntenRechtsOben()
         {
-            // Methode zum Belegen des Arrays per Switchcase
-            switch (buttonName)
+            try
             {
-                case "btn_A1":
-                    {
-                        spielfeld[0, 0] = zug;
-                        break;
-                    }
-                case "btn_A2":
-                    {
-                        spielfeld[0, 1] = zug;
-                        break;
-                    }
-                case "btn_A3":
-                    {
-                        spielfeld[0, 2] = zug;
-                        break;
-                    }
-                case "btn_A4":
-                    {
-                        spielfeld[0, 3] = zug;
-                        break;
-                    }
-                case "btn_A5":
-                    {
-                        spielfeld[0, 4] = zug;
-                        break;
-                    }
-                case "btn_A6":
-                    {
-                        spielfeld[0, 5] = zug;
-                        break;
-                    }
-                case "btn_B1":
-                    {
-                        spielfeld[1, 0] = zug;
-                        break;
-                    }
-                case "btn_B2":
-                    {
-                        spielfeld[1, 1] = zug;
-                        break;
-                    }
-                case "btn_B3":
-                    {
-                        spielfeld[1, 2] = zug;
-                        break;
-                    }
-                case "btn_B4":
-                    {
-                        spielfeld[1, 3] = zug;
-                        break;
-                    }
-                case "btn_B5":
-                    {
-                        spielfeld[1, 4] = zug;
-                        break;
-                    }
-                case "btn_B6":
-                    {
-                        spielfeld[1, 5] = zug;
-                        break;
-                    }
-                case "btn_C1":
-                    {
-                        spielfeld[2, 0] = zug;
-                        break;
-                    }
-                case "btn_C2":
-                    {
-                        spielfeld[2, 1] = zug;
-                        break;
-                    }
-                case "btn_C3":
-                    {
-                        spielfeld[2, 2] = zug;
-                        break;
-                    }
-                case "btn_C4":
-                    {
-                        spielfeld[2, 3] = zug;
-                        break;
-                    }
-                case "btn_C5":
-                    {
-                        spielfeld[2, 4] = zug;
-                        break;
-                    }
-                case "btn_C6":
-                    {
-                        spielfeld[2, 5] = zug;
-                        break;
-                    }
-                case "btn_D1":
-                    {
-                        spielfeld[3, 0] = zug;
-                        break;
-                    }
-                case "btn_D2":
-                    {
-                        spielfeld[3, 1] = zug;
-                        break;
-                    }
-                case "btn_D3":
-                    {
-                        spielfeld[3, 2] = zug;
-                        break;
-                    }
-                case "btn_D4":
-                    {
-                        spielfeld[3, 3] = zug;
-                        break;
-                    }
-                case "btn_D5":
-                    {
-                        spielfeld[3, 4] = zug;
-                        break;
-                    }
-                case "btn_D6":
-                    {
-                        spielfeld[3, 5] = zug;
-                        break;
-                    }
-                case "btn_E1":
-                    {
-                        spielfeld[4, 0] = zug;
-                        break;
-                    }
-                case "btn_E2":
-                    {
-                        spielfeld[4, 1] = zug;
-                        break;
-                    }
-                case "btn_E3":
-                    {
-                        spielfeld[4, 2] = zug;
-                        break;
-                    }
-                case "btn_E4":
-                    {
-                        spielfeld[4, 3] = zug;
-                        break;
-                    }
-                case "btn_E5":
-                    {
-                        spielfeld[4, 4] = zug;
-                        break;
-                    }
-                case "btn_E6":
-                    {
-                        spielfeld[4, 5] = zug;
-                        break;
-                    }
-                case "btn_F1":
-                    {
-                        spielfeld[5, 0] = zug;
-                        break;
-                    }
-                case "btn_F2":
-                    {
-                        spielfeld[5, 1] = zug;
-                        break;
-                    }
-                case "btn_F3":
-                    {
-                        spielfeld[5, 2] = zug;
-                        break;
-                    }
-                case "btn_F4":
-                    {
-                        spielfeld[5, 3] = zug;
-                        break;
-                    }
-                case "btn_F5":
-                    {
-                        spielfeld[5, 4] = zug;
-                        break;
-                    }
-                case "btn_F6":
-                    {
-                        spielfeld[5, 5] = zug;
-                        break;
-                    }
-                case "btn_G1":
-                    {
-                        spielfeld[6, 0] = zug;
-                        break;
-                    }
-                case "btn_G2":
-                    {
-                        spielfeld[6, 1] = zug;
-                        break;
-                    }
-                case "btn_G3":
-                    {
-                        spielfeld[6, 2] = zug;
-                        break;
-                    }
-                case "btn_G4":
-                    {
-                        spielfeld[6, 3] = zug;
-                        break;
-                    }
-                case "btn_G5":
-                    {
-                        spielfeld[6, 4] = zug;
-                        break;
-                    }
-                case "btn_G6":
-                    {
-                        spielfeld[6, 5] = zug;
-                        break;
-                    }
+                // Testet die Diagonale links unten nach rechts oben nach 4 Aufeinanderfolgenden
+                int s = spaltenkoordinate;
+                int r = reihenkoordinate;
+                while (s > 0 && r > 0)
+                {
+                    s--;
+                    r--;
+                }
+                if (spielfeld[s + 0, r + 0] == zug && spielfeld[s + 1, r + 1] == zug && spielfeld[s + 2, r + 2] == zug && spielfeld[s + 3, r + 3] == zug ||
+                    spielfeld[s + 1, r + 1] == zug && spielfeld[s + 2, r + 2] == zug && spielfeld[s + 3, r + 3] == zug && spielfeld[s + 4, r + 4] == zug ||
+                    spielfeld[s + 2, r + 2] == zug && spielfeld[s + 3, r + 3] == zug && spielfeld[s + 4, r + 4] == zug && spielfeld[s + 5, r + 5] == zug)
+                {
+                    return true;
+                }
+                return false;
             }
+            catch
+            {
+                return false;
+            }
+        }
+        private void ShowMessage()
+        {
+            // Anpassen und Anzeigen der Label für das Messageoverlay
+            lbl_caption.Text = caption;
+            lbl_message.Text = message;
+            btn_messageOK.Visible = true;
+            lbl_caption.Visible = true;
+            lbl_message.Visible = true;
+            lbl_messagebackground.Visible = true;
         }
         #endregion
     }

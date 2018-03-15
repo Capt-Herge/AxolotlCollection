@@ -83,6 +83,10 @@
             this.btn_G4 = new System.Windows.Forms.Button();
             this.btn_G5 = new System.Windows.Forms.Button();
             this.btn_G6 = new System.Windows.Forms.Button();
+            this.lbl_messagebackground = new System.Windows.Forms.Label();
+            this.lbl_caption = new System.Windows.Forms.Label();
+            this.lbl_message = new System.Windows.Forms.Label();
+            this.btn_messageOK = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -694,11 +698,58 @@
             this.btn_G6.UseVisualStyleBackColor = true;
             this.btn_G6.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
+            // lbl_messagebackground
+            // 
+            this.lbl_messagebackground.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_messagebackground.Location = new System.Drawing.Point(7, 30);
+            this.lbl_messagebackground.Name = "lbl_messagebackground";
+            this.lbl_messagebackground.Size = new System.Drawing.Size(703, 600);
+            this.lbl_messagebackground.TabIndex = 102;
+            this.lbl_messagebackground.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbl_messagebackground.Visible = false;
+            // 
+            // lbl_caption
+            // 
+            this.lbl_caption.Font = new System.Drawing.Font("Courier New", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_caption.Location = new System.Drawing.Point(12, 100);
+            this.lbl_caption.Name = "lbl_caption";
+            this.lbl_caption.Size = new System.Drawing.Size(698, 100);
+            this.lbl_caption.TabIndex = 103;
+            this.lbl_caption.Text = "Unentschieden!";
+            this.lbl_caption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_caption.Visible = false;
+            // 
+            // lbl_message
+            // 
+            this.lbl_message.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_message.Location = new System.Drawing.Point(12, 200);
+            this.lbl_message.Name = "lbl_message";
+            this.lbl_message.Size = new System.Drawing.Size(698, 100);
+            this.lbl_message.TabIndex = 104;
+            this.lbl_message.Text = "Diese Runde ging leider unentschieden aus.";
+            this.lbl_message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_message.Visible = false;
+            // 
+            // btn_messageOK
+            // 
+            this.btn_messageOK.Location = new System.Drawing.Point(310, 424);
+            this.btn_messageOK.Name = "btn_messageOK";
+            this.btn_messageOK.Size = new System.Drawing.Size(100, 50);
+            this.btn_messageOK.TabIndex = 105;
+            this.btn_messageOK.Text = "OK";
+            this.btn_messageOK.UseVisualStyleBackColor = true;
+            this.btn_messageOK.Visible = false;
+            this.btn_messageOK.Click += new System.EventHandler(this.btn_messageOK_Click);
+            // 
             // form_Vier_Gewinnt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.btn_messageOK);
+            this.Controls.Add(this.lbl_message);
+            this.Controls.Add(this.lbl_caption);
+            this.Controls.Add(this.lbl_messagebackground);
             this.Controls.Add(this.btn_G6);
             this.Controls.Add(this.btn_G5);
             this.Controls.Add(this.btn_G4);
@@ -817,5 +868,9 @@
         private System.Windows.Forms.Button btn_G4;
         private System.Windows.Forms.Button btn_G5;
         private System.Windows.Forms.Button btn_G6;
+        private System.Windows.Forms.Label lbl_messagebackground;
+        private System.Windows.Forms.Label lbl_caption;
+        private System.Windows.Forms.Label lbl_message;
+        private System.Windows.Forms.Button btn_messageOK;
     }
 }
