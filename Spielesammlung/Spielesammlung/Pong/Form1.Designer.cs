@@ -38,6 +38,8 @@
             this.Player2Score = new System.Windows.Forms.Label();
             this.WinButton = new System.Windows.Forms.Button();
             this.pauseLabel = new System.Windows.Forms.Label();
+            this.labelAnleitung = new System.Windows.Forms.Label();
+            this.buttonStart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Player1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player2)).BeginInit();
@@ -76,7 +78,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 10;
+            this.timer1.Interval = 25;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Player1Score
@@ -121,11 +123,33 @@
             this.pauseLabel.Text = "Pause\r\n";
             this.pauseLabel.Visible = false;
             // 
+            // labelAnleitung
+            // 
+            this.labelAnleitung.AutoSize = true;
+            this.labelAnleitung.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAnleitung.Location = new System.Drawing.Point(159, 164);
+            this.labelAnleitung.Name = "labelAnleitung";
+            this.labelAnleitung.Size = new System.Drawing.Size(89, 17);
+            this.labelAnleitung.TabIndex = 7;
+            this.labelAnleitung.Text = "Anleitung";
+            // 
+            // buttonStart
+            // 
+            this.buttonStart.Location = new System.Drawing.Point(469, 342);
+            this.buttonStart.Name = "buttonStart";
+            this.buttonStart.Size = new System.Drawing.Size(81, 27);
+            this.buttonStart.TabIndex = 8;
+            this.buttonStart.Text = "Start";
+            this.buttonStart.UseVisualStyleBackColor = true;
+            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.buttonStart);
+            this.Controls.Add(this.labelAnleitung);
             this.Controls.Add(this.pauseLabel);
             this.Controls.Add(this.WinButton);
             this.Controls.Add(this.Player2);
@@ -160,6 +184,7 @@
         private System.Windows.Forms.Label Player2Score;
         private System.Windows.Forms.Button WinButton;
         private System.Windows.Forms.Label pauseLabel;
+        private System.Windows.Forms.Label labelAnleitung;
+        private System.Windows.Forms.Button buttonStart;
     }
 }
-

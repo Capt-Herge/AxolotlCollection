@@ -14,8 +14,6 @@ namespace Pong
     {
 
         int playerSpeed = 5;
-        int ballSpeed;
-
         int ballVelocityX = 3;
         int ballVelocityY = 3;
 
@@ -26,10 +24,17 @@ namespace Pong
         int p2Score;
 
         bool pause = false;
-
+        bool randObenLinks = false;
+        bool randUntenLinks = false;
+        bool randObenRechts = false;
+        bool randUntenRechts = false;
         public Form1()
         {
             InitializeComponent();
+            pause = true;
+            string anleitung = " Steuere die Platten mit W,S (Spieler 1) und Pfeil-Oben, Pfeil-Unten (Spieler 2) \n Versuche den Ball am Gegner vorbei zu schießen um einen Punkt zu erhalten. \n Wer zuerst 5 Punkte erzielt gewinnt!";
+            labelAnleitung.Text = anleitung;
+            labelAnleitung.Visible = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -42,32 +47,78 @@ namespace Pong
             if (!pause)
             {
                 Ball.Location = new Point(Ball.Location.X + ballVelocityX, Ball.Location.Y + ballVelocityY);
-                Player1.Location = new Point(Player1.Location.X, Player1.Location.Y + p1Velocity);
-                Player2.Location = new Point(Player2.Location.X, Player2.Location.Y + P2Velocity);
+                if (randObenLinks == false || randObenRechts == false || randUntenLinks == false || randUntenRechts == false)
+                {
+                    Player1.Location = new Point(Player1.Location.X, Player1.Location.Y + p1Velocity);
+                    Player2.Location = new Point(Player2.Location.X, Player2.Location.Y + P2Velocity);
+                }
+
+                if (Player1.Location.Y <= 0)
+                {
+                    randObenLinks = true;
+                }
+                if (randObenLinks == true)
+                {
+                    Player1.Location = new Point(Player1.Location.X, Player1.Location.Y + 5);
+                    randObenLinks = false;
+                }
+                if (Player2.Location.Y <= 0)
+                {
+                    randObenRechts = true;
+                }
+                if (randObenRechts == true)
+                {
+                    Player2.Location = new Point(Player2.Location.X, Player2.Location.Y + 5);
+                    randObenRechts = false;
+                }
+
+
+                if (Player1.Location.Y + Player1.Height + 35 >= this.Height)
+                {
+                    randUntenLinks = true;
+                }
+                if (randUntenLinks == true)
+                {
+                    Player1.Location = new Point(Player1.Location.X, Player1.Location.Y - 5);
+                    randUntenLinks = false;
+                }
+
+                if (Player2.Location.Y + Player2.Height + 35 >= this.Height)
+                {
+                    randUntenRechts = true;
+                }
+                if (randUntenRechts == true)
+                {
+                    Player2.Location = new Point(Player2.Location.X, Player2.Location.Y - 5);
+                    randUntenRechts = false;
+                }
 
 
                 if (Ball.Location.X < 0)
                 {
                     p2Score++;
+                    ballVelocityX = -3;
                     Ball.Location = new Point(this.Height / 2, this.Width / 2);
 
                 }
                 if (Ball.Location.X > this.Width)
                 {
                     p1Score++;
+                    ballVelocityX = 3;
                     Ball.Location = new Point(this.Height / 2, this.Width / 2);
                 }
 
                 if (Ball.Bounds.IntersectsWith(Player1.Bounds))
                 {
                     ballVelocityX *= -1;
+                    ballVelocityX++;
                 }
 
                 if (Ball.Bounds.IntersectsWith(Player2.Bounds))
                 {
                     ballVelocityX *= -1;
+                    ballVelocityX--;
                 }
-
 
                 if (Ball.Location.Y + Ball.Height * 3 < this.Height)
                 {
@@ -81,14 +132,14 @@ namespace Pong
                 Player1Score.Text = p1Score.ToString();
                 Player2Score.Text = p2Score.ToString();
 
-                if (p1Score == 1)
+                if (p1Score == 5)
                 {
                     timer1.Stop();
                     WinButton.Visible = true;
                     WinButton.Text = "Spieler 1 hat gewonnen!\n Nochmal spielen?";
                 }
 
-                if (p2Score == 1)
+                if (p2Score == 5)
                 {
                     timer1.Stop();
                     WinButton.Visible = true;
@@ -159,6 +210,9 @@ namespace Pong
 
             p1Score = 0;
             p2Score = 0;
+            p1Velocity = 0;
+            P2Velocity = 0;
+            ballVelocityX = 3;
             WinButton.Visible = false;
             Player1.Location = new Point(Player1.Location.X, this.Height / 3);
             Player2.Location = new Point(Player2.Location.X, this.Height / 3);
@@ -167,6 +221,13 @@ namespace Pong
             return;
         }
 
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+            buttonStart.Visible = false;
+            pause = !pause;
+            labelAnleitung.Visible = false;
+            this.Focus();
+        }
 
     }
 
