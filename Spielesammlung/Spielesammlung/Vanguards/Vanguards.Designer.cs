@@ -38,9 +38,10 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.MenuText;
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(12, 18);
+            this.label1.Location = new System.Drawing.Point(8, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 20);
+            this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Leben:";
             // 
@@ -49,9 +50,10 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.MenuText;
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(1379, 18);
+            this.label2.Location = new System.Drawing.Point(919, 12);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 20);
+            this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Score:";
             // 
@@ -60,23 +62,23 @@
             this.FinalScoreLabel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FinalScoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FinalScoreLabel.ForeColor = System.Drawing.Color.DimGray;
-            this.FinalScoreLabel.Location = new System.Drawing.Point(563, 988);
+            this.FinalScoreLabel.Location = new System.Drawing.Point(375, 642);
+            this.FinalScoreLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.FinalScoreLabel.Name = "FinalScoreLabel";
-            this.FinalScoreLabel.Size = new System.Drawing.Size(309, 82);
+            this.FinalScoreLabel.Size = new System.Drawing.Size(206, 53);
             this.FinalScoreLabel.TabIndex = 2;
             this.FinalScoreLabel.Visible = false;
             // 
             // Vanguards
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1503, 1095);
+            this.ClientSize = new System.Drawing.Size(1006, 723);
             this.Controls.Add(this.FinalScoreLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MaximumSize = new System.Drawing.Size(1525, 1151);
-            this.MinimumSize = new System.Drawing.Size(1525, 1151);
+            this.MaximumSize = new System.Drawing.Size(1022, 762);
+            this.MinimumSize = new System.Drawing.Size(1022, 762);
             this.Name = "Vanguards";
             this.Text = "Vanguards";
             this.ResumeLayout(false);

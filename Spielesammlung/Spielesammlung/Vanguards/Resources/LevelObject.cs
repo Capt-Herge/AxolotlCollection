@@ -25,11 +25,11 @@ namespace Spielesammlung.Vanguards.Resources
         private int rectangleHoehe=0;
         private int rectangleBreite = 0;
 
-        public LevelObject(int posX, int posY, Bitmap objectBitmapGDI, int rectangleHoehe, int rectangleBreite)
+        public LevelObject(int posX, int posY, D2D.Bitmap objectBitmap, int rectangleHoehe, int rectangleBreite)
         {
             PosX = posX;
             PosY = posY;
-            ObjectBitmapGDI = objectBitmapGDI;
+            ObjectBitmap = objectBitmap;
             this.RectangleHoehe = rectangleHoehe;
             this.RectangleBreite = rectangleBreite;
         }
