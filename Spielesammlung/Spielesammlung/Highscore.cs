@@ -11,41 +11,69 @@ public class Highscore
 
     public string HighscoreEintragen(string spiel, string spieler, string punkte)
     {
-
         if (spiel.Equals("Minesweeper"))
-        { 
-            /*
+        {
             // Alle Einträge löschen die zu viel sind, damit kein Fehler beim Sortieren auftritt
-            EintragLöschenZeit(spiel);
+            EintragLöschen(spiel);
             // neuen Eintrag erstellen mit dem Benutzernamen und dem Score
-            EintragErstellenZeit(spiel, spieler, punkte);
+            EintragErstellen(spiel, spieler, punkte);
             // Alle Einträge nach Höhe des Scores sortieren lassen 
             EinträgeSortierenZeit(spiel);
             // den überflüssigen Eintrag löschen
-            EintragLöschenZeit(spiel);
+            EintragLöschen(spiel);
             // der Inhalt der Textdatei wird ausgelesen und in anzeige gespeichert
             string anzeige = EinträgeAnzeigenZeit(spiel);
-            // anzeige wird zurückgegeben
-            */
-            return null;
-            
+            return anzeige;
         }
         else
         {
             // Alle Einträge löschen die zu viel sind, damit kein Fehler beim Sortieren auftritt
-            EintragLöschenPunkte(spiel);
+            EintragLöschen(spiel);
             // neuen Eintrag erstellen mit dem Benutzernamen und dem Score
-            EintragErstellenPunkte(spiel, spieler, punkte);
+            EintragErstellen(spiel, spieler, punkte);
             // Alle Einträge nach Höhe des Scores sortieren lassen 
             EinträgeSortierenPunkte(spiel);
             // den überflüssigen Eintrag löschen
-            EintragLöschenPunkte(spiel);
+            EintragLöschen(spiel);
             // der Inhalt der Textdatei wird ausgelesen und in anzeige gespeichert
             string anzeige = EinträgeAnzeigenPunkte(spiel);
-            // anzeige wird zurückgegeben
             return anzeige;
         }
     }
+
+    #region Allegemein
+    public void EintragLöschen(string spiel)
+    {
+        // Variable mit dem Dateipfad
+        string datei = @"C:\Users\Mama\Desktop\Studium\Softwareprojekt\Axolotl Collection\Test-Highscore\" + spiel + ".txt";
+
+        // es wird eine Liste erstellt, die die einzelnen Zeilen als strings enthält
+        List<string> Zeilen = File.ReadAllLines(datei).ToList<string>();
+
+        // Es werden alle Zeilen gelöscht, die hinter der 10. Zeile stehen
+        for (int i = Zeilen.Count - 1; i > 9; i--)
+        {
+            Zeilen.RemoveAt(i);
+            // und das Ergebnis in die Datei geschrieben
+            File.WriteAllLines(datei, Zeilen);
+        }
+    }
+
+    public void EintragErstellen(string spiel, string spieler, string punkte)
+    {
+        // Variable mit dem Dateipfad
+        string datei = @"C:\Users\Mama\Desktop\Studium\Softwareprojekt\Axolotl Collection\Test-Highscore\" + spiel + ".txt";
+
+        // der StreamWriter fügt den Benutzernamen und den Score unten an die Textdatei an
+        using (StreamWriter sw = new StreamWriter(datei, true))
+        {
+            sw.WriteLine(spieler + " " + punkte);
+        }
+    }
+
+    #endregion
+
+    #region Puntke
 
     public string EinträgeAnzeigenPunkte(string spiel)
     {
@@ -57,7 +85,7 @@ public class Highscore
         // Erstellen des StringBuilders zum Anzeigen der Einträge
         StringBuilder sb = new StringBuilder();
         // Fügt eine neue Zeile mit "Name  Score" und einen Zeilenumbruch ein
-        sb.Append("Name  Score");
+        sb.Append("Spieler    Score");
         sb.Append("\n");
 
         // für alle Zeilen im Array
@@ -88,35 +116,7 @@ public class Highscore
         }
         // die fertig ausgelesene Textdatei wird zurückgegeben
         return sb.ToString();
-    }
 
-    public void EintragErstellenPunkte(string spiel, string spieler, string punkte)
-    {
-        // Variable mit dem Dateipfad
-        string datei = @"C:\Users\Mama\Desktop\Studium\Softwareprojekt\Axolotl Collection\Test-Highscore\" + spiel + ".txt";
-
-        // der StreamWriter fügt den Benutzernamen und den Score unten an die Textdatei an
-        using (StreamWriter sw = new StreamWriter(datei, true))
-        {
-            sw.WriteLine(spieler + " " + punkte);
-        }
-    }
-
-    public void EintragLöschenPunkte(string spiel)
-    {
-        // Variable mit dem Dateipfad
-        string datei = @"C:\Users\Mama\Desktop\Studium\Softwareprojekt\Axolotl Collection\Test-Highscore\" + spiel + ".txt";
-
-        // es wird eine Liste erstellt, die die einzelnen Zeilen als strings enthält
-        List<string> Zeilen = File.ReadAllLines(datei).ToList<string>();
-
-        // Es werden alle Zeilen gelöscht, die hinter der 10. Zeile stehen
-        for (int i = Zeilen.Count - 1; i > 9; i--)
-        {
-            Zeilen.RemoveAt(i);
-            // und das Ergebnis in die Datei geschrieben
-            File.WriteAllLines(datei, Zeilen);
-        }
     }
 
     public void EinträgeSortierenPunkte(string spiel)
@@ -125,7 +125,7 @@ public class Highscore
         int x = 0;
         string datei = @"C:\Users\Mama\Desktop\Studium\Softwareprojekt\Axolotl Collection\Test-Highscore\" + spiel + ".txt";
         // Es wird ein Array erstellt, das Objekte von ScoreItem hält
-        ScoreItem[] SpielScores = new ScoreItem[11];
+        ScoreItemPunkte[] SpielScores = new ScoreItemPunkte[11];
         // Alle Zeilen der Textdatei werden in ein Array geschrieben
         String[] Zeilen = File.ReadAllLines(datei);
 
@@ -138,18 +138,18 @@ public class Highscore
             string nameGelesen = wort[0];
             int punkteGelesen = int.Parse(wort[1]);
             // aus dem Namen und dem Score des Spielers werden die Objekte ScoreItem erstellt und im Array gespeichert
-            SpielScores[x] = new ScoreItem(nameGelesen, punkteGelesen);
+            SpielScores[x] = new ScoreItemPunkte(nameGelesen, punkteGelesen);
             x++;
         }
 
         // das Array wird nach dem Score absteigend sortiert
-        Array.Sort(SpielScores, delegate (ScoreItem item1, ScoreItem item2)
+        Array.Sort(SpielScores, delegate (ScoreItemPunkte item1, ScoreItemPunkte item2)
         {
             return item2.Score.CompareTo(item1.Score);
         });
 
         // für jedes ScoreItem werden Name und Score ausgelesen und als String zusammengefügt
-        foreach (ScoreItem item in SpielScores)
+        foreach (ScoreItemPunkte item in SpielScores)
         {
             text = text + item.Benutzer + " " + item.Score + Environment.NewLine;
         }
@@ -157,9 +157,9 @@ public class Highscore
         File.WriteAllText(datei, text);
     }
 
+    #endregion
 
-    /*
-
+    #region Zeit
     public string EinträgeAnzeigenZeit(string spiel)
     {
         //Variablen
@@ -170,7 +170,7 @@ public class Highscore
         // Erstellen des StringBuilders zum Anzeigen der Einträge
         StringBuilder sb = new StringBuilder();
         // Fügt eine neue Zeile mit "Name  Score" und einen Zeilenumbruch ein
-        sb.Append("Name  Score");
+        sb.Append("Spieler       Zeit");
         sb.Append("\n");
 
         // für alle Zeilen im Array
@@ -204,43 +204,13 @@ public class Highscore
 
     }
 
-    public void EintragErstellenZeit(string spiel, string spieler, string punkte)
-    {
-        // Variable mit dem Dateipfad
-        string datei = @"C:\Users\Mama\Desktop\Studium\Softwareprojekt\Axolotl Collection\Test-Highscore\" + spiel + ".txt";
-
-        // der StreamWriter fügt den Benutzernamen und den Score unten an die Textdatei an
-        using (StreamWriter sw = new StreamWriter(datei, true))
-        {
-            sw.WriteLine(spieler + " " + punkte);
-        }
-
-    }
-
-    public void EintragLöschenZeit(string spiel)
-    {
-        // Variable mit dem Dateipfad
-        string datei = @"C:\Users\Mama\Desktop\Studium\Softwareprojekt\Axolotl Collection\Test-Highscore\" + spiel + ".txt";
-
-        // es wird eine Liste erstellt, die die einzelnen Zeilen als strings enthält
-        List<string> Zeilen = File.ReadAllLines(datei).ToList<string>();
-
-        // Es werden alle Zeilen gelöscht, die hinter der 10. Zeile stehen
-        for (int i = Zeilen.Count - 1; i > 9; i--)
-        {
-            Zeilen.RemoveAt(i);
-            // und das Ergebnis in die Datei geschrieben
-            File.WriteAllLines(datei, Zeilen);
-        }
-    }
-
     public void EinträgeSortierenZeit(string spiel)
     {
         // Variablen
         int x = 0;
         string datei = @"C:\Users\Mama\Desktop\Studium\Softwareprojekt\Axolotl Collection\Test-Highscore\" + spiel + ".txt";
         // Es wird ein Array erstellt, das Objekte von ScoreItem hält
-        ScoreItem[] SpielScores = new ScoreItem[11];
+        ScoreItemZeit[] SpielScores = new ScoreItemZeit[11];
         // Alle Zeilen der Textdatei werden in ein Array geschrieben
         String[] Zeilen = File.ReadAllLines(datei);
 
@@ -250,31 +220,31 @@ public class Highscore
             // werden die Wörter, die duch eine Leerstelle getrennt sind, ausgelesen
             string[] wort = zeile.Split(' ');
             // aus dem Namen und dem Score des Spielers werden die Objekte ScoreItem erstellt und im Array gespeichert
-            SpielScores[x] = new ScoreItem(wort[0], int.Parse(wort[1]));
+            SpielScores[x] = new ScoreItemZeit(wort[0], wort[1]);
             x++;
         }
 
         // das Array wird nach dem Score absteigend sortiert
-        Array.Sort(SpielScores, delegate (ScoreItem item1, ScoreItem item2)
+        Array.Sort(SpielScores, delegate (ScoreItemZeit item1, ScoreItemZeit item2)
         {
             return item1.Score.CompareTo(item2.Score);
         });
 
         // für jedes ScoreItem werden Name und Score ausgelesen und als String zusammengefügt
-        foreach (ScoreItem item in SpielScores)
+        foreach (ScoreItemZeit item in SpielScores)
         {
             text = text + item.Benutzer + " " + item.Score + Environment.NewLine;
         }
         // der zusammgefügte String mit den Namen und Scores werden in Textdatei geschrieben
         File.WriteAllText(datei, text);
     }
-    */
 
+    #endregion
 }
 
 
-// Klasse ScoreItem für das Einfügen in das Array
-public class ScoreItem
+// Klasse ScoreItemPunkte zum Einfügen in das Array wenn Punkte als Highscore
+public class ScoreItemPunkte
 {
     // Variablen
     string benutzer;
@@ -305,7 +275,47 @@ public class ScoreItem
     }
 
     // Konstruktor
-    public ScoreItem(string name, int wert)
+    public ScoreItemPunkte(string name, int wert)
+    {
+        Benutzer = name;
+        Score = wert;
+    }
+
+}
+
+// Klasse ScoreItemZeit zum Einfügen in das Array wenn Zeit als Highscore
+public class ScoreItemZeit
+{
+    // Variablen
+    string benutzer;
+    string score;
+
+    // getter und setter
+    public string Benutzer
+    {
+        get
+        {
+            return benutzer;
+        }
+        set
+        {
+            benutzer = value;
+        }
+    }
+    public string Score
+    {
+        get
+        {
+            return score;
+        }
+        set
+        {
+            score = value;
+        }
+    }
+
+    // Konstruktor
+    public ScoreItemZeit(string name, string wert)
     {
         Benutzer = name;
         Score = wert;

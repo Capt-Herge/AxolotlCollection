@@ -37,6 +37,9 @@
             this.Player1Score = new System.Windows.Forms.Label();
             this.Player2Score = new System.Windows.Forms.Label();
             this.WinButton = new System.Windows.Forms.Button();
+            this.pauseLabel = new System.Windows.Forms.Label();
+            this.labelAnleitung = new System.Windows.Forms.Label();
+            this.buttonStart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Player1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player2)).BeginInit();
@@ -44,8 +47,10 @@
             // 
             // Player1
             // 
+            this.Player1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.Player1.BackColor = System.Drawing.Color.Red;
-            this.Player1.Location = new System.Drawing.Point(12, 164);
+            this.Player1.Location = new System.Drawing.Point(12, 266);
             this.Player1.Name = "Player1";
             this.Player1.Size = new System.Drawing.Size(20, 100);
             this.Player1.TabIndex = 0;
@@ -55,7 +60,7 @@
             // 
             this.Ball.BackColor = System.Drawing.SystemColors.Control;
             this.Ball.Image = ((System.Drawing.Image)(resources.GetObject("Ball.Image")));
-            this.Ball.Location = new System.Drawing.Point(291, 224);
+            this.Ball.Location = new System.Drawing.Point(479, 266);
             this.Ball.Name = "Ball";
             this.Ball.Size = new System.Drawing.Size(20, 20);
             this.Ball.TabIndex = 1;
@@ -64,7 +69,7 @@
             // Player2
             // 
             this.Player2.BackColor = System.Drawing.Color.Blue;
-            this.Player2.Location = new System.Drawing.Point(559, 164);
+            this.Player2.Location = new System.Drawing.Point(976, 266);
             this.Player2.Name = "Player2";
             this.Player2.Size = new System.Drawing.Size(20, 100);
             this.Player2.TabIndex = 2;
@@ -72,11 +77,9 @@
             // 
             // timer1
             // 
-            /*
             this.timer1.Enabled = true;
-            this.timer1.Interval = 15;
+            this.timer1.Interval = 25;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            */
             // 
             // Player1Score
             // 
@@ -92,7 +95,7 @@
             // 
             this.Player2Score.AutoSize = true;
             this.Player2Score.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Player2Score.Location = new System.Drawing.Point(553, 0);
+            this.Player2Score.Location = new System.Drawing.Point(966, 0);
             this.Player2Score.Name = "Player2Score";
             this.Player2Score.Size = new System.Drawing.Size(30, 31);
             this.Player2Score.TabIndex = 4;
@@ -100,20 +103,54 @@
             // 
             // WinButton
             // 
-            this.WinButton.Location = new System.Drawing.Point(233, 65);
+            this.WinButton.Location = new System.Drawing.Point(429, 81);
             this.WinButton.Name = "WinButton";
             this.WinButton.Size = new System.Drawing.Size(121, 100);
             this.WinButton.TabIndex = 5;
             this.WinButton.Text = "button1";
             this.WinButton.UseVisualStyleBackColor = true;
             this.WinButton.Visible = false;
-            /*this.WinButton.Click += new System.EventHandler(this.button1_Click);*/
+            this.WinButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pauseLabel
+            // 
+            this.pauseLabel.AutoSize = true;
+            this.pauseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pauseLabel.Location = new System.Drawing.Point(377, 266);
+            this.pauseLabel.Name = "pauseLabel";
+            this.pauseLabel.Size = new System.Drawing.Size(220, 73);
+            this.pauseLabel.TabIndex = 6;
+            this.pauseLabel.Text = "Pause\r\n";
+            this.pauseLabel.Visible = false;
+            // 
+            // labelAnleitung
+            // 
+            this.labelAnleitung.AutoSize = true;
+            this.labelAnleitung.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAnleitung.Location = new System.Drawing.Point(159, 164);
+            this.labelAnleitung.Name = "labelAnleitung";
+            this.labelAnleitung.Size = new System.Drawing.Size(89, 17);
+            this.labelAnleitung.TabIndex = 7;
+            this.labelAnleitung.Text = "Anleitung";
+            // 
+            // buttonStart
+            // 
+            this.buttonStart.Location = new System.Drawing.Point(469, 342);
+            this.buttonStart.Name = "buttonStart";
+            this.buttonStart.Size = new System.Drawing.Size(81, 27);
+            this.buttonStart.TabIndex = 8;
+            this.buttonStart.Text = "Start";
+            this.buttonStart.UseVisualStyleBackColor = true;
+            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 445);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.buttonStart);
+            this.Controls.Add(this.labelAnleitung);
+            this.Controls.Add(this.pauseLabel);
             this.Controls.Add(this.WinButton);
             this.Controls.Add(this.Player2);
             this.Controls.Add(this.Ball);
@@ -127,6 +164,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pong";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.Player1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player2)).EndInit();
@@ -144,6 +183,8 @@
         private System.Windows.Forms.Label Player1Score;
         private System.Windows.Forms.Label Player2Score;
         private System.Windows.Forms.Button WinButton;
+        private System.Windows.Forms.Label pauseLabel;
+        private System.Windows.Forms.Label labelAnleitung;
+        private System.Windows.Forms.Button buttonStart;
     }
 }
-
