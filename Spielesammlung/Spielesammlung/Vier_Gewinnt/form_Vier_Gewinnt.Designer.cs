@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_Vier_Gewinnt));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.neustartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -706,7 +707,6 @@
             this.lbl_messagebackground.Size = new System.Drawing.Size(703, 600);
             this.lbl_messagebackground.TabIndex = 102;
             this.lbl_messagebackground.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lbl_messagebackground.Visible = false;
             // 
             // lbl_caption
             // 
@@ -715,30 +715,27 @@
             this.lbl_caption.Name = "lbl_caption";
             this.lbl_caption.Size = new System.Drawing.Size(698, 100);
             this.lbl_caption.TabIndex = 103;
-            this.lbl_caption.Text = "Unentschieden!";
+            this.lbl_caption.Text = "Anleitung";
             this.lbl_caption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_caption.Visible = false;
             // 
             // lbl_message
             // 
             this.lbl_message.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_message.Location = new System.Drawing.Point(12, 200);
             this.lbl_message.Name = "lbl_message";
-            this.lbl_message.Size = new System.Drawing.Size(698, 100);
+            this.lbl_message.Size = new System.Drawing.Size(698, 286);
             this.lbl_message.TabIndex = 104;
-            this.lbl_message.Text = "Diese Runde ging leider unentschieden aus.";
+            this.lbl_message.Text = resources.GetString("lbl_message.Text");
             this.lbl_message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_message.Visible = false;
             // 
             // btn_messageOK
             // 
-            this.btn_messageOK.Location = new System.Drawing.Point(310, 424);
+            this.btn_messageOK.Location = new System.Drawing.Point(310, 524);
             this.btn_messageOK.Name = "btn_messageOK";
             this.btn_messageOK.Size = new System.Drawing.Size(100, 50);
             this.btn_messageOK.TabIndex = 105;
             this.btn_messageOK.Text = "OK";
             this.btn_messageOK.UseVisualStyleBackColor = true;
-            this.btn_messageOK.Visible = false;
             this.btn_messageOK.Click += new System.EventHandler(this.btn_messageOK_Click);
             // 
             // form_Vier_Gewinnt

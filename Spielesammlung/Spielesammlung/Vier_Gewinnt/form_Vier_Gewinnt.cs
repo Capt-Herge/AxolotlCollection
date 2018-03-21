@@ -13,6 +13,7 @@ namespace Spielesammlung.Vier_Gewinnt
     public partial class form_Vier_Gewinnt : Form
     {
         // ToDo:
+        // Belegt nachricht kommt bei Gelbem Feld nicht
         // Tests und Bugfixing
         // Menübuttonclickevent
         #region Variablendeklaration
@@ -242,7 +243,7 @@ namespace Spielesammlung.Vier_Gewinnt
         private void TestFeldBelegt()
         {
             // Methode zum Testen ob das aktuelle Feld bereits belegt ist
-            if (spielfeld[spaltenkoordinate, reihenkoordinate] == 'R' || spielfeld[spaltenkoordinate, reihenkoordinate] == 'F')
+            if (spielfeld[spaltenkoordinate, reihenkoordinate] == 'R' || spielfeld[spaltenkoordinate, reihenkoordinate] == 'G')
             {
                 zugKorrekt = false;
                 message = "Das geklickte Feld ist bereits belegt, bitte wähle ein anderes aus.";
