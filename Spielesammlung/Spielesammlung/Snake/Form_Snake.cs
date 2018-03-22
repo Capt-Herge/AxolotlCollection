@@ -323,5 +323,55 @@ namespace Spielesammlung.Snake
             // Der Fokus wird auf die Form gelegt, damit die Steuerung über die Tastatur funktioniert
             this.Focus();
         }
+
+        private void zurückZumMenüToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void neustartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Falls Buttons oder Label angezeigt werden, werden diese ausgeblendet
+            labelAnleitung.Visible = false;
+            labelSnake.Visible = false;
+            buttonStart.Visible = false;
+            buttonStart.Enabled = false;
+            labelGameOver.Visible = false;
+            textBoxSpieler.Visible = false;
+            textBoxSpieler.Enabled = false;
+            buttonWeiter.Visible = false;
+            buttonWeiter.Enabled = false;
+            labelHighscore.Visible = false;
+            buttonNeustart.Visible = false;
+            buttonNeustart.Enabled = false;
+            // Es wird ein neues Spiel gestartet
+            StarteNeuesSpiel();
+            // Der Fokus wird auf die Form gelegt, damit die Steuerung über die Tastatur funktioniert
+            this.Focus();
+        }
+
+        private void highscoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Falls Buttons oder Label angezeigt werden, werden diese ausgeblendet
+            labelAnleitung.Visible = false;
+            labelSnake.Visible = false;
+            buttonStart.Visible = false;
+            buttonStart.Enabled = false;
+            labelGameOver.Visible = false;
+            textBoxSpieler.Visible = false;
+            textBoxSpieler.Enabled = false;
+            buttonWeiter.Visible = false;
+            buttonWeiter.Enabled = false;
+            // erstellen eines Objektes der Klasse Highscore
+            Highscore snakeHighscore = new Highscore();
+            // Anzeigen des Highscores
+            labelHighscore.Text = snakeHighscore.EinträgeAnzeigenPunkte("Snake");
+            labelHighscore.Visible = true;
+            // Der Button zum Neustart wird sichtbar und verfügbar
+            buttonNeustart.Visible = true;
+            buttonNeustart.Enabled = true;
+            // Der Fokus wird auf die Form gelegt, damit die Steuerung über die Tastatur funktioniert
+            this.Focus();
+        }
     }
 }

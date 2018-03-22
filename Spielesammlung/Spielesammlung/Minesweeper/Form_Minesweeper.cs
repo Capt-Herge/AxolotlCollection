@@ -12,6 +12,8 @@ namespace Spielesammlung.Minesweeper
 {
     public partial class Form_Minesweeper : Form
     {
+        // Variable, ob das Feld schon erstellt wurde
+        bool feldVorhanden = false;
         // Array für die Buttons
         Button[,] buttonArray = new Button[20, 20];
         // Liste für die Minen
@@ -51,10 +53,10 @@ namespace Spielesammlung.Minesweeper
                     // Erstellen eines Buttons an Position x,y
                     buttonArray[x, y] = new Button();
                     // Größe des Buttons Festlegen
-                    buttonArray[x, y].Size = new Size(35, 35);
+                    buttonArray[x, y].Size = new Size(34, 34);
                     //Position des Buttons wird festgelegt
-                    buttonArray[x, y].Left = x * 35;
-                    buttonArray[x, y].Top = y * 35;
+                    buttonArray[x, y].Left = x * 34;
+                    buttonArray[x, y].Top = y * 34;
                     // Hintergundfarbe der Buttons
                     buttonArray[x, y].BackColor = Color.LightSteelBlue;
                     // Hinzufügen des Buttons zum dahinter liegenden Panel
@@ -63,8 +65,9 @@ namespace Spielesammlung.Minesweeper
                     buttonArray[x, y].MouseDown += new MouseEventHandler(ButtonGeklickt);
                 }
             }
+            // Feld wurde erstellt
+            feldVorhanden = true;
         }
-
 
         public void ButtonGeklickt(object sender, MouseEventArgs e)
         {
@@ -616,14 +619,22 @@ namespace Spielesammlung.Minesweeper
 
         private void buttonNeustart_Click(object sender, EventArgs e)
         {
-            // wenn der Button Neustart geklickt wird, beginnt ein neues Spiel
+            //Hintergrundfarbe und Feld werden erstellt, falls man das Spiel nicht über den Button beim Highscore startet
+            if (feldVorhanden == false)
+            {
+                panelMinesweeper.BackColor = Color.Black;
+                ErstelleFeld();
+            }
+            // Startet ein neues Spiel
             NeuesSpiel();
-            // der Highscore, die jeweilige Nachrichte (Gewonnen oder GameOver), und der Button für einen Neustart werden ausgeblendet
+            // der Highscore, die jeweilige Nachrichte (Gewonnen oder GameOver), und diw Button für einen Neustart und zum Weiterspielen werden ausgeblendet
             labelHighscore.Visible = false;
             labelGameOver.Visible = false;
             labelGewonnen.Visible = false;
             buttonNeustart.Visible = false;
             buttonNeustart.Enabled = false;
+            buttonWeiterspielen.Visible = false;
+            buttonWeiterspielen.Enabled = false;
         }
 
         private void buttonWeiter_Click(object sender, EventArgs e)
@@ -655,6 +666,86 @@ namespace Spielesammlung.Minesweeper
                 buttonNeustart.Enabled = true;
 
             }
+        }
+
+        private void zurückZumMenüToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void neustartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Falls Buttons oder Label angezeigt werden, werden diese ausgeblendet
+            labelAnleitung.Visible = false;
+            labelMinesweeper.Visible = false;
+            buttonStart.Visible = false;
+            buttonStart.Enabled = false;
+            labelGameOver.Visible = false;
+            textBoxSpieler.Visible = false;
+            textBoxSpieler.Enabled = false;
+            buttonWeiter.Visible = false;
+            buttonWeiter.Enabled = false;
+            labelHighscore.Visible = false;
+            buttonNeustart.Visible = false;
+            buttonNeustart.Enabled = false;
+            buttonWeiterspielen.Visible = false;
+            buttonWeiterspielen.Enabled = false;
+            //Hintergrundfarbe und Feld werden erstellt, falls man das Spiel nicht über den Button beim Highscore startet
+            if (feldVorhanden == false)
+            {
+                panelMinesweeper.BackColor = Color.Black;
+                ErstelleFeld();
+            }
+            // Es wird ein neues Spiel gestartet
+            NeuesSpiel();
+        }
+
+        private void highscoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Falls Buttons oder Label angezeigt werden, werden diese ausgeblendet
+            labelAnleitung.Visible = false;
+            labelMinesweeper.Visible = false;
+            buttonStart.Visible = false;
+            buttonStart.Enabled = false;
+            labelGameOver.Visible = false;
+            labelGewonnen.Visible = false;
+            textBoxSpieler.Visible = false;
+            textBoxSpieler.Enabled = false;
+            buttonWeiter.Visible = false;
+            buttonWeiter.Enabled = false;
+            // Die Zeit wird angehalten
+            timerMinesweeper.Stop();
+            // erstellen eines Objektes der Klasse Highscore
+            Highscore minesweeperHighscore = new Highscore();
+            // Anzeigen des Highscores
+            labelHighscore.Text = minesweeperHighscore.EinträgeAnzeigenZeit("Minesweeper");
+            labelHighscore.Visible = true;
+            // Der Button zum Neustart wird sichtbar und verfügbar
+            buttonNeustart.Visible = true;
+            buttonNeustart.Enabled = true;
+            // Der Button zum Weiterspielen wird sichtbar und verfügbar
+            buttonWeiterspielen.Visible = true;
+            buttonWeiterspielen.Enabled = true;
+        }
+
+        private void buttonWeiterspielen_Click(object sender, EventArgs e)
+        {
+            //Hintergrundfarbe und Feld werden erstellt, falls man das Spiel nicht über den Button beim Highscore startet
+            if (feldVorhanden == false)
+            {
+                panelMinesweeper.BackColor = Color.Black;
+                ErstelleFeld();
+                NeuesSpiel();
+            }
+            // Die Zeit läuft weiter
+            timerMinesweeper.Start();
+            // Der Highscore wird nicht mehr angezeigt
+            labelHighscore.Visible = false;
+            // Die Button zum Neustart und zum Weiterspielen werden unsichtbar und sind nicht mehr verfügbar
+            buttonNeustart.Visible = false;
+            buttonNeustart.Enabled = false;
+            buttonWeiterspielen.Visible = false;
+            buttonWeiterspielen.Enabled = false;
         }
     }
 }
