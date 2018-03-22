@@ -14,6 +14,7 @@ namespace Spielesammlung.Flappy_Bird.Resources
         public Bird( int birdPosy)
         {
             this.birdPosy = birdPosy;
+            this.birdPosx = 240;
         }
 
         public int BirdPosx { get => birdPosx; set => birdPosx = value; }

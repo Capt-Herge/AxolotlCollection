@@ -141,7 +141,7 @@ namespace Spielesammlung.Vanguards
                     }
                     else if(_projektilListe[i].PosX>this.Width|| _projektilListe[i].PosX<0)
                     {
-                        _projektilListe.RemoveAt(i);
+                        //_projektilListe.RemoveAt(i);
                     }
                 }
                 this.Invalidate();
