@@ -70,55 +70,55 @@ namespace Spielesammlung.Frogger
             #endregion
 
             #region unten
-            oben[0, 0] = 0;
-            oben[0, 1] = 0;
-            oben[0, 2] = 16;
-            oben[0, 3] = 16;
-            oben[0, 4] = 16;
-            oben[0, 5] = 0;
-            oben[0, 6] = 0;
-            oben[1, 0] = 0;
-            oben[1, 1] = 16;
-            oben[1, 2] = 16;
-            oben[1, 3] = 16;
-            oben[1, 4] = 16;
-            oben[1, 5] = 16;
-            oben[1, 6] = 0;
-            oben[2, 0] = 16;
-            oben[2, 1] = 16;
-            oben[2, 2] = 16;
-            oben[2, 3] = 16;
-            oben[2, 4] = 16;
-            oben[2, 5] = 16;
-            oben[2, 6] = 16;
-            oben[3, 0] = 16;
-            oben[3, 1] = 16;
-            oben[3, 2] = 16;
-            oben[3, 3] = 16;
-            oben[3, 4] = 16;
-            oben[3, 5] = 16;
-            oben[3, 6] = 16;
-            oben[4, 0] = 16;
-            oben[4, 1] = 16;
-            oben[4, 2] = 16;
-            oben[4, 3] = 16;
-            oben[4, 4] = 16;
-            oben[4, 5] = 16;
-            oben[4, 6] = 16;
-            oben[5, 0] = 0;
-            oben[5, 1] = 16;
-            oben[5, 2] = 16;
-            oben[5, 3] = 16;
-            oben[5, 4] = 16;
-            oben[5, 5] = 16;
-            oben[5, 6] = 0;
-            oben[6, 0] = 0;
-            oben[6, 1] = 0;
-            oben[6, 2] = 16;
-            oben[6, 3] = 16;
-            oben[6, 4] = 16;
-            oben[6, 5] = 0;
-            oben[6, 6] = 0;
+            unten[0, 0] = 0;
+            unten[0, 1] = 0;
+            unten[0, 2] = 16;
+            unten[0, 3] = 16;
+            unten[0, 4] = 16;
+            unten[0, 5] = 0;
+            unten[0, 6] = 0;
+            unten[1, 0] = 0;
+            unten[1, 1] = 16;
+            unten[1, 2] = 16;
+            unten[1, 3] = 16;
+            unten[1, 4] = 16;
+            unten[1, 5] = 16;
+            unten[1, 6] = 0;
+            unten[2, 0] = 16;
+            unten[2, 1] = 16;
+            unten[2, 2] = 16;
+            unten[2, 3] = 16;
+            unten[2, 4] = 16;
+            unten[2, 5] = 16;
+            unten[2, 6] = 16;
+            unten[3, 0] = 16;
+            unten[3, 1] = 16;
+            unten[3, 2] = 16;
+            unten[3, 3] = 16;
+            unten[3, 4] = 16;
+            unten[3, 5] = 16;
+            unten[3, 6] = 16;
+            unten[4, 0] = 16;
+            unten[4, 1] = 16;
+            unten[4, 2] = 16;
+            unten[4, 3] = 16;
+            unten[4, 4] = 16;
+            unten[4, 5] = 16;
+            unten[4, 6] = 16;
+            unten[5, 0] = 0;
+            unten[5, 1] = 16;
+            unten[5, 2] = 16;
+            unten[5, 3] = 16;
+            unten[5, 4] = 16;
+            unten[5, 5] = 16;
+            unten[5, 6] = 0;
+            unten[6, 0] = 0;
+            unten[6, 1] = 0;
+            unten[6, 2] = 16;
+            unten[6, 3] = 16;
+            unten[6, 4] = 16;
+            unten[6, 5] = 0;
+            unten[6, 6] = 0;
             #endregion
 
             for (int i = 0; i < model.GetLength(1); i++)
@@ -138,7 +138,7 @@ namespace Spielesammlung.Frogger
             }
         }
 
-        public void tauchen()
+        public void Tauchen()
         {
             for (int i = 0; i < model.GetLength(1); i++)
             {
