@@ -40,6 +40,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(1012, 707);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
             // Form_Frogger
             // 
@@ -49,6 +50,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form_Frogger";
             this.Text = "Form_Frogger";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormDonkeyKong_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormDonkeyKong_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

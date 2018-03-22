@@ -44,23 +44,17 @@ namespace Spielesammlung.Frogger
 
         private void FormDonkeyKong_KeyDown(object sender, KeyEventArgs e)
         {
-            Taste = e;
+            Taste = e;                
         }
 
         private void FormDonkeyKong_KeyUp(object sender, KeyEventArgs e)
         {
-            Taste = new KeyEventArgs(new Keys());
+            Taste = new KeyEventArgs(Keys.P);
         }
 
         private void Levelladen(PaintEventArgs e)
         {
             Level1 level1 = new Level1(e, Taste);
-
-            if (level1.levelbeendedt == true)
-            {
-                level1.Neustart();
-                level1.levelbeendedt = false;
-            }
         }
     }
 }
