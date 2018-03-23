@@ -178,6 +178,7 @@ namespace Spielesammlung.Donkey_Kong
 
         private void ProgrammBeenden(object sender, EventArgs e)
         {
+            form_Menue.spielGestartet = false;
             this.Close();
         }
 
@@ -349,6 +350,11 @@ namespace Spielesammlung.Donkey_Kong
             KeyEventArgs Taste = new KeyEventArgs(new Keys());
 
             neustart = true;
+        }
+
+        private void FormDonkeyKong_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            form_Menue.spielGestartet = false;
         }
     }
 }
