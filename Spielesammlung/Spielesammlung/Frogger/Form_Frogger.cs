@@ -103,6 +103,7 @@ namespace Spielesammlung.Frogger
 
         private void ProgrammBeenden(object sender, EventArgs e)
         {
+            form_Menue.spielGestartet = false;
             this.Close();
         }
 
@@ -234,6 +235,11 @@ namespace Spielesammlung.Frogger
             KeyEventArgs Taste = new KeyEventArgs(new Keys());
 
             neustart = true;
+        }
+
+        private void Form_Frogger_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            form_Menue.spielGestartet = false;
         }
     }
 }

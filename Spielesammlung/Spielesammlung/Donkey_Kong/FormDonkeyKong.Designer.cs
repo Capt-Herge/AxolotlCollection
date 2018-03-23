@@ -245,6 +245,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormDonkeyKong";
             this.Text = "FormDonkeyKong";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormDonkeyKong_FormClosed);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormDonkeyKong_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormDonkeyKong_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

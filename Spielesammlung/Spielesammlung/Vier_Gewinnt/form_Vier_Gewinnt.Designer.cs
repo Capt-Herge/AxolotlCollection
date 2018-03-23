@@ -107,21 +107,21 @@
             this.neustartToolStripMenuItem,
             this.zumMenueToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
-            this.toolStripMenuItem1.Text = "Menü";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(69, 20);
+            this.toolStripMenuItem1.Text = "Optionen";
             // 
             // neustartToolStripMenuItem
             // 
             this.neustartToolStripMenuItem.Name = "neustartToolStripMenuItem";
-            this.neustartToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.neustartToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.neustartToolStripMenuItem.Text = "Neustart";
             this.neustartToolStripMenuItem.Click += new System.EventHandler(this.btn_reset_Click);
             // 
             // zumMenueToolStripMenuItem
             // 
             this.zumMenueToolStripMenuItem.Name = "zumMenueToolStripMenuItem";
-            this.zumMenueToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.zumMenueToolStripMenuItem.Text = "Zum Menü";
+            this.zumMenueToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.zumMenueToolStripMenuItem.Text = "Zurück zum Menü";
             this.zumMenueToolStripMenuItem.Click += new System.EventHandler(this.btn_menue_Click);
             // 
             // lbl_spielerR
@@ -802,6 +802,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "form_Vier_Gewinnt";
             this.Text = "Vier Gewinnt";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.form_Vier_Gewinnt_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

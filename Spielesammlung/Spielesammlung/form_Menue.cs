@@ -12,66 +12,77 @@ namespace Spielesammlung
 {
     public partial class form_Menue : Form
     {
+        #region Variablendeklaration
+        Form Spiel;
+        #endregion
         public form_Menue()
         {
             InitializeComponent();
+            spielGestartet = false;
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        #region Buttoneventhandler
+        #region Spielebuttons
+        private void btn_DonkeyKong_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_Pong_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btn_Vanguard_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btn_Snake_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btn_TicTacToe_Click(object sender, EventArgs e)
+        {
+            if (spielGestartet == false)
+            {
+                Spiel = new Tic_Tac_Toe.form_TicTacToe();
+                spielGestartet = true;
+                Spiel.Show();
+            }
+        }
+
+        private void btn_Breakout_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btn_Minesweeper_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void btn_4Gewinnt_Click(object sender, EventArgs e)
+        {
+            if (spielGestartet == false)
+            {
+                Spiel = new Vier_Gewinnt.form_Vier_Gewinnt();
+                spielGestartet = true;
+                Spiel.Show();
+            }
+        }
+
+        private void btn_Frogger_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void btn_FlappyBird_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void vanguardToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        #endregion
+        #region Menübuttons
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
 
@@ -82,12 +93,12 @@ namespace Spielesammlung
 
         }
 
-        private void donkeyKongToolStripMenuItem_Click(object sender, EventArgs e)
+        private void vanguardToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void vanguardToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void donkeyKongToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
@@ -107,15 +118,22 @@ namespace Spielesammlung
 
         }
 
-        private void astroidsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void flappyBirdToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
+        private void froggerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+        #endregion
+        #region Methoden
+        public static bool spielGestartet
+        {
+            get; set;
+        }
+        #endregion
     }
 }
