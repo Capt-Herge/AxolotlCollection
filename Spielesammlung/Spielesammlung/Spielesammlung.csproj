@@ -283,6 +283,9 @@
     <EmbeddedResource Include="Vanguards\Vanguards.resx">
       <DependentUpon>Vanguards.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vier_Gewinnt\form_Vier_Gewinnt.resx">
+      <DependentUpon>form_Vier_Gewinnt.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

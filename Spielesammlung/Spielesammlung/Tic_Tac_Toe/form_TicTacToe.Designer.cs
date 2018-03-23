@@ -278,21 +278,21 @@
             this.neustartToolStripMenuItem,
             this.zumMenueToolStripMenuItem});
             this.menüToolStripMenuItem.Name = "menüToolStripMenuItem";
-            this.menüToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.menüToolStripMenuItem.Text = "Menü";
+            this.menüToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.menüToolStripMenuItem.Text = "Optionen";
             // 
             // neustartToolStripMenuItem
             // 
             this.neustartToolStripMenuItem.Name = "neustartToolStripMenuItem";
-            this.neustartToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.neustartToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.neustartToolStripMenuItem.Text = "Neustart";
             this.neustartToolStripMenuItem.Click += new System.EventHandler(this.btn_reset_Click);
             // 
             // zumMenueToolStripMenuItem
             // 
             this.zumMenueToolStripMenuItem.Name = "zumMenueToolStripMenuItem";
-            this.zumMenueToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.zumMenueToolStripMenuItem.Text = "Zum Menü";
+            this.zumMenueToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.zumMenueToolStripMenuItem.Text = "Zurück zum Menü";
             this.zumMenueToolStripMenuItem.Click += new System.EventHandler(this.btn_menue_Click);
             // 
             // lbl_messagebackground
@@ -368,6 +368,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "form_TicTacToe";
             this.Text = "Tic Tac Toe";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.form_TicTacToe_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

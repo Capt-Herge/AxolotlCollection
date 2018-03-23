@@ -14,7 +14,6 @@ namespace Spielesammlung.Tic_Tac_Toe
     {
         // ToDo:
         // Tests und Bugfixing
-        // Menübuttonclickevent
         #region Variablendeklaration
         char[,] spielfeld = new char[3, 3];
         char zug = 'X';
@@ -86,15 +85,22 @@ namespace Spielesammlung.Tic_Tac_Toe
         }
         private void btn_menue_Click(object sender, EventArgs e)
         {
-            // Todo
             // zum Menü wechseln, Form beenden
+            form_Menue.spielGestartet = false;
+            this.Close();
         }
         private void btn_messageOK_Click(object sender, EventArgs e)
         {
+            // Lässt das Messageoverlay ausblenden
             btn_messageOK.Visible = false;
             lbl_caption.Visible = false;
             lbl_message.Visible = false;
             lbl_messagebackground.Visible = false;
+        }
+        private void form_TicTacToe_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Wird ausgeführt wenn die Forms durch Klick auf das X oben rechts geschlossen wird
+            form_Menue.spielGestartet = false;
         }
         #endregion
         #region Methoden
