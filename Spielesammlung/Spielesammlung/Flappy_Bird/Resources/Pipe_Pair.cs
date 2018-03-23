@@ -13,12 +13,47 @@ namespace Spielesammlung.Flappy_Bird.Resources
         bool scored = false;
         public Pipe_Pair(int pipePairPosx, int pipePairPosy)
         {
-            this.pipePairPosx = pipePairPosx;
-            this.pipePairPosy = pipePairPosy;
+            this.PipePairPosx = pipePairPosx;
+            this.PipePairPosy = pipePairPosy;
         }
 
-        public int PipePairPosx { get => pipePairPosx; set => pipePairPosx = value; }
-        public int PipePairPosy { get => pipePairPosy; set => pipePairPosy = value; }
-        public bool Scored { get => scored; set => scored = value; }
+        public int PipePairPosx
+        {
+            get
+            {
+                return pipePairPosx;
+            }
+
+            set
+            {
+                pipePairPosx = value;
+            }
+        }
+
+        public int PipePairPosy
+        {
+            get
+            {
+                return pipePairPosy;
+            }
+
+            set
+            {
+                pipePairPosy = value;
+            }
+        }
+
+        public bool Scored
+        {
+            get
+            {
+                return scored;
+            }
+
+            set
+            {
+                scored = value;
+            }
+        }
     }
 }

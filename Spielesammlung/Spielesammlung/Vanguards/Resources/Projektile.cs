@@ -16,6 +16,98 @@ namespace Spielesammlung.Vanguards.Resources
         private int _flightTime = 0;
         private bool visible;
         private Bitmap projectileBit = Resources.greenProjectile;
+
+        public bool Hostile
+        {
+            get
+            {
+                return _hostile;
+            }
+
+            set
+            {
+                _hostile = value;
+            }
+        }
+
+        public int PosX
+        {
+            get
+            {
+                return _posX;
+            }
+
+            set
+            {
+                _posX = value;
+            }
+        }
+
+        public int PosY
+        {
+            get
+            {
+                return _posY;
+            }
+
+            set
+            {
+                _posY = value;
+            }
+        }
+
+        public int Velocity
+        {
+            get
+            {
+                return _velocity;
+            }
+
+            set
+            {
+                _velocity = value;
+            }
+        }
+
+        public int FlightTime
+        {
+            get
+            {
+                return _flightTime;
+            }
+
+            set
+            {
+                _flightTime = value;
+            }
+        }
+
+        public bool Visible
+        {
+            get
+            {
+                return visible;
+            }
+
+            set
+            {
+                visible = value;
+            }
+        }
+
+        public Bitmap ProjectileBit
+        {
+            get
+            {
+                return projectileBit;
+            }
+
+            set
+            {
+                projectileBit = value;
+            }
+        }
+
         public Projektile(bool hostile, bool visible, int posX, int posY, int velocity)
         {
             Hostile = hostile;
@@ -25,13 +117,7 @@ namespace Spielesammlung.Vanguards.Resources
             this.Visible = visible;
         }
 
-        public bool Hostile { get => _hostile; set => _hostile = value; }
-        public int PosX { get => _posX; set => _posX = value; }
-        public int PosY { get => _posY; set => _posY = value; }
-        public int Velocity { get => _velocity; set => _velocity = value; }
-        public int FlightTime { get => _flightTime; set => _flightTime = value; }
-        public bool Visible { get => visible; set => visible = value; }
-        public Bitmap ProjectileBit { get => projectileBit; set => projectileBit = value; }
+
     }
 
 }

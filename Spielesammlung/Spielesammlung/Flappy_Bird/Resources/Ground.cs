@@ -12,9 +12,20 @@ namespace Spielesammlung.Flappy_Bird.Resources
 
         public Ground(int groundPosX)
         {
-            GroundPosX = groundPosX;
+            GroundPosX1 = groundPosX;
         }
 
-        public int GroundPosX1 { get => GroundPosX; set => GroundPosX = value; }
+        public int GroundPosX1
+        {
+            get
+            {
+                return GroundPosX;
+            }
+
+            set
+            {
+                GroundPosX = value;
+            }
+        }
     }
 }

@@ -25,6 +25,84 @@ namespace Spielesammlung.Vanguards.Resources
         private int rectangleHoehe=0;
         private int rectangleBreite = 0;
 
+        public int PosX
+        {
+            get
+            {
+                return _posX;
+            }
+
+            set
+            {
+                _posX = value;
+            }
+        }
+
+        public int PosY
+        {
+            get
+            {
+                return _posY;
+            }
+
+            set
+            {
+                _posY = value;
+            }
+        }
+
+        public D2D.Bitmap ObjectBitmap
+        {
+            get
+            {
+                return _objectBitmap;
+            }
+
+            set
+            {
+                _objectBitmap = value;
+            }
+        }
+
+        public Bitmap ObjectBitmapGDI
+        {
+            get
+            {
+                return _objectBitmapGDI;
+            }
+
+            set
+            {
+                _objectBitmapGDI = value;
+            }
+        }
+
+        public int RectangleHoehe
+        {
+            get
+            {
+                return rectangleHoehe;
+            }
+
+            set
+            {
+                rectangleHoehe = value;
+            }
+        }
+
+        public int RectangleBreite
+        {
+            get
+            {
+                return rectangleBreite;
+            }
+
+            set
+            {
+                rectangleBreite = value;
+            }
+        }
+
         public LevelObject(int posX, int posY, D2D.Bitmap objectBitmap, int rectangleHoehe, int rectangleBreite)
         {
             PosX = posX;
@@ -34,11 +112,6 @@ namespace Spielesammlung.Vanguards.Resources
             this.RectangleBreite = rectangleBreite;
         }
 
-        public int PosX { get => _posX; set => _posX = value; }
-        public int PosY { get => _posY; set => _posY = value; }
-        public D2D.Bitmap ObjectBitmap { get => _objectBitmap; set => _objectBitmap = value; }
-        public Bitmap ObjectBitmapGDI { get => _objectBitmapGDI; set => _objectBitmapGDI = value; }
-        public int RectangleHoehe { get => rectangleHoehe; set => rectangleHoehe = value; }
-        public int RectangleBreite { get => rectangleBreite; set => rectangleBreite = value; }
+
     }
 }
