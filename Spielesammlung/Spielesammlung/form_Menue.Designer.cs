@@ -33,22 +33,22 @@
             this.programmBeendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.highscoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.donkeyKongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vanguardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vanguardsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.snakeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.breakoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minesweeperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.froggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flappyBirdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_DonkeyKong = new System.Windows.Forms.Button();
+            this.btn_Donkey_Kong = new System.Windows.Forms.Button();
             this.btn_Pong = new System.Windows.Forms.Button();
-            this.btn_Vanguard = new System.Windows.Forms.Button();
+            this.btn_Vanguards = new System.Windows.Forms.Button();
             this.btn_Snake = new System.Windows.Forms.Button();
-            this.btn_TicTacToe = new System.Windows.Forms.Button();
+            this.btn_Tic_Tac_Toe = new System.Windows.Forms.Button();
             this.btn_Breakout = new System.Windows.Forms.Button();
             this.btn_Minesweeper = new System.Windows.Forms.Button();
-            this.btn_4Gewinnt = new System.Windows.Forms.Button();
+            this.btn_Vier_Gewinnt = new System.Windows.Forms.Button();
             this.btn_Frogger = new System.Windows.Forms.Button();
-            this.btn_FlappyBird = new System.Windows.Forms.Button();
+            this.btn_Flappybird = new System.Windows.Forms.Button();
             this.lbl_Titelbild = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -82,7 +82,7 @@
             // 
             this.highscoreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.donkeyKongToolStripMenuItem,
-            this.vanguardToolStripMenuItem,
+            this.vanguardsToolStripMenuItem,
             this.snakeToolStripMenuItem,
             this.breakoutToolStripMenuItem,
             this.minesweeperToolStripMenuItem,
@@ -99,12 +99,12 @@
             this.donkeyKongToolStripMenuItem.Text = "Donkey Kong";
             this.donkeyKongToolStripMenuItem.Click += new System.EventHandler(this.donkeyKongToolStripMenuItem_Click);
             // 
-            // vanguardToolStripMenuItem
+            // vanguardsToolStripMenuItem
             // 
-            this.vanguardToolStripMenuItem.Name = "vanguardToolStripMenuItem";
-            this.vanguardToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.vanguardToolStripMenuItem.Text = "Vanguard";
-            this.vanguardToolStripMenuItem.Click += new System.EventHandler(this.vanguardToolStripMenuItem_Click);
+            this.vanguardsToolStripMenuItem.Name = "vanguardsToolStripMenuItem";
+            this.vanguardsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.vanguardsToolStripMenuItem.Text = "Vanguards";
+            this.vanguardsToolStripMenuItem.Click += new System.EventHandler(this.vanguardToolStripMenuItem_Click);
             // 
             // snakeToolStripMenuItem
             // 
@@ -141,17 +141,17 @@
             this.flappyBirdToolStripMenuItem.Text = "Flappy Bird";
             this.flappyBirdToolStripMenuItem.Click += new System.EventHandler(this.flappyBirdToolStripMenuItem_Click);
             // 
-            // btn_DonkeyKong
+            // btn_Donkey_Kong
             // 
-            this.btn_DonkeyKong.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_DonkeyKong.Location = new System.Drawing.Point(32, 300);
-            this.btn_DonkeyKong.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_DonkeyKong.Name = "btn_DonkeyKong";
-            this.btn_DonkeyKong.Size = new System.Drawing.Size(184, 120);
-            this.btn_DonkeyKong.TabIndex = 1;
-            this.btn_DonkeyKong.Text = "Donkey Kong";
-            this.btn_DonkeyKong.UseVisualStyleBackColor = true;
-            this.btn_DonkeyKong.Click += new System.EventHandler(this.btn_DonkeyKong_Click);
+            this.btn_Donkey_Kong.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Donkey_Kong.Location = new System.Drawing.Point(32, 300);
+            this.btn_Donkey_Kong.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Donkey_Kong.Name = "btn_Donkey_Kong";
+            this.btn_Donkey_Kong.Size = new System.Drawing.Size(184, 120);
+            this.btn_Donkey_Kong.TabIndex = 1;
+            this.btn_Donkey_Kong.Text = "Donkey Kong";
+            this.btn_Donkey_Kong.UseVisualStyleBackColor = true;
+            this.btn_Donkey_Kong.Click += new System.EventHandler(this.btn_DonkeyKong_Click);
             // 
             // btn_Pong
             // 
@@ -165,17 +165,17 @@
             this.btn_Pong.UseVisualStyleBackColor = true;
             this.btn_Pong.Click += new System.EventHandler(this.btn_Pong_Click);
             // 
-            // btn_Vanguard
+            // btn_Vanguards
             // 
-            this.btn_Vanguard.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Vanguard.Location = new System.Drawing.Point(420, 300);
-            this.btn_Vanguard.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Vanguard.Name = "btn_Vanguard";
-            this.btn_Vanguard.Size = new System.Drawing.Size(184, 120);
-            this.btn_Vanguard.TabIndex = 3;
-            this.btn_Vanguard.Text = "Vanguard";
-            this.btn_Vanguard.UseVisualStyleBackColor = true;
-            this.btn_Vanguard.Click += new System.EventHandler(this.btn_Vanguard_Click);
+            this.btn_Vanguards.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Vanguards.Location = new System.Drawing.Point(420, 300);
+            this.btn_Vanguards.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Vanguards.Name = "btn_Vanguards";
+            this.btn_Vanguards.Size = new System.Drawing.Size(184, 120);
+            this.btn_Vanguards.TabIndex = 3;
+            this.btn_Vanguards.Text = "Vanguards";
+            this.btn_Vanguards.UseVisualStyleBackColor = true;
+            this.btn_Vanguards.Click += new System.EventHandler(this.btn_Vanguards_Click);
             // 
             // btn_Snake
             // 
@@ -189,17 +189,17 @@
             this.btn_Snake.UseVisualStyleBackColor = true;
             this.btn_Snake.Click += new System.EventHandler(this.btn_Snake_Click);
             // 
-            // btn_TicTacToe
+            // btn_Tic_Tac_Toe
             // 
-            this.btn_TicTacToe.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_TicTacToe.Location = new System.Drawing.Point(808, 300);
-            this.btn_TicTacToe.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_TicTacToe.Name = "btn_TicTacToe";
-            this.btn_TicTacToe.Size = new System.Drawing.Size(184, 120);
-            this.btn_TicTacToe.TabIndex = 5;
-            this.btn_TicTacToe.Text = "Tic Tac Toe";
-            this.btn_TicTacToe.UseVisualStyleBackColor = true;
-            this.btn_TicTacToe.Click += new System.EventHandler(this.btn_TicTacToe_Click);
+            this.btn_Tic_Tac_Toe.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Tic_Tac_Toe.Location = new System.Drawing.Point(808, 300);
+            this.btn_Tic_Tac_Toe.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Tic_Tac_Toe.Name = "btn_Tic_Tac_Toe";
+            this.btn_Tic_Tac_Toe.Size = new System.Drawing.Size(184, 120);
+            this.btn_Tic_Tac_Toe.TabIndex = 5;
+            this.btn_Tic_Tac_Toe.Text = "Tic Tac Toe";
+            this.btn_Tic_Tac_Toe.UseVisualStyleBackColor = true;
+            this.btn_Tic_Tac_Toe.Click += new System.EventHandler(this.btn_Tic_Tac_Toe_Click);
             // 
             // btn_Breakout
             // 
@@ -225,17 +225,17 @@
             this.btn_Minesweeper.UseVisualStyleBackColor = true;
             this.btn_Minesweeper.Click += new System.EventHandler(this.btn_Minesweeper_Click);
             // 
-            // btn_4Gewinnt
+            // btn_Vier_Gewinnt
             // 
-            this.btn_4Gewinnt.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_4Gewinnt.Location = new System.Drawing.Point(420, 430);
-            this.btn_4Gewinnt.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_4Gewinnt.Name = "btn_4Gewinnt";
-            this.btn_4Gewinnt.Size = new System.Drawing.Size(184, 120);
-            this.btn_4Gewinnt.TabIndex = 8;
-            this.btn_4Gewinnt.Text = "4 Gewinnt";
-            this.btn_4Gewinnt.UseVisualStyleBackColor = true;
-            this.btn_4Gewinnt.Click += new System.EventHandler(this.btn_4Gewinnt_Click);
+            this.btn_Vier_Gewinnt.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Vier_Gewinnt.Location = new System.Drawing.Point(420, 430);
+            this.btn_Vier_Gewinnt.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Vier_Gewinnt.Name = "btn_Vier_Gewinnt";
+            this.btn_Vier_Gewinnt.Size = new System.Drawing.Size(184, 120);
+            this.btn_Vier_Gewinnt.TabIndex = 8;
+            this.btn_Vier_Gewinnt.Text = "4 Gewinnt";
+            this.btn_Vier_Gewinnt.UseVisualStyleBackColor = true;
+            this.btn_Vier_Gewinnt.Click += new System.EventHandler(this.btn_Vier_Gewinnt_Click);
             // 
             // btn_Frogger
             // 
@@ -249,17 +249,17 @@
             this.btn_Frogger.UseVisualStyleBackColor = true;
             this.btn_Frogger.Click += new System.EventHandler(this.btn_Frogger_Click);
             // 
-            // btn_FlappyBird
+            // btn_Flappybird
             // 
-            this.btn_FlappyBird.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_FlappyBird.Location = new System.Drawing.Point(808, 430);
-            this.btn_FlappyBird.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_FlappyBird.Name = "btn_FlappyBird";
-            this.btn_FlappyBird.Size = new System.Drawing.Size(184, 120);
-            this.btn_FlappyBird.TabIndex = 10;
-            this.btn_FlappyBird.Text = "Flappy Bird";
-            this.btn_FlappyBird.UseVisualStyleBackColor = true;
-            this.btn_FlappyBird.Click += new System.EventHandler(this.btn_FlappyBird_Click);
+            this.btn_Flappybird.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Flappybird.Location = new System.Drawing.Point(808, 430);
+            this.btn_Flappybird.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Flappybird.Name = "btn_Flappybird";
+            this.btn_Flappybird.Size = new System.Drawing.Size(184, 120);
+            this.btn_Flappybird.TabIndex = 10;
+            this.btn_Flappybird.Text = "Flappy Bird";
+            this.btn_Flappybird.UseVisualStyleBackColor = true;
+            this.btn_Flappybird.Click += new System.EventHandler(this.btn_FlappyBird_Click);
             // 
             // lbl_Titelbild
             // 
@@ -277,16 +277,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.lbl_Titelbild);
-            this.Controls.Add(this.btn_FlappyBird);
+            this.Controls.Add(this.btn_Flappybird);
             this.Controls.Add(this.btn_Frogger);
-            this.Controls.Add(this.btn_4Gewinnt);
+            this.Controls.Add(this.btn_Vier_Gewinnt);
             this.Controls.Add(this.btn_Minesweeper);
             this.Controls.Add(this.btn_Breakout);
-            this.Controls.Add(this.btn_TicTacToe);
+            this.Controls.Add(this.btn_Tic_Tac_Toe);
             this.Controls.Add(this.btn_Snake);
-            this.Controls.Add(this.btn_Vanguard);
+            this.Controls.Add(this.btn_Vanguards);
             this.Controls.Add(this.btn_Pong);
-            this.Controls.Add(this.btn_DonkeyKong);
+            this.Controls.Add(this.btn_Donkey_Kong);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
@@ -307,17 +307,17 @@
         private System.Windows.Forms.ToolStripMenuItem optionenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem programmBeendenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem highscoreToolStripMenuItem;
-        private System.Windows.Forms.Button btn_DonkeyKong;
+        private System.Windows.Forms.Button btn_Donkey_Kong;
         private System.Windows.Forms.Button btn_Pong;
-        private System.Windows.Forms.Button btn_Vanguard;
+        private System.Windows.Forms.Button btn_Vanguards;
         private System.Windows.Forms.Button btn_Snake;
-        private System.Windows.Forms.Button btn_TicTacToe;
+        private System.Windows.Forms.Button btn_Tic_Tac_Toe;
         private System.Windows.Forms.Button btn_Breakout;
         private System.Windows.Forms.Button btn_Minesweeper;
-        private System.Windows.Forms.Button btn_4Gewinnt;
+        private System.Windows.Forms.Button btn_Vier_Gewinnt;
         private System.Windows.Forms.Button btn_Frogger;
-        private System.Windows.Forms.Button btn_FlappyBird;
-        private System.Windows.Forms.ToolStripMenuItem vanguardToolStripMenuItem;
+        private System.Windows.Forms.Button btn_Flappybird;
+        private System.Windows.Forms.ToolStripMenuItem vanguardsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem snakeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem breakoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem minesweeperToolStripMenuItem;

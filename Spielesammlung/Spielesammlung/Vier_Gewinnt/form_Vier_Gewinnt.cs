@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Spielesammlung.Vier_Gewinnt
 {
-    public partial class form_Vier_Gewinnt : Form
+    public partial class Form_Vier_Gewinnt : Form
     {
         // ToDo:
         // Tests und Bugfixing
@@ -26,7 +26,7 @@ namespace Spielesammlung.Vier_Gewinnt
         int reihenkoordinate = 0;
         bool zugKorrekt = true;
         #endregion
-        public form_Vier_Gewinnt()
+        public Form_Vier_Gewinnt()
         {
             InitializeComponent();
             NeueRunde();

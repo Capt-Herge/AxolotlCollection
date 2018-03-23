@@ -42,7 +42,7 @@ namespace Spielesammlung
             }
         }
 
-        private void btn_Vanguard_Click(object sender, EventArgs e)
+        private void btn_Vanguards_Click(object sender, EventArgs e)
         {
             if (spielGestartet == false)
             {
@@ -62,11 +62,11 @@ namespace Spielesammlung
             }
         }
 
-        private void btn_TicTacToe_Click(object sender, EventArgs e)
+        private void btn_Tic_Tac_Toe_Click(object sender, EventArgs e)
         {
             if (spielGestartet == false)
             {
-                Spiel = new Tic_Tac_Toe.form_TicTacToe();
+                Spiel = new Tic_Tac_Toe.Form_Tic_Tac_Toe();
                 spielGestartet = true;
                 Spiel.Show();
             }
@@ -92,11 +92,11 @@ namespace Spielesammlung
             }
         }
 
-        private void btn_4Gewinnt_Click(object sender, EventArgs e)
+        private void btn_Vier_Gewinnt_Click(object sender, EventArgs e)
         {
             if (spielGestartet == false)
             {
-                Spiel = new Vier_Gewinnt.form_Vier_Gewinnt();
+                Spiel = new Vier_Gewinnt.Form_Vier_Gewinnt();
                 spielGestartet = true;
                 Spiel.Show();
             }

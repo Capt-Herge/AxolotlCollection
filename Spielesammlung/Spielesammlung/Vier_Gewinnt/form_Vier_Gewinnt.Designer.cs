@@ -1,6 +1,6 @@
 ﻿namespace Spielesammlung.Vier_Gewinnt
 {
-    partial class form_Vier_Gewinnt
+    partial class Form_Vier_Gewinnt
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_Vier_Gewinnt));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Vier_Gewinnt));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.neustartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
