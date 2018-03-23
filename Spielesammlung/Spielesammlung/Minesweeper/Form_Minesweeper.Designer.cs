@@ -253,7 +253,7 @@
             this.buttonWeiterspielen.Visible = false;
             this.buttonWeiterspielen.Click += new System.EventHandler(this.buttonWeiterspielen_Click);
             // 
-            // Form1
+            // Form_Minesweeper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -266,8 +266,9 @@
             this.Controls.Add(this.panelMinesweeper);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "Form_Minesweeper";
             this.Text = "Minesweeper";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Minesweeper_FormClosed);
             this.panelMinesweeper.ResumeLayout(false);
             this.panelMinesweeper.PerformLayout();
             this.menuStrip1.ResumeLayout(false);

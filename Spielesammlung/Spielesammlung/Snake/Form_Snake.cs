@@ -326,6 +326,7 @@ namespace Spielesammlung.Snake
 
         private void zurückZumMenüToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            form_Menue.spielGestartet = false;
             this.Close();
         }
 
@@ -372,6 +373,11 @@ namespace Spielesammlung.Snake
             buttonNeustart.Enabled = true;
             // Der Fokus wird auf die Form gelegt, damit die Steuerung über die Tastatur funktioniert
             this.Focus();
+        }
+
+        private void Form_Snake_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            form_Menue.spielGestartet = false;
         }
     }
 }

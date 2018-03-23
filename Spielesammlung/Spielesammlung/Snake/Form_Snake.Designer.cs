@@ -247,6 +247,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form_Snake";
             this.Text = "Snake";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Snake_FormClosed);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_Snake_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form_Snake_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSnake)).EndInit();

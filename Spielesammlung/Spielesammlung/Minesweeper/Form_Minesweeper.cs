@@ -670,6 +670,7 @@ namespace Spielesammlung.Minesweeper
 
         private void zurückZumMenüToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            form_Menue.spielGestartet = false;
             this.Close();
         }
 
@@ -746,6 +747,11 @@ namespace Spielesammlung.Minesweeper
             buttonNeustart.Enabled = false;
             buttonWeiterspielen.Visible = false;
             buttonWeiterspielen.Enabled = false;
+        }
+
+        private void Form_Minesweeper_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            form_Menue.spielGestartet = false;
         }
     }
 }
