@@ -24,22 +24,42 @@ namespace Spielesammlung
         #region Spielebuttons
         private void btn_DonkeyKong_Click(object sender, EventArgs e)
         {
-
+            if (spielGestartet == false)
+            {
+                Spiel = new Donkey_Kong.FormDonkeyKong();
+                spielGestartet = true;
+                Spiel.Show();
+            }
         }
 
         private void btn_Pong_Click(object sender, EventArgs e)
         {
-
+            if (spielGestartet == false)
+            {
+                Spiel = new Pong.Form1();
+                spielGestartet = true;
+                Spiel.Show();
+            }
         }
 
         private void btn_Vanguard_Click(object sender, EventArgs e)
         {
-
+            if (spielGestartet == false)
+            {
+                Spiel = new Vanguards.Vanguards();
+                spielGestartet = true;
+                Spiel.Show();
+            }
         }
 
         private void btn_Snake_Click(object sender, EventArgs e)
         {
-
+            if (spielGestartet == false)
+            {
+                Spiel = new Snake.Form_Snake();
+                spielGestartet = true;
+                Spiel.Show();
+            }
         }
 
         private void btn_TicTacToe_Click(object sender, EventArgs e)
@@ -54,12 +74,22 @@ namespace Spielesammlung
 
         private void btn_Breakout_Click(object sender, EventArgs e)
         {
-
+            if (spielGestartet == false)
+            {
+                Spiel = new Breakout.Form1();
+                spielGestartet = true;
+                Spiel.Show();
+            }
         }
 
         private void btn_Minesweeper_Click(object sender, EventArgs e)
         {
-
+            if (spielGestartet == false)
+            {
+                Spiel = new Minesweeper.Form_Minesweeper();
+                spielGestartet = true;
+                Spiel.Show();
+            }
         }
 
         private void btn_4Gewinnt_Click(object sender, EventArgs e)
@@ -74,12 +104,22 @@ namespace Spielesammlung
 
         private void btn_Frogger_Click(object sender, EventArgs e)
         {
-
+            if (spielGestartet == false)
+            {
+                Spiel = new Frogger.Form_Frogger();
+                spielGestartet = true;
+                Spiel.Show();
+            }
         }
 
         private void btn_FlappyBird_Click(object sender, EventArgs e)
         {
-
+            if (spielGestartet == false)
+            {
+                Spiel = new Flappy_Bird.Flappy_Bird();
+                spielGestartet = true;
+                Spiel.Show();
+            }
         }
         #endregion
         #region Menübuttons
