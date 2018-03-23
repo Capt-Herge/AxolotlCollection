@@ -28,14 +28,15 @@ namespace Spielesammlung.Frogger
             #region timer Spiel        
             timerSpiel.Tick += new EventHandler(UpdateSpiel);
 
-            timerSpiel.Interval = 1;
-
-            timerSpiel.Enabled = true;
-
-            timerSpiel.Start();
+            timerSpiel.Interval = 1;     
             #endregion
 
             InitializeComponent();
+
+            button3.Enabled = true;
+            button3.Visible = true;
+
+            label4.Visible = true;
         }
 
 
@@ -202,6 +203,37 @@ namespace Spielesammlung.Frogger
 
             label3.Visible = true;
             label3.Enabled = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            button3.Enabled = false;
+            button3.Visible = false;
+
+            label4.Visible = false;
+
+            textBox1.Enabled = false;
+            textBox1.Visible = false;
+
+            label1.Visible = false;
+            label1.Enabled = false;
+
+            label3.Visible = false;
+            label3.Enabled = false;
+
+            button1.Visible = false;
+            button1.Enabled = false;
+
+            button2.Visible = false;
+            button2.Enabled = false;
+
+            timerSpiel.Start();
+            score = 50000;
+            scoreHilf = 0;
+
+            KeyEventArgs Taste = new KeyEventArgs(new Keys());
+
+            neustart = true;
         }
     }
 }
