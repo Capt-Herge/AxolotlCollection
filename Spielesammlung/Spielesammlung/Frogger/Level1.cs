@@ -14,6 +14,7 @@ namespace Spielesammlung.Frogger
     {
         #region Allgemein
         public static bool neustart = false;
+        public bool levelGeschafft = false;
         #endregion
 
 
@@ -330,6 +331,7 @@ namespace Spielesammlung.Frogger
             AutoWeiss autoWeiss1 = AutoWeiss1Setzen(e);
             AutoWeiss autoWeiss2 = AutoWeiss2Setzen(e);
             #endregion
+
 
             #region Kollisionsbehandlung(Des Todes)
             if(((((frosch.xPosition + 20) >= autoOrange1.xPosition) && (frosch.xPosition <= (autoOrange1.xPosition + 20)) || ((frosch.xPosition + 20) >= autoOrange2.xPosition) && (frosch.xPosition == (autoOrange2.xPosition + 20))) && (froschYPositionInHuepfern == 1)) ||
@@ -3103,6 +3105,8 @@ namespace Spielesammlung.Frogger
             tuempe4Erreicht = false;
             tuempe5Erreicht = false;
             #endregion
+
+            levelGeschafft = true;
         }
     }
 }

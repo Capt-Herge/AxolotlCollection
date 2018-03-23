@@ -40,12 +40,15 @@ namespace Spielesammlung.Flappy_Bird
         private D2D.Bitmap pipeLowerBitmap;
         private D2D.Bitmap pipeUperBitmap;
         private D2D.Bitmap birdBitmap;
-        private int altitudeValue=-8;
+        private int altitudeValue=0;
         private bool pause=true;
+        private bool gameOver = false;
         private bool hold = false;
         private Resources.Bird player;
         private int score = 0;
-        
+        Highscore flappyBirdHighScore = new Highscore();
+        private string playerName="";
+
         public Flappy_Bird()
         {
             InitializeComponent();
@@ -62,7 +65,7 @@ namespace Spielesammlung.Flappy_Bird
             movementTicker.Interval = 1;
             movementTicker.Enabled = true;
             jumpTicker.Elapsed += new ElapsedEventHandler(JumpTicker);
-            jumpTicker.Interval = 30;
+            jumpTicker.Interval = 35;
             jumpTicker.Enabled = true;
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(Flappy_Bird_KeyDown);
@@ -131,7 +134,7 @@ namespace Spielesammlung.Flappy_Bird
             }
         }
 
-        
+ 
 
         private void Flappy_Bird_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
@@ -149,7 +152,7 @@ namespace Spielesammlung.Flappy_Bird
             }
             else if(pause)
             {
-                if (e.KeyCode == Keys.Space)
+                if (e.KeyCode == Keys.Space )
                 {
                     groundList = null;
                     pipePairList = null;
@@ -157,20 +160,308 @@ namespace Spielesammlung.Flappy_Bird
                     groundList = new List<Resources.Ground>();
                     CreateLevel();
                     score = 0;
-                    altitudeValue = -15;
+                    altitudeValue = -8;
                     player.BirdPosy = 300;
+                    labelHighScores.Visible = false;
+                    labelText1.Visible = false;
+                    labelText2.Visible = false;
+                    labelPlayerName.Visible = false;
+                    labelFinalScore.Visible = false;
+                    applyScore.Visible = false;
+                    groupSubmitScore.Visible = false;
+                    groupBestOfTen.Visible = false;
+                    Score.Visible = true;
                     pause = false;
+                    gameOver = false;
                 }
+                if ((e.Modifiers == Keys.Shift) && gameOver)
+                {
+                    if ((playerName.Length < 3))
+                    {
+                        switch (e.KeyCode)
+                        {
+                            case Keys.A:
+                                playerName += "A";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.B:
+                                playerName += "B";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.C:
+                                playerName += "C";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.D:
+                                playerName += "D";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.E:
+                                playerName += "E";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.F:
+                                playerName += "F";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.G:
+                                playerName += "G";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.H:
+                                playerName += "H";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.I:
+                                playerName += "I";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.J:
+                                playerName += "J";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.K:
+                                playerName += "K";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.L:
+                                playerName += "L";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.M:
+                                playerName += "M";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.N:
+                                playerName += "N";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.O:
+                                playerName += "O";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.P:
+                                playerName += "P";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.Q:
+                                playerName += "Q";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.R:
+                                playerName += "R";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.S:
+                                playerName += "S";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.T:
+                                playerName += "T";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.U:
+                                playerName += "U";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.V:
+                                playerName += "V";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.W:
+                                playerName += "W";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.X:
+                                playerName += "X";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.Y:
+                                playerName += "Y";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.Z:
+                                playerName += "Z";
+                                labelPlayerName.Text = playerName;
+                                break;
+                        }
+                    }
+                }
+                else
+                {
+                    if ((playerName.Length < 3))
+                    {
+                        switch (e.KeyCode)
+                        {
+                            case Keys.A:
+                                playerName += "a";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.B:
+                                playerName += "b";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.C:
+                                playerName += "c";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.D:
+                                playerName += "d";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.E:
+                                playerName += "e";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.F:
+                                playerName += "f";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.G:
+                                playerName += "g";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.H:
+                                playerName += "h";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.I:
+                                playerName += "i";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.J:
+                                playerName += "j";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.K:
+                                playerName += "k";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.L:
+                                playerName += "l";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.M:
+                                playerName += "m";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.N:
+                                playerName += "n";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.O:
+                                playerName += "o";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.P:
+                                playerName += "p";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.Q:
+                                playerName += "q";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.R:
+                                playerName += "r";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.S:
+                                playerName += "s";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.T:
+                                playerName += "t";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.U:
+                                playerName += "u";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.V:
+                                playerName += "v";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.W:
+                                playerName += "w";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.X:
+                                playerName += "x";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.Y:
+                                playerName += "y";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.Z:
+                                playerName += "z";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.D0:
+                                playerName += "0";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.D1:
+                                playerName += "1";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.D2:
+                                playerName += "2";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.D3:
+                                playerName += "3";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.D4:
+                                playerName += "4";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.D5:
+                                playerName += "5";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.D6:
+                                playerName += "6";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.D7:
+                                playerName += "7";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.D8:
+                                playerName += "8";
+                                labelPlayerName.Text = playerName;
+                                break;
+                            case Keys.D9:
+                                playerName += "9";
+                                labelPlayerName.Text = playerName;
+                                break;
+                        }
+                    }
+                    if ((e.KeyCode == Keys.Delete || e.KeyCode == Keys.Back) && (playerName.Length > 0))
+                    {
+                        playerName = playerName.Remove(playerName.Length - 1);
+                        labelPlayerName.Text = playerName;
+                    }
+                }
+ 
             }
 
         }
 
         private void JumpTicker(Object source, EventArgs e)
         {
-            if(altitudeValue<=12)
+            if (!pause)
             {
-                altitudeValue++;
+                if (altitudeValue <= 15)
+                {
+                    altitudeValue++;
+                }
             }
+            Highscore flappyBirdHighScore = new Highscore();
+
+            
         }
 
 
@@ -289,7 +580,9 @@ namespace Spielesammlung.Flappy_Bird
                 try
                 {
                     m_renderTarget.Clear(new Color4(this.BackColor));
-                    Rectangle birdRecktangle = new Rectangle(240, player.BirdPosy, 68, 48);
+                    Rectangle birdRecktangle = new Rectangle(player.BirdPosx, player.BirdPosy, 68, 48);
+                    SlimDX.Matrix3x2 rotationMatrix = new SlimDX.Matrix3x2();
+                    SlimDX.Matrix3x2 standartMatrix = new SlimDX.Matrix3x2();
                     //Perform all Direct2D rendering here
                     m_renderTarget.FillRectangle(
                         m_backBrushEx,
@@ -307,7 +600,7 @@ namespace Spielesammlung.Flappy_Bird
                         Rectangle lowerRectangle = new Rectangle(pipes.PipePairPosx, pipes.PipePairPosy + 640 + 200, 104, 640);
                         m_renderTarget.DrawBitmap(pipeUperBitmap, upperRectangle, 1f, interpolationMode);
                         m_renderTarget.DrawBitmap(pipeLowerBitmap, lowerRectangle, 1f, interpolationMode);
-                        if ((player.BirdPosx >= (pipes.PipePairPosx-300)) &&(pipes.Scored==false))
+                        if ((player.BirdPosx >= (pipes.PipePairPosx)) &&(pipes.Scored==false))
                         {
                             score += 1;
                             pipes.Scored = true;
@@ -315,6 +608,19 @@ namespace Spielesammlung.Flappy_Bird
                         if(upperRectangle.IntersectsWith(birdRecktangle)||lowerRectangle.IntersectsWith(birdRecktangle))
                         {
                             pause = true;
+                            gameOver = true;
+                            if (!groupBestOfTen.Visible)
+                            {
+                                labelHighScores.Visible = true;
+                                labelText1.Visible = true;
+                                labelText2.Visible = true;
+                                labelPlayerName.Visible = true;
+                                labelFinalScore.Visible = true;
+                                applyScore.Visible = true;
+                                Score.Visible = false;
+                                labelFinalScore.Text = score.ToString();
+                                groupSubmitScore.Visible = true;
+                            }
                         }
                     }
                     foreach (Resources.Ground ground in groundList)
@@ -323,19 +629,44 @@ namespace Spielesammlung.Flappy_Bird
                         m_renderTarget.DrawBitmap(groundBitmap, groundRectangle, 1f, interpolationMode);
                         if(groundRectangle.IntersectsWith(birdRecktangle))
                         {
-                            pause = true;
+                            if (!groupBestOfTen.Visible)
+                            {
+                                
+                                labelHighScores.Text = flappyBirdHighScore.EinträgeAnzeigenPunkte("Flappy_Bird");
+                                labelHighScores.Visible = true;
+                                labelText1.Visible = true;
+                                labelText2.Visible = true;
+                                labelPlayerName.Visible = true;
+                                labelFinalScore.Visible = true;
+                                applyScore.Visible = true;
+                                Score.Visible = false;
+                                labelFinalScore.Text = score.ToString();
+                                pause = true;
+                                gameOver = true;
+                                groupSubmitScore.Visible = true;
+                            }
                         }
                     }
-                    //TextFormat textFormat = new TextFormat(m_factoryText, "Arial", FontWeight.Normal, SlimDX.DirectWrite.FontStyle.Normal, FontStretch.Normal, 46.0f, "en-us");
-                     //  m_renderTarget.DrawText(score.ToString(),textFormat, new Rectangle(433, 81, 149, 104),new D2D.Brush());
-                  // TextLayout textLayout1 = new TextLayout(m_factoryText, score.ToString(), textFormat, 500, 20);
+                    
+                    PointF rotationPoint = new PointF(player.BirdPosx+ (birdRecktangle.Width / 2), player.BirdPosy + (birdRecktangle.Height / 2));
+                     rotationMatrix = Matrix3x2.Rotation(altitudeValue*6, rotationPoint);
+                    m_renderTarget.Transform = rotationMatrix;
+
+                
+
+                    
                     m_renderTarget.DrawBitmap(birdBitmap, birdRecktangle, 1f, interpolationMode);
+                    Matrix3x2.Translation(0, 0,out rotationMatrix);
+                    
+                    
+                    rotationMatrix = Matrix3x2.Rotation(0);
+                    m_renderTarget.Transform =rotationMatrix;
                     Score.Parent = this;
                     Score.Text = score.ToString();
                 }
                 finally
                 {
-                    m_renderTarget.EndDraw();
+                        m_renderTarget.EndDraw();
                 }
 
             }
@@ -418,5 +749,53 @@ namespace Spielesammlung.Flappy_Bird
             set { m_debugMode = value; }
         }
 
+        private void asdfToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void finalScore_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void applyScore_Click(object sender, EventArgs e)
+        {
+            labelWarnTextLenght.Visible = false;
+            if ((playerName.Length==3)&&pause)
+            {
+                groupSubmitScore.Visible = false;
+                groupBestOfTen.Visible = true;
+               
+                labelText1.Visible = false;
+                labelText2.Visible = false;
+                labelPlayerName.Visible = false;
+                labelFinalScore.Visible = false;
+                applyScore.Visible = false;
+                groupSubmitScore.Visible = false;
+                groupBestOfTen.Visible = true;
+                flappyBirdHighScore = new Highscore();
+                labelHighScores.Text= flappyBirdHighScore.HighscoreEintragen("Flappy_Bird", playerName, score.ToString());
+            }
+            else if(playerName.Length!=3)
+            {
+                labelWarnTextLenght.Visible = true;
+            }
+        }
+
+        private void textLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

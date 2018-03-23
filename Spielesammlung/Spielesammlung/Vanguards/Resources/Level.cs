@@ -37,6 +37,7 @@ namespace Spielesammlung.Vanguards.Resources
         public Level()
         {
             LevelPositionX = 0;
+           
         }
         public void LoadLevel1(D2D.WindowRenderTarget renderTarget)
         {
@@ -169,11 +170,17 @@ namespace Spielesammlung.Vanguards.Resources
         {
             if(currentLevel==1)
             {
-
+                _enemyShipList = null;
+                _enemyShipList = new List<EnemyShip>();
+                _objectList = null;
+                _objectList = new List<LevelObject>();
                 LoadLevel2(renderTarget);
             }else if(currentLevel==2)
             {
- 
+                _enemyShipList = null;
+                _enemyShipList = new List<EnemyShip>();
+                _objectList = null;
+                _objectList = new List<LevelObject>();
                 LoadLevel1(renderTarget);
             }
         }
