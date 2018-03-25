@@ -48,6 +48,7 @@ namespace Spielesammlung.Flappy_Bird
         private int score = 0;
         Highscore flappyBirdHighScore = new Highscore();
         private string playerName="";
+        private bool firstTimeStarted=true;
 
         public Flappy_Bird()
         {
@@ -72,6 +73,11 @@ namespace Spielesammlung.Flappy_Bird
             this.KeyUp += new KeyEventHandler(Flappy_Bird_KeyUp);
             CreateLevel();
             player = new Resources.Bird(300);
+            if(firstTimeStarted)
+            {
+                groupHelp.Visible = true;
+
+            }
         }
 
         private void CreateLevel()
@@ -152,7 +158,7 @@ namespace Spielesammlung.Flappy_Bird
             }
             else if(pause)
             {
-                if (e.KeyCode == Keys.Space )
+                if ((e.KeyCode == Keys.Space )&&gameOver)
                 {
                     groundList = null;
                     pipePairList = null;
@@ -162,6 +168,22 @@ namespace Spielesammlung.Flappy_Bird
                     score = 0;
                     altitudeValue = -8;
                     player.BirdPosy = 300;
+                    labelHighScores.Visible = false;
+                    labelText1.Visible = false;
+                    labelText2.Visible = false;
+                    labelPlayerName.Visible = false;
+                    labelFinalScore.Visible = false;
+                    applyScore.Visible = false;
+                    groupSubmitScore.Visible = false;
+                    groupBestOfTen.Visible = false;
+                    Score.Visible = true;
+                    pause = false;
+                    gameOver = false;
+                }
+                if ((e.KeyCode == Keys.Space))
+                {
+
+                    altitudeValue = -8;
                     labelHighScores.Visible = false;
                     labelText1.Visible = false;
                     labelText2.Visible = false;
@@ -794,6 +816,72 @@ namespace Spielesammlung.Flappy_Bird
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void highscoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            flappyBirdHighScore = new Highscore();
+            labelHighScores.Text = flappyBirdHighScore.EinträgeAnzeigenPunkte("Flappy_Bird");
+            labelHighScores.Visible = true;
+            labelText1.Visible = false;
+            labelText2.Visible = false;
+            labelPlayerName.Visible = false;
+            labelFinalScore.Visible = false;
+            applyScore.Visible = false;
+            groupSubmitScore.Visible = false;
+            groupBestOfTen.Visible = true;
+            Score.Visible = true;
+            pause = true;
+            gameOver = false;
+        }
+
+        private void zumHauptmenüToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            form_Menue.spielGestartet = false;
+            this.Close();
+        }
+
+        private void Flappy_Bird_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            form_Menue.spielGestartet = false;
+        }
+
+        private void helpGetButton_Click(object sender, EventArgs e)
+        {
+            if (firstTimeStarted)
+            {
+                firstTimeStarted = false;
+                groupHelp.Visible = false;
+            }
+            else
+            {
+                groupHelp.Visible = false;
+                pause = false;
+            }
+        }
+
+        private void hilfeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(groupHelp.Visible==true)
+            {
+                groupHelp.Visible = false;
+                pause = false;
+            }
+            else
+            {
+                groupHelp.Visible = true;
+                pause = true;
+            }
+        }
+
+        private void labelHelp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Flappy_Bird_Load(object sender, EventArgs e)
         {
 
         }

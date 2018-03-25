@@ -201,6 +201,10 @@ namespace Spielesammlung.Vanguards.Resources
             LevelPositionX = 0;
             CurrentLevel = 1;
             //Objects
+            _objectList = null;
+            _enemyShipList = null;
+            _objectList = new List<LevelObject>();
+            _enemyShipList = new List<EnemyShip>();
             Background = Backgroundlvl1;
             ObjectList.Add(new LevelObject(400, 400, LoadBitmap(Resources.a10010,renderTarget), 150, 150));
             ObjectList.Add(new LevelObject(1200, 200, LoadBitmap(Resources.a10012, renderTarget),150, 200));
@@ -232,8 +236,12 @@ namespace Spielesammlung.Vanguards.Resources
             CurrentLevel = 2;
             //Objects
             Backgroundgdi = Resources.SpaceBackground1;
-            
-            ObjectList.Add(new LevelObject(1, 1, LoadBitmap(Resources.a10012, renderTarget), 20, 6000));
+            _objectList=null;
+            _enemyShipList = null;
+           _objectList = new List<LevelObject>();
+           _enemyShipList = new List<EnemyShip>();
+
+        ObjectList.Add(new LevelObject(1, 1, LoadBitmap(Resources.a10012, renderTarget), 20, 6000));
             ObjectList.Add(new LevelObject(1, 740, LoadBitmap(Resources.a10012, renderTarget), 30, 6000));
 
             //enemies
