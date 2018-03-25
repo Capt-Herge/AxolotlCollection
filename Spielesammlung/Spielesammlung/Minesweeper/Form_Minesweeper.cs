@@ -34,7 +34,7 @@ namespace Spielesammlung.Minesweeper
             panelMinesweeper.BackColor = Color.LightSteelBlue;
 
             // Anleitung, Name des Spiels und der Button zum Starten des Spiels werden angezeigt
-            string anleitung = "Klicke mit der linken Maustaste auf die Felder,\num diese aufzudecken. Ziel ist es in möglichst\nkurzer Zeit alle Felder ohne Bomben aufzudecken.\nWenn sich eine Bombe unter dem geklickten Feld\n          befindet ist das Spiel vobei.\nHinweis: Mit Rechtslkick können vermutete Bomben\n         markiert werden ohne diese aufzudecken.";
+            string anleitung = "Klicke mit der linken Maustaste auf die Felder,\num diese aufzudecken. Ziel ist es in möglichst\nkurzer Zeit alle Felder ohne Bomben aufzudecken.\nWenn sich eine Bombe unter dem geklickten Feld\n          befindet ist das Spiel vobei.\nHinweis: Mit Rechtsklick können vermutete Bomben\n         markiert werden ohne diese aufzudecken.";
             labelAnleitung.Text = anleitung;
             labelAnleitung.Visible = true;
             labelMinesweeper.Visible = true;

@@ -198,8 +198,8 @@
             // optionenToolStripMenuItem
             // 
             this.optionenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.zurückZumMenüToolStripMenuItem,
-            this.neustartToolStripMenuItem});
+            this.neustartToolStripMenuItem,
+            this.zurückZumMenüToolStripMenuItem});
             this.optionenToolStripMenuItem.Name = "optionenToolStripMenuItem";
             this.optionenToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.optionenToolStripMenuItem.Text = "Optionen";
