@@ -10,10 +10,8 @@ using System.Windows.Forms;
 
 namespace Spielesammlung.Tic_Tac_Toe
 {
-    public partial class form_TicTacToe : Form
+    public partial class Form_Tic_Tac_Toe : Form
     {
-        // ToDo:
-        // Tests und Bugfixing
         #region Variablendeklaration
         char[,] spielfeld = new char[3, 3];
         char zug = 'X';
@@ -23,7 +21,7 @@ namespace Spielesammlung.Tic_Tac_Toe
         int punkteO = 0;
         int zugCounter = 0;
         #endregion
-        public form_TicTacToe()
+        public Form_Tic_Tac_Toe()
         {
             InitializeComponent();
             NeueRunde();

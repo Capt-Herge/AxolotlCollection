@@ -71,9 +71,9 @@
             // menüToolStripMenuItem
             // 
             this.menüToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.zurückToolStripMenuItem,
             this.neustartToolStripMenuItem,
-            this.programmBeendenToolStripMenuItem});
+            this.programmBeendenToolStripMenuItem,
+            this.zurückToolStripMenuItem});
             this.menüToolStripMenuItem.Name = "menüToolStripMenuItem";
             this.menüToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.menüToolStripMenuItem.Text = "Optionen";
@@ -244,7 +244,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form_Frogger";
-            this.Text = "Form_Frogger";
+            this.Text = "Frogger";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Frogger_FormClosed);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormDonkeyKong_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormDonkeyKong_KeyUp);

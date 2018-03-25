@@ -214,11 +214,11 @@
     </Compile>
     <Compile Include="Snake\Spielfeld.cs" />
     <Compile Include="Snake\Steuerung.cs" />
-    <Compile Include="Tic_Tac_Toe\form_TicTacToe.cs">
+    <Compile Include="Tic_Tac_Toe\Form_Tic_Tac_Toe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tic_Tac_Toe\form_TicTacToe.Designer.cs">
-      <DependentUpon>form_TicTacToe.cs</DependentUpon>
+    <Compile Include="Tic_Tac_Toe\Form_Tic_Tac_Toe.Designer.cs">
+      <DependentUpon>Form_Tic_Tac_Toe.cs</DependentUpon>
     </Compile>
     <Compile Include="Vanguards\PlayerShip.cs" />
     <Compile Include="Vanguards\Resources\EnemyShip.cs" />
@@ -236,11 +236,11 @@
     <Compile Include="Vanguards\Vanguards.Designer.cs">
       <DependentUpon>Vanguards.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vier_Gewinnt\form_Vier_Gewinnt.cs">
+    <Compile Include="Vier_Gewinnt\Form_Vier_Gewinnt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vier_Gewinnt\form_Vier_Gewinnt.Designer.cs">
-      <DependentUpon>form_Vier_Gewinnt.cs</DependentUpon>
+    <Compile Include="Vier_Gewinnt\Form_Vier_Gewinnt.Designer.cs">
+      <DependentUpon>Form_Vier_Gewinnt.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Astroids\FormAsteroids.resx">
       <DependentUpon>FormAsteroids.cs</DependentUpon>
@@ -283,8 +283,8 @@
     <EmbeddedResource Include="Vanguards\Vanguards.resx">
       <DependentUpon>Vanguards.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vier_Gewinnt\form_Vier_Gewinnt.resx">
-      <DependentUpon>form_Vier_Gewinnt.cs</DependentUpon>
+    <EmbeddedResource Include="Vier_Gewinnt\Form_Vier_Gewinnt.resx">
+      <DependentUpon>Form_Vier_Gewinnt.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

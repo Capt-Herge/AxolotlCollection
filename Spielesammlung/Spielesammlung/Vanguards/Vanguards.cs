@@ -59,6 +59,9 @@ namespace Spielesammlung.Vanguards
         private bool nextLevel = false;
         private bool invincible = true;
         private int invincibleCount = 0;
+        Highscore VanguardsHighScore = new Highscore();
+        private bool firstTimeStarted=true;
+        private string playerName = "";
         public Vanguards()
         {
             InitializeComponent();
@@ -75,7 +78,7 @@ namespace Spielesammlung.Vanguards
             InitializeGraphics();
             _enemyFireTimer.Tick += EnemyFireTick;
             _enemyFireTimer.Start();
-            level.LoadLevel2(m_renderTarget);
+            level.LoadLevel1(m_renderTarget);
             levelTicker.Elapsed += new ElapsedEventHandler(LevelTick);
             levelTicker.Interval = 15;
             movementTicker.Elapsed += new ElapsedEventHandler(tick);
@@ -92,6 +95,13 @@ namespace Spielesammlung.Vanguards
             this.KeyDown += new KeyEventHandler(Vanguards_KeyDown);
             this.KeyUp += new KeyEventHandler(Vanguards_KeyUp);
             continueScreenGDI.MakeTransparent(Color.White);
+            if(firstTimeStarted)
+            {
+                groupHelp.Parent = this;
+                
+                pause = true;
+                groupHelp.Visible = true;
+            }
         }
 
         static bool IntersectPixels(Rectangle rectangleA, Bitmap bmpA,
@@ -540,7 +550,283 @@ namespace Spielesammlung.Vanguards
                         lives--;
                     }
                 }
-                if(nextLevel)
+                #region tasteneingabe
+                if (gameOver)
+                {
+                    if ((e.Modifiers == Keys.Shift) && gameOver)
+                    {
+                        if ((playerName.Length < 3))
+                        {
+                            switch (e.KeyCode)
+                            {
+                                case Keys.A:
+                                    playerName += "A";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.B:
+                                    playerName += "B";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.C:
+                                    playerName += "C";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.D:
+                                    playerName += "D";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.E:
+                                    playerName += "E";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.F:
+                                    playerName += "F";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.G:
+                                    playerName += "G";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.H:
+                                    playerName += "H";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.I:
+                                    playerName += "I";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.J:
+                                    playerName += "J";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.K:
+                                    playerName += "K";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.L:
+                                    playerName += "L";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.M:
+                                    playerName += "M";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.N:
+                                    playerName += "N";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.O:
+                                    playerName += "O";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.P:
+                                    playerName += "P";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.Q:
+                                    playerName += "Q";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.R:
+                                    playerName += "R";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.S:
+                                    playerName += "S";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.T:
+                                    playerName += "T";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.U:
+                                    playerName += "U";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.V:
+                                    playerName += "V";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.W:
+                                    playerName += "W";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.X:
+                                    playerName += "X";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.Y:
+                                    playerName += "Y";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.Z:
+                                    playerName += "Z";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if ((playerName.Length < 3))
+                        {
+                            switch (e.KeyCode)
+                            {
+                                case Keys.A:
+                                    playerName += "a";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.B:
+                                    playerName += "b";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.C:
+                                    playerName += "c";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.D:
+                                    playerName += "d";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.E:
+                                    playerName += "e";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.F:
+                                    playerName += "f";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.G:
+                                    playerName += "g";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.H:
+                                    playerName += "h";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.I:
+                                    playerName += "i";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.J:
+                                    playerName += "j";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.K:
+                                    playerName += "k";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.L:
+                                    playerName += "l";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.M:
+                                    playerName += "m";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.N:
+                                    playerName += "n";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.O:
+                                    playerName += "o";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.P:
+                                    playerName += "p";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.Q:
+                                    playerName += "q";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.R:
+                                    playerName += "r";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.S:
+                                    playerName += "s";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.T:
+                                    playerName += "t";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.U:
+                                    playerName += "u";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.V:
+                                    playerName += "v";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.W:
+                                    playerName += "w";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.X:
+                                    playerName += "x";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.Y:
+                                    playerName += "y";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.Z:
+                                    playerName += "z";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.D0:
+                                    playerName += "0";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.D1:
+                                    playerName += "1";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.D2:
+                                    playerName += "2";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.D3:
+                                    playerName += "3";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.D4:
+                                    playerName += "4";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.D5:
+                                    playerName += "5";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.D6:
+                                    playerName += "6";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.D7:
+                                    playerName += "7";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.D8:
+                                    playerName += "8";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                                case Keys.D9:
+                                    playerName += "9";
+                                    labelPlayerName.Text = playerName;
+                                    break;
+                            }
+                        }
+                        if ((e.KeyCode == Keys.Delete || e.KeyCode == Keys.Back) && (playerName.Length > 0))
+                        {
+                            playerName = playerName.Remove(playerName.Length - 1);
+                            labelPlayerName.Text = playerName;
+                        }
+                    }
+                }
+                #endregion tasteneingabe
+                if (nextLevel)
                 {
                     if(e.KeyCode==Keys.Space)
                     {
@@ -553,6 +839,14 @@ namespace Spielesammlung.Vanguards
                 }
                 if (e.KeyCode == Keys.P)
                 {
+                    labelHighScores.Visible = false;
+                    labelText1.Visible = false;
+                    labelText2.Visible = false;
+                    labelPlayerName.Visible = false;
+                    labelFinalScore.Visible = false;
+                    applyScore.Visible = false;
+                    groupSubmitScore.Visible = false;
+                    groupBestOfTen.Visible = false;
                     pause = false;
                 }
 
@@ -572,7 +866,7 @@ namespace Spielesammlung.Vanguards
         {
 
             label1.Text = "Leben:" + lives;
-            label2.Text = "Score:" + score;
+            labelScore.Text = "Score:" + score;
             base.OnPaint(e);
             if (m_initialized)
             {
@@ -653,9 +947,24 @@ namespace Spielesammlung.Vanguards
                             gameOver = true;
                             level.LoadLevelGameOver();
                             level.Background = LoadBitmap(level.Backgroundgdi);
-                            FinalScoreLabel.Visible = true;
-                            FinalScoreLabel.Text = "Score: " + score;
+                            FinalScoreLabel.Visible = false;
+                            FinalScoreLabel.Text = "Score: " + score;                     
                             pause =true;
+                            if (!groupBestOfTen.Visible)
+                            {
+
+                                labelHighScores.Text = VanguardsHighScore.EinträgeAnzeigenPunkte("Flappy_Bird");
+                                labelHighScores.Visible = true;
+                                labelText1.Visible = true;
+                                labelText2.Visible = true;
+                                labelPlayerName.Visible = true;
+                                labelFinalScore.Visible = true;
+                                applyScore.Visible = true;
+                                labelScore.Visible = false;
+                                labelFinalScore.Text = score.ToString();
+                                groupSubmitScore.Visible = true;
+                            }
+
                         }
                     }
                     else if(nextLevel)
@@ -693,5 +1002,105 @@ namespace Spielesammlung.Vanguards
             set { m_debugMode = value; }
         }
 
+        private void highscoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (groupBestOfTen.Visible == false)
+            {
+                VanguardsHighScore = new Highscore();
+                labelHighScores.Text = VanguardsHighScore.EinträgeAnzeigenPunkte("Vanguards");
+                labelHighScores.Visible = true;
+                groupBestOfTen.Visible = true;
+                pause = true;
+            }
+            else
+            {
+
+                labelHighScores.Visible = false;
+                groupBestOfTen.Visible = false;
+                pause = false;
+
+            }
+        }
+
+        private void applyScore_Click(object sender, EventArgs e)
+        {
+            labelWarnTextLenght.Visible = false;
+            if ((playerName.Length == 3) && pause)
+            {
+                groupSubmitScore.Visible = false;
+                groupBestOfTen.Visible = true;
+
+                labelText1.Visible = false;
+                labelText2.Visible = false;
+                labelPlayerName.Visible = false;
+                labelFinalScore.Visible = false;
+                applyScore.Visible = false;
+                groupSubmitScore.Visible = false;
+                groupBestOfTen.Visible = true;
+                VanguardsHighScore = new Highscore();
+                labelHighScores.Text = VanguardsHighScore.HighscoreEintragen("Vanguards", playerName, score.ToString());
+            }
+            else if (playerName.Length != 3)
+            {
+                labelWarnTextLenght.Visible = true;
+            }
+        }
+
+        private void pauseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(!gameOver)
+            {
+                pause = !pause;
+            }
+        }
+
+        private void neuesSpielToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _projektilListe = null;
+            _projektilListe = new List<Resources.Projektile>();
+            score = 0;
+            lives = 3;
+            _Player.PosX = 20;
+            _Player.PosY = 300;
+            level.LoadLevel1(m_renderTarget);
+
+        }
+
+        private void zumMenüToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            form_Menue.spielGestartet = false;
+            this.Close();
+        }
+
+        private void Vanguards_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Vanguards_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            form_Menue.spielGestartet = false;
+        }
+
+        private void helpGetButton_Click(object sender, EventArgs e)
+        {
+            pause = false;
+            groupHelp.Visible = false;
+            firstTimeStarted = false;
+        }
+
+        private void hilfeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(groupHelp.Visible==true)
+            {
+                pause = false;
+                groupHelp.Visible = false;
+            }
+            else
+            {
+                pause = true;
+                groupHelp.Visible = true;
+            }
+        }
     }
 }

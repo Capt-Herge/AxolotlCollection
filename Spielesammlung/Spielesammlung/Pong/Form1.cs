@@ -228,7 +228,36 @@ namespace Pong
             labelAnleitung.Visible = false;
             this.Focus();
         }
+        private void neustartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            p1Score = 0;
+            p2Score = 0;
+            p1Velocity = 0;
+            P2Velocity = 0;
+            ballVelocityX = 3;
+            Ball.Location = new Point(this.Height / 2, this.Width / 2);
+            Player1.Location = new Point(Player1.Location.X, this.Height / 3);
+            Player2.Location = new Point(Player2.Location.X, this.Height / 3);
+            timer1.Start();
+            pause = !pause;
+            this.Focus();
+            return;
+        }
 
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            pause = !pause;
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            form_Menue.spielGestartet = false;
+        }
+
+        private void zurückZumMenüToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            form_Menue.spielGestartet = false;
+        }
     }
 
 

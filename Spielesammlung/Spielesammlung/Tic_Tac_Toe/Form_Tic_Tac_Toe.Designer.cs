@@ -1,6 +1,6 @@
 ﻿namespace Spielesammlung.Tic_Tac_Toe
 {
-    partial class form_TicTacToe
+    partial class Form_Tic_Tac_Toe
     {
         /// <summary>
         /// Required designer variable.
