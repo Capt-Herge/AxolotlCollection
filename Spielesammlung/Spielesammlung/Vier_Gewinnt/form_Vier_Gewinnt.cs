@@ -10,11 +10,8 @@ using System.Windows.Forms;
 
 namespace Spielesammlung.Vier_Gewinnt
 {
-    public partial class form_Vier_Gewinnt : Form
+    public partial class Form_Vier_Gewinnt : Form
     {
-        // ToDo:
-        // Tests und Bugfixing
-        // Menübuttonclickevent
         #region Variablendeklaration
         char[,] spielfeld = new char[7, 6];
         char zug = 'R';
@@ -27,7 +24,7 @@ namespace Spielesammlung.Vier_Gewinnt
         int reihenkoordinate = 0;
         bool zugKorrekt = true;
         #endregion
-        public form_Vier_Gewinnt()
+        public Form_Vier_Gewinnt()
         {
             InitializeComponent();
             NeueRunde();
@@ -98,15 +95,22 @@ namespace Spielesammlung.Vier_Gewinnt
         }
         private void btn_menue_Click(object sender, EventArgs e)
         {
-            // Todo
             // zum Menü wechseln, Form beenden
+            form_Menue.spielGestartet = false;
+            this.Close();
         }
         private void btn_messageOK_Click(object sender, EventArgs e)
         {
+            // Lässt das Messageoverlay ausblenden
             btn_messageOK.Visible = false;
             lbl_caption.Visible = false;
             lbl_message.Visible = false;
             lbl_messagebackground.Visible = false;
+        }
+        private void form_Vier_Gewinnt_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Wird ausgeführt wenn die Forms durch Klick auf das X oben rechts geschlossen wird
+            form_Menue.spielGestartet = false;
         }
         #endregion
         #region Methoden
@@ -242,7 +246,7 @@ namespace Spielesammlung.Vier_Gewinnt
         private void TestFeldBelegt()
         {
             // Methode zum Testen ob das aktuelle Feld bereits belegt ist
-            if (spielfeld[spaltenkoordinate, reihenkoordinate] == 'R' || spielfeld[spaltenkoordinate, reihenkoordinate] == 'F')
+            if (spielfeld[spaltenkoordinate, reihenkoordinate] == 'R' || spielfeld[spaltenkoordinate, reihenkoordinate] == 'G')
             {
                 zugKorrekt = false;
                 message = "Das geklickte Feld ist bereits belegt, bitte wähle ein anderes aus.";
@@ -420,5 +424,6 @@ namespace Spielesammlung.Vier_Gewinnt
             lbl_messagebackground.Visible = true;
         }
         #endregion
+
     }
 }

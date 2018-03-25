@@ -1,6 +1,6 @@
 ﻿namespace Spielesammlung.Vier_Gewinnt
 {
-    partial class form_Vier_Gewinnt
+    partial class Form_Vier_Gewinnt
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Vier_Gewinnt));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.neustartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,21 +107,21 @@
             this.neustartToolStripMenuItem,
             this.zumMenueToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
-            this.toolStripMenuItem1.Text = "Menü";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(69, 20);
+            this.toolStripMenuItem1.Text = "Optionen";
             // 
             // neustartToolStripMenuItem
             // 
             this.neustartToolStripMenuItem.Name = "neustartToolStripMenuItem";
-            this.neustartToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.neustartToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.neustartToolStripMenuItem.Text = "Neustart";
             this.neustartToolStripMenuItem.Click += new System.EventHandler(this.btn_reset_Click);
             // 
             // zumMenueToolStripMenuItem
             // 
             this.zumMenueToolStripMenuItem.Name = "zumMenueToolStripMenuItem";
-            this.zumMenueToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.zumMenueToolStripMenuItem.Text = "Zum Menü";
+            this.zumMenueToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.zumMenueToolStripMenuItem.Text = "Zurück zum Menü";
             this.zumMenueToolStripMenuItem.Click += new System.EventHandler(this.btn_menue_Click);
             // 
             // lbl_spielerR
@@ -243,7 +244,7 @@
             this.btn_A1.Name = "btn_A1";
             this.btn_A1.Size = new System.Drawing.Size(100, 100);
             this.btn_A1.TabIndex = 65;
-            this.btn_A1.Text = "A1";
+            this.btn_A1.Text = "";
             this.btn_A1.UseVisualStyleBackColor = true;
             this.btn_A1.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -254,7 +255,7 @@
             this.btn_A2.Name = "btn_A2";
             this.btn_A2.Size = new System.Drawing.Size(100, 100);
             this.btn_A2.TabIndex = 64;
-            this.btn_A2.Text = "A2";
+            this.btn_A2.Text = "";
             this.btn_A2.UseVisualStyleBackColor = true;
             this.btn_A2.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -265,7 +266,7 @@
             this.btn_A3.Name = "btn_A3";
             this.btn_A3.Size = new System.Drawing.Size(100, 100);
             this.btn_A3.TabIndex = 63;
-            this.btn_A3.Text = "A3";
+            this.btn_A3.Text = "";
             this.btn_A3.UseVisualStyleBackColor = true;
             this.btn_A3.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -276,7 +277,7 @@
             this.btn_A4.Name = "btn_A4";
             this.btn_A4.Size = new System.Drawing.Size(100, 100);
             this.btn_A4.TabIndex = 62;
-            this.btn_A4.Text = "A4";
+            this.btn_A4.Text = "";
             this.btn_A4.UseVisualStyleBackColor = true;
             this.btn_A4.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -287,7 +288,7 @@
             this.btn_A5.Name = "btn_A5";
             this.btn_A5.Size = new System.Drawing.Size(100, 100);
             this.btn_A5.TabIndex = 61;
-            this.btn_A5.Text = "A5";
+            this.btn_A5.Text = "";
             this.btn_A5.UseVisualStyleBackColor = true;
             this.btn_A5.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -298,7 +299,7 @@
             this.btn_A6.Name = "btn_A6";
             this.btn_A6.Size = new System.Drawing.Size(100, 100);
             this.btn_A6.TabIndex = 60;
-            this.btn_A6.Text = "A6";
+            this.btn_A6.Text = "";
             this.btn_A6.UseVisualStyleBackColor = true;
             this.btn_A6.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -309,7 +310,7 @@
             this.btn_B1.Name = "btn_B1";
             this.btn_B1.Size = new System.Drawing.Size(100, 100);
             this.btn_B1.TabIndex = 66;
-            this.btn_B1.Text = "B1";
+            this.btn_B1.Text = "";
             this.btn_B1.UseVisualStyleBackColor = true;
             this.btn_B1.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -320,7 +321,7 @@
             this.btn_B2.Name = "btn_B2";
             this.btn_B2.Size = new System.Drawing.Size(100, 100);
             this.btn_B2.TabIndex = 67;
-            this.btn_B2.Text = "B2";
+            this.btn_B2.Text = "";
             this.btn_B2.UseVisualStyleBackColor = true;
             this.btn_B2.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -331,7 +332,7 @@
             this.btn_B3.Name = "btn_B3";
             this.btn_B3.Size = new System.Drawing.Size(100, 100);
             this.btn_B3.TabIndex = 68;
-            this.btn_B3.Text = "B3";
+            this.btn_B3.Text = "";
             this.btn_B3.UseVisualStyleBackColor = true;
             this.btn_B3.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -342,7 +343,7 @@
             this.btn_B4.Name = "btn_B4";
             this.btn_B4.Size = new System.Drawing.Size(100, 100);
             this.btn_B4.TabIndex = 69;
-            this.btn_B4.Text = "B4";
+            this.btn_B4.Text = "";
             this.btn_B4.UseVisualStyleBackColor = true;
             this.btn_B4.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -353,7 +354,7 @@
             this.btn_B5.Name = "btn_B5";
             this.btn_B5.Size = new System.Drawing.Size(100, 100);
             this.btn_B5.TabIndex = 70;
-            this.btn_B5.Text = "B5";
+            this.btn_B5.Text = "";
             this.btn_B5.UseVisualStyleBackColor = true;
             this.btn_B5.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -364,7 +365,7 @@
             this.btn_B6.Name = "btn_B6";
             this.btn_B6.Size = new System.Drawing.Size(100, 100);
             this.btn_B6.TabIndex = 71;
-            this.btn_B6.Text = "B6";
+            this.btn_B6.Text = "";
             this.btn_B6.UseVisualStyleBackColor = true;
             this.btn_B6.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -375,7 +376,7 @@
             this.btn_C1.Name = "btn_C1";
             this.btn_C1.Size = new System.Drawing.Size(100, 100);
             this.btn_C1.TabIndex = 72;
-            this.btn_C1.Text = "C1";
+            this.btn_C1.Text = "";
             this.btn_C1.UseVisualStyleBackColor = true;
             this.btn_C1.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -386,7 +387,7 @@
             this.btn_C2.Name = "btn_C2";
             this.btn_C2.Size = new System.Drawing.Size(100, 100);
             this.btn_C2.TabIndex = 73;
-            this.btn_C2.Text = "C2";
+            this.btn_C2.Text = "";
             this.btn_C2.UseVisualStyleBackColor = true;
             this.btn_C2.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -397,7 +398,7 @@
             this.btn_C3.Name = "btn_C3";
             this.btn_C3.Size = new System.Drawing.Size(100, 100);
             this.btn_C3.TabIndex = 74;
-            this.btn_C3.Text = "C3";
+            this.btn_C3.Text = "";
             this.btn_C3.UseVisualStyleBackColor = true;
             this.btn_C3.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -408,7 +409,7 @@
             this.btn_C4.Name = "btn_C4";
             this.btn_C4.Size = new System.Drawing.Size(100, 100);
             this.btn_C4.TabIndex = 75;
-            this.btn_C4.Text = "C4";
+            this.btn_C4.Text = "";
             this.btn_C4.UseVisualStyleBackColor = true;
             this.btn_C4.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -419,7 +420,7 @@
             this.btn_C5.Name = "btn_C5";
             this.btn_C5.Size = new System.Drawing.Size(100, 100);
             this.btn_C5.TabIndex = 76;
-            this.btn_C5.Text = "C5";
+            this.btn_C5.Text = "";
             this.btn_C5.UseVisualStyleBackColor = true;
             this.btn_C5.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -430,7 +431,7 @@
             this.btn_C6.Name = "btn_C6";
             this.btn_C6.Size = new System.Drawing.Size(100, 100);
             this.btn_C6.TabIndex = 77;
-            this.btn_C6.Text = "C6";
+            this.btn_C6.Text = "";
             this.btn_C6.UseVisualStyleBackColor = true;
             this.btn_C6.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -441,7 +442,7 @@
             this.btn_D1.Name = "btn_D1";
             this.btn_D1.Size = new System.Drawing.Size(100, 100);
             this.btn_D1.TabIndex = 78;
-            this.btn_D1.Text = "D1";
+            this.btn_D1.Text = "";
             this.btn_D1.UseVisualStyleBackColor = true;
             this.btn_D1.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -452,7 +453,7 @@
             this.btn_D2.Name = "btn_D2";
             this.btn_D2.Size = new System.Drawing.Size(100, 100);
             this.btn_D2.TabIndex = 79;
-            this.btn_D2.Text = "D2";
+            this.btn_D2.Text = "";
             this.btn_D2.UseVisualStyleBackColor = true;
             this.btn_D2.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -463,7 +464,7 @@
             this.btn_D3.Name = "btn_D3";
             this.btn_D3.Size = new System.Drawing.Size(100, 100);
             this.btn_D3.TabIndex = 80;
-            this.btn_D3.Text = "D3";
+            this.btn_D3.Text = "";
             this.btn_D3.UseVisualStyleBackColor = true;
             this.btn_D3.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -474,7 +475,7 @@
             this.btn_D4.Name = "btn_D4";
             this.btn_D4.Size = new System.Drawing.Size(100, 100);
             this.btn_D4.TabIndex = 81;
-            this.btn_D4.Text = "D4";
+            this.btn_D4.Text = "";
             this.btn_D4.UseVisualStyleBackColor = true;
             this.btn_D4.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -485,7 +486,7 @@
             this.btn_D5.Name = "btn_D5";
             this.btn_D5.Size = new System.Drawing.Size(100, 100);
             this.btn_D5.TabIndex = 82;
-            this.btn_D5.Text = "D5";
+            this.btn_D5.Text = "";
             this.btn_D5.UseVisualStyleBackColor = true;
             this.btn_D5.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -496,7 +497,7 @@
             this.btn_D6.Name = "btn_D6";
             this.btn_D6.Size = new System.Drawing.Size(100, 100);
             this.btn_D6.TabIndex = 83;
-            this.btn_D6.Text = "D6";
+            this.btn_D6.Text = "";
             this.btn_D6.UseVisualStyleBackColor = true;
             this.btn_D6.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -507,7 +508,7 @@
             this.btn_E1.Name = "btn_E1";
             this.btn_E1.Size = new System.Drawing.Size(100, 100);
             this.btn_E1.TabIndex = 84;
-            this.btn_E1.Text = "E1";
+            this.btn_E1.Text = "";
             this.btn_E1.UseVisualStyleBackColor = true;
             this.btn_E1.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -518,7 +519,7 @@
             this.btn_E2.Name = "btn_E2";
             this.btn_E2.Size = new System.Drawing.Size(100, 100);
             this.btn_E2.TabIndex = 85;
-            this.btn_E2.Text = "E2";
+            this.btn_E2.Text = "";
             this.btn_E2.UseVisualStyleBackColor = true;
             this.btn_E2.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -529,7 +530,7 @@
             this.btn_E3.Name = "btn_E3";
             this.btn_E3.Size = new System.Drawing.Size(100, 100);
             this.btn_E3.TabIndex = 86;
-            this.btn_E3.Text = "E3";
+            this.btn_E3.Text = "";
             this.btn_E3.UseVisualStyleBackColor = true;
             this.btn_E3.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -540,7 +541,7 @@
             this.btn_E4.Name = "btn_E4";
             this.btn_E4.Size = new System.Drawing.Size(100, 100);
             this.btn_E4.TabIndex = 87;
-            this.btn_E4.Text = "E4";
+            this.btn_E4.Text = "";
             this.btn_E4.UseVisualStyleBackColor = true;
             this.btn_E4.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -551,7 +552,7 @@
             this.btn_E5.Name = "btn_E5";
             this.btn_E5.Size = new System.Drawing.Size(100, 100);
             this.btn_E5.TabIndex = 88;
-            this.btn_E5.Text = "E5";
+            this.btn_E5.Text = "";
             this.btn_E5.UseVisualStyleBackColor = true;
             this.btn_E5.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -562,7 +563,7 @@
             this.btn_E6.Name = "btn_E6";
             this.btn_E6.Size = new System.Drawing.Size(100, 100);
             this.btn_E6.TabIndex = 89;
-            this.btn_E6.Text = "E6";
+            this.btn_E6.Text = "";
             this.btn_E6.UseVisualStyleBackColor = true;
             this.btn_E6.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -573,7 +574,7 @@
             this.btn_F1.Name = "btn_F1";
             this.btn_F1.Size = new System.Drawing.Size(100, 100);
             this.btn_F1.TabIndex = 90;
-            this.btn_F1.Text = "F1";
+            this.btn_F1.Text = "";
             this.btn_F1.UseVisualStyleBackColor = true;
             this.btn_F1.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -584,7 +585,7 @@
             this.btn_F2.Name = "btn_F2";
             this.btn_F2.Size = new System.Drawing.Size(100, 100);
             this.btn_F2.TabIndex = 91;
-            this.btn_F2.Text = "F2";
+            this.btn_F2.Text = "";
             this.btn_F2.UseVisualStyleBackColor = true;
             this.btn_F2.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -595,7 +596,7 @@
             this.btn_F3.Name = "btn_F3";
             this.btn_F3.Size = new System.Drawing.Size(100, 100);
             this.btn_F3.TabIndex = 92;
-            this.btn_F3.Text = "F3";
+            this.btn_F3.Text = "";
             this.btn_F3.UseVisualStyleBackColor = true;
             this.btn_F3.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -606,7 +607,7 @@
             this.btn_F4.Name = "btn_F4";
             this.btn_F4.Size = new System.Drawing.Size(100, 100);
             this.btn_F4.TabIndex = 93;
-            this.btn_F4.Text = "F4";
+            this.btn_F4.Text = "";
             this.btn_F4.UseVisualStyleBackColor = true;
             this.btn_F4.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -617,7 +618,7 @@
             this.btn_F5.Name = "btn_F5";
             this.btn_F5.Size = new System.Drawing.Size(100, 100);
             this.btn_F5.TabIndex = 94;
-            this.btn_F5.Text = "F5";
+            this.btn_F5.Text = "";
             this.btn_F5.UseVisualStyleBackColor = true;
             this.btn_F5.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -628,7 +629,7 @@
             this.btn_F6.Name = "btn_F6";
             this.btn_F6.Size = new System.Drawing.Size(100, 100);
             this.btn_F6.TabIndex = 95;
-            this.btn_F6.Text = "F6";
+            this.btn_F6.Text = "";
             this.btn_F6.UseVisualStyleBackColor = true;
             this.btn_F6.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -639,7 +640,7 @@
             this.btn_G1.Name = "btn_G1";
             this.btn_G1.Size = new System.Drawing.Size(100, 100);
             this.btn_G1.TabIndex = 96;
-            this.btn_G1.Text = "G1";
+            this.btn_G1.Text = "";
             this.btn_G1.UseVisualStyleBackColor = true;
             this.btn_G1.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -650,7 +651,7 @@
             this.btn_G2.Name = "btn_G2";
             this.btn_G2.Size = new System.Drawing.Size(100, 100);
             this.btn_G2.TabIndex = 97;
-            this.btn_G2.Text = "G2";
+            this.btn_G2.Text = "";
             this.btn_G2.UseVisualStyleBackColor = true;
             this.btn_G2.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -661,7 +662,7 @@
             this.btn_G3.Name = "btn_G3";
             this.btn_G3.Size = new System.Drawing.Size(100, 100);
             this.btn_G3.TabIndex = 98;
-            this.btn_G3.Text = "G3";
+            this.btn_G3.Text = "";
             this.btn_G3.UseVisualStyleBackColor = true;
             this.btn_G3.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -672,7 +673,7 @@
             this.btn_G4.Name = "btn_G4";
             this.btn_G4.Size = new System.Drawing.Size(100, 100);
             this.btn_G4.TabIndex = 99;
-            this.btn_G4.Text = "G4";
+            this.btn_G4.Text = "";
             this.btn_G4.UseVisualStyleBackColor = true;
             this.btn_G4.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -683,7 +684,7 @@
             this.btn_G5.Name = "btn_G5";
             this.btn_G5.Size = new System.Drawing.Size(100, 100);
             this.btn_G5.TabIndex = 100;
-            this.btn_G5.Text = "G5";
+            this.btn_G5.Text = "";
             this.btn_G5.UseVisualStyleBackColor = true;
             this.btn_G5.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -694,7 +695,7 @@
             this.btn_G6.Name = "btn_G6";
             this.btn_G6.Size = new System.Drawing.Size(100, 100);
             this.btn_G6.TabIndex = 101;
-            this.btn_G6.Text = "G6";
+            this.btn_G6.Text = "";
             this.btn_G6.UseVisualStyleBackColor = true;
             this.btn_G6.Click += new System.EventHandler(this.btn_Spielfeld_Click);
             // 
@@ -706,7 +707,6 @@
             this.lbl_messagebackground.Size = new System.Drawing.Size(703, 600);
             this.lbl_messagebackground.TabIndex = 102;
             this.lbl_messagebackground.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lbl_messagebackground.Visible = false;
             // 
             // lbl_caption
             // 
@@ -715,30 +715,27 @@
             this.lbl_caption.Name = "lbl_caption";
             this.lbl_caption.Size = new System.Drawing.Size(698, 100);
             this.lbl_caption.TabIndex = 103;
-            this.lbl_caption.Text = "Unentschieden!";
+            this.lbl_caption.Text = "Anleitung";
             this.lbl_caption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_caption.Visible = false;
             // 
             // lbl_message
             // 
             this.lbl_message.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_message.Location = new System.Drawing.Point(12, 200);
             this.lbl_message.Name = "lbl_message";
-            this.lbl_message.Size = new System.Drawing.Size(698, 100);
+            this.lbl_message.Size = new System.Drawing.Size(698, 286);
             this.lbl_message.TabIndex = 104;
-            this.lbl_message.Text = "Diese Runde ging leider unentschieden aus.";
+            this.lbl_message.Text = resources.GetString("lbl_message.Text");
             this.lbl_message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_message.Visible = false;
             // 
             // btn_messageOK
             // 
-            this.btn_messageOK.Location = new System.Drawing.Point(310, 424);
+            this.btn_messageOK.Location = new System.Drawing.Point(310, 524);
             this.btn_messageOK.Name = "btn_messageOK";
             this.btn_messageOK.Size = new System.Drawing.Size(100, 50);
             this.btn_messageOK.TabIndex = 105;
             this.btn_messageOK.Text = "OK";
             this.btn_messageOK.UseVisualStyleBackColor = true;
-            this.btn_messageOK.Visible = false;
             this.btn_messageOK.Click += new System.EventHandler(this.btn_messageOK_Click);
             // 
             // form_Vier_Gewinnt
@@ -805,6 +802,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "form_Vier_Gewinnt";
             this.Text = "Vier Gewinnt";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.form_Vier_Gewinnt_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

@@ -30,28 +30,26 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.optionenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zurückZumMenüToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pauseWeiterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.neustartenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.programmBeendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.highscoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vanguardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.donkeyKongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vanguardsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.snakeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.breakoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minesweeperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.astroidsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.froggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flappyBirdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.donkeyKongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_Donkey_Kong = new System.Windows.Forms.Button();
+            this.btn_Pong = new System.Windows.Forms.Button();
+            this.btn_Vanguards = new System.Windows.Forms.Button();
+            this.btn_Snake = new System.Windows.Forms.Button();
+            this.btn_Tic_Tac_Toe = new System.Windows.Forms.Button();
+            this.btn_Breakout = new System.Windows.Forms.Button();
+            this.btn_Minesweeper = new System.Windows.Forms.Button();
+            this.btn_Vier_Gewinnt = new System.Windows.Forms.Button();
+            this.btn_Frogger = new System.Windows.Forms.Button();
+            this.btn_Flappybird = new System.Windows.Forms.Button();
+            this.lbl_Titelbild = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,31 +67,10 @@
             // optionenToolStripMenuItem
             // 
             this.optionenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.zurückZumMenüToolStripMenuItem,
-            this.pauseWeiterToolStripMenuItem,
-            this.neustartenToolStripMenuItem,
             this.programmBeendenToolStripMenuItem});
             this.optionenToolStripMenuItem.Name = "optionenToolStripMenuItem";
             this.optionenToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.optionenToolStripMenuItem.Text = "Optionen";
-            // 
-            // zurückZumMenüToolStripMenuItem
-            // 
-            this.zurückZumMenüToolStripMenuItem.Name = "zurückZumMenüToolStripMenuItem";
-            this.zurückZumMenüToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.zurückZumMenüToolStripMenuItem.Text = "Zurück zum Menü";
-            // 
-            // pauseWeiterToolStripMenuItem
-            // 
-            this.pauseWeiterToolStripMenuItem.Name = "pauseWeiterToolStripMenuItem";
-            this.pauseWeiterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.pauseWeiterToolStripMenuItem.Text = "Pause/Weiter";
-            // 
-            // neustartenToolStripMenuItem
-            // 
-            this.neustartenToolStripMenuItem.Name = "neustartenToolStripMenuItem";
-            this.neustartenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.neustartenToolStripMenuItem.Text = "Neustarten";
             // 
             // programmBeendenToolStripMenuItem
             // 
@@ -105,22 +82,29 @@
             // 
             this.highscoreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.donkeyKongToolStripMenuItem,
-            this.vanguardToolStripMenuItem,
+            this.vanguardsToolStripMenuItem,
             this.snakeToolStripMenuItem,
             this.breakoutToolStripMenuItem,
             this.minesweeperToolStripMenuItem,
-            this.astroidsToolStripMenuItem,
+            this.froggerToolStripMenuItem,
             this.flappyBirdToolStripMenuItem});
             this.highscoreToolStripMenuItem.Name = "highscoreToolStripMenuItem";
             this.highscoreToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.highscoreToolStripMenuItem.Text = "Highscore";
             // 
-            // vanguardToolStripMenuItem
+            // donkeyKongToolStripMenuItem
             // 
-            this.vanguardToolStripMenuItem.Name = "vanguardToolStripMenuItem";
-            this.vanguardToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.vanguardToolStripMenuItem.Text = "Vanguard";
-            this.vanguardToolStripMenuItem.Click += new System.EventHandler(this.vanguardToolStripMenuItem_Click_1);
+            this.donkeyKongToolStripMenuItem.Name = "donkeyKongToolStripMenuItem";
+            this.donkeyKongToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.donkeyKongToolStripMenuItem.Text = "Donkey Kong";
+            this.donkeyKongToolStripMenuItem.Click += new System.EventHandler(this.donkeyKongToolStripMenuItem_Click);
+            // 
+            // vanguardsToolStripMenuItem
+            // 
+            this.vanguardsToolStripMenuItem.Name = "vanguardsToolStripMenuItem";
+            this.vanguardsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.vanguardsToolStripMenuItem.Text = "Vanguards";
+            this.vanguardsToolStripMenuItem.Click += new System.EventHandler(this.vanguardToolStripMenuItem_Click);
             // 
             // snakeToolStripMenuItem
             // 
@@ -143,12 +127,12 @@
             this.minesweeperToolStripMenuItem.Text = "Minesweeper";
             this.minesweeperToolStripMenuItem.Click += new System.EventHandler(this.minesweeperToolStripMenuItem_Click);
             // 
-            // astroidsToolStripMenuItem
+            // froggerToolStripMenuItem
             // 
-            this.astroidsToolStripMenuItem.Name = "astroidsToolStripMenuItem";
-            this.astroidsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.astroidsToolStripMenuItem.Text = "Astroids";
-            this.astroidsToolStripMenuItem.Click += new System.EventHandler(this.astroidsToolStripMenuItem_Click);
+            this.froggerToolStripMenuItem.Name = "froggerToolStripMenuItem";
+            this.froggerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.froggerToolStripMenuItem.Text = "Frogger";
+            this.froggerToolStripMenuItem.Click += new System.EventHandler(this.froggerToolStripMenuItem_Click);
             // 
             // flappyBirdToolStripMenuItem
             // 
@@ -157,138 +141,152 @@
             this.flappyBirdToolStripMenuItem.Text = "Flappy Bird";
             this.flappyBirdToolStripMenuItem.Click += new System.EventHandler(this.flappyBirdToolStripMenuItem_Click);
             // 
-            // button1
+            // btn_Donkey_Kong
             // 
-            this.button1.Location = new System.Drawing.Point(32, 300);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(184, 120);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Donkey Kong";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_Donkey_Kong.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Donkey_Kong.Location = new System.Drawing.Point(32, 300);
+            this.btn_Donkey_Kong.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Donkey_Kong.Name = "btn_Donkey_Kong";
+            this.btn_Donkey_Kong.Size = new System.Drawing.Size(184, 120);
+            this.btn_Donkey_Kong.TabIndex = 1;
+            this.btn_Donkey_Kong.Text = "Donkey Kong";
+            this.btn_Donkey_Kong.UseVisualStyleBackColor = true;
+            this.btn_Donkey_Kong.Click += new System.EventHandler(this.btn_DonkeyKong_Click);
             // 
-            // button2
+            // btn_Pong
             // 
-            this.button2.Location = new System.Drawing.Point(226, 300);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(184, 120);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Pong";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_Pong.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Pong.Location = new System.Drawing.Point(226, 300);
+            this.btn_Pong.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Pong.Name = "btn_Pong";
+            this.btn_Pong.Size = new System.Drawing.Size(184, 120);
+            this.btn_Pong.TabIndex = 2;
+            this.btn_Pong.Text = "Pong";
+            this.btn_Pong.UseVisualStyleBackColor = true;
+            this.btn_Pong.Click += new System.EventHandler(this.btn_Pong_Click);
             // 
-            // button3
+            // btn_Vanguards
             // 
-            this.button3.Location = new System.Drawing.Point(420, 300);
-            this.button3.Margin = new System.Windows.Forms.Padding(0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(184, 120);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Vanguard";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btn_Vanguards.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Vanguards.Location = new System.Drawing.Point(420, 300);
+            this.btn_Vanguards.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Vanguards.Name = "btn_Vanguards";
+            this.btn_Vanguards.Size = new System.Drawing.Size(184, 120);
+            this.btn_Vanguards.TabIndex = 3;
+            this.btn_Vanguards.Text = "Vanguards";
+            this.btn_Vanguards.UseVisualStyleBackColor = true;
+            this.btn_Vanguards.Click += new System.EventHandler(this.btn_Vanguards_Click);
             // 
-            // button4
+            // btn_Snake
             // 
-            this.button4.Location = new System.Drawing.Point(614, 300);
-            this.button4.Margin = new System.Windows.Forms.Padding(0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(184, 120);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Snake";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btn_Snake.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Snake.Location = new System.Drawing.Point(614, 300);
+            this.btn_Snake.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Snake.Name = "btn_Snake";
+            this.btn_Snake.Size = new System.Drawing.Size(184, 120);
+            this.btn_Snake.TabIndex = 4;
+            this.btn_Snake.Text = "Snake";
+            this.btn_Snake.UseVisualStyleBackColor = true;
+            this.btn_Snake.Click += new System.EventHandler(this.btn_Snake_Click);
             // 
-            // button5
+            // btn_Tic_Tac_Toe
             // 
-            this.button5.Location = new System.Drawing.Point(808, 300);
-            this.button5.Margin = new System.Windows.Forms.Padding(0);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(184, 120);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Tic Tac Toe";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btn_Tic_Tac_Toe.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Tic_Tac_Toe.Location = new System.Drawing.Point(808, 300);
+            this.btn_Tic_Tac_Toe.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Tic_Tac_Toe.Name = "btn_Tic_Tac_Toe";
+            this.btn_Tic_Tac_Toe.Size = new System.Drawing.Size(184, 120);
+            this.btn_Tic_Tac_Toe.TabIndex = 5;
+            this.btn_Tic_Tac_Toe.Text = "Tic Tac Toe";
+            this.btn_Tic_Tac_Toe.UseVisualStyleBackColor = true;
+            this.btn_Tic_Tac_Toe.Click += new System.EventHandler(this.btn_Tic_Tac_Toe_Click);
             // 
-            // button6
+            // btn_Breakout
             // 
-            this.button6.Location = new System.Drawing.Point(32, 430);
-            this.button6.Margin = new System.Windows.Forms.Padding(0);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(184, 120);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Breakout";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.btn_Breakout.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Breakout.Location = new System.Drawing.Point(32, 430);
+            this.btn_Breakout.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Breakout.Name = "btn_Breakout";
+            this.btn_Breakout.Size = new System.Drawing.Size(184, 120);
+            this.btn_Breakout.TabIndex = 6;
+            this.btn_Breakout.Text = "Breakout";
+            this.btn_Breakout.UseVisualStyleBackColor = true;
+            this.btn_Breakout.Click += new System.EventHandler(this.btn_Breakout_Click);
             // 
-            // button7
+            // btn_Minesweeper
             // 
-            this.button7.Location = new System.Drawing.Point(226, 430);
-            this.button7.Margin = new System.Windows.Forms.Padding(0);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(184, 120);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Minesweeper";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.btn_Minesweeper.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Minesweeper.Location = new System.Drawing.Point(226, 430);
+            this.btn_Minesweeper.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Minesweeper.Name = "btn_Minesweeper";
+            this.btn_Minesweeper.Size = new System.Drawing.Size(184, 120);
+            this.btn_Minesweeper.TabIndex = 7;
+            this.btn_Minesweeper.Text = "Minesweeper";
+            this.btn_Minesweeper.UseVisualStyleBackColor = true;
+            this.btn_Minesweeper.Click += new System.EventHandler(this.btn_Minesweeper_Click);
             // 
-            // button8
+            // btn_Vier_Gewinnt
             // 
-            this.button8.Location = new System.Drawing.Point(420, 430);
-            this.button8.Margin = new System.Windows.Forms.Padding(0);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(184, 120);
-            this.button8.TabIndex = 8;
-            this.button8.Text = "4 Gewinnt";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.btn_Vier_Gewinnt.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Vier_Gewinnt.Location = new System.Drawing.Point(420, 430);
+            this.btn_Vier_Gewinnt.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Vier_Gewinnt.Name = "btn_Vier_Gewinnt";
+            this.btn_Vier_Gewinnt.Size = new System.Drawing.Size(184, 120);
+            this.btn_Vier_Gewinnt.TabIndex = 8;
+            this.btn_Vier_Gewinnt.Text = "4 Gewinnt";
+            this.btn_Vier_Gewinnt.UseVisualStyleBackColor = true;
+            this.btn_Vier_Gewinnt.Click += new System.EventHandler(this.btn_Vier_Gewinnt_Click);
             // 
-            // button9
+            // btn_Frogger
             // 
-            this.button9.Location = new System.Drawing.Point(614, 430);
-            this.button9.Margin = new System.Windows.Forms.Padding(0);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(184, 120);
-            this.button9.TabIndex = 9;
-            this.button9.Text = "Astroids";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.btn_Frogger.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Frogger.Location = new System.Drawing.Point(614, 430);
+            this.btn_Frogger.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Frogger.Name = "btn_Frogger";
+            this.btn_Frogger.Size = new System.Drawing.Size(184, 120);
+            this.btn_Frogger.TabIndex = 9;
+            this.btn_Frogger.Text = "Frogger";
+            this.btn_Frogger.UseVisualStyleBackColor = true;
+            this.btn_Frogger.Click += new System.EventHandler(this.btn_Frogger_Click);
             // 
-            // button10
+            // btn_Flappybird
             // 
-            this.button10.Location = new System.Drawing.Point(808, 430);
-            this.button10.Margin = new System.Windows.Forms.Padding(0);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(184, 120);
-            this.button10.TabIndex = 10;
-            this.button10.Text = "Flappy Bird";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.btn_Flappybird.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Flappybird.Location = new System.Drawing.Point(808, 430);
+            this.btn_Flappybird.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Flappybird.Name = "btn_Flappybird";
+            this.btn_Flappybird.Size = new System.Drawing.Size(184, 120);
+            this.btn_Flappybird.TabIndex = 10;
+            this.btn_Flappybird.Text = "Flappy Bird";
+            this.btn_Flappybird.UseVisualStyleBackColor = true;
+            this.btn_Flappybird.Click += new System.EventHandler(this.btn_FlappyBird_Click);
             // 
-            // donkeyKongToolStripMenuItem
+            // lbl_Titelbild
             // 
-            this.donkeyKongToolStripMenuItem.Name = "donkeyKongToolStripMenuItem";
-            this.donkeyKongToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.donkeyKongToolStripMenuItem.Text = "Donkey Kong";
-            this.donkeyKongToolStripMenuItem.Click += new System.EventHandler(this.donkeyKongToolStripMenuItem_Click);
+            this.lbl_Titelbild.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_Titelbild.Location = new System.Drawing.Point(32, 40);
+            this.lbl_Titelbild.Name = "lbl_Titelbild";
+            this.lbl_Titelbild.Size = new System.Drawing.Size(960, 240);
+            this.lbl_Titelbild.TabIndex = 11;
+            this.lbl_Titelbild.Text = "Titelbild 960 x 240";
+            this.lbl_Titelbild.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // form_Menue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lbl_Titelbild);
+            this.Controls.Add(this.btn_Flappybird);
+            this.Controls.Add(this.btn_Frogger);
+            this.Controls.Add(this.btn_Vier_Gewinnt);
+            this.Controls.Add(this.btn_Minesweeper);
+            this.Controls.Add(this.btn_Breakout);
+            this.Controls.Add(this.btn_Tic_Tac_Toe);
+            this.Controls.Add(this.btn_Snake);
+            this.Controls.Add(this.btn_Vanguards);
+            this.Controls.Add(this.btn_Pong);
+            this.Controls.Add(this.btn_Donkey_Kong);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
@@ -307,28 +305,26 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem optionenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem zurückZumMenüToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pauseWeiterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem neustartenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem programmBeendenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem highscoreToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.ToolStripMenuItem vanguardToolStripMenuItem;
+        private System.Windows.Forms.Button btn_Donkey_Kong;
+        private System.Windows.Forms.Button btn_Pong;
+        private System.Windows.Forms.Button btn_Vanguards;
+        private System.Windows.Forms.Button btn_Snake;
+        private System.Windows.Forms.Button btn_Tic_Tac_Toe;
+        private System.Windows.Forms.Button btn_Breakout;
+        private System.Windows.Forms.Button btn_Minesweeper;
+        private System.Windows.Forms.Button btn_Vier_Gewinnt;
+        private System.Windows.Forms.Button btn_Frogger;
+        private System.Windows.Forms.Button btn_Flappybird;
+        private System.Windows.Forms.ToolStripMenuItem vanguardsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem snakeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem breakoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem minesweeperToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem astroidsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem flappyBirdToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem donkeyKongToolStripMenuItem;
+        private System.Windows.Forms.Label lbl_Titelbild;
+        private System.Windows.Forms.ToolStripMenuItem froggerToolStripMenuItem;
     }
 }
 

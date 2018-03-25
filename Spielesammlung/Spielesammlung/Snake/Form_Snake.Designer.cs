@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Snake));
             this.pictureBoxSnake = new System.Windows.Forms.PictureBox();
             this.labelScoreText = new System.Windows.Forms.Label();
             this.labelScoreWert = new System.Windows.Forms.Label();
@@ -42,7 +41,13 @@
             this.textBoxSpieler = new System.Windows.Forms.TextBox();
             this.buttonNeustart = new System.Windows.Forms.Button();
             this.labelHighscore = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.optionenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zurückZumMenüToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neustartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.highscoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSnake)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBoxSnake
@@ -50,10 +55,10 @@
             this.pictureBoxSnake.BackColor = System.Drawing.Color.CornflowerBlue;
             this.pictureBoxSnake.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxSnake.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxSnake.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSnake.Image")));
-            this.pictureBoxSnake.Location = new System.Drawing.Point(14, 18);
+            this.pictureBoxSnake.Image = global::Spielesammlung.Properties.Resources.Snake_grass_background;
+            this.pictureBoxSnake.Location = new System.Drawing.Point(14, 35);
             this.pictureBoxSnake.Name = "pictureBoxSnake";
-            this.pictureBoxSnake.Size = new System.Drawing.Size(900, 700);
+            this.pictureBoxSnake.Size = new System.Drawing.Size(900, 675);
             this.pictureBoxSnake.TabIndex = 0;
             this.pictureBoxSnake.TabStop = false;
             this.pictureBoxSnake.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxSnake_Paint);
@@ -83,11 +88,11 @@
             this.labelGameOver.AutoSize = true;
             this.labelGameOver.BackColor = System.Drawing.Color.LightGray;
             this.labelGameOver.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGameOver.Location = new System.Drawing.Point(277, 286);
+            this.labelGameOver.Location = new System.Drawing.Point(220, 286);
             this.labelGameOver.Name = "labelGameOver";
             this.labelGameOver.Size = new System.Drawing.Size(158, 31);
             this.labelGameOver.TabIndex = 3;
-            this.labelGameOver.Text = "game over";
+            this.labelGameOver.Text = "Game over";
             this.labelGameOver.Visible = false;
             // 
             // labelSnake
@@ -179,6 +184,47 @@
             this.labelHighscore.Text = "Highscore";
             this.labelHighscore.Visible = false;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.optionenToolStripMenuItem,
+            this.highscoreToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1008, 24);
+            this.menuStrip1.TabIndex = 18;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // optionenToolStripMenuItem
+            // 
+            this.optionenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.zurückZumMenüToolStripMenuItem,
+            this.neustartToolStripMenuItem});
+            this.optionenToolStripMenuItem.Name = "optionenToolStripMenuItem";
+            this.optionenToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.optionenToolStripMenuItem.Text = "Optionen";
+            // 
+            // zurückZumMenüToolStripMenuItem
+            // 
+            this.zurückZumMenüToolStripMenuItem.Name = "zurückZumMenüToolStripMenuItem";
+            this.zurückZumMenüToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.zurückZumMenüToolStripMenuItem.Text = "Zurück zum Menü";
+            this.zurückZumMenüToolStripMenuItem.Click += new System.EventHandler(this.zurückZumMenüToolStripMenuItem_Click);
+            // 
+            // neustartToolStripMenuItem
+            // 
+            this.neustartToolStripMenuItem.Name = "neustartToolStripMenuItem";
+            this.neustartToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.neustartToolStripMenuItem.Text = "Neustart";
+            this.neustartToolStripMenuItem.Click += new System.EventHandler(this.neustartToolStripMenuItem_Click);
+            // 
+            // highscoreToolStripMenuItem
+            // 
+            this.highscoreToolStripMenuItem.Name = "highscoreToolStripMenuItem";
+            this.highscoreToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.highscoreToolStripMenuItem.Text = "Highscore";
+            this.highscoreToolStripMenuItem.Click += new System.EventHandler(this.highscoreToolStripMenuItem_Click);
+            // 
             // Form_Snake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -195,13 +241,18 @@
             this.Controls.Add(this.labelScoreWert);
             this.Controls.Add(this.labelScoreText);
             this.Controls.Add(this.pictureBoxSnake);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form_Snake";
-            this.Text = "Form_Snake";
+            this.Text = "Snake";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Snake_FormClosed);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_Snake_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form_Snake_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSnake)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,5 +272,10 @@
         private System.Windows.Forms.TextBox textBoxSpieler;
         private System.Windows.Forms.Button buttonNeustart;
         private System.Windows.Forms.Label labelHighscore;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem optionenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem highscoreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zurückZumMenüToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem neustartToolStripMenuItem;
     }
 }

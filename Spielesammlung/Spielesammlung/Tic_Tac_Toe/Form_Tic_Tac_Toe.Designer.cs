@@ -1,6 +1,6 @@
 ﻿namespace Spielesammlung.Tic_Tac_Toe
 {
-    partial class form_TicTacToe
+    partial class Form_Tic_Tac_Toe
     {
         /// <summary>
         /// Required designer variable.
@@ -278,21 +278,21 @@
             this.neustartToolStripMenuItem,
             this.zumMenueToolStripMenuItem});
             this.menüToolStripMenuItem.Name = "menüToolStripMenuItem";
-            this.menüToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.menüToolStripMenuItem.Text = "Menü";
+            this.menüToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.menüToolStripMenuItem.Text = "Optionen";
             // 
             // neustartToolStripMenuItem
             // 
             this.neustartToolStripMenuItem.Name = "neustartToolStripMenuItem";
-            this.neustartToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.neustartToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.neustartToolStripMenuItem.Text = "Neustart";
             this.neustartToolStripMenuItem.Click += new System.EventHandler(this.btn_reset_Click);
             // 
             // zumMenueToolStripMenuItem
             // 
             this.zumMenueToolStripMenuItem.Name = "zumMenueToolStripMenuItem";
-            this.zumMenueToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.zumMenueToolStripMenuItem.Text = "Zum Menü";
+            this.zumMenueToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.zumMenueToolStripMenuItem.Text = "Zurück zum Menü";
             this.zumMenueToolStripMenuItem.Click += new System.EventHandler(this.btn_menue_Click);
             // 
             // lbl_messagebackground
@@ -303,7 +303,6 @@
             this.lbl_messagebackground.Size = new System.Drawing.Size(550, 600);
             this.lbl_messagebackground.TabIndex = 19;
             this.lbl_messagebackground.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_messagebackground.Visible = false;
             // 
             // lbl_caption
             // 
@@ -312,30 +311,29 @@
             this.lbl_caption.Name = "lbl_caption";
             this.lbl_caption.Size = new System.Drawing.Size(400, 100);
             this.lbl_caption.TabIndex = 20;
-            this.lbl_caption.Text = "Unentschieden!";
+            this.lbl_caption.Text = "Anleitung";
             this.lbl_caption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_caption.Visible = false;
             // 
             // lbl_message
             // 
             this.lbl_message.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_message.Location = new System.Drawing.Point(100, 200);
             this.lbl_message.Name = "lbl_message";
-            this.lbl_message.Size = new System.Drawing.Size(400, 100);
+            this.lbl_message.Size = new System.Drawing.Size(400, 241);
             this.lbl_message.TabIndex = 21;
-            this.lbl_message.Text = "Diese Runde ging leider unentschieden aus!";
+            this.lbl_message.Text = "Der Spieler, der als Erster drei Zeichen in eine Zeile, Spalte oder Diagonale set" +
+    "zen kann, gewinnt. Es wird abwechselnd durch Klick auf den Button das eigene Sym" +
+    "bol gesetzt.";
             this.lbl_message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_message.Visible = false;
             // 
             // btn_messageOK
             // 
-            this.btn_messageOK.Location = new System.Drawing.Point(250, 350);
+            this.btn_messageOK.Location = new System.Drawing.Point(250, 444);
             this.btn_messageOK.Name = "btn_messageOK";
             this.btn_messageOK.Size = new System.Drawing.Size(100, 50);
             this.btn_messageOK.TabIndex = 22;
             this.btn_messageOK.Text = "OK";
             this.btn_messageOK.UseVisualStyleBackColor = true;
-            this.btn_messageOK.Visible = false;
             this.btn_messageOK.Click += new System.EventHandler(this.btn_messageOK_Click);
             // 
             // form_TicTacToe
@@ -370,6 +368,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "form_TicTacToe";
             this.Text = "Tic Tac Toe";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.form_TicTacToe_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
