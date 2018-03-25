@@ -12,8 +12,6 @@ namespace Spielesammlung.Vier_Gewinnt
 {
     public partial class Form_Vier_Gewinnt : Form
     {
-        // ToDo:
-        // Tests und Bugfixing
         #region Variablendeklaration
         char[,] spielfeld = new char[7, 6];
         char zug = 'R';

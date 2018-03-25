@@ -12,8 +12,6 @@ namespace Spielesammlung.Tic_Tac_Toe
 {
     public partial class Form_Tic_Tac_Toe : Form
     {
-        // ToDo:
-        // Tests und Bugfixing
         #region Variablendeklaration
         char[,] spielfeld = new char[3, 3];
         char zug = 'X';
