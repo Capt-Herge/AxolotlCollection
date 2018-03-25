@@ -40,9 +40,14 @@
             this.pauseLabel = new System.Windows.Forms.Label();
             this.labelAnleitung = new System.Windows.Forms.Label();
             this.buttonStart = new System.Windows.Forms.Button();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.neustartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zurückZumMenüToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.Player1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player2)).BeginInit();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Player1
@@ -85,7 +90,7 @@
             // 
             this.Player1Score.AutoSize = true;
             this.Player1Score.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Player1Score.Location = new System.Drawing.Point(2, 0);
+            this.Player1Score.Location = new System.Drawing.Point(-6, 24);
             this.Player1Score.Name = "Player1Score";
             this.Player1Score.Size = new System.Drawing.Size(30, 31);
             this.Player1Score.TabIndex = 3;
@@ -95,7 +100,7 @@
             // 
             this.Player2Score.AutoSize = true;
             this.Player2Score.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Player2Score.Location = new System.Drawing.Point(966, 0);
+            this.Player2Score.Location = new System.Drawing.Point(978, 24);
             this.Player2Score.Name = "Player2Score";
             this.Player2Score.Size = new System.Drawing.Size(30, 31);
             this.Player2Score.TabIndex = 4;
@@ -143,6 +148,40 @@
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
+            // menuStrip2
+            // 
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(1008, 24);
+            this.menuStrip2.TabIndex = 10;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.neustartToolStripMenuItem,
+            this.zurückZumMenüToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(69, 20);
+            this.toolStripMenuItem1.Text = "Optionen";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // neustartToolStripMenuItem
+            // 
+            this.neustartToolStripMenuItem.Name = "neustartToolStripMenuItem";
+            this.neustartToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.neustartToolStripMenuItem.Text = "Neustart";
+            this.neustartToolStripMenuItem.Click += new System.EventHandler(this.neustartToolStripMenuItem_Click);
+            // 
+            // zurückZumMenüToolStripMenuItem
+            // 
+            this.zurückZumMenüToolStripMenuItem.Name = "zurückZumMenüToolStripMenuItem";
+            this.zurückZumMenüToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.zurückZumMenüToolStripMenuItem.Text = "Zurück zum Menü";
+            this.zurückZumMenüToolStripMenuItem.Click += new System.EventHandler(this.zurückZumMenüToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,18 +196,22 @@
             this.Controls.Add(this.Player1);
             this.Controls.Add(this.Player1Score);
             this.Controls.Add(this.Player2Score);
+            this.Controls.Add(this.menuStrip2);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pong";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.Player1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player2)).EndInit();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,5 +229,9 @@
         private System.Windows.Forms.Label pauseLabel;
         private System.Windows.Forms.Label labelAnleitung;
         private System.Windows.Forms.Button buttonStart;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem neustartToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zurückZumMenüToolStripMenuItem;
     }
 }
