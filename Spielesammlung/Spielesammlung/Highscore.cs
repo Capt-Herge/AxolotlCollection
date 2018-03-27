@@ -48,7 +48,7 @@ public class Highscore
         string datei = @"test\" + spiel + ".txt";
 
         // es wird eine Liste erstellt, die die einzelnen Zeilen als strings enthält
-        List<string> Zeilen = File.ReadAllLines(datei).ToList<string>();
+         List<string> Zeilen = File.ReadAllLines(datei).ToList<string>();
 
         // Es werden alle Zeilen gelöscht, die hinter der 10. Zeile stehen
         for (int i = Zeilen.Count - 1; i > 9; i--)

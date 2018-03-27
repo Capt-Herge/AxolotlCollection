@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spielesammlung;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,7 +54,7 @@ namespace Pong
                     Player2.Location = new Point(Player2.Location.X, Player2.Location.Y + P2Velocity);
                 }
 
-                if (Player1.Location.Y <= 0)
+                if (Player1.Location.Y <= 20)
                 {
                     randObenLinks = true;
                 }
@@ -62,7 +63,7 @@ namespace Pong
                     Player1.Location = new Point(Player1.Location.X, Player1.Location.Y + 5);
                     randObenLinks = false;
                 }
-                if (Player2.Location.Y <= 0)
+                if (Player2.Location.Y <= 20)
                 {
                     randObenRechts = true;
                 }
@@ -124,7 +125,7 @@ namespace Pong
                 {
                     ballVelocityY *= -1;
                 }
-                if (Ball.Location.Y > 0)
+                if (Ball.Location.Y > 20)
                 {
                     ballVelocityY *= -1;
                 }
@@ -136,6 +137,7 @@ namespace Pong
                 {
                     timer1.Stop();
                     WinButton.Visible = true;
+                    closeButton.Visible = true;
                     WinButton.Text = "Spieler 1 hat gewonnen!\n Nochmal spielen?";
                 }
 
@@ -143,6 +145,7 @@ namespace Pong
                 {
                     timer1.Stop();
                     WinButton.Visible = true;
+                    closeButton.Visible = true;
                     WinButton.Text = "Spieler 2 hat gewonnen!\n Nochmal spielen?";
                 }
 
@@ -214,6 +217,7 @@ namespace Pong
             P2Velocity = 0;
             ballVelocityX = 3;
             WinButton.Visible = false;
+            closeButton.Visible = false;
             Player1.Location = new Point(Player1.Location.X, this.Height / 3);
             Player2.Location = new Point(Player2.Location.X, this.Height / 3);
             timer1.Start();
@@ -228,6 +232,7 @@ namespace Pong
             labelAnleitung.Visible = false;
             this.Focus();
         }
+
         private void neustartToolStripMenuItem_Click(object sender, EventArgs e)
         {
             p1Score = 0;
@@ -258,7 +263,13 @@ namespace Pong
         {
             form_Menue.spielGestartet = false;
         }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            form_Menue.spielGestartet = false;
+            this.Close();
+        }
     }
-
-
 }
+            
+        
