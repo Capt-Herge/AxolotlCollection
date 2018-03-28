@@ -41,11 +41,12 @@ public class Highscore
         }
     }
 
-    #region Allegemein
+    #region Allgemein
     public void EintragLöschen(string spiel)
     {
         // Variable mit dem Dateipfad
-        string datei = @"test\" + spiel + ".txt";
+        string pfad = Environment.GetEnvironmentVariable("APPDATA");
+        string datei = pfad + @"\AxolotlCollection\Highscore\" + spiel + ".txt";
 
         // es wird eine Liste erstellt, die die einzelnen Zeilen als strings enthält
         List<string> Zeilen = File.ReadAllLines(datei).ToList<string>();
@@ -62,7 +63,8 @@ public class Highscore
     public void EintragErstellen(string spiel, string spieler, string punkte)
     {
         // Variable mit dem Dateipfad
-        string datei = @"test\" + spiel + ".txt";
+        string pfad = Environment.GetEnvironmentVariable("APPDATA");
+        string datei = pfad + @"\AxolotlCollection\Highscore\" + spiel + ".txt";
 
         // der StreamWriter fügt den Benutzernamen und den Score unten an die Textdatei an
         using (StreamWriter sw = new StreamWriter(datei, true))
@@ -79,8 +81,9 @@ public class Highscore
     {
         //Variablen
         int pos = 1;
-        string datei = @"test\" + spiel + ".txt";
-   
+        string pfad = Environment.GetEnvironmentVariable("APPDATA");
+        string datei = pfad + @"\AxolotlCollection\Highscore\" + spiel + ".txt";
+
         // Alle Zeilen der Textdatei werden gelesen und im Array gespeichert
         string[] zeilen = File.ReadAllLines(datei);
         // Erstellen des StringBuilders zum Anzeigen der Einträge
@@ -124,7 +127,8 @@ public class Highscore
     {
         // Variablen
         int x = 0;
-        string datei = @"test\" + spiel + ".txt";
+        string pfad = Environment.GetEnvironmentVariable("APPDATA");
+        string datei = pfad + @"\AxolotlCollection\Highscore\" + spiel + ".txt";
         // Es wird ein Array erstellt, das Objekte von ScoreItem hält
         ScoreItemPunkte[] SpielScores = new ScoreItemPunkte[11];
         // Alle Zeilen der Textdatei werden in ein Array geschrieben
@@ -165,7 +169,8 @@ public class Highscore
     {
         //Variablen
         int pos = 1;
-        string datei = @"C:\Users\Mama\Desktop\Studium\Softwareprojekt\Axolotl Collection\Test-Highscore\" + spiel + ".txt";
+        string pfad = Environment.GetEnvironmentVariable("APPDATA");
+        string datei = pfad + @"\AxolotlCollection\Highscore\" + spiel + ".txt";
         // Alle Zeilen der Textdatei werden gelesen und im Array gespeichert
         string[] zeilen = File.ReadAllLines(datei);
         // Erstellen des StringBuilders zum Anzeigen der Einträge
@@ -209,7 +214,8 @@ public class Highscore
     {
         // Variablen
         int x = 0;
-        string datei = @"C:\Users\Mama\Desktop\Studium\Softwareprojekt\Axolotl Collection\Test-Highscore\" + spiel + ".txt";
+        string pfad = Environment.GetEnvironmentVariable("APPDATA");
+        string datei = pfad + @"\AxolotlCollection\Highscore\" + spiel + ".txt";
         // Es wird ein Array erstellt, das Objekte von ScoreItem hält
         ScoreItemZeit[] SpielScores = new ScoreItemZeit[11];
         // Alle Zeilen der Textdatei werden in ein Array geschrieben
