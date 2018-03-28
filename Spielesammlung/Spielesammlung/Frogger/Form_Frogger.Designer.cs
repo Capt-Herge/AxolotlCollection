@@ -244,6 +244,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_Frogger";
             this.Text = "Frogger";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Frogger_FormClosed);
