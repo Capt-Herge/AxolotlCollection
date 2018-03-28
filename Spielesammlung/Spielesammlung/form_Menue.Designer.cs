@@ -264,11 +264,11 @@
             // lbl_Titelbild
             // 
             this.lbl_Titelbild.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_Titelbild.Image = global::Spielesammlung.Properties.Resources.AxolotlCollection;
             this.lbl_Titelbild.Location = new System.Drawing.Point(32, 40);
             this.lbl_Titelbild.Name = "lbl_Titelbild";
             this.lbl_Titelbild.Size = new System.Drawing.Size(960, 240);
             this.lbl_Titelbild.TabIndex = 11;
-            this.lbl_Titelbild.Text = "Titelbild 960 x 240 \"Insert here\"";
             this.lbl_Titelbild.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // form_Menue

@@ -313,6 +313,7 @@
     <None Include="Resources\skyline.png" />
     <None Include="Resources\pipe_down.png" />
     <None Include="Resources\bird_one.png" />
+    <Content Include="Resources\AxolotlCollection.png" />
     <Content Include="Vanguards\SlimDX.dll" />
     <Content Include="Vanguards\SlimDX.pdb" />
     <Content Include="Vanguards\SlimDX.xml" />

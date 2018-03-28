@@ -63,6 +63,16 @@ namespace Spielesammlung.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AxolotlCollection {
+            get {
+                object obj = ResourceManager.GetObject("AxolotlCollection", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Snake_grass_background {
             get {
                 object obj = ResourceManager.GetObject("Snake_grass-background", resourceCulture);
