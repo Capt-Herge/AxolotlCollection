@@ -243,6 +243,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormDonkeyKong";
             this.Text = "Donkey Kong";

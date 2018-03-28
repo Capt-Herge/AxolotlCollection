@@ -216,9 +216,9 @@
             this.groupHelp.Controls.Add(this.labelHelp);
             this.groupHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupHelp.Location = new System.Drawing.Point(335, 178);
-            this.groupHelp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupHelp.Margin = new System.Windows.Forms.Padding(2);
             this.groupHelp.Name = "groupHelp";
-            this.groupHelp.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupHelp.Padding = new System.Windows.Forms.Padding(2);
             this.groupHelp.Size = new System.Drawing.Size(331, 350);
             this.groupHelp.TabIndex = 14;
             this.groupHelp.TabStop = false;
@@ -227,7 +227,7 @@
             // helpGetButton
             // 
             this.helpGetButton.Location = new System.Drawing.Point(64, 295);
-            this.helpGetButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.helpGetButton.Margin = new System.Windows.Forms.Padding(2);
             this.helpGetButton.Name = "helpGetButton";
             this.helpGetButton.Size = new System.Drawing.Size(167, 35);
             this.helpGetButton.TabIndex = 1;

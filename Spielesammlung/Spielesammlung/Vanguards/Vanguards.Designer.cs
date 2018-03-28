@@ -241,28 +241,28 @@
             // neuesSpielToolStripMenuItem
             // 
             this.neuesSpielToolStripMenuItem.Name = "neuesSpielToolStripMenuItem";
-            this.neuesSpielToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.neuesSpielToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.neuesSpielToolStripMenuItem.Text = "Neues Spiel";
             this.neuesSpielToolStripMenuItem.Click += new System.EventHandler(this.neuesSpielToolStripMenuItem_Click);
             // 
             // highscoreToolStripMenuItem
             // 
             this.highscoreToolStripMenuItem.Name = "highscoreToolStripMenuItem";
-            this.highscoreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.highscoreToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.highscoreToolStripMenuItem.Text = "Highscore";
             this.highscoreToolStripMenuItem.Click += new System.EventHandler(this.highscoreToolStripMenuItem_Click);
             // 
             // pauseToolStripMenuItem
             // 
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.pauseToolStripMenuItem.Text = "Pause";
             this.pauseToolStripMenuItem.Click += new System.EventHandler(this.pauseToolStripMenuItem_Click);
             // 
             // zumMenüToolStripMenuItem
             // 
             this.zumMenüToolStripMenuItem.Name = "zumMenüToolStripMenuItem";
-            this.zumMenüToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.zumMenüToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.zumMenüToolStripMenuItem.Text = "Zurück zum Menü";
             this.zumMenüToolStripMenuItem.Click += new System.EventHandler(this.zumMenüToolStripMenuItem_Click);
             // 
@@ -279,9 +279,9 @@
             this.groupHelp.Controls.Add(this.labelHelp);
             this.groupHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupHelp.Location = new System.Drawing.Point(335, 173);
-            this.groupHelp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupHelp.Margin = new System.Windows.Forms.Padding(2);
             this.groupHelp.Name = "groupHelp";
-            this.groupHelp.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupHelp.Padding = new System.Windows.Forms.Padding(2);
             this.groupHelp.Size = new System.Drawing.Size(331, 350);
             this.groupHelp.TabIndex = 13;
             this.groupHelp.TabStop = false;
@@ -290,7 +290,7 @@
             // helpGetButton
             // 
             this.helpGetButton.Location = new System.Drawing.Point(64, 295);
-            this.helpGetButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.helpGetButton.Margin = new System.Windows.Forms.Padding(2);
             this.helpGetButton.Name = "helpGetButton";
             this.helpGetButton.Size = new System.Drawing.Size(167, 35);
             this.helpGetButton.TabIndex = 1;
