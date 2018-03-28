@@ -164,7 +164,7 @@ namespace Spielesammlung.Donkey_Kong
                     break;
             }
 
-            if(siegbedingung == 2)
+            if(siegbedingung == 4)
             {
                 timerSpiel.Stop();
                 HighscoreEintragen();
