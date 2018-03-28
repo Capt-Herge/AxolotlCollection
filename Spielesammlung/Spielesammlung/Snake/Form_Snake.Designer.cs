@@ -229,7 +229,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 730);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.labelSnake);
             this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.labelAnleitung);
@@ -247,7 +247,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1024, 768);
-            this.MinimumSize = new System.Drawing.Size(1024, 726);
+            this.MinimumSize = new System.Drawing.Size(1024, 768);
             this.Name = "Form_Snake";
             this.Text = "Snake";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Snake_FormClosed);
