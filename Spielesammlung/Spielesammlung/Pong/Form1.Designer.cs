@@ -53,7 +53,7 @@
             // 
             // Player1
             // 
-            this.Player1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.Player1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.Player1.BackColor = System.Drawing.Color.Red;
             this.Player1.Location = new System.Drawing.Point(12, 266);
