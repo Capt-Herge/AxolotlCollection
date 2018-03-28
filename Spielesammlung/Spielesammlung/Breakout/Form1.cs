@@ -32,7 +32,7 @@ namespace Spielesammlung.Breakout
             string anleitung = " Steuere die Platte mit Pfeil-Links, Pfeil-Rechts \n Versuche mithilfe des Balls alle Platten zu entfernen in dem du den Ball auf sie schießt. \n Pro Platte erhälst du einen Punkt. \n Entferne alle Platten um zu gewinnen!";
             labelAnleitung.Text = anleitung;
             labelAnleitung.Visible = true;
-
+            //Picture Boxen zufallsfarbe zuweisen
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox && x.Tag == "block")
@@ -108,6 +108,7 @@ namespace Spielesammlung.Breakout
                         }
                     }
                 }
+                //Gewonnen
                 if (score > 53)
                 {
                     gameOver();
@@ -130,7 +131,7 @@ namespace Spielesammlung.Breakout
                 }
             }
         }
-
+        //Startbutton
         private void buttonStart_Click(object sender, EventArgs e)
         {
             buttonStart.Visible = false;
@@ -139,10 +140,12 @@ namespace Spielesammlung.Breakout
             this.Focus();
 
         }
+        //Methode bei Ende
         private void gameOver()
         {
             timer1.Stop();
         }
+        
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left && Player.Left > 0)
@@ -177,10 +180,10 @@ namespace Spielesammlung.Breakout
                 goRight = false;
             }
         }
-
+        
         private void optionenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pause = !pause;
+
         }
 
         private void neustartToolStripMenuItem_Click(object sender, EventArgs e)
@@ -192,7 +195,6 @@ namespace Spielesammlung.Breakout
             Player.Location = new Point(376, 687);
             score = 0;
             timer1.Start();
-            pause = !pause;
             this.Focus();
             return;
         }
@@ -256,14 +258,15 @@ namespace Spielesammlung.Breakout
         }
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //        form_Menue.spielGestartet = false;
+                    form_Menue.spielGestartet = false;
         }
 
         private void zurückZumMenüToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //       form_Menue.spielGestartet = false;
+                   form_Menue.spielGestartet = false;
         }
 
+        //Nochmal spielen Button
         private void WinButton_Click(object sender, EventArgs e)
         {
             BlockRefresh();
@@ -285,7 +288,7 @@ namespace Spielesammlung.Breakout
         private void button1_Click(object sender, EventArgs e)
         {
             
-            //      form_Menue.spielGestartet = false;
+            form_Menue.spielGestartet = false;
             this.Close();
         }
 
