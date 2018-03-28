@@ -275,6 +275,9 @@
     <EmbeddedResource Include="Snake\Form_Snake.resx">
       <DependentUpon>Form_Snake.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tic_Tac_Toe\Form_Tic_Tac_Toe.resx">
+      <DependentUpon>Form_Tic_Tac_Toe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vanguards\Resources\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
