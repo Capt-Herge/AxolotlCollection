@@ -95,49 +95,49 @@
             // donkeyKongToolStripMenuItem
             // 
             this.donkeyKongToolStripMenuItem.Name = "donkeyKongToolStripMenuItem";
-            this.donkeyKongToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.donkeyKongToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.donkeyKongToolStripMenuItem.Text = "Donkey Kong";
             this.donkeyKongToolStripMenuItem.Click += new System.EventHandler(this.donkeyKongToolStripMenuItem_Click);
             // 
             // vanguardsToolStripMenuItem
             // 
             this.vanguardsToolStripMenuItem.Name = "vanguardsToolStripMenuItem";
-            this.vanguardsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.vanguardsToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.vanguardsToolStripMenuItem.Text = "Vanguards";
             this.vanguardsToolStripMenuItem.Click += new System.EventHandler(this.vanguardToolStripMenuItem_Click);
             // 
             // snakeToolStripMenuItem
             // 
             this.snakeToolStripMenuItem.Name = "snakeToolStripMenuItem";
-            this.snakeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.snakeToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.snakeToolStripMenuItem.Text = "Snake";
             this.snakeToolStripMenuItem.Click += new System.EventHandler(this.snakeToolStripMenuItem_Click);
             // 
             // breakoutToolStripMenuItem
             // 
             this.breakoutToolStripMenuItem.Name = "breakoutToolStripMenuItem";
-            this.breakoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.breakoutToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.breakoutToolStripMenuItem.Text = "Breakout";
             this.breakoutToolStripMenuItem.Click += new System.EventHandler(this.breakoutToolStripMenuItem_Click);
             // 
             // minesweeperToolStripMenuItem
             // 
             this.minesweeperToolStripMenuItem.Name = "minesweeperToolStripMenuItem";
-            this.minesweeperToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.minesweeperToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.minesweeperToolStripMenuItem.Text = "Minesweeper";
             this.minesweeperToolStripMenuItem.Click += new System.EventHandler(this.minesweeperToolStripMenuItem_Click);
             // 
             // froggerToolStripMenuItem
             // 
             this.froggerToolStripMenuItem.Name = "froggerToolStripMenuItem";
-            this.froggerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.froggerToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.froggerToolStripMenuItem.Text = "Frogger";
             this.froggerToolStripMenuItem.Click += new System.EventHandler(this.froggerToolStripMenuItem_Click);
             // 
             // flappyBirdToolStripMenuItem
             // 
             this.flappyBirdToolStripMenuItem.Name = "flappyBirdToolStripMenuItem";
-            this.flappyBirdToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.flappyBirdToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.flappyBirdToolStripMenuItem.Text = "Flappy Bird";
             this.flappyBirdToolStripMenuItem.Click += new System.EventHandler(this.flappyBirdToolStripMenuItem_Click);
             // 

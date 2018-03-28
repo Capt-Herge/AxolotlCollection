@@ -336,7 +336,7 @@
             this.btn_messageOK.UseVisualStyleBackColor = true;
             this.btn_messageOK.Click += new System.EventHandler(this.btn_messageOK_Click);
             // 
-            // form_TicTacToe
+            // Form_Tic_Tac_Toe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -366,7 +366,10 @@
             this.Controls.Add(this.btn_A1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "form_TicTacToe";
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1024, 768);
+            this.MinimumSize = new System.Drawing.Size(1024, 768);
+            this.Name = "Form_Tic_Tac_Toe";
             this.Text = "Tic Tac Toe";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.form_TicTacToe_FormClosed);
             this.menuStrip1.ResumeLayout(false);
