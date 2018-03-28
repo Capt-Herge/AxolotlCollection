@@ -759,6 +759,8 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1024, 768);
+            this.MinimumSize = new System.Drawing.Size(1024, 768);
             this.Name = "Form_Vier_Gewinnt";
             this.Text = "Vier Gewinnt";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.form_Vier_Gewinnt_FormClosed);

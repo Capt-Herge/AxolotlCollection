@@ -367,6 +367,8 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1024, 768);
+            this.MinimumSize = new System.Drawing.Size(1024, 768);
             this.Name = "Form_Tic_Tac_Toe";
             this.Text = "Tic Tac Toe";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.form_TicTacToe_FormClosed);
