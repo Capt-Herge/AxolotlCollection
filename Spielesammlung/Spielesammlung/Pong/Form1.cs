@@ -13,7 +13,7 @@ namespace Pong
 {
     public partial class Form1 : Form
     {
-
+        //Variablen deklariert
         int playerSpeed = 5;
         int ballVelocityX = 3;
         int ballVelocityY = 3;
@@ -132,7 +132,7 @@ namespace Pong
 
                 Player1Score.Text = p1Score.ToString();
                 Player2Score.Text = p2Score.ToString();
-
+                //Sieg Spieler 1
                 if (p1Score == 5)
                 {
                     timer1.Stop();
@@ -140,7 +140,7 @@ namespace Pong
                     closeButton.Visible = true;
                     WinButton.Text = "Spieler 1 hat gewonnen!\n Nochmal spielen?";
                 }
-
+                //Sieg Spieler 2
                 if (p2Score == 5)
                 {
                     timer1.Stop();
@@ -207,7 +207,7 @@ namespace Pong
             }
         }
 
-
+        //Sieg Button
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -224,7 +224,7 @@ namespace Pong
             this.Focus();
             return;
         }
-
+        // Start Button
         private void buttonStart_Click(object sender, EventArgs e)
         {
             buttonStart.Visible = false;
@@ -251,7 +251,6 @@ namespace Pong
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            pause = !pause;
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -263,7 +262,7 @@ namespace Pong
         {
             form_Menue.spielGestartet = false;
         }
-
+        // Schließen Button
         private void closeButton_Click(object sender, EventArgs e)
         {
             form_Menue.spielGestartet = false;
