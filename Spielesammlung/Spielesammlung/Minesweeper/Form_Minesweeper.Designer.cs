@@ -267,6 +267,8 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1024, 768);
+            this.MinimumSize = new System.Drawing.Size(1024, 726);
             this.Name = "Form_Minesweeper";
             this.Text = "Minesweeper";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Minesweeper_FormClosed);
