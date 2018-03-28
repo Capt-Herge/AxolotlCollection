@@ -50,6 +50,10 @@
             this.btn_Frogger = new System.Windows.Forms.Button();
             this.btn_Flappybird = new System.Windows.Forms.Button();
             this.lbl_Titelbild = new System.Windows.Forms.Label();
+            this.lbl_messagebackground = new System.Windows.Forms.Label();
+            this.lbl_caption = new System.Windows.Forms.Label();
+            this.lbl_message = new System.Windows.Forms.Label();
+            this.btn_messageOK = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +81,7 @@
             this.programmBeendenToolStripMenuItem.Name = "programmBeendenToolStripMenuItem";
             this.programmBeendenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.programmBeendenToolStripMenuItem.Text = "Programm beenden";
+            this.programmBeendenToolStripMenuItem.Click += new System.EventHandler(this.programmBeendenToolStripMenuItem_Click);
             // 
             // highscoreToolStripMenuItem
             // 
@@ -271,11 +276,56 @@
             this.lbl_Titelbild.TabIndex = 11;
             this.lbl_Titelbild.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lbl_messagebackground
+            // 
+            this.lbl_messagebackground.Location = new System.Drawing.Point(12, 24);
+            this.lbl_messagebackground.Name = "lbl_messagebackground";
+            this.lbl_messagebackground.Size = new System.Drawing.Size(996, 550);
+            this.lbl_messagebackground.TabIndex = 12;
+            this.lbl_messagebackground.Visible = false;
+            // 
+            // lbl_caption
+            // 
+            this.lbl_caption.AutoSize = true;
+            this.lbl_caption.Font = new System.Drawing.Font("Courier New", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_caption.Location = new System.Drawing.Point(414, 88);
+            this.lbl_caption.Name = "lbl_caption";
+            this.lbl_caption.Size = new System.Drawing.Size(158, 31);
+            this.lbl_caption.TabIndex = 13;
+            this.lbl_caption.Text = "Highscore";
+            this.lbl_caption.Visible = false;
+            // 
+            // lbl_message
+            // 
+            this.lbl_message.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_message.Location = new System.Drawing.Point(320, 154);
+            this.lbl_message.Name = "lbl_message";
+            this.lbl_message.Size = new System.Drawing.Size(349, 321);
+            this.lbl_message.TabIndex = 14;
+            this.lbl_message.Visible = false;
+            // 
+            // btn_messageOK
+            // 
+            this.btn_messageOK.Enabled = false;
+            this.btn_messageOK.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_messageOK.Location = new System.Drawing.Point(709, 367);
+            this.btn_messageOK.Name = "btn_messageOK";
+            this.btn_messageOK.Size = new System.Drawing.Size(130, 53);
+            this.btn_messageOK.TabIndex = 15;
+            this.btn_messageOK.Text = "OK";
+            this.btn_messageOK.UseVisualStyleBackColor = true;
+            this.btn_messageOK.Visible = false;
+            this.btn_messageOK.Click += new System.EventHandler(this.btn_messageOK_Click);
+            // 
             // form_Menue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.btn_messageOK);
+            this.Controls.Add(this.lbl_message);
+            this.Controls.Add(this.lbl_caption);
+            this.Controls.Add(this.lbl_messagebackground);
             this.Controls.Add(this.lbl_Titelbild);
             this.Controls.Add(this.btn_Flappybird);
             this.Controls.Add(this.btn_Frogger);
@@ -325,6 +375,10 @@
         private System.Windows.Forms.ToolStripMenuItem donkeyKongToolStripMenuItem;
         private System.Windows.Forms.Label lbl_Titelbild;
         private System.Windows.Forms.ToolStripMenuItem froggerToolStripMenuItem;
+        private System.Windows.Forms.Label lbl_messagebackground;
+        private System.Windows.Forms.Label lbl_caption;
+        private System.Windows.Forms.Label lbl_message;
+        private System.Windows.Forms.Button btn_messageOK;
     }
 }
 

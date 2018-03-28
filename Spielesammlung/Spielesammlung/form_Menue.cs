@@ -135,37 +135,92 @@ namespace Spielesammlung
 
         private void vanguardToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Highscore highscore = new Highscore();
+            lbl_message.Text = highscore.EinträgeAnzeigenPunkte("Vanguards");
+            btn_messageOK.Visible = true;
+            btn_messageOK.Enabled = true;
+            lbl_caption.Visible = true;
+            lbl_message.Visible = true;
+            lbl_messagebackground.Visible = true;
         }
 
         private void donkeyKongToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Highscore highscore = new Highscore();
+            lbl_message.Text = highscore.EinträgeAnzeigenPunkte("DonkeyKong");
+            btn_messageOK.Visible = true;
+            btn_messageOK.Enabled = true;
+            lbl_caption.Visible = true;
+            lbl_message.Visible = true;
+            lbl_messagebackground.Visible = true;
         }
 
         private void snakeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Highscore highscore = new Highscore();
+            lbl_message.Text = highscore.EinträgeAnzeigenPunkte("Snake");
+            btn_messageOK.Visible = true;
+            btn_messageOK.Enabled = true;
+            lbl_caption.Visible = true;
+            lbl_message.Visible = true;
+            lbl_messagebackground.Visible = true;
         }
 
         private void breakoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Highscore highscore = new Highscore();
+            lbl_message.Text = highscore.EinträgeAnzeigenPunkte("Breakout");
+            btn_messageOK.Visible = true;
+            btn_messageOK.Enabled = true;
+            lbl_caption.Visible = true;
+            lbl_message.Visible = true;
+            lbl_messagebackground.Visible = true;
         }
 
         private void minesweeperToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Highscore highscore = new Highscore();
+            lbl_message.Text = highscore.EinträgeAnzeigenZeit("Minesweeper");
+            btn_messageOK.Visible = true;
+            btn_messageOK.Enabled = true;
+            lbl_caption.Visible = true;
+            lbl_message.Visible = true;
+            lbl_messagebackground.Visible = true;
         }
 
         private void flappyBirdToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Highscore highscore = new Highscore();
+            lbl_message.Text = highscore.EinträgeAnzeigenPunkte("Flappybird");
+            btn_messageOK.Visible = true;
+            btn_messageOK.Enabled = true;
+            lbl_caption.Visible = true;
+            lbl_message.Visible = true;
+            lbl_messagebackground.Visible = true;
         }
 
         private void froggerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Highscore highscore = new Highscore();
+            lbl_message.Text = highscore.EinträgeAnzeigenPunkte("Frogger");
+            btn_messageOK.Visible = true;
+            btn_messageOK.Enabled = true;
+            lbl_caption.Visible = true;
+            lbl_message.Visible = true;
+            lbl_messagebackground.Visible = true;
+        }
+        private void btn_messageOK_Click(object sender, EventArgs e)
+        {
+            // Lässt das Highscoremessageoverlay ausblenden
+            btn_messageOK.Visible = false;
+            btn_messageOK.Enabled = false;
+            lbl_caption.Visible = false;
+            lbl_message.Visible = false;
+            lbl_messagebackground.Visible = false;
+        }
+        private void programmBeendenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
         #endregion
         #endregion
@@ -175,5 +230,6 @@ namespace Spielesammlung
             get; set;
         }
         #endregion
+
     }
 }
