@@ -31,9 +31,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menüToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zurückToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neustartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.programmBeendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zurückToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.highscoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -78,13 +78,6 @@
             this.menüToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.menüToolStripMenuItem.Text = "Optionen";
             // 
-            // zurückToolStripMenuItem
-            // 
-            this.zurückToolStripMenuItem.Name = "zurückToolStripMenuItem";
-            this.zurückToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.zurückToolStripMenuItem.Text = "Zurück zum Menü";
-            this.zurückToolStripMenuItem.Click += new System.EventHandler(this.ProgrammBeenden);
-            // 
             // neustartToolStripMenuItem
             // 
             this.neustartToolStripMenuItem.Name = "neustartToolStripMenuItem";
@@ -98,6 +91,13 @@
             this.programmBeendenToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.programmBeendenToolStripMenuItem.Text = "Pause";
             this.programmBeendenToolStripMenuItem.Click += new System.EventHandler(this.Pause);
+            // 
+            // zurückToolStripMenuItem
+            // 
+            this.zurückToolStripMenuItem.Name = "zurückToolStripMenuItem";
+            this.zurückToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.zurückToolStripMenuItem.Text = "Zurück zum Menü";
+            this.zurückToolStripMenuItem.Click += new System.EventHandler(this.ProgrammBeenden);
             // 
             // highscoreToolStripMenuItem
             // 
@@ -243,6 +243,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Form_Frogger";
             this.Text = "Frogger";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Frogger_FormClosed);

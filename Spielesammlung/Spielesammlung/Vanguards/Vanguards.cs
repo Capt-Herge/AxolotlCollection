@@ -278,6 +278,7 @@ namespace Spielesammlung.Vanguards
                     _KeyUp = false;
 
                     break;
+                case Keys.Right:
                 case Keys.D:
 
                     _KeyRight = false;
@@ -505,11 +506,13 @@ namespace Spielesammlung.Vanguards
 
                         break;
 
+                    
                     case Keys.Up:
 
                         _KeyUp = true;
 
                         break;
+                    case Keys.Right:
                     case Keys.D:
 
                         _KeyRight = true;

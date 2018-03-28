@@ -34,6 +34,7 @@
             this.optionenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neustartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zurückZumMenüToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.highscoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.zurückZumMenüToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -92,6 +92,13 @@
             this.pauseToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.pauseToolStripMenuItem.Text = "Pause";
             this.pauseToolStripMenuItem.Click += new System.EventHandler(this.Pause);
+            // 
+            // zurückZumMenüToolStripMenuItem
+            // 
+            this.zurückZumMenüToolStripMenuItem.Name = "zurückZumMenüToolStripMenuItem";
+            this.zurückZumMenüToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.zurückZumMenüToolStripMenuItem.Text = "Zurück zum Menü";
+            this.zurückZumMenüToolStripMenuItem.Click += new System.EventHandler(this.ProgrammBeenden);
             // 
             // highscoreToolStripMenuItem
             // 
@@ -220,13 +227,6 @@
             this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // zurückZumMenüToolStripMenuItem
-            // 
-            this.zurückZumMenüToolStripMenuItem.Name = "zurückZumMenüToolStripMenuItem";
-            this.zurückZumMenüToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.zurückZumMenüToolStripMenuItem.Text = "Zurück zum Menü";
-            this.zurückZumMenüToolStripMenuItem.Click += new System.EventHandler(this.ProgrammBeenden);
-            // 
             // FormDonkeyKong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,6 +243,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimizeBox = false;
             this.Name = "FormDonkeyKong";
             this.Text = "Donkey Kong";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormDonkeyKong_FormClosed);
