@@ -657,7 +657,7 @@ namespace Spielesammlung.Flappy_Bird
                             if (!groupBestOfTen.Visible)
                             {
                                 
-                                labelHighScores.Text = flappyBirdHighScore.EinträgeAnzeigenPunkte("Flappy_Bird");
+                                labelHighScores.Text = flappyBirdHighScore.EinträgeAnzeigenPunkte("Flappybird");
                                 labelHighScores.Visible = true;
                                 labelText1.Visible = true;
                                 labelText2.Visible = true;
@@ -789,7 +789,7 @@ namespace Spielesammlung.Flappy_Bird
                 groupSubmitScore.Visible = false;
                 groupBestOfTen.Visible = true;
                 flappyBirdHighScore = new Highscore();
-                labelHighScores.Text= flappyBirdHighScore.HighscoreEintragen("Flappy_Bird", playerName, score.ToString());
+                labelHighScores.Text= flappyBirdHighScore.HighscoreEintragen("Flappybird", playerName, score.ToString());
             }
             else if(playerName.Length!=3)
             {
@@ -815,7 +815,7 @@ namespace Spielesammlung.Flappy_Bird
         private void highscoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             flappyBirdHighScore = new Highscore();
-            labelHighScores.Text = flappyBirdHighScore.EinträgeAnzeigenPunkte("Flappy_Bird");
+            labelHighScores.Text = flappyBirdHighScore.EinträgeAnzeigenPunkte("Flappybird");
             labelHighScores.Visible = true;
             labelText1.Visible = false;
             labelText2.Visible = false;
