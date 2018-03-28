@@ -176,7 +176,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(1004, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1008, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -250,7 +250,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1004, 690);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.groupHelp);
             this.Controls.Add(this.groupSubmitScore);
             this.Controls.Add(this.groupBestOfTen);
@@ -258,8 +258,8 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1020, 756);
-            this.MinimumSize = new System.Drawing.Size(1020, 714);
+            this.MaximumSize = new System.Drawing.Size(1024, 768);
+            this.MinimumSize = new System.Drawing.Size(1024, 768);
             this.Name = "Flappy_Bird";
             this.Text = "Flappy Bird";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Flappy_Bird_FormClosed);
