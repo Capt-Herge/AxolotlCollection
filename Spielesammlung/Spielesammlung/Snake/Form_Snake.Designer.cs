@@ -43,8 +43,8 @@
             this.labelHighscore = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.optionenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zurückZumMenüToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neustartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zurückZumMenüToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.highscoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSnake)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -204,19 +204,19 @@
             this.optionenToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.optionenToolStripMenuItem.Text = "Optionen";
             // 
-            // zurückZumMenüToolStripMenuItem
-            // 
-            this.zurückZumMenüToolStripMenuItem.Name = "zurückZumMenüToolStripMenuItem";
-            this.zurückZumMenüToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.zurückZumMenüToolStripMenuItem.Text = "Zurück zum Menü";
-            this.zurückZumMenüToolStripMenuItem.Click += new System.EventHandler(this.zurückZumMenüToolStripMenuItem_Click);
-            // 
             // neustartToolStripMenuItem
             // 
             this.neustartToolStripMenuItem.Name = "neustartToolStripMenuItem";
             this.neustartToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.neustartToolStripMenuItem.Text = "Neustart";
             this.neustartToolStripMenuItem.Click += new System.EventHandler(this.neustartToolStripMenuItem_Click);
+            // 
+            // zurückZumMenüToolStripMenuItem
+            // 
+            this.zurückZumMenüToolStripMenuItem.Name = "zurückZumMenüToolStripMenuItem";
+            this.zurückZumMenüToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.zurückZumMenüToolStripMenuItem.Text = "Zurück zum Menü";
+            this.zurückZumMenüToolStripMenuItem.Click += new System.EventHandler(this.zurückZumMenüToolStripMenuItem_Click);
             // 
             // highscoreToolStripMenuItem
             // 
@@ -245,6 +245,9 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1024, 768);
+            this.MinimumSize = new System.Drawing.Size(1024, 726);
             this.Name = "Form_Snake";
             this.Text = "Snake";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Snake_FormClosed);

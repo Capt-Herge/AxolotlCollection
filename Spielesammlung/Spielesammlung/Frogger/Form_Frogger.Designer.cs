@@ -120,6 +120,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.DarkBlue;
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Enabled = false;
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
@@ -139,6 +140,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.DarkBlue;
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Enabled = false;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkBlue;
@@ -211,6 +213,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.DarkBlue;
+            this.button3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button3.Enabled = false;
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
             this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkBlue;
@@ -242,9 +245,11 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1024, 768);
+            this.MinimumSize = new System.Drawing.Size(1024, 768);
             this.Name = "Form_Frogger";
             this.Text = "Frogger";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Frogger_FormClosed);
