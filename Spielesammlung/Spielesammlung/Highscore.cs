@@ -11,76 +11,44 @@ public class Highscore
 
     public string HighscoreEintragen(string spiel, string spieler, string punkte)
     {
+
         if (spiel.Equals("Minesweeper"))
         {
             // Alle Einträge löschen die zu viel sind, damit kein Fehler beim Sortieren auftritt
-            EintragLöschen(spiel);
+            EintragLöschenZeit(spiel);
             // neuen Eintrag erstellen mit dem Benutzernamen und dem Score
-            EintragErstellen(spiel, spieler, punkte);
+            EintragErstellenZeit(spiel, spieler, punkte);
             // Alle Einträge nach Höhe des Scores sortieren lassen 
             EinträgeSortierenZeit(spiel);
             // den überflüssigen Eintrag löschen
-            EintragLöschen(spiel);
+            EintragLöschenZeit(spiel);
             // der Inhalt der Textdatei wird ausgelesen und in anzeige gespeichert
             string anzeige = EinträgeAnzeigenZeit(spiel);
             return anzeige;
+
         }
         else
         {
             // Alle Einträge löschen die zu viel sind, damit kein Fehler beim Sortieren auftritt
-            EintragLöschen(spiel);
+            EintragLöschenPunkte(spiel);
             // neuen Eintrag erstellen mit dem Benutzernamen und dem Score
-            EintragErstellen(spiel, spieler, punkte);
+            EintragErstellenPunkte(spiel, spieler, punkte);
             // Alle Einträge nach Höhe des Scores sortieren lassen 
             EinträgeSortierenPunkte(spiel);
             // den überflüssigen Eintrag löschen
-            EintragLöschen(spiel);
+            EintragLöschenPunkte(spiel);
             // der Inhalt der Textdatei wird ausgelesen und in anzeige gespeichert
             string anzeige = EinträgeAnzeigenPunkte(spiel);
             return anzeige;
         }
     }
 
-    #region Allegemein
-    public void EintragLöschen(string spiel)
-    {
-        // Variable mit dem Dateipfad
-        string datei = @"test\" + spiel + ".txt";
-
-        // es wird eine Liste erstellt, die die einzelnen Zeilen als strings enthält
-        List<string> Zeilen = File.ReadAllLines(datei).ToList<string>();
-
-        // Es werden alle Zeilen gelöscht, die hinter der 10. Zeile stehen
-        for (int i = Zeilen.Count - 1; i > 9; i--)
-        {
-            Zeilen.RemoveAt(i);
-            // und das Ergebnis in die Datei geschrieben
-            File.WriteAllLines(datei, Zeilen);
-        }
-    }
-
-    public void EintragErstellen(string spiel, string spieler, string punkte)
-    {
-        // Variable mit dem Dateipfad
-        string datei = @"test\" + spiel + ".txt";
-
-        // der StreamWriter fügt den Benutzernamen und den Score unten an die Textdatei an
-        using (StreamWriter sw = new StreamWriter(datei, true))
-        {
-            sw.WriteLine(spieler + " " + punkte);
-        }
-    }
-
-    #endregion
-
-    #region Puntke
-
     public string EinträgeAnzeigenPunkte(string spiel)
     {
         //Variablen
         int pos = 1;
-        string datei = @"test\" + spiel + ".txt";
-   
+        string pfad = Environment.GetEnvironmentVariable("APPDATA");
+        string datei = pfad + @"\AxolotlCollection\Highscore\" + spiel + ".txt";
         // Alle Zeilen der Textdatei werden gelesen und im Array gespeichert
         string[] zeilen = File.ReadAllLines(datei);
         // Erstellen des StringBuilders zum Anzeigen der Einträge
@@ -119,12 +87,45 @@ public class Highscore
         return sb.ToString();
 
     }
+    public void EintragErstellenPunkte(string spiel, string spieler, string punkte)
+    {
+        // Variable mit dem Dateipfad
+        string pfad = Environment.GetEnvironmentVariable("APPDATA");
+        string datei = pfad + @"\AxolotlCollection\Highscore\" + spiel + ".txt";
+
+        // der StreamWriter fügt den Benutzernamen und den Score unten an die Textdatei an
+        using (StreamWriter sw = new StreamWriter(datei, true))
+        {
+            sw.WriteLine(spieler + " " + punkte);
+        }
+
+    }
+
+    public void EintragLöschenPunkte(string spiel)
+    {
+        // Variable mit dem Dateipfad
+        string pfad = Environment.GetEnvironmentVariable("APPDATA");
+        string datei = pfad + @"\AxolotlCollection\Highscore\" + spiel + ".txt";
+
+        // es wird eine Liste erstellt, die die einzelnen Zeilen als strings enthält
+        List<string> Zeilen = File.ReadAllLines(datei).ToList<string>();
+
+        // Es werden alle Zeilen gelöscht, die hinter der 10. Zeile stehen
+        for (int i = Zeilen.Count - 1; i > 9; i--)
+        {
+            Zeilen.RemoveAt(i);
+            // und das Ergebnis in die Datei geschrieben
+            File.WriteAllLines(datei, Zeilen);
+        }
+    }
 
     public void EinträgeSortierenPunkte(string spiel)
     {
         // Variablen
         int x = 0;
-        string datei = @"test\" + spiel + ".txt";
+        string pfad = Environment.GetEnvironmentVariable("APPDATA");
+        string datei = pfad + @"\AxolotlCollection\Highscore\" + spiel + ".txt";
+
         // Es wird ein Array erstellt, das Objekte von ScoreItem hält
         ScoreItemPunkte[] SpielScores = new ScoreItemPunkte[11];
         // Alle Zeilen der Textdatei werden in ein Array geschrieben
@@ -158,20 +159,21 @@ public class Highscore
         File.WriteAllText(datei, text);
     }
 
-    #endregion
 
-    #region Zeit
+
     public string EinträgeAnzeigenZeit(string spiel)
     {
         //Variablen
         int pos = 1;
-        string datei = @"C:\Users\Mama\Desktop\Studium\Softwareprojekt\Axolotl Collection\Test-Highscore\" + spiel + ".txt";
+        string pfad = Environment.GetEnvironmentVariable("APPDATA");
+        string datei = pfad + @"\AxolotlCollection\Highscore\" + spiel + ".txt";
+
         // Alle Zeilen der Textdatei werden gelesen und im Array gespeichert
         string[] zeilen = File.ReadAllLines(datei);
         // Erstellen des StringBuilders zum Anzeigen der Einträge
         StringBuilder sb = new StringBuilder();
         // Fügt eine neue Zeile mit "Name  Score" und einen Zeilenumbruch ein
-        sb.Append("Spieler       Zeit");
+        sb.Append("Name  Score");
         sb.Append("\n");
 
         // für alle Zeilen im Array
@@ -205,11 +207,45 @@ public class Highscore
 
     }
 
+    public void EintragErstellenZeit(string spiel, string spieler, string punkte)
+    {
+        // Variable mit dem Dateipfad
+        string pfad = Environment.GetEnvironmentVariable("APPDATA");
+        string datei = pfad + @"\AxolotlCollection\Highscore\" + spiel + ".txt";
+
+        // der StreamWriter fügt den Benutzernamen und den Score unten an die Textdatei an
+        using (StreamWriter sw = new StreamWriter(datei, true))
+        {
+            sw.WriteLine(spieler + " " + punkte);
+        }
+
+    }
+
+    public void EintragLöschenZeit(string spiel)
+    {
+        // Variable mit dem Dateipfad
+        string pfad = Environment.GetEnvironmentVariable("APPDATA");
+        string datei = pfad + @"\AxolotlCollection\Highscore\" + spiel + ".txt";
+
+        // es wird eine Liste erstellt, die die einzelnen Zeilen als strings enthält
+        List<string> Zeilen = File.ReadAllLines(datei).ToList<string>();
+
+        // Es werden alle Zeilen gelöscht, die hinter der 10. Zeile stehen
+        for (int i = Zeilen.Count - 1; i > 9; i--)
+        {
+            Zeilen.RemoveAt(i);
+            // und das Ergebnis in die Datei geschrieben
+            File.WriteAllLines(datei, Zeilen);
+        }
+    }
+
     public void EinträgeSortierenZeit(string spiel)
     {
         // Variablen
         int x = 0;
-        string datei = @"C:\Users\Mama\Desktop\Studium\Softwareprojekt\Axolotl Collection\Test-Highscore\" + spiel + ".txt";
+        string pfad = Environment.GetEnvironmentVariable("APPDATA");
+        string datei = pfad + @"\AxolotlCollection\Highscore\" + spiel + ".txt";
+
         // Es wird ein Array erstellt, das Objekte von ScoreItem hält
         ScoreItemZeit[] SpielScores = new ScoreItemZeit[11];
         // Alle Zeilen der Textdatei werden in ein Array geschrieben
@@ -240,7 +276,6 @@ public class Highscore
         File.WriteAllText(datei, text);
     }
 
-    #endregion
 }
 
 
