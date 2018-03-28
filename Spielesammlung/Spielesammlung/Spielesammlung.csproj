@@ -245,6 +245,9 @@
     <EmbeddedResource Include="Astroids\FormAsteroids.resx">
       <DependentUpon>FormAsteroids.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Breakout\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Donkey_Kong\FormDonkeyKong.resx">
       <DependentUpon>FormDonkeyKong.cs</DependentUpon>
     </EmbeddedResource>

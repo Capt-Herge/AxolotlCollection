@@ -268,7 +268,7 @@
             this.lbl_Titelbild.Name = "lbl_Titelbild";
             this.lbl_Titelbild.Size = new System.Drawing.Size(960, 240);
             this.lbl_Titelbild.TabIndex = 11;
-            this.lbl_Titelbild.Text = "Titelbild 960 x 240";
+            this.lbl_Titelbild.Text = "Titelbild 960 x 240 \"Insert here\"";
             this.lbl_Titelbild.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // form_Menue
