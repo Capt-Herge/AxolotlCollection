@@ -21,6 +21,7 @@ namespace Spielesammlung.Flappy_Bird
 {
     public partial class Flappy_Bird : Form
     {
+        #region variablen
         //Visual Ressources
         private D2D.Factory m_factory;
         //private SlimDX.DirectWrite.Factory m_factoryText;
@@ -49,6 +50,7 @@ namespace Spielesammlung.Flappy_Bird
         Highscore flappyBirdHighScore = new Highscore();
         private string playerName="";
         private bool firstTimeStarted=true;
+        #endregion
 
         public Flappy_Bird()
         {
@@ -58,7 +60,6 @@ namespace Spielesammlung.Flappy_Bird
             this.SetStyle(ControlStyles.Opaque, true);
             this.SetStyle(ControlStyles.ResizeRedraw, true);
 
-            //Update back brush
             m_backBrushGdi = new SolidBrush(this.BackColor);
 
             InitializeGraphics();
@@ -79,7 +80,7 @@ namespace Spielesammlung.Flappy_Bird
 
             }
         }
-
+        //erstellt das Level 
         private void CreateLevel()
         {
             Random rnd = new Random();
@@ -93,6 +94,7 @@ namespace Spielesammlung.Flappy_Bird
                 pipePairList.Add(new Resources.Pipe_Pair((i * 364)+ 1060,rnd.Next(-600, -238)));  //1060
             }
         }
+        //erstellt neue Hindernisse
         private void AddPipes()
         {
             Random rnd = new Random();
@@ -106,6 +108,7 @@ namespace Spielesammlung.Flappy_Bird
                 pipePairList.Add(new Resources.Pipe_Pair((i * 364) + 1060+pipePairList.Last().PipePairPosx, rnd.Next(-600, -238)));  //1060
             }
         }
+        //Timer für den spielablauf
         private void Tick(Object source, EventArgs e)
         {
               if(!pause)
@@ -130,7 +133,7 @@ namespace Spielesammlung.Flappy_Bird
             }
             this.Invalidate();
         }
-
+        //Sezt die variable für das halten der leertaste zurück
         private void Flappy_Bird_KeyUp(object sender, KeyEventArgs e)
         {
 
@@ -141,7 +144,7 @@ namespace Spielesammlung.Flappy_Bird
         }
 
  
-
+        //Reagiert auf tasteneingaben
         private void Flappy_Bird_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
 
@@ -471,7 +474,7 @@ namespace Spielesammlung.Flappy_Bird
             }
 
         }
-
+        //Timer für die sprungphysik
         private void JumpTicker(Object source, EventArgs e)
         {
             if (!pause)
@@ -485,8 +488,8 @@ namespace Spielesammlung.Flappy_Bird
 
             
         }
-
-
+        
+        //Ladet alle graphicken
         private void InitializeGraphics()
         {
             //Get requested debug level
@@ -538,7 +541,7 @@ namespace Spielesammlung.Flappy_Bird
         //Update initialization flag
         m_initialized = true;
         }
-
+        // Entlädt alle graphicken
         private void UnloadGraphics()
         {
             if (m_backBrushEx != null) { m_backBrushEx.Dispose(); }
@@ -575,7 +578,7 @@ namespace Spielesammlung.Flappy_Bird
         }
 
 
-        /// Called when background color has changed.
+        // Called when background color has changed.
         protected override void OnBackColorChanged(EventArgs e)
         {
             base.OnBackColorChanged(e);
@@ -591,7 +594,7 @@ namespace Spielesammlung.Flappy_Bird
         {
             this.Invalidate();
         }
-
+        //Zeichnet alle Graphiken
         protected override void OnPaint(PaintEventArgs e)
         {
 
@@ -694,7 +697,7 @@ namespace Spielesammlung.Flappy_Bird
             }
 
         }
-
+        //Schaut nach ob zwei objekte sich überlappen
         static bool IntersectPixels(Rectangle rectangleA, Bitmap bmpA,
                      Rectangle rectangleB, Bitmap bmpB)
         {
@@ -753,18 +756,7 @@ namespace Spielesammlung.Flappy_Bird
             return result;
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
+        //gibt den debug mode an
         public bool IsDebugEnabled
         {
             get { return m_debugMode; }
@@ -780,7 +772,7 @@ namespace Spielesammlung.Flappy_Bird
         {
 
         }
-
+        //speichert den Highscore
         private void applyScore_Click(object sender, EventArgs e)
         {
             labelWarnTextLenght.Visible = false;
@@ -819,7 +811,7 @@ namespace Spielesammlung.Flappy_Bird
         {
 
         }
-
+        //Zeigt den highscore an
         private void highscoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             flappyBirdHighScore = new Highscore();
@@ -836,18 +828,18 @@ namespace Spielesammlung.Flappy_Bird
             pause = true;
             gameOver = false;
         }
-
+        //beendet das spiel
         private void zumHauptmenüToolStripMenuItem_Click(object sender, EventArgs e)
         {
             form_Menue.spielGestartet = false;
             this.Close();
         }
-
+        //sezt die variable zurück damit andere spiele gestartet werden können
         private void Flappy_Bird_FormClosed(object sender, FormClosedEventArgs e)
         {
             form_Menue.spielGestartet = false;
         }
-
+        //schließt die hilfe
         private void helpGetButton_Click(object sender, EventArgs e)
         {
             if (firstTimeStarted)
@@ -861,7 +853,7 @@ namespace Spielesammlung.Flappy_Bird
                 pause = false;
             }
         }
-
+        //ruft hilfe auf
         private void hilfeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(groupHelp.Visible==true)

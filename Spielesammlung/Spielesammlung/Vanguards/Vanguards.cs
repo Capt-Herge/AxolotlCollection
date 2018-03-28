@@ -20,6 +20,7 @@ namespace Spielesammlung.Vanguards
 {
     public partial class Vanguards : Form
     {
+        #region Variablen
         //Visual Ressources
         private D2D.Factory m_factory;
         private D2D.WindowRenderTarget m_renderTarget;
@@ -62,17 +63,15 @@ namespace Spielesammlung.Vanguards
         Highscore VanguardsHighScore = new Highscore();
         private bool firstTimeStarted=true;
         private string playerName = "";
+        #endregion 
         public Vanguards()
         {
             InitializeComponent();
             keys_down = new bool[4];
             key_props = new[] { Keys.A, Keys.D, Keys.W, Keys.S };
-            //Update control styles
             this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             this.SetStyle(ControlStyles.Opaque, true);
             this.SetStyle(ControlStyles.ResizeRedraw, true);
-
-            //Update back brush
             m_backBrushGdi = new SolidBrush(this.BackColor);
 
             InitializeGraphics();
@@ -104,6 +103,7 @@ namespace Spielesammlung.Vanguards
             }
         }
 
+        //Prüfen ob Zwei Objekte sich überschneiden
         static bool IntersectPixels(Rectangle rectangleA, Bitmap bmpA,
                             Rectangle rectangleB, Bitmap bmpB)
         {
@@ -112,10 +112,10 @@ namespace Spielesammlung.Vanguards
 
         }
 
+        //Timer für Bewegung der Spieler
         private void tick(Object source, EventArgs e)
         {
 
-            // Do this every timing interval.
             if (!pause)
             {
                 _DoMovement();
@@ -125,6 +125,7 @@ namespace Spielesammlung.Vanguards
 
 
         }
+        //Timer für bewegungen der Projektile
         private void ProjektilTicK(Object source, EventArgs e)
         {
             if (!pause)
@@ -158,6 +159,7 @@ namespace Spielesammlung.Vanguards
 
             }
         }
+        //Timer für gegnerisches Feuer
         private void EnemyFireTick(Object source, EventArgs e)
         {
               foreach(Resources.EnemyShip enemy in level.EnemyShipList)
@@ -173,7 +175,7 @@ namespace Spielesammlung.Vanguards
              }
              }
         }
-
+        //Timer für Bewegungen des Levels
         private void LevelTick(Object source, EventArgs e)
         {
             if (!pause)
@@ -233,12 +235,7 @@ namespace Spielesammlung.Vanguards
             }
         }
 
-        private void movementTimer_Tick(object sender, EventArgs e)
-        {
-            _DoMovement();
-            this.Invalidate();
-        }
-
+        //Führt Positionsveränderung ders spielers durch
         private void _DoMovement()
         {
             if (_KeyDown&&((_Player.PosY+_Player.ShipHitboxY)<this.Height)) { _Player.PosY = _Player.PosY + 3; }
@@ -248,7 +245,7 @@ namespace Spielesammlung.Vanguards
 
             this.Invalidate();
         }
-
+        //Sezt die bewegungsvariablen zurück wen die tasten loßgelassen werden
         private void Vanguards_KeyUp(object sender, KeyEventArgs e)
         {
 
@@ -304,7 +301,7 @@ namespace Spielesammlung.Vanguards
 
         }
 
-        // Loads a Direct2D bitmap from the given file.
+        // Ladet eine Bitmap als d2d von einer datei
         public D2D.Bitmap LoadBitmap(string file)
         {
             D2D.Bitmap result = null;
@@ -322,7 +319,7 @@ namespace Spielesammlung.Vanguards
         }
 
 
-        // Load a Direct2D bitmap from the given gdi resource.
+        // ladet eine d2d bitmap aus einer gdi bitmap
         public D2D.Bitmap LoadBitmap(Bitmap drawingBitmap)
         {
             D2D.Bitmap result = null;
@@ -356,7 +353,7 @@ namespace Spielesammlung.Vanguards
         }
 
 
-        // Loads all graphics resources.
+        // Ladet alle Graphischen ressoursen
         private void InitializeGraphics()
         {
             //Get requested debug level
@@ -417,7 +414,7 @@ namespace Spielesammlung.Vanguards
             //Update initialization flag
             m_initialized = true;
         }
-
+       //Entlädt graphicen
         private void UnloadGraphics()
         {
             if (m_backBrushEx != null) { m_backBrushEx.Dispose(); }
@@ -443,10 +440,8 @@ namespace Spielesammlung.Vanguards
             }
         }
 
-        /// <summary>
-        /// Called when window closes.
-        /// </summary>
-        /// <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
+
+        // Called when window closes.
         protected override void OnHandleDestroyed(EventArgs e)
         {
             base.OnHandleDestroyed(e);
@@ -457,10 +452,7 @@ namespace Spielesammlung.Vanguards
             }
         }
 
-        /// <summary>
-        /// Called when background color has changed.
-        /// </summary>
-        /// <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        // Called when background color has changed.
         protected override void OnBackColorChanged(EventArgs e)
         {
             base.OnBackColorChanged(e);
@@ -470,16 +462,13 @@ namespace Spielesammlung.Vanguards
             m_backBrushGdi = new SolidBrush(this.BackColor);
         }
 
-        /// <summary>
-        /// Called when user changes a parameter.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+
+        // Called when user changes a parameter.
         private void OnChkParameterCheckedChanged(object sender, EventArgs e)
         {
             this.Invalidate();
         }
-
+        //Sezt die Bewegungsvariablen, und schreibt in das Namen label rein usw
         private void Vanguards_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
 
@@ -859,12 +848,7 @@ namespace Spielesammlung.Vanguards
 
 
         }
-
-        private void ShipDown()
-        {
-            _Player.PosY = _Player.PosY + 1;
-            this.Invalidate();
-        }
+        //Zeichnet alle Objekte
         protected override void OnPaint(PaintEventArgs e)
         {
 
@@ -995,16 +979,14 @@ namespace Spielesammlung.Vanguards
 
         }
 
-        /// <summary>
-        /// Is debug mode enabled?
-        /// </summary>
-        [Category("Direct2D")]
+
+        //Is debug mode enabled?
         public bool IsDebugEnabled
         {
             get { return m_debugMode; }
             set { m_debugMode = value; }
         }
-
+        //Event für highscorebutton in der Menüleiste
         private void highscoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (groupBestOfTen.Visible == false)
@@ -1024,7 +1006,7 @@ namespace Spielesammlung.Vanguards
 
             }
         }
-
+        //Übernimmt den Highscore
         private void applyScore_Click(object sender, EventArgs e)
         {
             labelWarnTextLenght.Visible = false;
@@ -1048,7 +1030,7 @@ namespace Spielesammlung.Vanguards
                 labelWarnTextLenght.Visible = true;
             }
         }
-
+        //Pausiert das spiel
         private void pauseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(!gameOver)
@@ -1056,7 +1038,7 @@ namespace Spielesammlung.Vanguards
                 pause = !pause;
             }
         }
-
+        //macht ein neues spiel
         private void neuesSpielToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _projektilListe = null;
@@ -1068,30 +1050,30 @@ namespace Spielesammlung.Vanguards
             level.LoadLevel1(m_renderTarget);
 
         }
-
+        //beendet das spiel
         private void zumMenüToolStripMenuItem_Click(object sender, EventArgs e)
         {
             form_Menue.spielGestartet = false;
             this.Close();
         }
-
+      
         private void Vanguards_Load(object sender, EventArgs e)
         {
 
         }
-
+        //wen das spiel geschlossen wird wird die variable zurückgesezt damit andere spiele gestartet werden können
         private void Vanguards_FormClosed(object sender, FormClosedEventArgs e)
         {
             form_Menue.spielGestartet = false;
         }
-
+        //schließt die hilfe
         private void helpGetButton_Click(object sender, EventArgs e)
         {
             pause = false;
             groupHelp.Visible = false;
             firstTimeStarted = false;
         }
-
+        //ruft die hilfe auf
         private void hilfeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(groupHelp.Visible==true)

@@ -216,7 +216,6 @@
             this.MaximumSize = new System.Drawing.Size(1024, 768);
             this.MinimumSize = new System.Drawing.Size(1024, 768);
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pong";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
